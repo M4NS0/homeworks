@@ -1,0 +1,91 @@
+Linguagem|
+Python|
+11:57:56 up 3:08, 1 user, load average: 0,76, 0,51, 0,38
+up 3 hours, 8 minutes
+qua ago 14 14:57:56 UTC 2019
+
+Linguagem|
+C++|
+11:38:50 up 2:50, 1 user, load average: 1,16, 1,62, 1,51
+up 2 hours, 50 minutes
+qui ago 15 14:38:50 UTC 2019
+
+Web Dev|
+Php|
+11:43:53 up 1:50, 1 user, load average: 0,18, 0,31, 0,35
+up 1 hour, 50 minutes
+sex ago 16 14:43:53 UTC 2019
+
+Linguagem|
+Julia|
+11:53:04 up 2:59, 1 user, load average: 0,39, 1,02, 1,21
+up 2 hours, 59 minutes
+seg ago 19 14:53:04 UTC 2019
+
+Linguagem|
+Java|
+11:58:50 up 2:57, 1 user, load average: 0,35, 0,86, 1,05
+up 2 hours, 57 minutes
+ter ago 20 14:58:51 UTC 2019
+
+Manutenção|
+Atom IDE|
+11:06:37 up 1:57, 1 user, load average: 0,17, 0,56, 0,71
+up 1 hour, 57 minutes
+qua ago 21 14:06:37 UTC 2019
+
+Desenvolvimento|
+Estatística|
+ 13:49:42 up  1:25,  1 user,  load average: 0,46, 0,58, 0,53
+up 1 hour, 25 minutes
+qua ago 21 16:15:15 UTC 2019
+
+Planejamento|
+Aula de Inglês|
+16:16:43 up 1:33, 1 user, load average: 0,70, 0,62, 0,75
+up 1 hour, 33 minutes
+qua ago 21 19:16:43 UTC 2019
+
+Aula|
+Inglês|
+18:14:33 up 1:39, 1 user, load average: 1,07, 0,53, 0,37
+up 1 hour, 39 minutes
+qua ago 21 21:14:33 UTC 2019
+
+Manutenção|
+IDE Eclipse C++|
+09:55:48 up 1:08, 1 user, load average: 0,41, 0,45, 0,57
+up 1 hour, 8 minutes
+qui ago 22 12:55:48 UTC 2019
+
+Tarefa|
+C ++|
+11:55:09 up 1:57, 1 user, load average: 0,64, 0,67, 0,75
+up 1 hour, 57 minutes
+qui ago 22 14:55:09 UTC 2019
+
+Desenvolvimento|
+Estatística|
+13:43:23 up 1:04, 1 user, load average: 0,84, 0,86, 0,71
+up 1 hour, 4 minutes
+qui ago 22 16:43:23 UTC 2019
+
+Tarefa|
+Orientação à Objetos|
+15:42:49 up 1:37, 1 user, load average: 0,27, 0,25, 0,33
+up 1 hour, 37 minutes
+qui ago 22 18:42:49 UTC 2019
+
+Tarefa|
+Engenharia de Requisitos|
+12:12:40 up 3:40, 1 user, load average: 0,47, 0,56, 0,55
+up 3 hours, 40 minutes
+sex ago 23 15:12:40 UTC 2019
+
+Desenvolvimento|
+Estatística|
+13:38:12 up 1:09, 1 user, load average: 0,04, 0,10, 0,21
+up 1 hour, 9 minutes
+sex ago 23 16:38:12 UTC 2019
+
+

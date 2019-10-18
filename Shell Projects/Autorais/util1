@@ -1,0 +1,153 @@
+#!/bin/bash
+echo
+echo
+echo
+echo
+echo    "   - Rotinas de Atualizações:  Apt-get, Apt, Aptitude, Flatpak e Linux Lite OS"
+echo    "   - Descrição deste PC "
+echo    "   - Medição de Banda Larga "
+echo    "   - Nmap Externo deste PC através do scanme.nmap.org (opicional) "
+echo
+echo
+echo
+echo "Começando pelo  Apt-get, digite a senha: "
+echo
+echo
+echo
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
+echo 
+echo
+echo
+echo "Apt-get Atualizado "
+sleep 2
+clear 
+echo
+echo
+echo
+echo "Removendo Arquivos Obsoletos :"
+echo
+echo
+echo
+sudo apt-get autoremove -y
+sudo apt-get autoclean
+echo
+echo
+echo
+echo "Arquivos Removidos"
+sleep 2
+clear
+echo
+echo
+echo
+echo "Atualizando Apt : "
+echo
+echo
+echo
+sudo apt update -y
+sudo apt list --upgradable
+sudo apt upgrade -y
+echo
+echo
+echo
+echo "Apt Atualizado "
+sleep 2
+clear
+echo
+echo
+echo
+echo "Atualizando Flatpak :"
+echo
+echo
+echo
+sudo flatpak update -y
+echo
+echo
+echo
+echo "Flatpak Atualizado "
+sleep 4
+clear
+echo
+echo
+echo
+echo "Atualizando Aptitude : "
+echo
+echo
+echo
+sudo aptitude update -y
+sudo aptitude upgrade -y
+echo
+echo
+echo
+echo "Aptitude Atualizado "
+sleep 2
+clear
+echo
+echo 
+echo
+echo "Atualizando Linux Lite OS:"
+echo
+echo
+echo
+sudo lite-updates
+clear
+echo
+echo
+echo
+echo "Descrevendo o Sistema :"
+echo
+echo
+echo
+sudo neofetch
+sleep 10
+sudo inxi -Fxz
+sleep 10
+clear
+echo
+echo
+echo
+echo "Limpando Cache DNS e Rede:"
+echo
+echo
+echo
+sudo /etc/init.d/dns-clean restart
+sleep 1
+sudo /etc/init.d/networking force-reload
+sleep 1
+sudo /etc/init.d/nscd restart
+sleep 3
+clear
+echo
+echo
+echo
+echo "Testando a Banda Larga : "
+echo
+echo
+echo
+sudo speedtest-cli
+sleep 3
+clear
+echo
+echo
+echo
+echo "Deseja Realizar um Relatorio Nmap externo em sua maquina ? "
+echo "Digite:  1-Sim  0-Não"
+read ESCOLHA #guarda opção inserida pelo usuário
+echo
+echo
+if [ "$ESCOLHA" -eq 1 ]; then  #analisa a escolha digitada pelo usuário
+sudo nmap -v -A scanme.nmap.org
+echo
+echo
+echo
+echo "Relatorio Pronto! Até a Próxima!"
+sleep 120
+else
+echo
+echo
+echo
+echo "Nmap Abortado, o restante das verificações terminadas"
+echo                                                                                "Até mais!" 
+sleep 7
+fi

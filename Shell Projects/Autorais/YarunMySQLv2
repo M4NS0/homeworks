@@ -1,0 +1,42 @@
+#!/bin/bash
+
+files=$(yad --form --width 250 --image /usr/share/mysql-workbench/images/MySQL-WB-about-screen.png --title "Bem Vindo!" \
+		--field="Liga o servidor MySQL e Apache":fbtn "2" \
+		--field="Desliga o servidor MySQL e Apache":fbtn "3" \
+		--field="Inicia o Xampp":fbtn "4" \
+		--field="Inicia MySQL Workbench":fbtn "5" \
+		--field="Inicia o Beaver":fbtn "6" \
+		 --button="gtk-ok:0" --button="gtk-close:1"   
+)
+
+ret=$?
+[[ $ret -eq 1 ]] && exit 0 
+
+if [[ $ret -eq 2 ]]; then 
+/etc/init.d/mysql start
+/etc/init.d/apache2 start
+yad --form --title "Aviso!" --image /usr/share/mysql-workbench/images/admin_info_running.png --text="\n\tServidor MySQL e Apache iniciaram\t\n"  
+./YarunMySQL
+fi
+
+if [[ $ret -eq 3 ]]; then 
+/etc/init.d/mysql stop 
+/etc/init.d/apache2 stop
+yad --form --title "Aviso!" --image /usr/share/mysql-workbench/images/admin_info_stopped.png --text="\n\tServidor MySQL e Apache pararam\t \n"  
+./YarunMySQL
+fi
+
+if [[ $ret -eq 4 ]]; then
+xterm -e sudo /opt/lampp/manager-linux-x64.run
+./YarunMySQL
+fi
+
+if [[ $ret -eq 5 ]]; then
+mysql-workbench
+fi 
+
+if [[ $ret -eq 6 ]]; then
+dbeaver
+fi
+
+
