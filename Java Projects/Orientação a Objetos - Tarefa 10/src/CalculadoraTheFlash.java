@@ -25,12 +25,18 @@ import javax.swing.JTextField;
 import javax.swing.JTextPane;
 import javax.swing.JMenuItem;
 import java.awt.Label;
+import java.awt.Panel;
+
 import javax.swing.JLabel;
+import java.awt.Color;
 
 public class CalculadoraTheFlash extends JFrame {
 
 	private JPanel contentPane;
-
+	private JTextField textField;
+	private double numA;
+	private double numB;
+	private double calc;
 	/**
 	 * Launch the application.
 	 */
@@ -80,122 +86,162 @@ public class CalculadoraTheFlash extends JFrame {
 		contentPane.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		setContentPane(contentPane);
 		
-		JButton btnNewButton = new JButton("0");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0)
-			{
-			}
-		});
-		
-		JButton button = new JButton("1");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_1 = new JButton("2");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_2 = new JButton(",");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		
 		JButton button_3 = new JButton("+");
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "+");
+				numA = Double.parseDouble(textField.getText().replaceFirst(".$",""));
+				calc = numA + numB;
 			}
 		});
 		
 		JButton button_4 = new JButton("=");
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("");
+				textField.getText();
+				textField.setText(String.valueOf(calc));
 			}
 		});
-		
 		JButton button_5 = new JButton("-");
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_6 = new JButton("3");
-		button_6.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_7 = new JButton("4");
-		button_7.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_8 = new JButton("5");
-		button_8.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_9 = new JButton("6");
-		button_9.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_10 = new JButton("*");
-		button_10.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_11 = new JButton("7");
-		button_11.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_12 = new JButton("8");
-		button_12.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		
-		JButton button_13 = new JButton("9");
-		button_13.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "-");
+				numA = Double.parseDouble(textField.getText().replaceFirst(".$",""));
+				calc = numB - numA;
 			}
 		});
 		
 		JButton button_14 = new JButton("/");
 		button_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "/");
+				numA = Double.parseDouble(textField.getText().replaceFirst(".$",""));
+				calc = numA / numB;
 			}
 		});
 		
+		JButton button_10 = new JButton("*");
+		button_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "*");
+				numA = Double.parseDouble(textField.getText().replaceFirst(".$",""));
+				calc = numA*numB;
+			}
+		});
+
+		JButton button_2 = new JButton(",");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + ".");
+			}
+		});
 		JButton button_15 = new JButton("←");
 		button_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+		
 			}
 		});
 		
 		JButton button_16 = new JButton("CE");
 		button_16.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText().replaceFirst(".$",""));
+			
 			}
 		});
 		
 		JButton button_17 = new JButton("C");
 		button_17.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				textField.setText("");
+			}
+		});
+		JButton btnNewButton = new JButton("0");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0){
+				textField.setText(textField.getText() + "0");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+		JButton button = new JButton("1");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "1");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+		JButton button_1 = new JButton("2");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "2");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+	
+		JButton button_6 = new JButton("3");
+		button_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "3");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+		JButton button_7 = new JButton("4");
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "4");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+		JButton button_8 = new JButton("5");
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "5");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+		JButton button_9 = new JButton("6");
+		button_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "6");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+	
+		JButton button_11 = new JButton("7");
+		button_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "7");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+		JButton button_12 = new JButton("8");
+		button_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "8");
+				numB = Double.parseDouble(textField.getText());
+			}
+		});
+		
+		JButton button_13 = new JButton("9");
+		button_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				textField.setText(textField.getText() + "9");
+				numB = Double.parseDouble(textField.getText());
 			}
 		});
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.WHITE);
 		panel.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -291,20 +337,23 @@ public class CalculadoraTheFlash extends JFrame {
 					.addGap(83))
 		);
 		
-		JPanel panel_1 = new JPanel();
+		textField = new JTextField();
+		textField.setBorder(null);
+		textField.setBackground(Color.WHITE);
+		textField.setColumns(10);
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
-			gl_panel.createParallelGroup(Alignment.TRAILING)
+			gl_panel.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(168, Short.MAX_VALUE)
-					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
+					.addContainerGap()
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(159, Short.MAX_VALUE))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panel.createSequentialGroup()
-					.addContainerGap(45, Short.MAX_VALUE)
-					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(31, Short.MAX_VALUE)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 					.addContainerGap())
 		);
 		panel.setLayout(gl_panel);
