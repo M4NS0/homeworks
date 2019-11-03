@@ -1,42 +1,30 @@
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
+import java.awt.Font;
+import java.awt.SystemColor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.border.BevelBorder;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.LineBorder;
-import java.awt.Font;
-import java.awt.SystemColor;
-import java.awt.TextField;
 
-import javax.swing.JTextArea;
-import javax.swing.JMenuBar;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.JMenuItem;
-import java.awt.Label;
-import java.awt.Panel;
-
-import javax.swing.JLabel;
-import java.awt.Color;
-
-public class CalculadoraTheFlash extends JFrame {
+public class Calculadora extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	private double numA;
 	private double numB;
 	private double calc;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
 	/**
 	 * Launch the application.
 	 */
@@ -44,7 +32,7 @@ public class CalculadoraTheFlash extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CalculadoraTheFlash frame = new CalculadoraTheFlash();
+					Calculadora frame = new Calculadora();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,10 +41,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public CalculadoraTheFlash() {
+	public Calculadora() {
 		setBackground(SystemColor.controlShadow);
 		setFont(new Font("Dialog", Font.BOLD, 12));
 		setForeground(UIManager.getColor("MenuItem.acceleratorSelectionForeground"));
@@ -88,6 +73,7 @@ public class CalculadoraTheFlash extends JFrame {
 		
 		
 		JButton button_3 = new JButton("+");
+		buttonGroup.add(button_3);
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "+");
@@ -97,6 +83,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_4 = new JButton("=");
+		buttonGroup.add(button_4);
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText("");
@@ -105,6 +92,7 @@ public class CalculadoraTheFlash extends JFrame {
 			}
 		});
 		JButton button_5 = new JButton("-");
+		buttonGroup.add(button_5);
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "-");
@@ -114,6 +102,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_14 = new JButton("/");
+		buttonGroup.add(button_14);
 		button_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "/");
@@ -123,6 +112,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_10 = new JButton("*");
+		buttonGroup.add(button_10);
 		button_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "*");
@@ -132,12 +122,14 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 
 		JButton button_2 = new JButton(",");
+		buttonGroup.add(button_2);
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + ".");
 			}
 		});
 		JButton button_15 = new JButton("←");
+		buttonGroup.add(button_15);
 		button_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 		
@@ -145,6 +137,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_16 = new JButton("CE");
+		buttonGroup.add(button_16);
 		button_16.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText().replaceFirst(".$",""));
@@ -153,12 +146,14 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_17 = new JButton("C");
+		buttonGroup.add(button_17);
 		button_17.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText("");
 			}
 		});
 		JButton btnNewButton = new JButton("0");
+		buttonGroup.add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0){
 				textField.setText(textField.getText() + "0");
@@ -167,6 +162,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button = new JButton("1");
+		buttonGroup.add(button);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "1");
@@ -175,6 +171,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_1 = new JButton("2");
+		buttonGroup.add(button_1);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "2");
@@ -184,6 +181,7 @@ public class CalculadoraTheFlash extends JFrame {
 		
 	
 		JButton button_6 = new JButton("3");
+		buttonGroup.add(button_6);
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "3");
@@ -192,6 +190,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_7 = new JButton("4");
+		buttonGroup.add(button_7);
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "4");
@@ -200,6 +199,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_8 = new JButton("5");
+		buttonGroup.add(button_8);
 		button_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "5");
@@ -208,6 +208,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_9 = new JButton("6");
+		buttonGroup.add(button_9);
 		button_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "6");
@@ -217,6 +218,7 @@ public class CalculadoraTheFlash extends JFrame {
 		
 	
 		JButton button_11 = new JButton("7");
+		buttonGroup.add(button_11);
 		button_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "7");
@@ -225,6 +227,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_12 = new JButton("8");
+		buttonGroup.add(button_12);
 		button_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "8");
@@ -233,6 +236,7 @@ public class CalculadoraTheFlash extends JFrame {
 		});
 		
 		JButton button_13 = new JButton("9");
+		buttonGroup.add(button_13);
 		button_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textField.setText(textField.getText() + "9");
