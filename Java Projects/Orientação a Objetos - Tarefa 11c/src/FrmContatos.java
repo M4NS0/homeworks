@@ -11,7 +11,6 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JSpinner;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -39,7 +38,7 @@ public class FrmContatos extends JFrame {
 			limparCampos();
 			return "Pessoa inserida com sucesso";
 		} catch (Exception e) {
-			return "Erro ao Inserir! Favor digitar apenas números na matrícula!";
+			return "Erro ao Inserir! Favor digitar apenas nï¿½meros na matrï¿½cula!";
 		}
 	}
 	
@@ -48,7 +47,7 @@ public class FrmContatos extends JFrame {
 		for (Pessoa p : lista) {
 			dados = dados + "Nome: " + p.getNome() 
 						+ "  -  Telefone: " + p.getTelefone() 
-						+ "  -  Matrícula: " + p.getMatricula() + "\n";
+						+ "  -  Matrï¿½cula: " + p.getMatricula() + "\n";
 		}
 		return dados;
 	}
@@ -116,10 +115,10 @@ public class FrmContatos extends JFrame {
 		JButton btnInserir = new JButton("Inserir");
 		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/* Início - Código desenvolvido */
+				/* Inï¿½cio - Cï¿½digo desenvolvido */
 				String mens = inserirPessoa();
 				JOptionPane.showMessageDialog(null, mens);
-				/* Fim - Código desenvolvido */
+				/* Fim - Cï¿½digo desenvolvido */
 			}
 		});
 		btnInserir.setBounds(66, 113, 89, 23);
@@ -130,10 +129,10 @@ public class FrmContatos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				/* Início - Código desenvolvido */
+				/* Inï¿½cio - Cï¿½digo desenvolvido */
 				//String dados = listarPessoas();
 				//JOptionPane.showMessageDialog(null, dados);
-				/* Fim - Código desenvolvido */
+				/* Fim - Cï¿½digo desenvolvido */
 				
 				FrmContatosLista frmLista = new FrmContatosLista();
 				frmLista.setLista(lista);
