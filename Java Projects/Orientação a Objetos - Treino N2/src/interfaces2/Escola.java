@@ -60,23 +60,21 @@ public class Escola {
 		}
 		if (op == 0) {
 			Imprime();
+			Menu();
 		}
 	}
 
 	private static void Imprime() {
+		//System.out.println(lista);
+		
 		String texto = "";
 		for (int i = 0; i < lista.size(); i ++) {
 		texto += lista.get(i).toString() + "\n";
 		
 		}
 		System.out.println(texto);
-		
 	}
 	private static void MenuDiretor() {
-		Diretor prof = new Diretor();
-		prof.organizarTarefas();
-		prof.designarCargos();
-		prof.contratarFuncionarios(3, "Professor");
 		
 		profissional = new Diretor();
 		System.out.println("Insira o nome: ");
@@ -125,10 +123,10 @@ public class Escola {
 		System.out.println("Insira a escolaridade:");
 		String escolaridade = leia.next();
 		
-		profissional = new ProfInformatica();
-		profissional.Setnome(nome);
-		profissional.SetEscolaridade(escolaridade);
-		lista.add(profissional);
+		ProfInformatica p1 = new ProfInformatica();
+		p1.Setnome(nome);
+		p1.SetEscolaridade(escolaridade);
+		lista.add(p1);
 
 		
 	}

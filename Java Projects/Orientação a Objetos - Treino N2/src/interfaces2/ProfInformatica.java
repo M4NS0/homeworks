@@ -11,7 +11,7 @@ public class ProfInformatica extends Profissional implements DomInformatica{
 	}
 	@Override
 	public String toString() {
-		return "\nProfessor de Informática: \n" + super.toString() +"\n";
+		return "\nProfessor de Informática: \n" + super.toString();
 	}
 
 }
