@@ -10,22 +10,22 @@ public class TesteConexao {
 
 	public static void main(String[] args) {
 		
-		Conexao.getConnection();
+		//Conexao.getConnection();
 		
-		// Teste Inserir
+		/* Teste Inserir
 		
 		Marca m = new Marca();
 		m.setNome("VW");
 		m.setOrigem("Alemanha");
 		
 		MarcaDao.inserir(m);
-		
+		*/
 		
 		/* Teste Alterar 
 		
 		Marca m = new Marca();
 		m.setNome("Toyota");
-		m.setOrigem("Japï¿½o");
+		m.setOrigem("Japão");
 		m.setId(2);
 		
 		MarcaDao.alterar(m);
@@ -36,7 +36,7 @@ public class TesteConexao {
 		
 		boolean resultado = MarcaDao.excluir(3);
 		if (resultado) {
-			System.out.println("Marca excluï¿½da com sucesso!!!");
+			System.out.println("Marca excluída com sucesso!!!");
 		}
 		else {
 			System.out.println("Erro ao excluir a Marca!!!");

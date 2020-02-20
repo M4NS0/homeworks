@@ -12,7 +12,7 @@ public class MarcaDao {
 	public static boolean inserir(Marca marca) {
 		try {
 			String sql = "insert into marca (mar_nome, mar_origem) values (?, ?)";
-			
+
 			Connection conn = Conexao.getConnection();
 			PreparedStatement pstm = conn.prepareStatement(sql);
 			pstm.setString(1, marca.getNome());
@@ -45,7 +45,7 @@ public class MarcaDao {
 
 	public static boolean excluir(int id) {
 		try {
-			String sql = "delete from marca where mar_id = ?";
+			String sql = "delete from Marca where mar_id = ?";
 
 			Connection conn = Conexao.getConnection();
 			PreparedStatement pstm = conn.prepareStatement(sql);
