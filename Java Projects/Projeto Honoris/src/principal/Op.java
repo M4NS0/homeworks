@@ -1,8 +1,6 @@
-package temporario;
+package principal;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -15,10 +13,13 @@ import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.Insets;
 import javax.swing.border.EtchedBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
 
-public class Principal extends JFrame {
+import frontEnd.Splash;
+
+
+
+public class Op extends JFrame {
+
 
 	private JPanel contentPane;
 	private JTextField txtTempo;
@@ -31,10 +32,14 @@ public class Principal extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		//new Splash();
 		EventQueue.invokeLater(new Runnable() {
+			
+
 			public void run() {
 				try {
-					Principal frame = new Principal();
+					
+					Op frame = new Op();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,14 +51,16 @@ public class Principal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Principal() {
+	public Op() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 505, 164);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 		
+			
 		JToggleButton tglbtnLigadesliga = new JToggleButton("Liga/Desliga");
 		tglbtnLigadesliga.setFont(new Font("Dialog", Font.BOLD, 10));
 		tglbtnLigadesliga.setBounds(356, 52, 131, 25);
@@ -64,14 +71,19 @@ public class Principal extends JFrame {
 			}
 		});
 		
-		JButton btnNovo = new JButton("Novo");
-		btnNovo.setFont(new Font("Dialog", Font.BOLD, 10));
-		btnNovo.addActionListener(new ActionListener() {
+		JButton btnInserir = new JButton("Inserir");
+		btnInserir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Cadastro cadastro = new Cadastro();
+				cadastro.getBtnGravar().setText(("Gravar"));
+				cadastro.setVisible(true);
+				
 			}
 		});
-		btnNovo.setBounds(12, 12, 76, 25);
-		contentPane.add(btnNovo);
+		btnInserir.setFont(new Font("Dialog", Font.BOLD, 10));
+				
+		btnInserir.setBounds(12, 12, 76, 25);
+		contentPane.add(btnInserir);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBorder(null);

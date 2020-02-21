@@ -8,8 +8,7 @@ public class Splash {
     JProgressBar progressBar=new JProgressBar();
     JLabel message=new JLabel();
     private final JLabel lblAnalizadorCsv = new JLabel("Analizador CSV");
-    Splash()
-    {
+    public Splash()    {
         createGUI();
         addImage();
         addText();

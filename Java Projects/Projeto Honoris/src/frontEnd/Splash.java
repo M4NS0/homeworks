@@ -1,4 +1,5 @@
 package frontEnd;
+
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.TitledBorder;
@@ -8,8 +9,8 @@ public class Splash {
     JLabel image=new JLabel(new ImageIcon("hiccups.png"));
     JProgressBar progressBar=new JProgressBar();
     JLabel message=new JLabel();
-    private final JLabel lblAnalizadorCsv = new JLabel("Analizador CSV");
-    Splash()
+    private final JLabel lblHonoris = new JLabel("Honoris");
+    public Splash()
     {
         createGUI();
         addImage();
@@ -43,9 +44,9 @@ public class Splash {
         message.setFont(new Font("UBUNTU",Font.PLAIN,15));
         frame.getContentPane().add(message);
         {
-        	lblAnalizadorCsv.setForeground(Color.WHITE);
-        	lblAnalizadorCsv.setBounds(118, 12, 113, 10);
-        	frame.getContentPane().add(lblAnalizadorCsv);
+        	lblHonoris.setForeground(Color.WHITE);
+        	lblHonoris.setBounds(144, 12, 61, 15);
+        	frame.getContentPane().add(lblHonoris);
         }
     }
     public void addProgressBar(){
@@ -60,6 +61,7 @@ public class Splash {
     }
     public void runningPBar(){
         int i=0;
+
         while( i<=100)
         {
             try{
@@ -72,6 +74,9 @@ public class Splash {
             }catch(Exception e){
                 e.printStackTrace();
             }
+
+
+
         }
     }
 }
