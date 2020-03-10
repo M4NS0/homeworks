@@ -71,7 +71,7 @@ public class AnaliseDeProcuracao{
 			Pattern pattern0 = Pattern.compile(chave);
 			Matcher matcher0 = pattern0.matcher(arquivo);
 			
-						int j = 0;
+			int j = 0;
 			
 			while (matcher0.find()) {
 				j++;
