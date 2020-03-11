@@ -69,9 +69,25 @@ public class Lista {
 			vetor[i] = vetor[i + 1];
 			vetor[i] = null;
 			fim--;
-			
 		}
 		return achei;
+	}
+	public boolean modificarItem (Item antigo ,Item modificado) {
+		if(vazia()) return false;
+		int i;
+		for (i = 0; i <= fim && !antigo.getDescricao().equals(vetor[i].getDescricao()); i ++);
+		if (i > fim) return false;
+		vetor[i] = modificado;
+		return true;
+	}
+	
+	public String getLista() {
+		if (vazia()) return "lista vazia\n";
+		String aux = null;
+		for (int i = 0; i <= fim; i++) {
+			aux = aux + vetor[i].getItem() + "\n";
+		}
+		return aux;
 	}
 
 }

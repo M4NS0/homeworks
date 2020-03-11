@@ -29,10 +29,9 @@ public class Item {
 	public void setPrioridade(int prioridade) {
 		this.prioridade = prioridade;
 	}
-
-	@Override
-	public String toString() {
-		return "Item [descricao=" + descricao + ", quantidade=" + quantidade + ", prioridade=" + prioridade + "]";
+	
+	public String getItem() {
+		return (descricao + "\n" + Integer.toString(quantidade) + "\n" + Integer.toString(prioridade));
 	}
 
 }

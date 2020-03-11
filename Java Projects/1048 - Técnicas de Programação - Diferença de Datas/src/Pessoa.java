@@ -82,17 +82,17 @@ public class Pessoa {
 		if ((Pessoa.getMesU() <= Pessoa.getMesHj()) && (Pessoa.getDiaU() < Pessoa.getDiaHj())) {
 			anos = (Pessoa.getAnoHj() - Pessoa.getAnoU()) - 1;
 		}
-
+		
 		anos = (Pessoa.getAnoHj() - Pessoa.getAnoU());
 		
 	}
 
 	public static void calculaRegex() {
-		if ((Pessoa.getMesUser() < Pessoa.getMesHj()) && (Pessoa.getDiaUser() < Pessoa.getDiaHj())) {
-			anos = (Pessoa.getAnoHj() - Pessoa.getAnoUser()) - 1;
+		if ((Pessoa.getMesUser() <= Pessoa.getMesHj()) && (Pessoa.getDiaUser() < Pessoa.getDiaHj())) {
+			anos = (Pessoa.getAnoHj() - Pessoa.getAnoUser())-1;
 		}
 		else {
-			anos = (Pessoa.getAnoHj() - Pessoa.getAnoUser());
+			anos = (Pessoa.getAnoHj() - (Pessoa.getAnoUser()+1));
 		}
 	}
 
