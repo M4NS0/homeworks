@@ -25,9 +25,9 @@ public class AdivinhaNumero {
 			System.out.println("Acertou!");
 			return true;
 		} else if (tentativa > numero)
-			System.out.println("O número é menor"); // quando tem so um comando n precisa de chave
+			System.out.println("Errô infeliz!O número é menor"); // quando tem so um comando n precisa de chave
 		else
-			System.out.println("O número é maior");
+			System.out.println("Errô infeliz!O número é maior");
 		return false;
 
 	}

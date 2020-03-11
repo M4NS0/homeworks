@@ -51,7 +51,11 @@ public class App {
 				} else
 					System.out.println("Lista cheia");
 				break;
-			case 2:
+			
+			// retirar e consultar pede novamente descrição, quantidade e prioridade //
+			// não retira e não faz consulta // 
+			
+			case 2: // bug
 				novo = obterItem();
 				novo = lista.retira(novo);
 				if (novo == null) {
@@ -60,7 +64,7 @@ public class App {
 					System.out.println(novo.getItem());
 					break;
 				}
-			case 3: // pau
+			case 3: // bug
 				novo = obterItem();
 				novo = lista.consultar(novo);
 				if (novo == null)
