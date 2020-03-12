@@ -7,13 +7,18 @@ public class Pessoa {
 
 	static String nome;
 	static String nascimento;
+	private static String separador;
+	// Variaveis para regex
 	private static int anoHj;
 	private static int mesHj;
 	private static int diaHj;
-	private static String separador;
+	
+	// Variaveis para substring
 	private static int anoUser;
 	private static int mesUser;
 	private static int diaUser;
+	
+	// Variaveis de input
 	private static int mesU;
 	private static int anoU;
 	private static int diaU;
@@ -23,7 +28,7 @@ public class Pessoa {
 
 		GregorianCalendar dataCal = new GregorianCalendar();
 
-		anoHj = dataCal.get(Calendar.YEAR);
+		anoHj = dataCal.get(Calendar.YEAR) +1;
 		mesHj = dataCal.get(Calendar.MONTH) + 1;
 		diaHj = dataCal.get(Calendar.DAY_OF_MONTH);
 	}
@@ -79,20 +84,22 @@ public class Pessoa {
 	}
 
 	public static void calculaSubstring() {
-		if ((Pessoa.getMesU() <= Pessoa.getMesHj()) && (Pessoa.getDiaU() < Pessoa.getDiaHj())) {
-			anos = (Pessoa.getAnoHj() - Pessoa.getAnoU()) - 1;
+		if (Pessoa.getMesU() <= Pessoa.getMesHj()) {
+			if (Pessoa.getDiaU() < Pessoa.getDiaHj()) {
+				anos = (Pessoa.getAnoHj() - Pessoa.getAnoU()) - 1;
+			}
+		} else {
+			anos = (Pessoa.getAnoHj() - (Pessoa.getAnoU() + 2));
 		}
-		
-		anos = (Pessoa.getAnoHj() - Pessoa.getAnoU());
-		
 	}
 
 	public static void calculaRegex() {
-		if ((Pessoa.getMesUser() <= Pessoa.getMesHj()) && (Pessoa.getDiaUser() < Pessoa.getDiaHj())) {
-			anos = (Pessoa.getAnoHj() - Pessoa.getAnoUser())-1;
-		}
-		else {
-			anos = (Pessoa.getAnoHj() - (Pessoa.getAnoUser()+1));
+		if (Pessoa.getMesUser() <= Pessoa.getMesHj()) {
+			if (Pessoa.getDiaUser() < Pessoa.getDiaHj()) {
+				anos = (Pessoa.getAnoHj() - Pessoa.getAnoUser()) - 1;
+			}
+		} else {
+			anos = (Pessoa.getAnoHj() - (Pessoa.getAnoUser() + 2));
 		}
 	}
 

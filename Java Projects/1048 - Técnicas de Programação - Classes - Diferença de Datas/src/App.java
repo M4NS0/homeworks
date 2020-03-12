@@ -4,9 +4,9 @@ public class App {
 	static Scanner leia = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		System.out.println("Digite seu nome: ");
+		System.out.println("\nDigite seu nome: ");
 		Pessoa.setNome(leia.next());
-		System.out.println("Digite a data do seu nascimento");
+		System.out.println("Digite a data do seu nascimento:");
 		Pessoa.setNascimento(leia.next());
 		
 		Pessoa.pegaData();
