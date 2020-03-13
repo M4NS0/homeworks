@@ -28,7 +28,6 @@ public class ControleRemoto {
 			switch(n) {
 			case 1:
 				tv.aumentarVolume();
-				
 				break;
 			case 2:
 				tv.diminuirVolume();

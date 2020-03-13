@@ -12,7 +12,7 @@ public class Arma {
 	
 	public Arma() {
 		capacidade = 8;
-		quantidade = 8;
+		
 	}
 
 	// Construtor que receba dois parâmetros inteiros e inicialize a capacidade e a
