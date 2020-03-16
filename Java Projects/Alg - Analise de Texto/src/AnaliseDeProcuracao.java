@@ -74,8 +74,7 @@ public class AnaliseDeProcuracao{
 			int j = 0;
 			
 			while (matcher0.find()) {
-				j++;
-								
+												
 				String frase = "";
 				System.out.println("regra: " + palavrasChave.get(i));
 				System.out.println("palavra achada: " + matcher0.group());

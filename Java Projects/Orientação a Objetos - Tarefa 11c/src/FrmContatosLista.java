@@ -103,13 +103,7 @@ public class FrmContatosLista extends JFrame {
 		table.getColumnModel().getColumn(1).setPreferredWidth(250);
 		table.getColumnModel().getColumn(2).setPreferredWidth(80);
 		scrollPane.setViewportView(table);
-		
-		
-		
-		
-		
-		
-		
+
 		panel_1.add(scrollPane, BorderLayout.CENTER);
 	}
 
