@@ -97,7 +97,8 @@ public class Lista {
 		item = aux;
 
 		// Incrementa o ultimo item
-		this.p.setUltimo(this.p.getUltimo() + 1);
+		
+		p.setUltimo(p.getUltimo() + 1);
 
 		for (int i = this.p.getUltimo() - 1; i >= posicao; i--) {
 			this.item[i] = this.item[i - 1];

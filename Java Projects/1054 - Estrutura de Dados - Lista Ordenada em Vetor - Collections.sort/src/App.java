@@ -16,8 +16,8 @@ public class App {
 						 + "\n|  4. Ver lista de Convidados            |"
 						 + "\n|  5. Busca por Pessoa                   |"
 						 + "\n|  6. Retira Pessoa                      |"
-						 + "\n|  7. Insere Entre                       |"
-						 + "\n|  8. Ver em ordem Alfabética            |"		
+						 + "\n|  7. Substituir Pessoa                  |"
+						 + "\n|  8. Ver lista em ordem Alfabética      |"		
 						 + "\n|  0. Sair                               |"
 						 + "\n|________________________________________|\n");
 		
