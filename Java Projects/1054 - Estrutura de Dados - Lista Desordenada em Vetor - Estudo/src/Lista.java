@@ -1,4 +1,6 @@
 
+import java.util.Arrays;
+
 public class Lista {
 
 	private int primeiro, ultimo, pos;
@@ -14,7 +16,7 @@ public class Lista {
 		return (this.ultimo == this.tamanho());
 	}
 
-	// Alterar tamanho da lista
+	// Setar tamanho da lista
 	public Lista(int maxTam) {
 		this.item = new Object[maxTam];
 		this.pos = -1;
@@ -43,29 +45,30 @@ public class Lista {
 			System.out.println("A lista está vazia\n");
 		} else {
 			System.out.println("Sua lista de convidados possui as seguintes pessoas:");
-
+			int i = 0;
 			for (int aux = this.primeiro; aux < this.ultimo; aux++) {
-				System.out.println("- " + this.item[aux].toString());
+				System.out.println(i + "- " + this.item[aux].toString());
+				i++;
 			}
 		}
 	}
 
 	// Busca por pessoa na lista pelo nome
-	public Object pesquisa(Object chave) {
-		if (this.vazia() || chave == null)
+	public Object pesquisa(Object pessoa) {
+		if (this.vazia() || pessoa == null)
 			return null;
 		for (int p = 0; p < this.ultimo; p++)
-			if (this.item[p].equals(chave))
+			if (this.item[p].equals(pessoa))
 				return this.item[p];
 		return null;
 	}
 
 	// Retira Pessoa
-	public Object retira(Object chave) throws Exception {
-		if (this.vazia() || chave == null)
+	public Object retira(Object pessoa) throws Exception {
+		if (this.vazia() || pessoa == null)
 			throw new Exception("Erro : A lista esta vazia");
 		int p = 0;
-		while (p < this.ultimo && !this.item[p].equals(chave))
+		while (p < this.ultimo && !this.item[p].equals(pessoa))
 			p++;
 		if (p >= this.ultimo)
 			return null; // Chave não encontrada
@@ -114,12 +117,32 @@ public class Lista {
 	}
 
 	// Insere Entre duas pessoas
-	public void inserirEntre(String fim, String novaPessoa) {
-		if (this.ultimo >= this.item.length) {
+	public void inserirEntre(String pessoaNova, int posicao) {
 
-			this.ultimo = this.ultimo + 1;
-			System.out.println("Lista cheia, Adicionando espaço...");
+		// cria um array novo com uma posicao a mais
+		Object[] aux = Arrays.copyOf(this.item, this.item.length + 1);
+		item = aux;
+
+		// Incrementa o ultimo item
+		ultimo++;
+
+		for (int i = this.ultimo - 1; i >= posicao; i--) {
+			this.item[i] = this.item[i - 1];
 
 		}
+		
+
+		int p = 0;
+		while (p < this.ultimo && !this.item[p].equals(this.item[posicao]))
+			p++;
+		if (p >= this.ultimo)
+			System.out.println("Não encontrado!");
+
+		this.ultimo = this.ultimo - 1;
+
+		for (int j = p; j < this.ultimo; j++)
+			this.item[j] = this.item[j + 1];
+		this.item[posicao] = pessoaNova;
+
 	}
 }

@@ -65,7 +65,7 @@ public class App {
 					break;
 				}
 			case 3: // bug
-				novo = obterItem();
+				//novo = obterItem();
 				novo = lista.consultar(novo);
 				if (novo == null)
 					System.out.println("Insucesso!");
