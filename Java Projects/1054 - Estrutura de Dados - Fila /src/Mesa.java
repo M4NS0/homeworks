@@ -7,7 +7,7 @@ public class Mesa {
 	}
 
 	public void setOcup(int l) { // seta lugar como ocupado
-		if (!lugares[1]) {
+		if (!lugares[l]) {
 			lugares[l] = true;
 		}
 	}
