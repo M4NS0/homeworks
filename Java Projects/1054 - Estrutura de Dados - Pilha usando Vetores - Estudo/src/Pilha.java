@@ -9,6 +9,7 @@ public class Pilha {
 
 		// adiciona item no fim da lista
 		// inserir na Pilha significa adicionar ao fim da lista
+		
 		this.pecas.add(peca);
 	}
 
