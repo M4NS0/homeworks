@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Criando uma String
 
 print('oi')
@@ -53,9 +54,3 @@ print(s.partition("!"))
 
 print("Python" == "Phiton")
 print("Python" == "Python")
-
-
-
-
-
-

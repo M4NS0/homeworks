@@ -67,5 +67,3 @@ print("\n")
 # Potencia
 print(pow(4, 2))
 print("\n")
-
-
