@@ -1,5 +1,14 @@
-// OBS:. Algorítmo de Busca em vetor Sequenciado com 
-// tempo de processamento MAIOR que algoritmo Embaralhado
+/*
+ ============================================================================
+ Name  		: Busca Sequencial
+ Livro		: Estrutura de Dados e Técnicas de Programação
+ Autores    : Bianchi, Dilermando, Nakamiti, Freitas, Xastre
+ Página		: 73
+ Descrição	: Busca em vetor de números embaralhados
+ 			  Algorítmo de Busca em vetor Ordenado com tempo 
+ 			  de processamento MAIOR que vetor Embaralhado
+ ============================================================================
+*/
 
 import java.util.Scanner;
 

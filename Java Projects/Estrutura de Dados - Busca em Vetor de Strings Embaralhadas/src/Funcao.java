@@ -1,3 +1,15 @@
+/*
+ ============================================================================
+ Name  					: Busca Sequencial
+ Baseado no Livro		: Estrutura de Dados e Técnicas de Programação
+ Autores    			: Bianchi, Dilermando, Nakamiti, Freitas, Xastre
+ Descrição				: Busca em vetor de Strings embaralhadas
+			 			  Algorítmo de Busca em vetor Embaralhado com tempo 
+			 			  de processamento MAIOR que vetor Ordenado
+ ============================================================================
+*/
+
+
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Random;
@@ -23,7 +35,7 @@ public class Funcao {
 	public static String[] embaralha(String[] v) {
 		Random rgen = new Random(); // Randomizador
 		for (int i = 0; i < v.length; i++) {
-			int randomPosition = rgen.nextInt(v.length); // Randomiza posição dos números
+			int randomPosition = rgen.nextInt(v.length); 	// Randomiza posição dos números
 			String temp = v[i];
 			v[i] = v[randomPosition];
 			v[randomPosition] = temp;

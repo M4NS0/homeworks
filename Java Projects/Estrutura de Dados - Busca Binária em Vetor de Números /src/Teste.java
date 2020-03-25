@@ -1,3 +1,15 @@
+/*
+ ============================================================================
+ Name  		: Busca Binária
+ Livro		: Estrutura de Dados e Técnicas de Programação
+ Autores    : Bianchi, Dilermando, Nakamiti, Freitas, Xastre
+ Página		: 74
+ Descrição	: Busca Binária em vetor de números 
+ 			  Algorítmo de Busca Binária em vetor com tempo 
+ 			  de processamento MAIOR que Busca Sequencial
+ ============================================================================
+*/
+
 import java.util.Scanner;
 
 public class Teste {
