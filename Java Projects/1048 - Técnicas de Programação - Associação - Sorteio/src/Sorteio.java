@@ -14,6 +14,6 @@ public class Sorteio {
 
 	public void lancarDado() {
 		Random semente = new Random();
-		valor.setValorSelecionado(semente.nextInt(6));
+		valor.setValorSelecionado(semente.nextInt(50));
 	}
 }

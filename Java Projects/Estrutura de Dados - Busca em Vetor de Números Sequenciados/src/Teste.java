@@ -35,7 +35,7 @@ public class Teste {
 				Funcao.iniciaTempo();
 				if (Funcao.achaNumero(v, n, k) == -1) System.out.println("Valor não encontrado na lista!");
 				else System.out.println("\nO número " + k + " foi encontrado na posição " + (Funcao.achaNumero(v, n, k) + 1));
-				System.out.println("O tempo de processamento da busca foi de: " + Funcao.finalizaTempo() + " Milisegundos");
+				System.out.println("O tempo de processamento da busca Sequencial foi de: " + Funcao.finalizaTempo() + " Milisegundos");
 
 				break;
 			case 3:
