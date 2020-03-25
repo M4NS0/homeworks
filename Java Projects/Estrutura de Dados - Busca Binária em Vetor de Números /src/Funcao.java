@@ -6,7 +6,7 @@
  Página		: 74
  Descrição	: Busca Binária em vetor de números 
  			  Algorítmo de Busca Binária em vetor com tempo 
- 			  de processamento MAIOR que Busca Sequencial
+ 			  de processamento MENOR que Busca Sequencial
  ============================================================================
 */
 
