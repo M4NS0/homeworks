@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Teste {
@@ -26,7 +27,8 @@ public class Teste {
 			System.out.println("\n-----------------------------\n"
 					+ "1. Empilha Livro\n"
 					+ "2. Desempilha Livro\n"
-					+ "3. Sair\n"
+					+ "3. Imprimir"
+					+ "4. Sair\n"
 					+ "-----------------------------\n");
 			n = leia.nextInt();
 			switch (n) {
@@ -43,6 +45,10 @@ public class Teste {
 				novo = null;
 				break;
 			case 3:
+				
+				break;
+				
+			case 4:
 				System.out.println("Programa encerrado");
 			}
 		} while (n != 3);

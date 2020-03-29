@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 public class Pilha {
 	public class No {
@@ -21,27 +22,35 @@ public class Pilha {
 	public int getTam() {
 		return tam;
 	}
+
 	public boolean vazia() {
 		return (topo == null);
 	}
+
 	public void push(Livro aux) {
 		No novo = new No(aux);
 		if (vazia()) {
 			topo = novo;
-			tam ++;
+			tam++;
 		} else {
 			novo.prox = topo;
 			topo = novo;
-			tam ++;
+			tam++;
 		}
 	}
+
 	public Livro pop() {
 		if (!vazia()) {
 			Livro aux = topo.dados;
 			topo = topo.prox;
-			tam --;
+			tam--;
 			return aux;
 		}
 		return null;
+	}
+
+	public String imprime() {
+		return null;
+		
 	}
 }
