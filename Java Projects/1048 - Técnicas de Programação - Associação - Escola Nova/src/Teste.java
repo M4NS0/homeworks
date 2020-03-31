@@ -15,11 +15,7 @@ public class Teste {
 
 	public static void main(String[] args) {
 		
-		// professor, deu certo na mesma logica do exercicio, os anteriores não estão setando
-		// os arrays com as devidas classes, estão setadas em array de String normais,
-		// apartir desse irei arrumar os anteriores e envio novamente assim que terminar
-		// acredito que a explicação do ultimo exercicio tenha ajudado na elaboração
-		
+				
 		String escolha = "";
 		ArrayList<Aluno> listaAlunos = new ArrayList<Aluno>();
 		ArrayList<Materia> listaMateria = new ArrayList<Materia>();

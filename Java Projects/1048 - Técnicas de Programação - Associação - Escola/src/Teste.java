@@ -22,7 +22,7 @@ public class Teste {
 		ArrayList<Aluno> listaJava = new ArrayList<Aluno>();
 		ArrayList<Aluno> listaAndroid = new ArrayList<Aluno>();
 
-		// configurando objeto e adicionando nas listas
+		// configurando objetos e adicionando nas listas
 		Aluno ana = new Aluno();
 		ana.setNomeAluno("Ana");
 		ana.setMatricula("1001");
