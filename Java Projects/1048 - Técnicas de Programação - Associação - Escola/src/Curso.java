@@ -3,7 +3,6 @@ public class Curso {
 	private String nomeCurso;
 	private String cargaHoraria;
 
-
 	public String getNomeCurso() {
 		return nomeCurso;
 	}

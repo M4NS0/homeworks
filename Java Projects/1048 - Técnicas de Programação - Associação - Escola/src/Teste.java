@@ -1,128 +1,116 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Teste {
 	static Scanner leia = new Scanner(System.in);
 
 	public static String Escolha() {
-		System.out.println("\n---------------------------------\n" 
-				+ "(A)diciona Aluno\n" 
-				+ "(V)isualizar Turmas\n"
-				+ "(S)air" + "\n---------------------------------\n");
-
+		System.out.println("\n --------------------------------------- \n"
+						 + " Imprimir lista de alunos (J)ava\n" 
+						 + " Imprimir lista de alunos (A)ndroid\n"
+						 + " Imprimir a lista (T)oda\n"
+						 + " Para (S)air\n" 
+						 + " Escolha J, A, T ou S:\n"
+						 + " ---------------------------------------\n");
 		String e = leia.next();
 		return e;
 	}
 
 	public static void main(String[] args) {
+		
+		// configurando arrays de listas de alunos 
+		ArrayList<Aluno> listaJava = new ArrayList<Aluno>();
+		ArrayList<Aluno> listaAndroid = new ArrayList<Aluno>();
 
-		Aluno aluno = new Aluno();
-		Curso cursoJava = new Curso();
-		cursoJava.setNomeCurso("Java");
-		cursoJava.setCargaHoraria("30h");
+		// configurando objeto e adicionando nas listas
+		Aluno ana = new Aluno();
+		ana.setNomeAluno("Ana");
+		ana.setMatricula("1001");
+		listaJava.add(ana);
+
+		Aluno jose = new Aluno();
+		jose.setNomeAluno("José");
+		jose.setMatricula("1002");
+		listaJava.add(jose);
+
+		Aluno nelson = new Aluno();
+		nelson.setNomeAluno("Nelson");
+		nelson.setMatricula("1003");
+		listaJava.add(nelson);
+
+		Aluno jaqueline = new Aluno();
+		jaqueline.setNomeAluno("Jaqueline");
+		jaqueline.setMatricula("1004");
+		listaJava.add(jaqueline);
+
+		listaAndroid.add(ana);
+		listaAndroid.add(jose);
+
+		Aluno thais = new Aluno();
+		thais.setNomeAluno("Thais");
+		thais.setMatricula("1005");
+		listaAndroid.add(thais);
+
+		Aluno john = new Aluno();
+		john.setNomeAluno("John");
+		john.setMatricula("1006");
+		listaAndroid.add(john);
+		
+		Curso java = new Curso();
+		java.setNomeCurso("Curso Java");
+		java.setCargaHoraria("30 horas");
+		
+		Curso android = new Curso();
+		android.setNomeCurso("Curso Android");
+		android.setCargaHoraria("20 horas");
+		
 		Instrutor instrutorJava = new Instrutor();
 		instrutorJava.setNomeInstrutor("Felipe");
-
-		Curso cursoAndroid = new Curso();
-		cursoAndroid.setNomeCurso("Android");
-		cursoAndroid.setCargaHoraria("20h");
+		
 		Instrutor instrutorAndroid = new Instrutor();
 		instrutorAndroid.setNomeInstrutor("Ivan");
-
+		
+		
 		String e = "";
+		
 		do {
 			e = Escolha().toLowerCase();
-			switch (e) {
+			switch(e) {
+			case "j":
+				System.out.println();
+				System.out.println(java.getNomeCurso() + ", com carga horária de " + java.getCargaHoraria());
+				for (int i = 0; i < listaJava.size(); i++) {
+					System.out.println(listaJava.get(i).getNomeAluno() + " - " + listaJava.get(i).getMatricula());
+					}
+				System.out.println("Instrutor " + instrutorJava.getNomeInstrutor());
+				break;
 			case "a":
-				System.out.println("\n---------------------------------\n" 
-								+ "Deseja inserir aluno em qual Turma?\n"
-								+ "(J)ava\n" + "(A)ndroid\n" 
-								+ "(T)odas" + "\n---------------------------------\n");
-				
-				String e2 = leia.next();
-
-				if (e2.equalsIgnoreCase("J")) {
-					System.out.println("Digite o nome do Aluno: ");
-					String nome = leia.next();
-					aluno.setNomeAluno(nome);
-					System.out.println("Digite o número da matrícula: ");
-					String matricula = leia.next();
-					aluno.setMatricula(matricula);
-					aluno.adicionaJava();
+				System.out.println();
+				System.out.println(android.getNomeCurso() + ", com carga horária de " + android.getCargaHoraria());
+				for (int i = 0; i < listaAndroid.size(); i++) {
+					System.out.println(listaAndroid.get(i).getNomeAluno() + " - " + listaAndroid.get(i).getMatricula());
 				}
-				if (e2.equalsIgnoreCase("a")) {
-					System.out.println("Digite o nome do Aluno: ");
-					String nome = leia.next();
-					aluno.setNomeAluno(nome);
-					System.out.println("Digite o número da matrícula: ");
-					String matricula = leia.next();
-					aluno.setMatricula(matricula);
-
-					aluno.adicionaAndroid();
-				}
-				if (e2.equalsIgnoreCase("t")) {
-					System.out.println("Digite o nome do Aluno: ");
-					String nome = leia.next();
-					aluno.setNomeAluno(nome);
-					System.out.println("Digite o número da matrícula: ");
-					String matricula = leia.next();
-					aluno.setMatricula(matricula);
-					aluno.adicionaJava();
-					aluno.adicionaAndroid();
+				System.out.println("Instrutor " + instrutorAndroid.getNomeInstrutor());
+				break;
+			case "t":
+				System.out.println();
+				System.out.println(java.getNomeCurso() + " e " + android.getNomeCurso());
+				for (int i = 0; i < listaJava.size(); i++) {
+					System.out.println(listaJava.get(i).getNomeAluno() + " - " + listaJava.get(i).getMatricula());
+					}
+				for (int j = 0; j < listaAndroid.size(); j++) {
+					System.out.println(listaAndroid.get(j).getNomeAluno() + " - " + listaAndroid.get(j).getMatricula());
 				}
 				break;
-			case "v":
-				System.out.println("\n---------------------------------\n" 
-									+ "Deseja Visualizar quais turmas?\n" 
-									+ "(J)ava\n"+ "(A)ndroid\n" 
-									+ "(T)odas" + "\n---------------------------------\n");
+			case "s":
+				for (int i = 0; i < 100; i++) {
+					System.out.println();
+				}
+				System.out.println("See you later aligator...");
+				System.exit(0);
 				
-				String e3 = leia.next();
-
-				if (e3.equalsIgnoreCase("j")) {
-					System.out.println(cursoJava.getNomeCurso() 
-									+ ", com carga horária de " 
-									+ cursoJava.getCargaHoraria());
-
-					for (int i = 0; i < aluno.getListaJava().size(); i++) {
-						System.out.println(aluno.getListaJava().get(i));
-					}
-					
-					System.out.println("Instrutor - " + instrutorJava.getNomeInstrutor());
-				}
-				if (e3.equalsIgnoreCase("a")) {
-					System.out.println(cursoAndroid.getNomeCurso()
-									+ ", com carga horária de " 
-									+ cursoAndroid.getCargaHoraria());
-	
-					for (int i = 0; i < aluno.getListaAndroid().size(); i++) {
-						System.out.println(aluno.getListaAndroid().get(i));
-
-					}
-					System.out.println("Instrutor - " + instrutorAndroid.getNomeInstrutor());
-				}
-				if (e3.equalsIgnoreCase("t")) {
-					System.out.println(cursoJava.getNomeCurso()
-									+ ", com carga horária de " 
-									+ cursoJava.getCargaHoraria());
-
-					for (int i = 0; i < aluno.getListaJava().size(); i++) {
-						System.out.println(aluno.getListaJava().get(i));
-					}
-					
-					System.out.println("Instrutor - " + instrutorJava.getNomeInstrutor());
-					System.out.println("\n");
-					System.out.println(cursoAndroid.getNomeCurso() 
-									+ ", com carga horária de " 
-									+ cursoAndroid.getCargaHoraria());
-
-					for (int i = 0; i < aluno.getListaAndroid().size(); i++) {
-						System.out.println(aluno.getListaAndroid().get(i));
-					}
-					
-					System.out.println("Instrutor - " + instrutorAndroid.getNomeInstrutor());
-				}
 			}
-		} while (!e.equalsIgnoreCase("a") || !e.equalsIgnoreCase("v") || !e.equalsIgnoreCase("s"));
-
+			
+		} while (!e.equalsIgnoreCase("j") || !e.equalsIgnoreCase("a") || !e.equalsIgnoreCase("s"));
 	}
 }

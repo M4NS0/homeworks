@@ -1,15 +1,19 @@
 
 public class Paciente {
-	String nome;
-	String doenca;
-
-
-	public String getNome() {
-		return nome;
+	private String nomePac;
+	private String doenca;
+	
+	public Paciente (String n, String d) {
+		this.nomePac = n;
+		this.doenca = d;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public String getNomePac() {
+		return nomePac;
+	}
+
+	public void setNomePac(String nomePac) {
+		this.nomePac = nomePac;
 	}
 
 	public String getDoenca() {

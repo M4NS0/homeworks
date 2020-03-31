@@ -2,7 +2,6 @@
 public class Instrutor {
 	private String nomeInstrutor;
 
-
 	public String getNomeInstrutor() {
 		return nomeInstrutor;
 	}
@@ -10,6 +9,6 @@ public class Instrutor {
 	public void setNomeInstrutor(String nomeInstrutor) {
 		this.nomeInstrutor = nomeInstrutor;
 	}
-
+	
 	
 }
