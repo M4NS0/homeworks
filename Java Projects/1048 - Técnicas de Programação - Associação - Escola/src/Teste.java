@@ -5,9 +5,12 @@ public class Teste {
 	static Scanner leia = new Scanner(System.in);
 
 	public static String Escolha() {
-		System.out.println("\n --------------------------------------- \n" + " Imprimir lista de alunos (J)ava\n"
-				+ " Imprimir lista de alunos (A)ndroid\n" + " Imprimir a lista (T)oda\n" + " Para (S)air\n"
-				+ " Escolha J, A, T ou S:\n" + " ---------------------------------------\n");
+		System.out.println("\n --------------------------------------- \n" 
+						+ " Imprimir lista de alunos (J)ava\n"
+						+ " Imprimir lista de alunos (A)ndroid\n" 
+						+ " Imprimir a lista (T)oda\n" 
+						+ " Para (S)air\n"
+						+ " Escolha J, A, T ou S:\n" + " ---------------------------------------\n");
 		String e = leia.next();
 		if (!e.equalsIgnoreCase("j") && !e.equalsIgnoreCase("a") && !e.equalsIgnoreCase("t") && !e.equalsIgnoreCase("s")) {
 			System.out.println("\nOpção Inválida\nEscolha J, A, T ou S:");
@@ -96,13 +99,14 @@ public class Teste {
 				System.out.println(java.getNomeCurso() + " e " + android.getNomeCurso());
 				
 				for (int i = 0; i < listaJava.size(); i++) {
-
+					
+					// imprime as duas listas retirando ocorrencias repetidas
 					if (!listaJava.get(i).getNomeAluno().equals(listaAndroid.get(i).getNomeAluno())) {
-
 						System.out.println(listaJava.get(i).getNomeAluno() + " - " + listaJava.get(i).getMatricula());
 						System.out.println(	listaAndroid.get(i).getNomeAluno() + " - " + listaAndroid.get(i).getMatricula());
 		
 					} else {
+					// imprime a listaAndroid inteira
 						System.out.println(	listaAndroid.get(i).getNomeAluno() + " - " + listaAndroid.get(i).getMatricula());
 					}
 				}
@@ -117,7 +121,6 @@ public class Teste {
 
 			}
 
-		} while (!e.equalsIgnoreCase("j") || !e.equalsIgnoreCase("a") || !e.equalsIgnoreCase("s")
-				|| !e.equalsIgnoreCase("t"));
+		} while (!e.equalsIgnoreCase("j") || !e.equalsIgnoreCase("a") || !e.equalsIgnoreCase("s")|| !e.equalsIgnoreCase("t"));
 	}
 }
