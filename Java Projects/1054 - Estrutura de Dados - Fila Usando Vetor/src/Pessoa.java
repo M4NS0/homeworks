@@ -1,6 +1,4 @@
 
-import javax.swing.JOptionPane;
-
 public class Pessoa {
 	String nome;
 	String matricula;
@@ -24,19 +22,6 @@ public class Pessoa {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-	
-	
-	public String getPessoa () {
-	
-		nome = JOptionPane.showInputDialog("\nDigite o nome: \n");
-		matricula = JOptionPane.showInputDialog("\nDigite a matrícula: \n");
-		telefone = JOptionPane.showInputDialog("\nDigite o telefone: \n" );
-		
-		String aux = nome + "\n" + matricula + "\n" + telefone + "\n";
-		
-		return aux;
-		
 	}
 	
 }
