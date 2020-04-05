@@ -4,26 +4,23 @@
  * and open the template in the editor.
  */
 
-
 /**
  *
  * @author japa
  */
 public class Alunos extends Pessoas {
-    private int matricula;
+	private int matricula;
 
-    public Alunos(int matricula, String nome, int idade) {
-        super(nome, idade);
-        this.matricula = matricula;
-    }
-    
-    
-    
-    public int getMatricula() {
-        return matricula;
-    }
+	public Alunos(int matricula, String nome, int idade) {
+		super(nome, idade);
+		this.matricula = matricula;
+	}
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
-    }
+	public int getMatricula() {
+		return matricula;
+	}
+
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}
 }
