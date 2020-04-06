@@ -5,10 +5,11 @@ public class CamaroteSuperior extends Vip{
 	protected Vip v;
 	
 	
+	
 	public CamaroteSuperior(Double valor, Double adicional, String localizacao) {
 		super(valor, adicional);
 		this.localizacao = localizacao;
-		v = new Vip(valor, adicional);
+		v = new Vip(valor, adicional); // cria novo objeto de ingresso "VIP" dentro da classe
 	}
 
 	public void imprimeCamaroteSuperior() {

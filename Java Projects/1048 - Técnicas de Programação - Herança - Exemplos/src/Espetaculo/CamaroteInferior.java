@@ -9,7 +9,7 @@ public class CamaroteInferior extends Normal {
 	public CamaroteInferior(Double valor, String localizacao) {
 		super(valor);
 		this.localizacao = localizacao;
-		v = new Normal(valor);
+		v = new Normal(valor); // cria novo objeto de ingresso "Normal" dentro da classe
 	}
 
 	public void imprimeCamaroteInferior() {
