@@ -1,4 +1,4 @@
-package imoveis;
+package Imoveis;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +58,7 @@ public class TesteImovel {
 				case "n":
 					System.out.println("Valor do Acrécimo:");
 					novo = new Novo(end, pre, leia.nextDouble());
-					novo.acrecenta();
+					novo.acrescenta();
 					imoveisNovos.add(novo.getString());
 					break;
 				}

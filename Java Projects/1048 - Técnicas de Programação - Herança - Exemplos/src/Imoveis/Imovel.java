@@ -1,7 +1,7 @@
-package imoveis;
+package Imoveis;
 
 public class Imovel {
-	private String endereco;
+	protected String endereco;
 	protected Double preco;
 	
 	public Imovel (String endereco, Double preco) {
@@ -23,10 +23,6 @@ public class Imovel {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
-	}
-	
-	public void imprimeImóvel() {
-		
 	}
 	
 }

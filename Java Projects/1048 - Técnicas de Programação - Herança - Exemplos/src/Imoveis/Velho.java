@@ -1,4 +1,4 @@
-package imoveis;
+package Imoveis;
 
 public class Velho extends Imovel {
 	private Double desconto;

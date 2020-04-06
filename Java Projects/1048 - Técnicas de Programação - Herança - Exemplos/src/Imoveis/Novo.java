@@ -1,4 +1,4 @@
-package imoveis;
+package Imoveis;
 
 public class Novo extends Imovel {
 	private Double acrecimo;
@@ -9,7 +9,7 @@ public class Novo extends Imovel {
 		this.acrecimo = acrecimo;
 	}
 	
-	public void acrecenta() {
+	public void acrescenta() {
 		precoFinal = preco + (preco * (acrecimo / 100));
 	}
 	
