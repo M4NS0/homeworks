@@ -48,7 +48,7 @@ public class Teste {
 			switch (n) {
 			case "a":
 				novo = adicionaItem();
-				lista.adicionaOrdenado(novo);
+				lista.adicionaFim(novo);
 				System.out.println("\n - Lista com " + lista.getTam() + " itens");
 				novo = null;
 				break;
@@ -72,6 +72,7 @@ public class Teste {
 				break;
 			case "v":
 				System.out.println("\n------Lista------\n");
+				System.out.println("Descrição" + "\tQuantidade "  + "\t Prioridade" );
 				System.out.println(lista.imprima() + "\n");
 				break;
 			case "s":

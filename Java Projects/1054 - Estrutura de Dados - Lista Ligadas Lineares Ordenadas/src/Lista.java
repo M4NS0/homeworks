@@ -38,7 +38,7 @@ public class Lista {
 		return novo;
 	}
 
-	public boolean adicionaOrdenado(Item aux) {
+	public boolean adicionaFim(Item aux) {
 		Item buscado = busca(aux);
 		if (buscado != null)
 			return false;
@@ -48,16 +48,8 @@ public class Lista {
 			tam++;
 			return true;
 		}
-		No i = inicio;
-		No ant = inicio;
-		for (; i != null && aux.getDescricao().compareTo(i.dados.getDescricao()) > 0; ant = i, i = i.prox);
-		if (i == ant) {
-			novo.prox = inicio;
-			inicio = novo;
-		} else {
-			ant.prox = novo;
-			novo.prox = i;
-		}
+		novo.prox = inicio;
+		inicio = novo;
 		tam++;
 		return true;
 	}
@@ -87,10 +79,7 @@ public class Lista {
 			aux = "Lista vazia.";
 		} else {
 			for (No i = inicio; i != null; i = i.prox) {
-				aux =  aux + "\nDescrição: " + i.dados.getDescricao() 
-						+ "\nQuantidade: " 
-						+ i.dados.getQuantidade() + "\nPrioridade: "
-						+ i.dados.getPrioridade() + "\n";
+				aux = aux + i.dados.getDescricao()+ "\t\t" + i.dados.getQuantidade() + "\t\t " + i.dados.getPrioridade() + "\n";
 			}
 		}
 		return aux;
@@ -100,11 +89,10 @@ public class Lista {
 		No i = inicio;
 		No ant = inicio;
 		for (; i != null && !velho.equalsIgnoreCase(i.dados.getDescricao()); ant = i, i = i.prox);
-		if (i == null)
-			System.out.println("Item não pode ser substituido porque não foi encontrado!");
-
+		if (i == null) System.out.println("Item não pode ser substituido porque não foi encontrado!");
+		
 		i.dados = novo;
-
+		
 		System.out.println("\n >> " + velho + " substituido por " + novo.getDescricao());
 
 	}
