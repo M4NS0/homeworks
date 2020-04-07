@@ -6,9 +6,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="FrmContatos.java"/>
-	<classpathentry kind="lib" path="FrmContatosLista.java"/>
-	<classpathentry kind="lib" path="GerArquivo.java"/>
-	<classpathentry kind="lib" path="Pessoa.java"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -42,10 +42,17 @@ public class Teste {
 			case 2:
 				System.out.println("\nInsira o número inteiro que deseja buscar no vetor: ");
 				int k = leia.nextInt();
+				
 				if (Funcao.achaNumero(v, n, k) == -1) System.out.println("Valor não encontrado na lista!");
-				else System.out.println("\nO número " + k + " foi encontrado na posição " + (Funcao.achaNumero(v, n, k) + 1));
-				System.out.println("O tempo de processamento da busca de Números embaralhados foi de: " + Funcao.finalizaTempo() + " Milisegundos");
-			
+				
+				else  {
+					Funcao.iniciaTempo();
+					System.out.println("\nO número " + k + " foi encontrado na posição " + (Funcao.achaNumero(v, n, k) + 1));
+					System.out.println("O tempo de processamento da busca de Números embaralhados foi de: " + Funcao.finalizaTempo() + " Milisegundos");
+
+				}
+				break;
+				
 			case 3:
 				Funcao.embaralha(v); // Embaralha Vetor
 				System.out.println("\nOs numeros foram embaralhados!");
