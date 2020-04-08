@@ -1,5 +1,5 @@
  
-    Name                    : Busca Binária em Vetor de Strings
+    Nome                    : Busca Binária em Vetor de Strings
     Baseado no Livro        : Estrutura de Dados e Técnicas de Programação
     Autores                 : Bianchi, Dilermando, Nakamiti, Freitas, Xastre
     Descrição               : Busca Binária em vetor de String 

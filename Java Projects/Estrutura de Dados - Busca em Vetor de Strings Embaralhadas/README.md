@@ -1,8 +1,7 @@
    
     Nome            : Busca Sequencial
-    Livro           : Estrutura de Dados e Técnicas de Programação
+    Baseado em      : Estrutura de Dados e Técnicas de Programação
     Autores         : Bianchi, Dilermando, Nakamiti, Freitas, Xastre
-    Página          : 73
-    Descrição       : Busca em vetor de números embaralhados
+    Descrição       : Busca em vetor de Strings embaralhadas
                       Algorítmo de Busca em vetor Embaralhado com tempo 
                       de processamento MAIOR que vetor Ordenado
