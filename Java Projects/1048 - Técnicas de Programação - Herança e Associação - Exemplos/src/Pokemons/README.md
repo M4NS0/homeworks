@@ -15,7 +15,7 @@
 	
 	DADOS DO POKEMON
 	
-	( ver tabela )
+	![alt text](https://drive.google.com/open?id=1b5EJ7dABnmQdns73MbuvgCoGAMHNUlUJ)
 	
 	Crie  construtores  para as  classes  PIKACHU,  RAICHU,  PONYTA e  RAPIDASH  inicializando os 
 	atributos dano, nome e pontos de vida correspondentes conforme a tabela de dados  do  pokemon 
