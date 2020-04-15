@@ -5,18 +5,18 @@ public class Teste {
 
 	public static String Escolha() {
 		String e;
-		System.out.println("\n------------------\n" 
-				+ "[I]nsere na Fila\n" 
-				+ "[E]xclui primeiro da fila\n"
-				+ "[C]onsulta Fila\n" 
+		System.out.println("\n----------------------------\n" 
+				+ "[E]nfilera\n" 
+				+ "[D]esenfilera\n"
+				+ "[C]onsulta primeiro e último elemento\n" 
 				+ "[V]isualiza Fila\n" 
-				+ "[S]air\n" + "------------------\n");
+				+ "[S]air\n" + "---------------------------\n");
 		e = leia.next();
 		return e;
 	}
 
 	public static void main(String[] args) {
-		Fila fila = new Fila();
+		FilaCircular fila = new FilaCircular();
 		Pessoa pessoa = new Pessoa();
 		fila.criaFila();
 		String e = "";
@@ -24,20 +24,27 @@ public class Teste {
 		do {
 			e = Escolha().toLowerCase();
 			switch (e) {
-			case "i":
-				System.out.printf("Insira o nome:");
+			case "e":
+				
+				System.out.print("Insira o nome:");
 				pessoa.setNome(leia.next());
-				fila.insereFila(pessoa);
+				System.out.print("Insira o matricula:");
+				pessoa.setMatricula(leia.next());
+				System.out.print("Insira o Telefone:");
+				pessoa.setTelefone(leia.next());
+				System.out.println(fila.enfilera(pessoa));
 				
 				break;
-			case "e":
-				fila.excluiFila();
+				
+			case "d":
+				fila.desenfilera();
 				System.out.println("Excluída com sucesso!");
 				break;
-			case "c":
 				
+			case "c":
 				System.out.println(fila.consultaFila());
 				break;
+				
 			case "v":
 				fila.exibeFila();
 				break;

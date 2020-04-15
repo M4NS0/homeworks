@@ -2,48 +2,40 @@ import java.util.Scanner;
 
 public class Teste {
 	static Scanner leia = new Scanner(System.in);
-	public static char Escolha() {
-		String s;
-		char ch;
-		
-		System.out.printf(	  "\n--------------------\n"
-				+ "[I]nserir\n"
-				+ "[R]emover topo\n"
-				+ "[C]onsultar\n"
-				+ "[F]im"
-				+ "\n--------------------\n");
-		s = leia.nextLine();
-		ch = s.charAt(0);
-		ch = Character.toLowerCase(ch);
-		return ch;
-	}
+
 	public static void main(String[] args) {
-		
-		char ch;
-		int erro = 0;
+		Scanner entrada = new Scanner(System.in);
+		String s;
 		PilhaVetor pilha = new PilhaVetor();
+		int valor;
+		int erro = 0;
+		char ch;
 		pilha.criaPilha();
 		do {
-			
-			ch = Escolha();
+			System.out.printf("[P]ush, P[o]p, [C]onsultar ou [F]im? ");
+			do {
+				s = entrada.nextLine();
+				ch = s.charAt(0);
+				ch = Character.toLowerCase(ch);
+			} while (ch != 'p' && ch != 'o' && ch != 'c' && ch != 'f');
 			switch (ch) {
-			case 'i':
-				System.out.printf("Item: ");
-				erro = pilha.push(leia.nextLine());
+			case 'p':
+				System.out.printf("Valor: ");
+				s = entrada.nextLine();
+				valor = Integer.parseInt(s);
+				erro = pilha.push(valor);
 				break;
-			case 'r':
+			case 'o':
 				erro = pilha.pop();
 				break;
 			case 'c':
-				pilha.exibePilha();
-				//erro = pilha.consultaPilha();
+				erro = pilha.consultaPilha();
 				break;
 			}
-			// pilha.exibePilha();
+			pilha.exibePilha();
 			if (erro != 0)
 				pilha.imprimeErro(erro);
 		} while (ch != 'f');
 		System.exit(0);
 	}
-
 }
