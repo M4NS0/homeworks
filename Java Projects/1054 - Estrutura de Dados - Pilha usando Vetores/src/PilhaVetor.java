@@ -1,24 +1,21 @@
-
 public class PilhaVetor {
-
 	final int SUCESSO = 0;
 	final int PILHA_CHEIA = 1;
 	final int PILHA_VAZIA = 2;
 	private final int m = 7;
 	private int topo;
-	private String[] item = new String[m];
+	private int[] elem = new int[m];
 
 	public void criaPilha() {
 		topo = -1;
-
 	}
 
-	public int push(String dado) {
+	public int push(int dado) {
 		if (topo == m - 1) {
 			return (PILHA_CHEIA);
 		} else {
 			topo = topo + 1;
-			item[topo] = dado;
+			elem[topo] = dado;
 			return (SUCESSO);
 		}
 	}
@@ -27,7 +24,7 @@ public class PilhaVetor {
 		if (topo == -1) {
 			return (PILHA_VAZIA);
 		} else {
-			System.out.println("\nRemovido: " + item[topo]);
+			System.out.println("Pop: " + elem[topo]);
 			topo = topo - 1;
 			return (SUCESSO);
 		}
@@ -37,23 +34,19 @@ public class PilhaVetor {
 		if (topo == -1) {
 			return (PILHA_VAZIA);
 		} else {
-			
-			System.out.println("Topo:\t" + item[topo]);
+			System.out.println("Pop: " + elem[topo]);
 			return (SUCESSO);
 		}
 	}
 
 	public void exibePilha() {
-		System.out.print("\nEsta Pilha contém: \n\n");
-		consultaPilha();
+		System.out.print("Pilha: ");
 		if (topo != -1) {
-			for (int i = topo -1; i >= 1; i--) {  			// -1 pois o primeiro item sera exibido pelo consulta pilha
-				System.out.print("\t" + item[i] + "\n");
-				
+			for (int i = topo; i >= 0; i--) {
+				System.out.print(elem[i] + " ");
 			}
-			System.out.println("Último:\t" + item[0]);
+			System.out.println();
 		}
-
 	}
 
 	public void imprimeErro(int erro) {
@@ -65,7 +58,5 @@ public class PilhaVetor {
 			System.out.println("ERRO: Pilha Vazia");
 			break;
 		}
-
 	}
-
 }

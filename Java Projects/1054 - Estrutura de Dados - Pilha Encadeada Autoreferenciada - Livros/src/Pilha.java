@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Pilha {
 	public class No {
 		Livro dados;
