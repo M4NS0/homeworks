@@ -24,5 +24,9 @@ public class Pessoa {
 		this.telefone = telefone;
 	}
 	
+	public String getPessoa() {
+		return " Pessoa Removida: \n Nome: " + nome + "\n Matricula: " + matricula + "\n Telefone: " + telefone;
+	}
+	
 }
 

@@ -8,7 +8,6 @@ public class Pilha {
 			prox = null;
 		}
 	}
-
 	private int tam;
 	No topo;
 
@@ -16,15 +15,12 @@ public class Pilha {
 		tam = 0;
 		topo = null;
 	}
-
 	public int getTam() {
 		return tam;
 	}
-
 	public boolean vazia() {
 		return (topo == null);
 	}
-
 	public void push(Livro aux) {
 		No novo = new No(aux);
 		if (vazia()) {
@@ -36,7 +32,6 @@ public class Pilha {
 			tam++;
 		}
 	}
-
 	public Livro pop() {
 		if (!vazia()) {
 			Livro aux = topo.dados;
@@ -46,9 +41,7 @@ public class Pilha {
 		}
 		return null;
 	}
-
 	public String imprime() {
 		return null;
-		
 	}
 }
