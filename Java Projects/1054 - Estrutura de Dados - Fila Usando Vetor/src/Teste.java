@@ -5,54 +5,59 @@ public class Teste {
 
 	public static String Escolha() {
 		String e;
-		System.out.println("\n----------------------------\n" 
-				+ "[E]nfilera\n" 
-				+ "[D]esenfilera\n"
-				+ "[C]onsulta primeiro e último elemento\n" 
-				+ "[V]isualiza Fila\n" 
-				+ "[S]air\n" + "---------------------------\n");
+		System.out.print("\n----------------------------\n" 
+				+ " [C]onfigurar o tamanho da fila\n" 
+				+ " [E]nfilera\n"
+				+ " [D]esenfilera\n"
+				// + " [V]isualizar primeiro e último elemento\n"
+				+ " [I]mprime Fila\n"
+				// + " [A]paga\n"
+				+ " [S]air\n" + "---------------------------\n"
+				+ "\n\n Escolha: ");
+		
 		e = leia.next();
 		return e;
 	}
 
 	public static void main(String[] args) {
-		FilaCircular fila = new FilaCircular();
-		Pessoa pessoa = new Pessoa();
-		fila.criaFila();
+		Fila fila = new Fila();
+		Pessoa nova = null;
 		String e = "";
 
 		do {
 			e = Escolha().toLowerCase();
 			switch (e) {
-			case "e":
-				
-				System.out.print("Insira o nome:");
-				pessoa.setNome(leia.next());
-				System.out.print("Insira o matricula:");
-				pessoa.setMatricula(leia.next());
-				System.out.print("Insira o Telefone:");
-				pessoa.setTelefone(leia.next());
-				System.out.println(fila.enfilera(pessoa));
-				
-				break;
-				
-			case "d":
-				fila.desenfilera();
-				System.out.println("Excluída com sucesso!");
-				break;
-				
 			case "c":
-				System.out.println(fila.consultaFila());
+				System.out.print(" Digite o tamanho da fila:");
+				fila.setTamanho(leia.nextInt());
 				break;
+			case "e":
+				nova = new Pessoa();
+				System.out.print(" Digite o nome:");
+				nova.setNome(leia.next());
 				
-			case "v":
-				fila.exibeFila();
+				//System.out.print("Digite a matricula:"); nova.setNome(leia.next());
+				//System.out.print("Digite o telefone:"); nova.setNome(leia.next());
+				
+				if (fila.enfileirar(nova) == true)
+					System.out.println(" Pessoa incluida na fila");
+				else {
+					System.out.println(" Pessoa não foi incluida, lista cheia");
+				}
 				break;
-				
+			case "d":
+				if ((nova = fila.desenfileirar()) == null)
+					System.out.println(" Impossível desenfileirar");
+				else {
+					System.out.println(nova.getPessoa());
+				}
+				break;
+			case "i":
+				fila.imprime();
 			}
 
-		} while (e != "s");
-		System.exit(0);
+		} while (!e.equalsIgnoreCase("c")||!e.equalsIgnoreCase("e")||!e.equalsIgnoreCase("d")||!e.equalsIgnoreCase("i")||!e.equalsIgnoreCase("s"));
+
 	}
 
 }

@@ -36,29 +36,29 @@ public class Lista {
 		Nodo anterior = null;
 		Nodo p = primeiro;
 
-		while(p != null && p.getInfo() == aux){
+		while (p != null && p.getInfo() == aux) {
 			anterior = p;
 			p = p.getProximo();
 		}
-		
-		if (p == null){
+
+		if (p == null) {
 			return;
 		}
-		
+
 		if (anterior == null) {
 			primeiro = p.getProximo();
 		} else {
 			anterior.setProximo(p.getProximo());
 		}
-		
 	}
+
 	public void free() {
 		while (primeiro != null) {
 			Nodo temp = primeiro.getProximo();
 			primeiro = null;
 			primeiro = temp;
 		}
-		
+
 	}
 
 }
