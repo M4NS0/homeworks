@@ -1,3 +1,4 @@
+package v2;
 import java.util.Scanner;
 
 public class Teste {
@@ -18,7 +19,7 @@ public class Teste {
 	}
 
 	public static void main(String[] args) {
-		Fila fila = new Fila();
+		Fifo fila = null;
 		Pessoa nova = null;
 		String e = "";
 
@@ -27,7 +28,7 @@ public class Teste {
 			switch (e) {
 			case "c":
 				System.out.print(" Digite o tamanho da fila:");
-				fila.setTamanho(leia.nextInt());
+				fila = new Fifo(leia.nextInt());
 				break;
 			case "e":
 				nova = new Pessoa();
@@ -37,18 +38,10 @@ public class Teste {
 				//System.out.print("Digite a matricula:"); nova.setNome(leia.next());
 				//System.out.print("Digite o telefone:"); nova.setNome(leia.next());
 				
-				if (fila.enfileirar(nova) == true)
-					System.out.println(" Pessoa incluida na fila");
-				else {
-					System.out.println(" Pessoa não foi incluida, lista cheia");
-				}
+				fila.enfileirar(nova);
 				break;
 			case "d":
-				if ((nova = fila.desenfileirar()) == null)
-					System.out.println(" Impossível desenfileirar");
-				else {
-					System.out.println(nova.getPessoa());
-				}
+				fila.desenfileirar();
 				break;
 			case "i":
 				fila.imprime();
