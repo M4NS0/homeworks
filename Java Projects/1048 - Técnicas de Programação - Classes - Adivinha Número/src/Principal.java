@@ -13,8 +13,10 @@ public class Principal {
 				
 
 		}
+		
 		System.out.println("O numero era: " + jogo.getNumero());
-
+		leia.close();
 	}
+	
 
 }
