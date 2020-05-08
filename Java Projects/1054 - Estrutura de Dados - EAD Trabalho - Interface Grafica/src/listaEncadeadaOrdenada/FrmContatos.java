@@ -92,9 +92,11 @@ public class FrmContatos extends JFrame {
 				} else {
 					String mens = alterarPessoa();
 					JOptionPane.showMessageDialog(null, mens);
-					setVisible(false);
+					
 				}
-
+				dispose();
+				FrmContatosLista frm = new FrmContatosLista();
+				frm.setVisible(true);
 			}
 		});
 		btnGravar.setBounds(66, 113, 89, 23);
