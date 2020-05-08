@@ -3,10 +3,10 @@ package listaDuplamenteEncadeadaOrdenada;
 public class Lista {
 
 	public class No {
-		private Item dados;
+		private Pessoa dados;
 		private No prox;
 
-		public No(Item aux) {
+		public No(Pessoa aux) {
 			dados = aux;
 			prox = null;
 		}
@@ -28,21 +28,21 @@ public class Lista {
 		return tam;
 	}
 
-	public Item busca(Item aux) {
+	public Pessoa busca(Pessoa aux) {
 		if (vazia())
 			return null;
 		No i = null;
-		for (i = inicio; i != null && !aux.getDescricao().equals(i.dados.getDescricao()); i = i.prox)
+		for (i = inicio; i != null && !aux.getNome().equals(i.dados.getNome()); i = i.prox)
 			;
 		if (i == null) {
 			return null;
 		}
-		Item novo = new Item(i.dados.getDescricao(), i.dados.getQuantidade(), i.dados.getPrioridade());
+		Pessoa novo = new Pessoa(i.dados.getNome(), i.dados.getTelefone(), i.dados.getEndereco());
 		return novo;
 	}
 
-	public boolean adicionaOrdenado(Item aux) {
-		Item buscado = busca(aux);
+	public boolean adicionaOrdenado(Pessoa aux) {
+		Pessoa buscado = busca(aux);
 		if (buscado != null)
 			return false;
 		No novo = new No(aux);
@@ -53,7 +53,7 @@ public class Lista {
 		}
 		No i = inicio;
 		No ant = inicio;
-		for (; i != null && aux.getDescricao().compareTo(i.dados.getDescricao()) > 0; ant = i, i = i.prox)
+		for (; i != null && aux.getNome().compareTo(i.dados.getNome()) > 0; ant = i, i = i.prox)
 			;
 		if (i == ant) {
 			novo.prox = inicio;
@@ -66,7 +66,7 @@ public class Lista {
 		return true;
 	}
 
-	public Item retira(Item aux) {
+	public Pessoa retira(Pessoa aux) {
 
 		if (vazia())
 			return null;
@@ -74,14 +74,14 @@ public class Lista {
 		No i = inicio;
 		No ant = inicio;
 
-		for (; i != null && !aux.getDescricao().equals(i.dados.getDescricao()); ant = i, i = i.prox)
+		for (; i != null && !aux.getNome().equals(i.dados.getNome()); ant = i, i = i.prox)
 			;
 
 		if (i == null) {
 			return null;
 		}
 
-		Item novo = i.dados;
+		Pessoa novo = i.dados;
 
 		if (i == ant) {
 			inicio = inicio.prox;
@@ -108,7 +108,20 @@ public class Lista {
 			}
 		}
 
-		return aux;
+		return aux.toString();
 	}
 
+	public String imprimaInv() {
+		String[] aux = imprima().split("\n");
+		String reverso = "";
+
+		for (int i = 0; i < aux.length; i++) {
+			if (i == aux.length - 1)
+				reverso = aux[i] + reverso;
+			else
+				reverso = "\n" + aux[i] + reverso;
+		}
+		return reverso;
+
+	}
 }

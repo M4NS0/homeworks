@@ -169,8 +169,8 @@ DELETE FROM "CLIENTE" WHERE "Cpf-cliente" = 5678;
 -- DELETE FROM "PRODUTO" 
 -- Deleta todo conteudo da tabela
 
-DELETE FROM "ITEM-PEDIDO" WHERE "cod-prod" = 2;
-DELETE FROM "PRODUTO" WHERE "Cod-produto" = 2;
+-- DELETE FROM "ITEM-PEDIDO" WHERE "cod-prod" = 2;
+-- DELETE FROM "PRODUTO" WHERE "Cod-produto" = 2;
 
 /* Extra */ 
 
@@ -227,3 +227,43 @@ SELECT * FROM "VENDEDOR" WHERE "Nome-vend" LIKE '%end%' OR "Nome-vend" LIKE '%o'
 SELECT "Nome-vend", "Tx-comissao" FROM "VENDEDOR" WHERE NOT "Nome-vend" LIKE '%2' AND "Tx-comissao" > 2;
 SELECT "Nome-vend", "Tx-comissao" FROM "VENDEDOR" WHERE NOT "Tx-comissao" > 2 AND  "Tx-comissao" < 16;
 SELECT "Nome-vend", "Tx-comissao" FROM "VENDEDOR" WHERE "Tx-comissao" > 2 AND  "Tx-comissao" < 16;
+
+-- Listar numero do pedido, o codigo do produto e a quantidade pedida dos itens de um pedido
+-- onde a quantidade pedida seja igual a 2
+
+SELECT "Num-ped", "cod-prod", "Qtde-item-ped" FROM "ITEM-PEDIDO"
+	WHERE "Qtde-item-ped" >2;
+
+-- Quais são os produtos que tem unidade igual a 'KG' e valor unitario maior q 2,00R$
+
+SELECT * FROM "PRODUTO";
+
+SELECT "Cod-produto", "Desc-produto" FROM "PRODUTO" 
+	WHERE "Unid-medida" = 'KG' AND "Val-produto" >= 2.00;
+
+-- prioridade do AND é maior do que a prioridade de OR nas operações
+
+-- Liste todos os clientes do estado de SP ou com CPF entre 2345 e 3456
+
+SELECT  * FROM "CLIENTE";
+
+SELECT "Nome-cli","Cpf-cliente" FROM "CLIENTE" 
+	WHERE "UF" = 'SP' OR "Cpf-cliente" BETWEEN 2345 AND 3456;
+	
+SELECT * FROM "CLIENTE" 
+	WHERE "UF" = 'SP' OR ("Cpf-cliente" >= 2345 AND "Cpf-cliente" <= 3456); 
+
+SELECT * FROM "ITEM-PEDIDO" WHERE "cod-prod" = 1 OR "cod-prod" = 5 OR "cod-prod" = 6 AND "Qtde-item-ped" BETWEEN 10 AND 15;
+
+SELECT * FROM "PEDIDO" WHERE "Data-pedido" < current_date - interval '60' day;
+SELECT * FROM public."PEDIDO" WHERE (DATE('07/05/2020')-DATE("PEDIDO"."Data-pedido")) > 60
+
+UPDATE "PRODUTO" SET "Val-produto" = "Val-produto" * 1.5 WHERE "Val-produto" < 10.00 AND "Val-produto" > 20.00;
+
+-- Que liste os pedidos feitos a mais de 60 dias.
+SELECT * FROM "PEDIDO" WHERE "Data-pedido" BETWEEN '2019/05/07' AND '2019/03/07';
+
+SELECT * FROM "ITEM-PEDIDO";
+
+
+
