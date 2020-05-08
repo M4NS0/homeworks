@@ -113,7 +113,7 @@ public class FrmContatosLista extends JFrame {
 		/* Inicio das Funções de Botões /*
 		
 		
-		/* Função para o botão de Inserir */
+		/* Função para o botão de Adicionar */
 		
 		JButton btnAdicionar = new JButton("Adicionar");
 		btnAdicionar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
@@ -126,7 +126,7 @@ public class FrmContatosLista extends JFrame {
 				frmCadastro.getBtnGravar().setText("Gravar");
 				frmCadastro.setVisible(true);
 				scrollPane.setVisible(false);
-				
+				dispose();
 				
 				
 			}
