@@ -1,4 +1,4 @@
-package listaDuplamenteEncadeadaOrdenada;
+package listaEncadeadaOrdenada;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,10 +30,11 @@ public class GerArquivo {
 	}
 
 
-	public static void gravarArquivo(String dados) throws IOException {
+	public static void gravarArquivo(Lista list) throws IOException {
 		FileWriter fw = new FileWriter(NOME_ARQ, false);
 		BufferedWriter bw = new BufferedWriter(fw);
-		bw.write(dados);
+		String str = list.imprima();
+		bw.write(str);
 		bw.close();
 		fw.close();
 	}

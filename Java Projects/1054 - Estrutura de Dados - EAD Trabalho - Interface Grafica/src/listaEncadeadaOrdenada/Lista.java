@@ -1,10 +1,11 @@
-package listaDuplamenteEncadeadaOrdenada;
+package listaEncadeadaOrdenada;
 
 public class Lista {
 
 	public class No {
 		private Pessoa dados;
 		private No prox;
+		
 
 		public No(Pessoa aux) {
 			dados = aux;
@@ -14,6 +15,7 @@ public class Lista {
 
 	private int tam;
 	private No inicio;
+	private int index;
 
 	public Lista() {
 		tam = 0;
@@ -32,8 +34,8 @@ public class Lista {
 		if (vazia())
 			return null;
 		No i = null;
-		for (i = inicio; i != null && !aux.getNome().equals(i.dados.getNome()); i = i.prox)
-			;
+		for (i = inicio; i != null && !aux.getNome().equals(i.dados.getNome()); i = i.prox);
+		
 		if (i == null) {
 			return null;
 		}
@@ -67,33 +69,26 @@ public class Lista {
 	}
 
 	public Pessoa retira(Pessoa aux) {
-
 		if (vazia())
 			return null;
-
 		No i = inicio;
 		No ant = inicio;
-
-		for (; i != null && !aux.getNome().equals(i.dados.getNome()); ant = i, i = i.prox)
-			;
-
+		for (; i != null && !aux.getNome().equals(i.dados.getNome()); ant = i, i = i.prox);
 		if (i == null) {
 			return null;
 		}
-
 		Pessoa novo = i.dados;
-
 		if (i == ant) {
 			inicio = inicio.prox;
 		}
-
 		else {
 			ant.prox = i.prox;
 		}
-
 		tam--;
 		return novo;
 	}
+
+	
 
 	public String imprima() {
 		String aux = new String("");
@@ -107,7 +102,7 @@ public class Lista {
 				aux = aux + i.dados.toString();
 			}
 		}
-
+ 
 		return aux.toString();
 	}
 
@@ -124,4 +119,5 @@ public class Lista {
 		return reverso;
 
 	}
+
 }

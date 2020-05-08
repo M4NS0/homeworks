@@ -1,4 +1,4 @@
-package listaDuplamenteEncadeadaOrdenada;
+package listaEncadeadaOrdenada;
 
 public class Pessoa {
 
