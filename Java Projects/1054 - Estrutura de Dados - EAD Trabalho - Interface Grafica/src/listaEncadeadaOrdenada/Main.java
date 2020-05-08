@@ -1,4 +1,4 @@
-package listaDuplamenteEncadeadaOrdenada;
+package listaEncadeadaOrdenada;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -87,7 +87,7 @@ public class Main {
 				System.out.println(lista.imprimaInv());
 				break;
 			case 6:
-				GerArquivo.gravarArquivo(lista.imprima());
+				//GerArquivo.gravarArquivo(lista.imprima());
 				System.out.println("Arquivo gravado com sucesso");
 				break;
 			case 7:
