@@ -1,4 +1,4 @@
-package backend;
+package listaDuplamenteEncadeadaOrdenada;
 
 public class Pessoa {
 
@@ -43,7 +43,7 @@ public class Pessoa {
 
 	@Override
 	public String toString() {
-		return nome + ";" + telefone + ";" + endereco;
+		return nome + "," + telefone + "," + endereco + "\n";
 	}
 
 }
