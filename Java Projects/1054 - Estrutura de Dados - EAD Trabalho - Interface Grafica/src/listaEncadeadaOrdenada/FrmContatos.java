@@ -16,13 +16,14 @@ import java.awt.Font;
 
 public class FrmContatos extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField txtNome;
 	private JTextField txtFone;
 
 	private JTextField txtEndereco;
 	private JButton btnGravar;
-	int indice;
+	private int indice;
 
 	private ArrayList<Pessoa> lista;
 
@@ -115,7 +116,9 @@ public class FrmContatos extends JFrame {
 
 		
 	}
-                                                                /* Função Inserir */
+    
+	
+	/* Função Inserir */
 	
 	public String inserirPessoa() {                   // Chamada pelo Método do Botão Gravar
 		Lista list = new Lista();                     // Cria Objeto da Classe Lista ( Encadeada )
@@ -140,24 +143,30 @@ public class FrmContatos extends JFrame {
 		
 	}
 	
-
+    
+	/* Função de Alteração de Pessoas cadastradas */
+	
 	public String alterarPessoa() {
 		try {
-			Lista list = new Lista();
-			Pessoa p = lista.get(indice);
+			Lista list = new Lista();                // Cria Objeto da Classe Lista ( Encadeada )
+			Pessoa p = lista.get(indice);            // Cria Objeto da Classe Pessoa
+                                                     // Adiciona 
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
 			p.setEndereco(txtEndereco.getText());
-			
+
 			list.adicionaOrdenado(p);
-			GerArquivo.gravarArquivo(list);
+			lista.add(p);
+			GerArquivo.gravarArquivo(list, true);
 			
 			return "Pessoa alterada com sucesso";
 		} catch (Exception e) {
-			return "Erro ao Alterar! Favor digitar apenas n�meros na matr�cula!";
+			return "Erro ao Alterar! Favor digitar apenas números na matrícula!";
 		}
 	}
-	                                                            /* Função de Limpar Campos */
+
+
+	/* Função de Limpar Campos */
 		                                             
 	public void limparCampos() {                       
 		txtFone.setText("()");                             
@@ -166,7 +175,9 @@ public class FrmContatos extends JFrame {
 		txtNome.requestFocus();
 	}
 	
-	                                                          /* Inicio dos Getter and Setters */
+
+
+	/* Getters e Setters */
 	
 	public JButton getBtnGravar() {
 		return btnGravar;

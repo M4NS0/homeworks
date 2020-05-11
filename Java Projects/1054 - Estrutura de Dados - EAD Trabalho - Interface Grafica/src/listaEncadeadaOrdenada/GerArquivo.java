@@ -1,6 +1,5 @@
 package listaEncadeadaOrdenada;
 
-import java.awt.Container;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -19,27 +18,27 @@ public class GerArquivo {
 		FileReader fr = new FileReader(NOME_ARQ);
 		BufferedReader br = new BufferedReader(fr);
 		FrmContatosLista lista = new FrmContatosLista();
-		ArrayList<Pessoa> l = new ArrayList<Pessoa>();
+		ArrayList<Pessoa> arrayPessoas = new ArrayList<Pessoa>();
 
 		while (br.ready()) {
-			String linha = br.readLine(); // leu linha
-			String dados[] = linha.split(","); // dividiu por ','
-			Pessoa p = new Pessoa(dados[0], dados[1], (dados[2])); // inseriu novo objeto pessoa com os resp dados
-			list.adicionaOrdenado(p);
-			l.add(p);
+			String linha = br.readLine();                          // Lê linha
+			String dados[] = linha.split(",");                     // Divide por ','
+			Pessoa p = new Pessoa(dados[0], dados[1], (dados[2])); // Insere novo Objeto Pessoa com os dados vindos do arquivo
+			list.adicionaOrdenado(p);                              // Adiciona Objeto Pessoa na Lista ( encadeada )
+			arrayPessoas.add(p);                                   // Adiciona Objeto Pessoa em um ArrayList pada ppular a JTable
 			
 			}
-		System.out.println(list.imprima());
-		lista.setLista(l);
+		// System.out.println(list.imprima());                     // Debug
+		lista.setLista(arrayPessoas);                              // Popula JTable com ArrayList
 		br.close();
 		fr.close();
 	}
 
 	public static void gravarArquivo(Lista list, boolean manterArq) throws IOException {
-		FileWriter fw = new FileWriter(NOME_ARQ, manterArq);
-		BufferedWriter bw = new BufferedWriter(fw);
-		String aux = list.imprima();
-		bw.write(aux);
+		FileWriter fw = new FileWriter(NOME_ARQ, manterArq);       // Pega arquivo por nome e decide se vai sobrepor o arquivo ou adicionar
+		BufferedWriter bw = new BufferedWriter(fw);                
+		String aux = list.imprima();                               // Pega todos os dados em Lista ligada e transforma em uma String
+		bw.write(aux);                                             // Escreve a String de dados no arquivo
 		bw.close();
 		fw.close();
 	}
@@ -47,8 +46,8 @@ public class GerArquivo {
 	public static void gravarArquivo(Lista list) throws IOException {
 		FileWriter fw = new FileWriter(NOME_ARQ, false);
 		BufferedWriter bw = new BufferedWriter(fw);
-		String str = list.imprima();
-		bw.write(str);
+		String str = list.imprima();                               // Pega todos os dados em Lista ligada e transforma em uma String
+		bw.write(str);                                             // Escreve a String de dados no arquivo
 		bw.close();
 		fw.close();
 	}
