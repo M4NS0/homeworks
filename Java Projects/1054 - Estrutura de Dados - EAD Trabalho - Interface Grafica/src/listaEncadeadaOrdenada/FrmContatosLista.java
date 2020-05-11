@@ -70,7 +70,8 @@ public class FrmContatosLista extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-
+		setLocationRelativeTo(null);
+		
 		JPanel painel = new JPanel();
 		contentPane.add(painel, BorderLayout.CENTER);
 		painel.setLayout(new BorderLayout(0, 0));
@@ -120,45 +121,33 @@ public class FrmContatosLista extends JFrame {
 
 		/* Função para o botão de Alterar */
 		
-		JButton btnAlterar = new JButton("Alterar");
+		JButton btnAlterar = new JButton("Editar");               // Janela 1
 		btnAlterar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollPane.setVisible(false);                     // Desliga o painel principal
 				dispose();
-				
-				Lista list = new Lista();                         // Cria Objeto do Tipo Lista ( Encadeada )	
 				FrmContatos frmCadastro = new FrmContatos(lista); // Cria Objeto do Tipo FrmContatos estanciando com um ArrayList já criado
-				FrmContatosLista c = new FrmContatosLista();      // Cria um objeto dessa própria Classe
 				int indice = table.getSelectedRow();              // Ao clicar em um nome, pega a posição e guarda na variável índice
 				
 				if (indice >= 0) {                                // Se o indice for maior ou igual a zero, faça:
 					
 					
 					//frmCadastro.getBtnGravar().setText("Alterar");
-					
-					
-					// rever código
-					
-					Pessoa p = lista.get(indice);
-					String aux = p.getNome();
-					
-					Pessoa edit = new Pessoa();
-					edit.setNome(aux);
-					
+										
+					Pessoa p = lista.get(indice);					
 					
 					frmCadastro.getTxtNome().setText(p.getNome());
-					frmCadastro.getTxtMatricula().setText(String.valueOf(p.getEndereco()));
+					frmCadastro.getTxtMatricula().setText(p.getEndereco());
 					frmCadastro.getTxtFone().setText(p.getTelefone());
-					//frmCadastro.setIndice(indice);
-					
-					lista.add(p);
-					list.adicionaOrdenado(p);
-					list.retira(edit);
+					frmCadastro.setIndice(indice);
+				
 					frmCadastro.setVisible(true);
-					preecherDataTable(true);
+					//preecherDataTable(true);
+					
 				} else {
 					JOptionPane.showMessageDialog(null, "Selecione uma pessoa na tabela");
+					FrmContatosLista c = new FrmContatosLista();
 					c.setVisible(true);
 					
 				}
@@ -171,20 +160,32 @@ public class FrmContatosLista extends JFrame {
 		/* Função para o botão de Excluir */ 
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
+		btnExcluir.setFont(new Font("Dialog", Font.PLAIN, 12));
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				int index = table.getSelectedRow();
-				String nome = table.getValueAt(index, 0).toString();
-				Pessoa removerPessoa = new Pessoa();
-				Lista list = new Lista();
-				
-				
-				removerPessoa.setNome(nome);
-				list.retira(removerPessoa);
-				preecherDataTable(true);
-
+				scrollPane.setVisible(false);                     // Desliga o painel principal
+				dispose();
+				int indice = table.getSelectedRow();
+				if (indice >= 0) {
+					Pessoa aux = new Pessoa();
+					System.out.println(lista.get(indice).getNome());
+					aux.setNome(lista.get(indice).getNome());
+					aux.setTelefone(lista.get(indice).getTelefone());
+					aux.setEndereco(lista.get(indice).getEndereco());
+					
+					list.retira(aux);
+					lista.remove(indice);
+					
+					
+					try {
+						
+						GerArquivo.gravarArquivo(list);
+					} catch (IOException e) {
+						JOptionPane.showMessageDialog(null, "Falha ao gravar os dados da agenda!");
+					}
+					FrmContatosLista c = new FrmContatosLista();
+					c.setVisible(true);
+				}
 			}
 		});
 		panel.add(btnExcluir);

@@ -44,6 +44,7 @@ public class FrmContatos extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
@@ -121,7 +122,6 @@ public class FrmContatos extends JFrame {
 		Pessoa p = new Pessoa();                      // Cria Objeto da Classe Pessoa
 	
 		try {                                         // Inicio do tratamento de excessão
-			
 			                                          // Inserindo no Objeto do tipo Pessoa
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
@@ -143,20 +143,19 @@ public class FrmContatos extends JFrame {
 
 	public String alterarPessoa() {
 		try {
-			
-            /*
+			Lista list = new Lista();
 			Pessoa p = lista.get(indice);
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
-			p.setMatricula(Integer.parseInt(txtEndereco.getText()));
-			GerArquivo.gravarArquivo(lista);
-			return "Pessoa alterada com sucesso";
-			*/
+			p.setEndereco(txtEndereco.getText());
 			
+			list.adicionaOrdenado(p);
+			GerArquivo.gravarArquivo(list);
+			
+			return "Pessoa alterada com sucesso";
 		} catch (Exception e) {
 			return "Erro ao Alterar! Favor digitar apenas n�meros na matr�cula!";
 		}
-		return null;
 	}
 	                                                            /* Função de Limpar Campos */
 		                                             
