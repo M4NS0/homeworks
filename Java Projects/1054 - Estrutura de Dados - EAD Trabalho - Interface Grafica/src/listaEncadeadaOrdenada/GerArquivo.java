@@ -35,10 +35,10 @@ public class GerArquivo {
 		fr.close();
 	}
 
-	public static void gravarArquivo(Lista lista, boolean manterArq) throws IOException {
+	public static void gravarArquivo(Lista list, boolean manterArq) throws IOException {
 		FileWriter fw = new FileWriter(NOME_ARQ, manterArq);
 		BufferedWriter bw = new BufferedWriter(fw);
-		String aux = lista.imprima();
+		String aux = list.imprima();
 		bw.write(aux);
 		bw.close();
 		fw.close();

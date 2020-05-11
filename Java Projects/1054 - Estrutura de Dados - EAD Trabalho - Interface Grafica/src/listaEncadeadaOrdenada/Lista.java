@@ -92,16 +92,17 @@ public class Lista {
 
 	public String imprima() {
 		String aux = new String("");
-
+		/*
 		if (vazia()) {
 			aux = "Lista vazia.";
 		}
-
+		
 		else {
+		*/
 			for (No i = inicio; i != null; i = i.prox) {
 				aux = aux + i.dados.toString();
 			}
-		}
+		//}
  
 		return aux.toString();
 	}

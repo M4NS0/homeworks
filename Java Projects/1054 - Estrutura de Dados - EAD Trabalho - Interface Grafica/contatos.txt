@@ -1,11 +1,12 @@
+Alinochka,+44(33) 435345,Bellarus
 Bruno,5498762,Rua J 10
+Catiushka,+88 (75) 2903483,Saint Petersburg
 Dimitri,5734573,Rua Chernobyl
 Micha,54634563,Rua Chernobyl
 Nilson Nelson,45234523,Rua J 10
+Petrov,+77(51)439857,Stalingrado
+Ruslam,+88(55)48957938,Minsk
+Svetlana,+88(77)48753987,Croatia
 Theodora,94083,Rua J 10
 Toicinho,4563456,Rua J 10
-Ruslam,+88(55)48957938,Minsk
-Micha,+88(10)89475983,Bellarus
-Svetlana,+88(77)48753987,Croatia
-Nilson Nelso,+ 55(62) 8547234,Rua J 10
-Catiushka,+88 (75) 2903483,Saint Petersburg
+Yuri,+88(44)89435298,Volvogrado
