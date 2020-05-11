@@ -2,32 +2,19 @@ package listaEncadeadaOrdenada;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.TableModelEvent;
-
 import java.awt.GridLayout;
-import javax.swing.JTextField;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.Font;
-import java.awt.Frame;
-
-import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -119,9 +106,7 @@ public class FrmContatosLista extends JFrame {
 		btnAdicionar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				
+
 				FrmContatos frmCadastro = new FrmContatos(lista);
 				frmCadastro.getBtnGravar().setText("Gravar");
 				frmCadastro.setVisible(true);
@@ -139,20 +124,43 @@ public class FrmContatosLista extends JFrame {
 		btnAlterar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				int indice = table.getSelectedRow();
-				if (indice >= 0) {
-					FrmContatos frmCadastro = new FrmContatos(lista);
-					frmCadastro.getBtnGravar().setText("Alterar");
-
+				scrollPane.setVisible(false);                     // Desliga o painel principal
+				dispose();
+				
+				Lista list = new Lista();                         // Cria Objeto do Tipo Lista ( Encadeada )	
+				FrmContatos frmCadastro = new FrmContatos(lista); // Cria Objeto do Tipo FrmContatos estanciando com um ArrayList já criado
+				FrmContatosLista c = new FrmContatosLista();      // Cria um objeto dessa própria Classe
+				int indice = table.getSelectedRow();              // Ao clicar em um nome, pega a posição e guarda na variável índice
+				
+				if (indice >= 0) {                                // Se o indice for maior ou igual a zero, faça:
+					
+					
+					//frmCadastro.getBtnGravar().setText("Alterar");
+					
+					
+					// rever código
+					
 					Pessoa p = lista.get(indice);
-
+					String aux = p.getNome();
+					
+					Pessoa edit = new Pessoa();
+					edit.setNome(aux);
+					
+					
 					frmCadastro.getTxtNome().setText(p.getNome());
 					frmCadastro.getTxtMatricula().setText(String.valueOf(p.getEndereco()));
 					frmCadastro.getTxtFone().setText(p.getTelefone());
-					frmCadastro.setIndice(indice);
-
+					//frmCadastro.setIndice(indice);
+					
+					lista.add(p);
+					list.adicionaOrdenado(p);
+					list.retira(edit);
 					frmCadastro.setVisible(true);
+					preecherDataTable(true);
+				} else {
+					JOptionPane.showMessageDialog(null, "Selecione uma pessoa na tabela");
+					c.setVisible(true);
+					
 				}
 
 			}
@@ -166,9 +174,16 @@ public class FrmContatosLista extends JFrame {
 		btnExcluir.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				int index = table.getSelectedRow();
-
-				String value = table.getValueAt(index, 1).toString();
+				String nome = table.getValueAt(index, 0).toString();
+				Pessoa removerPessoa = new Pessoa();
+				Lista list = new Lista();
+				
+				
+				removerPessoa.setNome(nome);
+				list.retira(removerPessoa);
+				preecherDataTable(true);
 
 			}
 		});
