@@ -4,21 +4,19 @@ public class Lista {
 
 	public class No {
 		private Pessoa dados;
-		private No prox;
-		
+		private No proximo;
 
 		public No(Pessoa aux) {
 			dados = aux;
-			prox = null;
+			proximo = null;
 		}
 	}
 
-	private int tam;
+	private int tamanho;
 	private No inicio;
-	private int index;
 
 	public Lista() {
-		tam = 0;
+		tamanho = 0;
 		inicio = null;
 	}
 
@@ -27,15 +25,16 @@ public class Lista {
 	}
 
 	public int getTam() {
-		return tam;
+		return tamanho;
 	}
 
 	public Pessoa busca(Pessoa aux) {
 		if (vazia())
 			return null;
 		No i = null;
-		for (i = inicio; i != null && !aux.getNome().equals(i.dados.getNome()); i = i.prox);
-		
+		for (i = inicio; i != null && !aux.getNome().equals(i.dados.getNome()); i = i.proximo)
+			;
+
 		if (i == null) {
 			return null;
 		}
@@ -50,21 +49,21 @@ public class Lista {
 		No novo = new No(aux);
 		if (vazia()) {
 			inicio = novo;
-			tam++;
+			tamanho++;
 			return true;
 		}
 		No i = inicio;
 		No ant = inicio;
-		for (; i != null && aux.getNome().compareTo(i.dados.getNome()) > 0; ant = i, i = i.prox)
+		for (; i != null && aux.getNome().compareTo(i.dados.getNome()) > 0; ant = i, i = i.proximo)
 			;
 		if (i == ant) {
-			novo.prox = inicio;
+			novo.proximo = inicio;
 			inicio = novo;
 		} else {
-			ant.prox = novo;
-			novo.prox = i;
+			ant.proximo = novo;
+			novo.proximo = i;
 		}
-		tam++;
+		tamanho++;
 		return true;
 	}
 
@@ -73,37 +72,28 @@ public class Lista {
 			return null;
 		No i = inicio;
 		No ant = inicio;
-		for (; i != null && !aux.getNome().equals(i.dados.getNome()); ant = i, i = i.prox);
+		for (; i != null && !aux.getNome().equals(i.dados.getNome()); ant = i, i = i.proximo)
+			;
 		if (i == null) {
 			return null;
 		}
 		Pessoa novo = i.dados;
 		if (i == ant) {
-			inicio = inicio.prox;
+			inicio = inicio.proximo;
+		} else {
+			ant.proximo = i.proximo;
 		}
-		else {
-			ant.prox = i.prox;
-		}
-		tam--;
+		tamanho--;
 		return novo;
 	}
 
-	
-
 	public String imprima() {
 		String aux = new String("");
-		/*
-		if (vazia()) {
-			aux = "Lista vazia.";
+
+		for (No i = inicio; i != null; i = i.proximo) {
+			aux = aux + i.dados.toString();
 		}
-		
-		else {
-		*/
-			for (No i = inicio; i != null; i = i.prox) {
-				aux = aux + i.dados.toString();
-			}
-		//}
- 
+
 		return aux.toString();
 	}
 
