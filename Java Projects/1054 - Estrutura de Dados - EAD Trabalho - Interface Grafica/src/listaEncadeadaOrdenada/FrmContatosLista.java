@@ -5,7 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
 import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.JTable;
@@ -13,7 +12,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
@@ -42,6 +40,23 @@ public class FrmContatosLista extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		try {
+			
+			for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					javax.swing.UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (ClassNotFoundException ex) {
+			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (InstantiationException ex) {
+			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (IllegalAccessException ex) {
+			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+		}
 		EventQueue.invokeLater(new Runnable() {
 			public FrmContatosLista frame;
 
@@ -69,7 +84,7 @@ public class FrmContatosLista extends JFrame {
 				preecherDataTable(true);
 			}
 		});
-		setBounds(100, 100, 626, 500);
+		setBounds(100, 100, 700, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -77,11 +92,14 @@ public class FrmContatosLista extends JFrame {
 		setLocationRelativeTo(null);                                   // Janela no meio da tela
 		
 		
+		
 		JPanel painel = new JPanel();
 		contentPane.add(painel, BorderLayout.CENTER);
 		painel.setLayout(new BorderLayout(0, 0));
 
 		scrollPane = new JScrollPane(table = new JTable());
+		scrollPane.setFont(new Font("Ubuntu Light", Font.PLAIN, 13));
+		scrollPane.setViewportBorder(null);
 		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Nome", "Telefone", "Endereço" }) {
 			private static final long serialVersionUID = 1L;
@@ -95,7 +113,7 @@ public class FrmContatosLista extends JFrame {
 		table.getColumnModel().getColumn(1).setPreferredWidth(300);
 		table.getColumnModel().getColumn(2).setPreferredWidth(600);
 		scrollPane.setViewportView(table);
-
+		table.setAutoCreateRowSorter(true);
 		painel.add(scrollPane, BorderLayout.CENTER);
 
 		JPanel panel = new JPanel();
@@ -108,7 +126,7 @@ public class FrmContatosLista extends JFrame {
 		/* Função para o botão de Adicionar */
 		
 		JButton btnAdicionar = new JButton("Adicionar");
-		btnAdicionar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
+		btnAdicionar.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -128,7 +146,10 @@ public class FrmContatosLista extends JFrame {
 		/* Função para o botão de Alterar */
 		
 		JButton btnAlterar = new JButton("Editar");               
-		btnAlterar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
+		btnAlterar.setMinimumSize(new Dimension(100, 25));
+		btnAlterar.setMaximumSize(new Dimension(100, 25));
+		btnAlterar.setPreferredSize(new Dimension(100, 25));
+		btnAlterar.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				scrollPane.setVisible(false);                     // Desliga o Jtable
@@ -166,9 +187,10 @@ public class FrmContatosLista extends JFrame {
 		/* Função para o botão de Excluir */ 
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setMinimumSize(new Dimension(76, 25));
-		btnExcluir.setMaximumSize(new Dimension(76, 25));
-		btnExcluir.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
+		btnExcluir.setPreferredSize(new Dimension(100, 25));
+		btnExcluir.setMinimumSize(new Dimension(100, 25));
+		btnExcluir.setMaximumSize(new Dimension(100, 25));
+		btnExcluir.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				                                                     
@@ -200,10 +222,13 @@ public class FrmContatosLista extends JFrame {
 		panel.add(btnExcluir);
 
 		
-		/* Função para o botão de Sair */ 
+		/* Função para o botão de Sair e Abrir o arquivo no software default de texto  */ 
 		
 		JButton btnSair = new JButton("Sair");
-		btnSair.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
+		btnSair.setPreferredSize(new Dimension(100, 25));
+		btnSair.setMinimumSize(new Dimension(100, 25));
+		btnSair.setMaximumSize(new Dimension(100, 25));
+		btnSair.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				File file = new File(GerArquivo.getNomeArq());
