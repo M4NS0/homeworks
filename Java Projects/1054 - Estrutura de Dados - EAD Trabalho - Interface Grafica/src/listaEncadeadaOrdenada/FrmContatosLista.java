@@ -12,12 +12,16 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.FlowLayout;
+import java.awt.Dimension;
 
 public class FrmContatosLista extends JFrame {
 
@@ -65,7 +69,7 @@ public class FrmContatosLista extends JFrame {
 				preecherDataTable(true);
 			}
 		});
-		setBounds(100, 100, 500, 500);
+		setBounds(100, 100, 626, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -96,7 +100,6 @@ public class FrmContatosLista extends JFrame {
 
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.SOUTH);
-		panel.setLayout(new GridLayout(0, 4, 0, 0));
 
 		
 		
@@ -118,6 +121,7 @@ public class FrmContatosLista extends JFrame {
 				
 			}
 		});
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		panel.add(btnAdicionar);
 
 		
@@ -162,7 +166,9 @@ public class FrmContatosLista extends JFrame {
 		/* Função para o botão de Excluir */ 
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setFont(new Font("Dialog", Font.PLAIN, 12));
+		btnExcluir.setMinimumSize(new Dimension(76, 25));
+		btnExcluir.setMaximumSize(new Dimension(76, 25));
+		btnExcluir.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnExcluir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				                                                     
@@ -200,7 +206,17 @@ public class FrmContatosLista extends JFrame {
 		btnSair.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnSair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);                                       // Sai do Programa
+				File file = new File(GerArquivo.getNomeArq());
+				
+				try {
+					java.awt.Desktop.getDesktop().open(file);
+					System.exit(2);
+					
+					
+				} catch (IOException e2) {
+					JOptionPane.showMessageDialog(null, "Falha ao abrir arquivo no sistema, acesse-o via diretório raiz");
+					
+				}
 			}
 		});
 		panel.add(btnSair);

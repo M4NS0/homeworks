@@ -138,7 +138,7 @@ public class FrmContatos extends JFrame {
 			
 			GerArquivo.lerArquivo(list);			  // Carregando arquivo e adicionando a uma Lista Encadeada de Forma Ordenada
 			
-			                                          // Inserindo no Objeto do tipo Pessoa
+			                                          // Inserindo no Objeto do tipo Pessoa: 
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
 			p.setEndereco(txtEndereco.getText());
@@ -166,23 +166,22 @@ public class FrmContatos extends JFrame {
 		try {
 			
 			GerArquivo.lerArquivo(list);			 // Carregando arquivo e adicionando a uma Lista Encadeada de Forma Ordenada
-			list.retira(p);
-			lista.remove(p);
-			//System.out.println(list.imprima());
+			list.retira(p);                          // Remove Pessoa a ser editada da Lista Encadeada
+			lista.remove(p);                         // Remove Pessoa a ser editada do ArrayList
 
-		                                             // Adiciona 
+		                                             // Adiciona usando os campos editáveis:
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
 			p.setEndereco(txtEndereco.getText());
 			
-			list.adicionaOrdenado(p);
-			lista.add(p);
+			list.adicionaOrdenado(p);                // Adiciona pessoa editada na Lista Encadeada
+			lista.add(p);                            // Adiciona pessoa editada no ArrayList
 			
-			GerArquivo.gravarArquivo(list, false);
+			GerArquivo.gravarArquivo(list, false);   // Grava Arquivo novamente
 			
 			return "Pessoa alterada com sucesso";
 		} catch (Exception e) {
-			return "Erro ao Alterar! Favor digitar apenas números na matrícula!";
+			return "Erro ao Alterar!";
 		}
 	}
 
