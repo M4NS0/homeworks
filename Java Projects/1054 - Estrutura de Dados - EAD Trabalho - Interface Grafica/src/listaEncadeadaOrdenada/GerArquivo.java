@@ -54,5 +54,9 @@ public class GerArquivo {
 		fw.close();
 	}
 
+	public static String getNomeArq() {
+		return NOME_ARQ;
+	}
+
 
 }
