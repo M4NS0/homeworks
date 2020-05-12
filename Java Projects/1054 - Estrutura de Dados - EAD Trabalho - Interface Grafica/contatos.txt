@@ -4,7 +4,7 @@ Bzorak,(),Mars
 Dimitri,5734573,Rua Chernobyl
 Kalashnikov,(77)8497593,Saint Petersburg
 Katia,+88(66) 345345432,Bellarus
-Linushka,389275888888,Minsk
+Linuchka,389275888888,Minsk
 Micha,54634563,Rua Chernobyl
 Nilson Nelson,45234523,Rua J 10
 Petrov,(77)920348324,Saint Petersburg
