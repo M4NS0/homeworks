@@ -12,8 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.awt.Font;
 
 public class FrmContatos extends JFrame {
@@ -22,7 +20,6 @@ public class FrmContatos extends JFrame {
 	private JPanel contentPane;
 	private JTextField txtNome;
 	private JTextField txtFone;
-
 	private JTextField txtEndereco;
 	private JButton btnGravar;
 	private int index;
@@ -44,7 +41,7 @@ public class FrmContatos extends JFrame {
 		
 		setTitle("Agenda - Contatos");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 349, 179);
+		setBounds(100, 100, 349, 221);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -53,32 +50,35 @@ public class FrmContatos extends JFrame {
 		
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
-		lblNome.setBounds(10, 14, 66, 14);
+		lblNome.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
+		lblNome.setBounds(12, 19, 66, 14);
 		contentPane.add(lblNome);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
-		lblTelefone.setBounds(10, 42, 66, 14);
+		lblTelefone.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
+		lblTelefone.setBounds(12, 59, 66, 14);
 		contentPane.add(lblTelefone);
 		
 		JLabel lblEndereco = new JLabel("Endereço:");
-		lblEndereco.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
-		lblEndereco.setBounds(10, 68, 66, 14);
+		lblEndereco.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
+		lblEndereco.setBounds(12, 99, 66, 14);
 		contentPane.add(lblEndereco);
 		
 		txtEndereco = new JTextField();
-		txtEndereco.setBounds(86, 67, 126, 20);
+		txtEndereco.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
+		txtEndereco.setBounds(88, 92, 223, 28);
 		contentPane.add(txtEndereco);
 		txtEndereco.setColumns(10);
 
 		txtNome = new JTextField();
-		txtNome.setBounds(86, 11, 225, 20);
+		txtNome.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
+		txtNome.setBounds(88, 12, 223, 28);
 		contentPane.add(txtNome);
 		txtNome.setColumns(10);
 
 		txtFone = new JTextField();
-		txtFone.setBounds(86, 39, 126, 20);
+		txtFone.setFont(new Font("Ubuntu Light", Font.PLAIN, 14));
+		txtFone.setBounds(88, 52, 223, 28);
 		contentPane.add(txtFone);
 		txtFone.setColumns(10);
 		
@@ -93,11 +93,14 @@ public class FrmContatos extends JFrame {
 				
 			}
 		});
-		btnCancelar.setBounds(183, 113, 89, 23);
+		btnCancelar.setBounds(185, 159, 89, 23);
 		contentPane.add(btnCancelar);
-                                                          /* Inicio da Função de Gravação */
+
 		
-		                                                          /* Botão Gravar */
+		/* Inicio da Função de Gravação */
+		
+		/* Botão Gravar */
+		
 		btnGravar = new JButton("Gravar");
 		btnGravar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnGravar.addActionListener(new ActionListener() {
@@ -119,7 +122,7 @@ public class FrmContatos extends JFrame {
 				frm.setVisible(true);
 			}
 		});
-		btnGravar.setBounds(66, 113, 89, 23);
+		btnGravar.setBounds(68, 159, 89, 23);
 		contentPane.add(btnGravar);
 
 		
@@ -189,7 +192,7 @@ public class FrmContatos extends JFrame {
 	/* Função de Limpar Campos */
 		                                             
 	public void limparCampos() {                       
-		txtFone.setText("()");                             
+		txtFone.setText("(  )");                             
 		txtNome.setText("");
 		txtEndereco.setText("");
 		txtNome.requestFocus();

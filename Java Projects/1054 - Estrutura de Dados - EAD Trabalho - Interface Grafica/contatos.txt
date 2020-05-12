@@ -1,16 +1,16 @@
-Alinochka,+44(33) 435345,Bellarus
-Bruno,5498762,Rua J 10
-Bzorak,(),Mars
-Dimitri,5734573,Rua Chernobyl
-Kalashnikov,(77)8497593,Saint Petersburg
-Katia,+88(66) 345345432,Bellarus
-Linuchka,389275888888,Minsk
-Micha,54634563,Rua Chernobyl
-Nilson Nelson,45234523,Rua J 10
-Petrov,(77)920348324,Saint Petersburg
-Polloc,(66)548978,Polland
-Ruslan,+88(55)48957938,Minsk
-Svetlana,+88(77)48753987,Croatia
-Theodora,94083,Rua J 10
-Toicinho,4563456,Rua J 10
-Yuri,+88(44)89435298,Volvogrado
+Bruno,+55(62)99553-0338,Goiânia
+Bzorak,+fd:04(Rzx)32-53,Mars
+Campbell,+1(212)78383-3473,Manhattan
+Dimitri,+380(4593)573-4573,Chernobyl
+Donald Draper,+1(212)43522-3494,Manhattan
+Kalashnikov,+7(941)8499-7593,Kurya
+Katia,+375(66)345345432,Bellarus
+Linuchka,+375(17)3994-8484,Minsk
+Lothar,+fd:04(Rzh)20-40,Mars
+Micha,+380(4593)433-4543,Chernobyl
+Peggy Olsen,+1(212 )38749-3872,Manhattan
+Petrov,+7(727)9203-8324,Saint Petersburg
+Ruslan,+375(17)4895-7938,Minsk
+Svetlana,+01(047)4875-3987,Karlovac
+Theodora,+55(62)9400-9983,Goiânia
+Yuri,+7(8442)8943-5298,Volvogrado
