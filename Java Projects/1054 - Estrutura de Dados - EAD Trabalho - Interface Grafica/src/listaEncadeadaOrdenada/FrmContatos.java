@@ -12,6 +12,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.awt.Font;
 
 public class FrmContatos extends JFrame {
@@ -23,9 +25,11 @@ public class FrmContatos extends JFrame {
 
 	private JTextField txtEndereco;
 	private JButton btnGravar;
-	private int indice;
+	private int index;
 
 	private ArrayList<Pessoa> lista;
+
+	
 
 	public FrmContatos(ArrayList<Pessoa> lista) {
 		this.lista = lista;
@@ -46,6 +50,7 @@ public class FrmContatos extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setLocationRelativeTo(null);
+		
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
@@ -96,8 +101,11 @@ public class FrmContatos extends JFrame {
 		btnGravar = new JButton("Gravar");
 		btnGravar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnGravar.addActionListener(new ActionListener() {
+			
+
 			public void actionPerformed(ActionEvent arg0) {
-              
+				
+            
 				if (btnGravar.getText().equals("Gravar")) {           
 					String mens = inserirPessoa();
 					JOptionPane.showMessageDialog(null, mens);
@@ -121,10 +129,15 @@ public class FrmContatos extends JFrame {
 	/* Função Inserir */
 	
 	public String inserirPessoa() {                   // Chamada pelo Método do Botão Gravar
-		Lista list = new Lista();                     // Cria Objeto da Classe Lista ( Encadeada )
+		
+		
 		Pessoa p = new Pessoa();                      // Cria Objeto da Classe Pessoa
+		Lista list = new Lista();
 	
 		try {                                         // Inicio do tratamento de excessão
+			
+			GerArquivo.lerArquivo(list);			  // Carregando arquivo e adicionando a uma Lista Encadeada de Forma Ordenada
+			
 			                                          // Inserindo no Objeto do tipo Pessoa
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
@@ -133,7 +146,7 @@ public class FrmContatos extends JFrame {
 			list.adicionaOrdenado(p);                 // Adicionando Objeto do tipo Pessoa na Lista Ligada Ordenada
 			lista.add(p);                             // Adicionando Objeto do tipo Pessoa em um ArrayList que será usado pela JTable
 			
-			GerArquivo.gravarArquivo(list, true);     // Passa a lista Ordenada para a Classe que grava em arquivo de texto
+			GerArquivo.gravarArquivo(list, false);     // Passa a lista Ordenada para a Classe que grava em arquivo de texto
 			
 			return "Pessoa inserida com sucesso";
 			
@@ -147,16 +160,20 @@ public class FrmContatos extends JFrame {
 	/* Função de Alteração de Pessoas cadastradas */
 	
 	public String alterarPessoa() {
+		Lista list = new Lista();                // Cria Objeto da Classe Lista ( Encadeada )
+		Pessoa p = lista.get(index);             // Cria Objeto da Classe Pessoa
+		
 		try {
-			Lista list = new Lista();                // Cria Objeto da Classe Lista ( Encadeada )
-			Pessoa p = lista.get(indice);            // Cria Objeto da Classe Pessoa
-                                                     // Adiciona 
+			                                         
+			
+		                                             // Adiciona 
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
 			p.setEndereco(txtEndereco.getText());
-
+			
 			list.adicionaOrdenado(p);
 			lista.add(p);
+			
 			GerArquivo.gravarArquivo(list, true);
 			
 			return "Pessoa alterada com sucesso";
@@ -184,11 +201,11 @@ public class FrmContatos extends JFrame {
 	}
 
 	public int getIndice() {
-		return indice;
+		return index;
 	}
 
-	public void setIndice(int indice) {
-		this.indice = indice;
+	public void setIndice(int index) {
+		this.index = index;
 	}
 
 	public JTextField getTxtNome() {

@@ -13,8 +13,8 @@ public class GerArquivo {
 
 	static final String NOME_ARQ = "contatos.txt";
 	
-
-	public static void lerArquivo(Lista list) throws FileNotFoundException, IOException {
+	
+	public static Lista lerArquivo(Lista list) throws FileNotFoundException, IOException {
 		FileReader fr = new FileReader(NOME_ARQ);
 		BufferedReader br = new BufferedReader(fr);
 		FrmContatosLista lista = new FrmContatosLista();
@@ -28,10 +28,12 @@ public class GerArquivo {
 			arrayPessoas.add(p);                                   // Adiciona Objeto Pessoa em um ArrayList pada ppular a JTable
 			
 			}
+		
 		// System.out.println(list.imprima());                     // Debug
 		lista.setLista(arrayPessoas);                              // Popula JTable com ArrayList
 		br.close();
 		fr.close();
+		return list;
 	}
 
 	public static void gravarArquivo(Lista list, boolean manterArq) throws IOException {
@@ -51,5 +53,6 @@ public class GerArquivo {
 		bw.close();
 		fw.close();
 	}
+
 
 }
