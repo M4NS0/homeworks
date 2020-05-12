@@ -5,6 +5,7 @@ Dimitri,+380(4593)573-4573,Chernobyl
 Donald Draper,+1(212)43522-3494,Manhattan
 Kalashnikov,+7(941)8499-7593,Kurya
 Katia,+375(66)345345432,Bellarus
+Lilian,+55(62)8374-34787,Goiânia
 Linuchka,+375(17)3994-8484,Minsk
 Lothar,+fd:04(Rzh)20-40,Mars
 Micha,+380(4593)433-4543,Chernobyl

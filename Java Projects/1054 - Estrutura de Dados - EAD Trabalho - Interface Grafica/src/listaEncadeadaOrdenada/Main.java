@@ -87,7 +87,7 @@ public class Main {
 				System.out.println(lista.imprimaInv());
 				break;
 			case 6:
-				//GerArquivo.gravarArquivo(lista.imprima());
+				GerArquivo.gravarArquivo(lista);
 				System.out.println("Arquivo gravado com sucesso");
 				break;
 			case 7:
