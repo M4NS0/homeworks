@@ -256,7 +256,7 @@ SELECT * FROM "CLIENTE"
 SELECT * FROM "ITEM-PEDIDO" WHERE "cod-prod" = 1 OR "cod-prod" = 5 OR "cod-prod" = 6 AND "Qtde-item-ped" BETWEEN 10 AND 15;
 
 SELECT * FROM "PEDIDO" WHERE "Data-pedido" < current_date - interval '60' day;
-SELECT * FROM public."PEDIDO" WHERE (DATE('07/05/2020')-DATE("PEDIDO"."Data-pedido")) > 60
+SELECT * FROM public."PEDIDO" WHERE (DATE('07/05/2020')-DATE("PEDIDO"."Data-pedido")) > 60;
 
 UPDATE "PRODUTO" SET "Val-produto" = "Val-produto" * 1.5 WHERE "Val-produto" < 10.00 AND "Val-produto" > 20.00;
 
@@ -264,6 +264,52 @@ UPDATE "PRODUTO" SET "Val-produto" = "Val-produto" * 1.5 WHERE "Val-produto" < 1
 SELECT * FROM "PEDIDO" WHERE "Data-pedido" BETWEEN '2019/05/07' AND '2019/03/07';
 
 SELECT * FROM "ITEM-PEDIDO";
+SELECT * FROM "PRODUTO";
 
+/* Funções de Agregação -  11/05/2020 */
 
+SELECT * FROM "ITEM-PEDIDO";
+SELECT * FROM "PRODUTO";
+SELECT * FROM public."CLIENTE";
 
+-- O mais velho 
+SELECT MIN ("Data-nasc-cli") FROM "CLIENTE";
+SELECT MIN ("Data-nasc-cli") FROM "CLIENTE" WHERE "Data-nasc-cli" > ('31/12/1960');
+
+-- O mais novo
+SELECT MAX ("Data-nasc-cli") FROM "CLIENTE";
+SELECT MAX ("Data-nasc-cli") FROM "CLIENTE" WHERE "Data-nasc-cli" > ('31/12/1960');
+
+-- Numero de clientes cadastrados, quantidade de registros
+SELECT COUNT (*) FROM "CLIENTE";
+SELECT COUNT (*) FROM "CLIENTE" WHERE "Data-nasc-cli" > '01/12/1980';
+
+-- Soma quantidade de Quilos de feijão vendidos
+SELECT SUM ("Qtde-item-ped") FROM "ITEM-PEDIDO" WHERE "cod-prod" = 2;
+
+-- Média da quantidade de feijão
+SELECT AVG ("Qtde-item-ped") FROM "ITEM-PEDIDO" WHERE "cod-prod" = 2;
+
+-- Soma Quantos itens foram vendidos por produto
+SELECT "cod-prod", SUM ("Qtde-item-ped") FROM "ITEM-PEDIDO" GROUP BY "cod-prod";
+
+-- Conta Quantos itens foram vendidos por codigo produto 
+SELECT "cod-prod", COUNT ("cod-prod") FROM "ITEM-PEDIDO" GROUP BY "cod-prod";
+
+-- Média vendida por codigo produto
+SELECT "cod-prod", AVG ("Qtde-item-ped") FROM "ITEM-PEDIDO" GROUP BY "cod-prod";
+
+-- Quantidade de pedidos do mesmo codigo de pedido
+SELECT "Num-ped", COUNT ("cod-prod") FROM "ITEM-PEDIDO" GROUP BY "Num-ped";
+
+-- Quantidade de pedidos acima de 2
+SELECT "Num-ped", COUNT ("cod-prod") FROM "ITEM-PEDIDO" GROUP BY "Num-ped" HAVING COUNT("cod-prod") > 2 ;
+
+-- Soma numero de pedidos das tabelas e agrupa 
+SELECT "Num-pedido", 
+	SUM ("Qtde-item-ped" * "Val-produto")  
+	FROM 	"PEDIDO",
+			"ITEM-PEDIDO",
+			"PRODUTO"
+	WHERE "Num-ped" = "Num-pedido"	AND "cod-prod" = "Cod-produto" 
+	GROUP BY "Num-pedido"; 
