@@ -70,7 +70,8 @@ public class FrmContatosLista extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
-		setLocationRelativeTo(null);
+		setLocationRelativeTo(null);                                   // Janela no meio da tela
+		
 		
 		JPanel painel = new JPanel();
 		contentPane.add(painel, BorderLayout.CENTER);
@@ -126,8 +127,8 @@ public class FrmContatosLista extends JFrame {
 		btnAlterar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				scrollPane.setVisible(false);                     // Desliga o painel principal
-				dispose();
+				scrollPane.setVisible(false);                     // Desliga o Jtable
+				dispose();                                        // Desliga o painel principal
 				FrmContatos frmCadastro = new FrmContatos(lista); // Cria Objeto do Tipo FrmContatos estanciando com um ArrayList já criado
 				int indice = table.getSelectedRow();              // Ao clicar em um nome, pega a posição e guarda na variável índice
 				
@@ -142,6 +143,8 @@ public class FrmContatosLista extends JFrame {
 					frmCadastro.getTxtMatricula().setText(p.getEndereco());
 					frmCadastro.getTxtFone().setText(p.getTelefone());
 					frmCadastro.setIndice(indice);
+					
+
 
 					frmCadastro.setVisible(true);                // Liga o Painel de Cadastro
 					
@@ -223,8 +226,8 @@ public class FrmContatosLista extends JFrame {
 		/* inicio do preenchimento da JFrameTable */			/* 	P: 			Por quê usar um ArrayList? 				*/
 																/* 	R: Para o devido preenchimento da tabela JFrame		*/
 		
-		String[] aux = list.imprima().split("\n"); 				// converte lista encadeada ordenada para array de String e separa pessoas
-		for (int i = 0; i < aux.length; i++) {					// roda todos os elementos da lista encadeada
+		String[] aux = list.imprima().split("\n"); 				// converte lista encadeada ordenada para array de String e separa por pessoas
+		for (int i = 0; i < aux.length; i++) {					// roda todos os elementos do tamanho da lista encadeada
 			String[] temp = aux[i].split(",");					// divide cada atributo de cada pessoa por virgulas
 			Pessoa p = new Pessoa(temp[0], temp[1], temp[2]);  	// insere os atributos em um objeto tipo Pessoa
 			lista.add(p);										// adiciona as pessoas em um arrayList
