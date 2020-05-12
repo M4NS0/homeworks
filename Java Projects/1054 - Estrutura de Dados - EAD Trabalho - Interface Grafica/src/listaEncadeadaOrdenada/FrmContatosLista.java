@@ -114,6 +114,7 @@ public class FrmContatosLista extends JFrame {
 		table.getColumnModel().getColumn(2).setPreferredWidth(600);
 		scrollPane.setViewportView(table);
 		table.setAutoCreateRowSorter(true);
+		
 		painel.add(scrollPane, BorderLayout.CENTER);
 
 		JPanel panel = new JPanel();
