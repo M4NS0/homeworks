@@ -160,12 +160,16 @@ public class FrmContatos extends JFrame {
 	/* Função de Alteração de Pessoas cadastradas */
 	
 	public String alterarPessoa() {
-		Lista list = new Lista();                // Cria Objeto da Classe Lista ( Encadeada )
-		Pessoa p = lista.get(index);             // Cria Objeto da Classe Pessoa
+		Lista list = new Lista();                    // Cria Objeto da Classe Lista ( Encadeada )
+		Pessoa p = lista.get(index);                 // Cria Objeto da Classe Pessoa
 		
 		try {
-			                                         
 			
+			GerArquivo.lerArquivo(list);			 // Carregando arquivo e adicionando a uma Lista Encadeada de Forma Ordenada
+			list.retira(p);
+			lista.remove(p);
+			//System.out.println(list.imprima());
+
 		                                             // Adiciona 
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
@@ -174,7 +178,7 @@ public class FrmContatos extends JFrame {
 			list.adicionaOrdenado(p);
 			lista.add(p);
 			
-			GerArquivo.gravarArquivo(list, true);
+			GerArquivo.gravarArquivo(list, false);
 			
 			return "Pessoa alterada com sucesso";
 		} catch (Exception e) {
