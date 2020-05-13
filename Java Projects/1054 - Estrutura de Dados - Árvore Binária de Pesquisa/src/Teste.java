@@ -15,9 +15,10 @@ public class Teste {
 	}
 
 	public static String Escolha() {
-		System.out.println("----------------------");
+		System.out.println("----------------------\n");
 		System.out.println(" [I]nserir Dados");
 		System.out.println(" [P]esquisar ");
+		System.out.println(" [R]etirar");
 		System.out.println(" [S]air\n");
 		System.out.print(" Escolha: ");
 		String escolha = leia.next();
@@ -44,7 +45,14 @@ public class Teste {
 				if (aux.pesquisar(emArvore) != null) System.out.println("\n -- Valor Encontrado -- \n");
 				else System.out.println("\n -- Valor não Encontrado! -- ");
 				break;
+	
+			case "r":
+				Item aRetirar = ObterDados();
+				if (aux.vazia() == true) System.out.println("\n -- Árvore Vazia --\n");
+				if (aux.pesquisar(aRetirar) == null) System.out.println("\n -- Valor não Encontrado -- \n");
+				else System.out.println("\n Valor Removido: \n " + aux.retirar(aRetirar));
 				
+				break;
 			case "s":
 				System.exit(0);
 				
