@@ -79,28 +79,125 @@ public class Abp {
 	}
 
 	private No maximo(No obj) {
-		// implementar depois
-		return obj;
+		if (obj == null)
+			return null;
+		// é necessário usar outra referencia
+		// para não alterar a referencia passada no paramentro
+		No atual = obj;
+		// laço para encontrar o máximo
+		while (atual.fd != null) {
+			atual = atual.fd;
+		}
+		return atual; // maior valor na árvore
+
 	}
 
 	private No minimo(No obj) {
-		// implementar depois
-		return obj;
+		if (obj == null)
+			return null;
+		// é necessário usar outra referencia
+		// para não alterar a referencia passada no paramentro
+		No atual = obj;
+		while (atual.fe != null) {
+			atual = atual.fe;
+		}
+		return atual; // maior valor na árvore
 	}
 
 	private No antecessor(No obj) {
-		// implementar depois
-		return obj;
+		if (obj == null)
+			return null;
+		// Se tem filho a esquerda o antecessor é o máximo da sub-árvore da esquerda
+		if (obj.fe != null)
+			return (maximo(obj.fe));
+		// Caso contrário o antecessor pode estar nos ancestrais
+		// O antecessor pode ser o primeiro ancestral do qual o nó é filho a direita
+		// Pode não ter antecessor
+		No atual = obj.pai;
+		No ant = obj;
+		while (atual != null && ant == atual.fe) {
+			ant = atual;
+			atual = atual.pai;
+		}
+
+		// Se atual é nulo então não existe antecessor
+		// Sucessor caso seja diferente de nulo
+		return atual;
 	}
 
 	private No sucessor(No obj) {
-		// implementar depois
-		return obj;
+		if (obj == null)
+			return null;
+		// Se tem filho a direito o sucessor é o mínimo da sub-árvore da direita
+		if (obj.fd != null)
+			return (minimo(obj.fd));
+		// Caso contrário o sucessor pode estar nos ancestrais
+		// O sucessor pode ser o primeiro ancestral do qual o nó é filho a esquerda
+		// Pode não ter sucessor
+		No atual = obj.pai;
+		No ant = obj;
+		while (atual != null && ant == atual.fd) {
+			ant = atual;
+			atual = atual.pai;
+		}
+		// Se atual é nulo então não existe sucessor
+		// Sucessor caso seja diferente de nulo
+		return atual;
 	}
 
 	public Item retirar(Item obj) {
-		// implementar depois
-		return obj;
+		Item aux = null;
+		No z = consultar(obj);
+		if (z != null) {
+			aux = new Item(z.dados.getNome(), z.dados.getFone());
+			No y = null;
+			No x = null;
+			
+			// o no z tem 1 filho só ou nenhum filho
+			if (z.fd == null || z.fe == null) {
+				y = z;
+			} 
+			
+			// o no z tem dois filhos
+			else {
+				y = sucessor(z);
+			} 
+			if (y.fe != null) {
+				x = y.fe;
+			} else {
+				x = y.fd;
+			}
+			
+			// pois y tem um filho
+			if (x != null) {
+				x.pai = y.pai;
+			} 
+			
+			// y é a raiz
+			if (y.pai == null) {
+				raiz = x;
+				
+				// pois y tem um filho
+				if (x != null) {
+					x.pai = null;
+				} 
+				
+				// y não é raiz
+			} else {
+				if (y == y.pai.fe) {
+					y.pai.fe = x;
+				} else {
+					y.pai.fd = x;
+				}
+			}
+			
+			// y é o sucessor de z --> copia dados de y para z
+			if (y != z) {
+				z.dados = y.dados;
+			} 
+			tamanho--;
+		}
+		return aux;
 	}
 
 	public void visitaEmOrdem(StringBuffer aux) {
