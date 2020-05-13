@@ -1,3 +1,22 @@
+/*
+============================================================================
+
+Instituição     : Pontifícia Universidade Católica de Goiás
+Departamento    : Escola de Ciências Exatas e da Computação
+Curso           : Análise e Desenvolvimento de Sistemas
+Matéria         : Estrutura de Dados
+Professor       : José Olímpio Ferreira
+Período         : Segundo
+Avaliação       : Trabalho EAD / N2
+Título          : Agenda em Lista Encadeada e Ordenada
+Autor           : Bruno Camargo Manso
+Descrição       : Tal classe define os atributos que serão armazenados 
+                  dentro de um Objeto do tipo Pessoa. Os atributos são 
+                  do tipo String: nome, telefone e endereço.
+
+============================================================================
+*/
+
 package listaEncadeadaOrdenada;
 
 public class Pessoa {

@@ -1,3 +1,22 @@
+/*
+============================================================================
+
+Instituição     : Pontifícia Universidade Católica de Goiás
+Departamento    : Escola de Ciências Exatas e da Computação
+Curso           : Análise e Desenvolvimento de Sistemas
+Matéria         : Estrutura de Dados
+Professor       : José Olímpio Ferreira
+Período         : Segundo
+Avaliação       : Trabalho EAD / N2
+Título          : Agenda em Lista Encadeada e Ordenada
+Autor           : Bruno Camargo Manso
+Descrição       :
+
+============================================================================
+*/
+
+
+
 package listaEncadeadaOrdenada;
 
 import java.awt.BorderLayout;
@@ -31,14 +50,9 @@ public class FrmContatosLista extends JFrame {
 	}
 
 	private JTable table;
-
 	private ArrayList<Pessoa> lista = new ArrayList<Pessoa>();
 	private Lista list;
-	
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		try {
 			
@@ -57,6 +71,7 @@ public class FrmContatosLista extends JFrame {
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
 			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
+		
 		EventQueue.invokeLater(new Runnable() {
 			public FrmContatosLista frame;
 
@@ -67,7 +82,6 @@ public class FrmContatosLista extends JFrame {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			
 			}
 		});
 	}
@@ -91,8 +105,7 @@ public class FrmContatosLista extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setLocationRelativeTo(null);                                   // Janela no meio da tela
 		
-		
-		
+				
 		JPanel painel = new JPanel();
 		contentPane.add(painel, BorderLayout.CENTER);
 		painel.setLayout(new BorderLayout(0, 0));
@@ -170,10 +183,7 @@ public class FrmContatosLista extends JFrame {
 					frmCadastro.getTxtFone().setText(p.getTelefone());
 					frmCadastro.setIndice(indice);
 					
-
-
-					frmCadastro.setVisible(true);                // Liga o Painel de Cadastro
-					
+					frmCadastro.setVisible(true);                // Liga o Painel de Cadastro	
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "Selecione uma pessoa na tabela");
@@ -235,13 +245,12 @@ public class FrmContatosLista extends JFrame {
 				File file = new File(GerArquivo.getNomeArq());
 				
 				try {
-					java.awt.Desktop.getDesktop().open(file);
-					System.exit(2);
+					java.awt.Desktop.getDesktop().open(file);           // Abre o arquivo de backup no programa de texto default 
+					System.exit(2);                                     // Desliga o programa
 					
 					
 				} catch (IOException e2) {
 					JOptionPane.showMessageDialog(null, "Falha ao abrir arquivo no sistema, acesse-o via diretório raiz");
-					
 				}
 			}
 		});
@@ -298,9 +307,5 @@ public class FrmContatosLista extends JFrame {
 	public void setLista(ArrayList<Pessoa> lista) {
 		this.lista = lista;
 	}
-
-
-
-	
-
 }
+
