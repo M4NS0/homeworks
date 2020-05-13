@@ -1,3 +1,20 @@
+/*
+============================================================================
+
+Instituição     : Pontifícia Universidade Católica de Goiás
+Departamento    : Escola de Ciências Exatas e da Computação
+Curso           : Análise e Desenvolvimento de Sistemas
+Matéria         : Estrutura de Dados
+Professor       : José Olímpio Ferreira
+Período         : Segundo
+Avaliação       : Trabalho EAD / N2
+Título          : Agenda em Lista Encadeada e Ordenada
+Autor           : Bruno Camargo Manso
+Descrição       :
+
+============================================================================
+*/
+
 package listaEncadeadaOrdenada;
 
 import java.util.ArrayList;
@@ -25,9 +42,7 @@ public class FrmContatos extends JFrame {
 	private int index;
 
 	private ArrayList<Pessoa> lista;
-
 	
-
 	public FrmContatos(ArrayList<Pessoa> lista) {
 		this.lista = lista;
 		addWindowListener(new WindowAdapter() {
@@ -90,8 +105,7 @@ public class FrmContatos extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				FrmContatosLista frm = new FrmContatosLista();
-				frm.setVisible(true);
-				
+				frm.setVisible(true);	
 			}
 		});
 		btnCancelar.setBounds(185, 159, 89, 23);
@@ -105,18 +119,13 @@ public class FrmContatos extends JFrame {
 		btnGravar = new JButton("Gravar");
 		btnGravar.setFont(new Font("Ubuntu Mono", Font.PLAIN, 12));
 		btnGravar.addActionListener(new ActionListener() {
-			
-
-			public void actionPerformed(ActionEvent arg0) {
-				
-            
+			public void actionPerformed(ActionEvent arg0) {         
 				if (btnGravar.getText().equals("Gravar")) {           
 					String mens = inserirPessoa();
 					JOptionPane.showMessageDialog(null, mens);
 				} else {
 					String mens = alterarPessoa();
-					JOptionPane.showMessageDialog(null, mens);
-					
+					JOptionPane.showMessageDialog(null, mens);	
 				}
 				dispose();
 				FrmContatosLista frm = new FrmContatosLista();
@@ -157,7 +166,6 @@ public class FrmContatos extends JFrame {
 		} catch (Exception e) {                       // fim do tratamento de excessão
 			return "Erro ao Inserir! Favor digitar apenas números na matrícula!";
 		}
-		
 	}
 	
     
@@ -198,8 +206,6 @@ public class FrmContatos extends JFrame {
 		txtEndereco.setText("");
 		txtNome.requestFocus();
 	}
-	
-
 
 	/* Getters e Setters */
 	
@@ -227,3 +233,4 @@ public class FrmContatos extends JFrame {
 		return txtEndereco;
 	}
 }
+

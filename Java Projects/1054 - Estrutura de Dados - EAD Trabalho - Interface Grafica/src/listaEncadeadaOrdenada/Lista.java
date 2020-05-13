@@ -1,3 +1,24 @@
+/*
+============================================================================
+
+Instituição     : Pontifícia Universidade Católica de Goiás
+Departamento    : Escola de Ciências Exatas e da Computação
+Curso           : Análise e Desenvolvimento de Sistemas
+Matéria         : Estrutura de Dados
+Professor       : José Olímpio Ferreira
+Período         : Segundo
+Avaliação       : Trabalho EAD / N2
+Título          : Agenda em Lista Encadeada e Ordenada
+Autor           : Bruno Camargo Manso
+Descrição       : Essa classe contém o algoritmo necessário para  guardar 
+                  Objetos do tipo Pessoa de maneira ordenada. A ordenação 
+                  dependerá do método ‘Inserir’  que sempre  irá comparar 
+                  valores antes da inserção, garantindo  que  tal  pessoa 
+                  seja inserida de forma alfabeticamente correta.
+
+============================================================================
+*/
+
 package listaEncadeadaOrdenada;
 
 public class Lista {

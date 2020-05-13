@@ -1,9 +1,26 @@
+/*
+============================================================================
+
+Instituição     : Pontifícia Universidade Católica de Goiás
+Departamento    : Escola de Ciências Exatas e da Computação
+Curso           : Análise e Desenvolvimento de Sistemas
+Matéria         : Estrutura de Dados
+Professor       : José Olímpio Ferreira
+Período         : Segundo
+Avaliação       : Trabalho EAD / N2
+Título          : Agenda em Lista Encadeada e Ordenada
+Autor           : Bruno Camargo Manso
+Descrição       :
+
+============================================================================
+*/
+
 package listaEncadeadaOrdenada;
 
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Main {
+public class Teste {
 
 	static Scanner leia = new Scanner(System.in);
 
