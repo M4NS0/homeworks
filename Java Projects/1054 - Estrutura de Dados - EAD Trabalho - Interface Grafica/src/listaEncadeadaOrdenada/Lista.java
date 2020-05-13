@@ -1,7 +1,6 @@
 package listaEncadeadaOrdenada;
 
 public class Lista {
-
 	public class No {
 		private Pessoa dados;
 		private No proximo;
@@ -11,7 +10,6 @@ public class Lista {
 			proximo = null;
 		}
 	}
-
 	private int tamanho;
 	private No inicio;
 
@@ -32,9 +30,7 @@ public class Lista {
 		if (vazia())
 			return null;
 		No i = null;
-		for (i = inicio; i != null && !aux.getNome().equals(i.dados.getNome()); i = i.proximo)
-			;
-
+		for (i = inicio; i != null && !aux.getNome().equals(i.dados.getNome()); i = i.proximo);
 		if (i == null) {
 			return null;
 		}
@@ -108,7 +104,7 @@ public class Lista {
 				reverso = "\n" + aux[i] + reverso;
 		}
 		return reverso;
-
 	}
-
 }
+
+
