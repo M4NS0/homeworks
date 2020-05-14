@@ -15,7 +15,7 @@ Descrição       :
 ============================================================================
 */
 
-package listaEncadeadaOrdenada;
+package agenda;
 
 import java.io.IOException;
 import java.util.Scanner;

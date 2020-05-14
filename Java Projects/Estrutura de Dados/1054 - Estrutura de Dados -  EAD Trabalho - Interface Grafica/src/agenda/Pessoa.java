@@ -10,14 +10,14 @@ Período         : Segundo
 Avaliação       : Trabalho EAD / N2
 Título          : Agenda em Lista Encadeada e Ordenada
 Autor           : Bruno Camargo Manso
-Descrição       : Tal classe define os atributos que serão armazenados 
+Descrição       : A  classe define os  atributos que serão armazenados 
                   dentro de um Objeto do tipo Pessoa. Os atributos são 
                   do tipo String: nome, telefone e endereço.
 
 ============================================================================
 */
 
-package listaEncadeadaOrdenada;
+package agenda;
 
 public class Pessoa {
 

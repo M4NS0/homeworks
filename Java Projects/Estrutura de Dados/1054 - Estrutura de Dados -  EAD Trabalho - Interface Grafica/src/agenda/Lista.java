@@ -19,7 +19,7 @@ Descrição       : Essa classe contém o algoritmo necessário para  guardar
 ============================================================================
 */
 
-package listaEncadeadaOrdenada;
+package agenda;
 
 public class Lista {
 	public class No {

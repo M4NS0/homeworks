@@ -10,12 +10,15 @@ Período         : Segundo
 Avaliação       : Trabalho EAD / N2
 Título          : Agenda em Lista Encadeada e Ordenada
 Autor           : Bruno Camargo Manso
-Descrição       :
+Descrição       : Quando os botões de adicionar e de excluir são clicados, 
+                  uma segunda  janela  responsável  pelo  cadastro  surge. 
+                  Esta nova janela possuirá campos de preenchimento, e os 
+                  botões gravar e cancelar.
 
 ============================================================================
 */
 
-package listaEncadeadaOrdenada;
+package agenda;
 
 import java.util.ArrayList;
 import javax.swing.JFrame;
