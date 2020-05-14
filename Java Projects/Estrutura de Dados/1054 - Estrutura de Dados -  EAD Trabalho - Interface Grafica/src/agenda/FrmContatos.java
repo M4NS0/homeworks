@@ -152,9 +152,9 @@ public class FrmContatos extends JFrame {
 	
 		try {                                         // Inicio do tratamento de excessão
 			
-			GerArquivo.lerArquivo(list);			  // Carregando arquivo e adicionando a uma Lista Encadeada de Forma Ordenada
+			GerArquivo.lerArquivo(list);              // Carregando arquivo e adicionando a uma Lista Encadeada de Forma Ordenada
 			
-			                                          // Inserindo no Objeto do tipo Pessoa: 
+                                                      // Inserindo no Objeto do tipo Pessoa: 
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
 			p.setEndereco(txtEndereco.getText());
@@ -162,7 +162,7 @@ public class FrmContatos extends JFrame {
 			list.adicionaOrdenado(p);                 // Adicionando Objeto do tipo Pessoa na Lista Ligada Ordenada
 			lista.add(p);                             // Adicionando Objeto do tipo Pessoa em um ArrayList que será usado pela JTable
 			
-			GerArquivo.gravarArquivo(list, false);     // Passa a lista Ordenada para a Classe que grava em arquivo de texto
+			GerArquivo.gravarArquivo(list, false);    // Passa a lista Ordenada para a Classe que grava em arquivo de texto
 			
 			return "Pessoa inserida com sucesso";
 			
@@ -180,11 +180,11 @@ public class FrmContatos extends JFrame {
 		
 		try {
 			
-			GerArquivo.lerArquivo(list);			 // Carregando arquivo e adicionando a uma Lista Encadeada de Forma Ordenada
+			GerArquivo.lerArquivo(list);             // Carregando arquivo e adicionando a uma Lista Encadeada de Forma Ordenada
 			list.retira(p);                          // Remove Pessoa a ser editada da Lista Encadeada
 			lista.remove(p);                         // Remove Pessoa a ser editada do ArrayList
 
-		                                             // Adiciona usando os campos editáveis:
+                                                     // Adiciona usando os campos editáveis:
 			p.setNome(txtNome.getText());
 			p.setTelefone(txtFone.getText());
 			p.setEndereco(txtEndereco.getText());
