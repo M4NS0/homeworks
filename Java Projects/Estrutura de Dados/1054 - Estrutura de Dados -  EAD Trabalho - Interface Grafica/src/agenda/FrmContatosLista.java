@@ -10,14 +10,29 @@ Período         : Segundo
 Avaliação       : Trabalho EAD / N2
 Título          : Agenda em Lista Encadeada e Ordenada
 Autor           : Bruno Camargo Manso
-Descrição       :
+Descrição       : Implementa a janela principal do programa. Ao iniciar, 
+                  deverá carregar em uma tabela  (JTable)  os  dados  do 
+                  arquivo. A tabela, devidamente preenchida,  permite  a 
+                  ordenação dos elementos,  por  atributos  e  de  forma 
+                  crescente/decrescente.  Os  botões  Adicionar,  Editar, 
+                  Excluir e Sair estão contidos nessa tabela, garantindo 
+                  o devido CRUD das informações. Então para efetivar uma 
+                  deleção (ou alteração), deve-se clicar sobre  a  linha 
+                  desejada e utilizar os  botões.  Perceba  que  o  aqui 
+                  existe o uso do ArrayList somente para o preenchimento 
+                  da tabela  JFrame,  nada  mais.  O  ArrayList  servirá 
+                  apenas para popular os dados  na  tabela  (JTable).  O 
+                  código abaixo está devidamente  comentado  ressaltando 
+                  tanto   esse  último  detalhe,  quanto outros  métodos 
+                  implementados no código.
+
 
 ============================================================================
 */
 
 
 
-package listaEncadeadaOrdenada;
+package agenda;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

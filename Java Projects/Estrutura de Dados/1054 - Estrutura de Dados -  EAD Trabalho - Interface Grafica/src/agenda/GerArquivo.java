@@ -10,12 +10,17 @@ Período         : Segundo
 Avaliação       : Trabalho EAD / N2
 Título          : Agenda em Lista Encadeada e Ordenada
 Autor           : Bruno Camargo Manso
-Descrição       :
+Descrição       : Responsável por fazer ações de Ler e Salvar os dados 
+                  computados no programa em um arquivo de  texto. Isso 
+                  irá garantir que os  dados  não  se  percam  a  após 
+                  finalização do programa e que sejam lidos  assim que 
+                  o programa reinicia.
+
 
 ============================================================================
 */
 
-package listaEncadeadaOrdenada;
+package agenda;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
