@@ -313,3 +313,49 @@ SELECT "Num-pedido",
 			"PRODUTO"
 	WHERE "Num-ped" = "Num-pedido"	AND "cod-prod" = "Cod-produto" 
 	GROUP BY "Num-pedido"; 
+	
+-- Quais são os clientes que tem pedidos com prazos de entregas 
+-- superiores a 15 dias e q nao estão localizados nos estados de SP
+
+SELECT "Nome-cli", "UF", "Data-entrega-pedido", "Num-pedido" 
+	FROM "CLIENTE" c,"PEDIDO" p 								-- 'c' e 'p' são variáveis associativas alias ou apelido para 
+	WHERE c."Cpf-cliente" = p."Cpf-cli"   						-- referenciar, principalmente se os atributos tiverem nomes iguais
+	AND "Data-entrega-pedido" < (current_date - 25)
+	AND NOT "UF" = 'SP' 
+	ORDER BY  "Data-entrega-pedido" DESC;
+
+SELECT  "Nome-cli" 				as "Nome do Cliente",                         
+		"UF" 					as "Unidade Federativa",         -- renomeia o título das tabelas
+		"Data-entrega-pedido" 	as "Data da Entrega do Pedido", 
+		"Num-pedido" 			as "Numero pedido" 
+		
+		FROM "CLIENTE" c,"PEDIDO" p 								
+		WHERE c."Cpf-cliente" = p."Cpf-cli"   						
+		AND "Data-entrega-pedido" < (current_date - 25)
+		AND NOT "UF" = 'SP' 
+		ORDER BY  "Data-entrega-pedido" DESC;
+
+-- Quais pedidos de Feijão, cod 02 e suas datas de entregas
+
+SELECT 	"Nome-cli"				as	"Nome do Cliente",
+		"Num-pedido" 			as 	"Número Pedido", 
+		"Data-entrega-pedido" 	as 	"Data de Entrega",
+		"Desc-produto" 			as 	"Descrição do Produto"
+		
+FROM 	"PEDIDO", 
+		"PRODUTO", 
+		"ITEM-PEDIDO",
+		"CLIENTE"
+				
+WHERE 	"Num-pedido" 	= 	"Num-ped"
+AND 	"cod-prod" 		= 	"Cod-produto"
+AND 	"Cpf-cliente"	= 	"Cpf-cli"
+AND 	"Cod-produto"	= 	2;
+		
+		
+		
+		
+		
+		
+		
+		
