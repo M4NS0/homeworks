@@ -6,85 +6,52 @@ import java.util.Scanner;
 public class Teste {
 	public static Scanner leia = new Scanner(System.in);
 	public static ArrayList<Veiculo> lista;
-
-	public static void ObtemVeiculo(int escolha) {
-		System.out.print("\n Insira o tipo: ");
+	private static Carro carro;
+	
+	private static Veiculo ObterCarro() {
+		System.out.print(" Tipo: ");
 		String tipo = leia.next();
-		System.out.print(" Insira o motor: ");
+		System.out.print(" Motor: ");
 		String motor = leia.next();
-		System.out.print(" Insira a Kilometragem: ");
+		System.out.print(" Kms: ");
 		double km = leia.nextDouble();
+		carro = new Carro(tipo, motor, km);
+		return carro;
 		
-		do {
-			if (escolha == 1) {
-				ObtemCarro(tipo, motor, km);
-			}
-			if (escolha == 2) {
-				ObtemBarco(tipo, motor, km);
-			}
-			if (escolha == 3) {
-				ObtemBicicleta(tipo, motor, km);
-			}
-
-		} while (escolha == 1 && escolha == 2 && escolha == 3);
-
 	}
-
-	private static void ObtemBicicleta(String tipo, String motor, double km) {
-		Veiculo novo = new Bicicleta(tipo, motor, km);
-		lista.add(novo);
-
-	}
-
-	private static void ObtemBarco(String tipo, String motor, double km) {
-		Veiculo novo = new Barco(tipo, motor, km);
-		lista.add(novo);
-	}
-
-	private static void ObtemCarro(String tipo, String motor, double km) {
-		Veiculo novo = new Carro(tipo, motor, km);
-		lista.add(novo);
-
-	}
-
-	public static int Escolha2() {
-		System.out.println("\n 1. Carro ");
+	
+	public static int EscolhaVeiculo() {
+		System.out.println("\n 1. Carro");
 		System.out.println(" 2. Barco");
-		System.out.println(" 3. Bicicleta");
-		System.out.print("\nEscolha: ");
-		int e = leia.nextInt();
-		return e;
-	}
-
-	public static String Escolha() {
-		System.out.println("\n[I]nserir Veiculos ");
-		System.out.println("[V]er lista de Veiculos");
-		System.out.print("\nEscolha: ");
-		String e = leia.next();
-		return e.toLowerCase();
+		System.out.println(" 3. Bicicleta\n");
+		System.out.print(" Escolha: ");
+		int ev = leia.nextInt();
+		return ev;
 	}
 
 	public static void main(String[] args) {
-		String e1 = "";
-		do {
-			switch (e1 = Escolha()) {
-			case "i":
-				System.out.print("\n Digite quantidade de veículos que deseja cadastrar: ");
-				int quantidade = leia.nextInt();
-
-				for (int i = 0; i < quantidade; i++) {
-					System.out.println("\n 1. Carro");
-					System.out.println(" 2. Barco");
-					System.out.println(" 3. Bicicleta");
-					System.out.print("\n Escolha: ");
-					ObtemVeiculo(leia.nextInt());
-					
+		System.out.print(" Informe a quantidade de veiculos que deseja criar: ");
+		int quantidade = leia.nextInt();
+		
+		ArrayList<Veiculo> Lista = new ArrayList<Veiculo>();
+		
+		for (int i = 0; i < quantidade; i++) {
+			int ev = 0;
+			do {
+				switch (ev = EscolhaVeiculo()) {
+				
+				case 1:
+					Lista.add(ObterCarro());					
+					break;
+				
 				}
 
-				break;
-			case "v":
-				break;
-			}
-		} while (!e1.equalsIgnoreCase("d") && !e1.equalsIgnoreCase("i"));
+			} while (i == quantidade);
+			System.out.println("Imprimindo lista");
+			System.out.println(" Carros:");
+			carro.CalculaCo2();
+		}
+
 	}
+
 }
