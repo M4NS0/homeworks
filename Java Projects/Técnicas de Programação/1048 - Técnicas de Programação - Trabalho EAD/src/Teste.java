@@ -3,14 +3,14 @@ import java.util.Scanner;
 
 public class Teste {
 	public static Scanner leia = new Scanner(System.in);
-	private static double 	totalMeias;
-	private static double 	totalInteiras;
-	private static int 		contaMeias;
-	private static int 		contaInteiras;
+	public static ArrayList<String> vendidos = new ArrayList<String>();
+
+	private static double totalMeias;
+	private static double totalInteiras;
+	private static int contaMeias;
+	private static int contaInteiras;
 	public static final int MAX = 1019;
 	public static final int MIN = 1000;
-	public static ArrayList<String> vendidos = new ArrayList<String>();
-	
 
 	private static void fim() {
 		for (int j = 0; j < 100; j++) {
@@ -46,7 +46,7 @@ public class Teste {
 	private static void InteiraVendida(int i) {
 		Inteira inteira = new Inteira();
 		System.out.println();
-		System.out.println(" - " + i + " Retirado da pilha");
+		System.out.println(" - " + i + " Retirado do topo");
 		inteira.setId(i);
 		inteira.venderIngresso();
 		totalInteiras = totalInteiras + inteira.getValor();
@@ -57,7 +57,7 @@ public class Teste {
 	private static void MeiaVendida(int i) {
 		Meia meia = new Meia();
 		System.out.println();
-		System.out.println(" - " + i + " Retirado da pilha");
+		System.out.println(" - " + i + " Retirado do topo");
 		meia.setId(i);
 		meia.venderIngresso();
 		totalMeias = totalMeias + meia.getValor();
@@ -85,7 +85,7 @@ public class Teste {
 		return escolha.toLowerCase();
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		Pilha ingressos = new Pilha();
 		String e = "";
@@ -93,13 +93,16 @@ public class Teste {
 		contaInteiras = 0;
 		int i;
 		System.out.println(" -- Empilhando Ingressos -- ");
-		System.out.println("         -- TOPO -- ");
+		System.out.println("         -- FIM -- ");
+		Thread.sleep(400);
 		for (i = MIN; i <= MAX; i++) {
+			Thread.sleep(400);
 			ingressos.push(i);
 			System.out.println("          - " + i + " - ");
 			
 		}
-		System.out.println("         -- FIM -- ");
+		Thread.sleep(400);
+		System.out.println("         -- TOPO -- ");
 
 		do {
 			switch (e = menuEscolha()) {
@@ -108,16 +111,16 @@ public class Teste {
 					System.out.println(" Ingressos Esgotados!");
 					break;
 				}
-				switch ( escolhaTipo()) {
+				switch (escolhaTipo()) {
 				case "m":
-					MeiaVendida(i-1);
+					MeiaVendida(i - 1);
 					ingressos.pop();
 					contaMeias++;
 					i--;
 
 					break;
 				case "i":
-					InteiraVendida(i-1);
+					InteiraVendida(i - 1);
 					ingressos.pop();
 					contaInteiras++;
 					i--;
@@ -132,11 +135,7 @@ public class Teste {
 				break;
 			case "s":
 				fim();
-
 			}
-
 		} while (!e.equalsIgnoreCase("v") || !e.equalsIgnoreCase("i") || !e.equalsIgnoreCase("s"));
-
 	}
-
 }
