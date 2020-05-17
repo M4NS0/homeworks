@@ -93,7 +93,7 @@ public class Teste {
 		contaInteiras = 0;
 		int i;
 		System.out.println(" -- Empilhando Ingressos -- ");
-		System.out.println("         -- FIM -- ");
+		System.out.println("         -- FIM  -- ");
 		Thread.sleep(400);
 		for (i = MIN; i <= MAX; i++) {
 			Thread.sleep(400);
