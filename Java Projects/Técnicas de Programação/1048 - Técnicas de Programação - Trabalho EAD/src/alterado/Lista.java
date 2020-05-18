@@ -1,0 +1,109 @@
+package alterado;
+
+public class Lista {
+	public class No {
+		private Pessoa dados;
+		private No proximo;
+
+		public No(Pessoa aux) {
+			dados = aux;
+			proximo = null;
+		}
+	}
+	private int tamanho;
+	private No inicio;
+
+	public Lista() {
+		tamanho = 0;
+		inicio = null;
+	}
+
+	public boolean vazia() {
+		return (inicio == null);
+	}
+
+	public int getTam() {
+		return tamanho;
+	}
+
+	public Pessoa busca(Pessoa aux) {
+		if (vazia())
+			return null;
+		No i = null;
+		for (i = inicio; i != null && !aux.getNome().equals(i.dados.getNome()); i = i.proximo);
+		if (i == null) {
+			return null;
+		}
+		Pessoa novo = new Pessoa(aux.getNumero(), aux.getTipo() , aux.getValor(),aux.getNome());
+		return novo;
+	}
+
+	public boolean adicionaOrdenado(Pessoa aux) {
+		Pessoa buscado = busca(aux);
+		if (buscado != null)
+			return false;
+		No novo = new No(aux);
+		if (vazia()) {
+			inicio = novo;
+			tamanho++;
+			return true;
+		}
+		No i = inicio;
+		No ant = inicio;
+		for (; i != null && aux.getNome().compareTo(i.dados.getNome()) > 0; ant = i, i = i.proximo)
+			;
+		if (i == ant) {
+			novo.proximo = inicio;
+			inicio = novo;
+		} else {
+			ant.proximo = novo;
+			novo.proximo = i;
+		}
+		tamanho++;
+		return true;
+	}
+
+	public Pessoa retira(Pessoa aux) {
+		if (vazia())
+			return null;
+		No i = inicio;
+		No ant = inicio;
+		for (; i != null && !aux.getNome().equals(i.dados.getNome()); ant = i, i = i.proximo)
+			;
+		if (i == null) {
+			return null;
+		}
+		Pessoa novo = i.dados;
+		if (i == ant) {
+			inicio = inicio.proximo;
+		} else {
+			ant.proximo = i.proximo;
+		}
+		tamanho--;
+		return novo;
+	}
+
+	public String imprima() {
+		String aux = new String("");
+
+		for (No i = inicio; i != null; i = i.proximo) {
+			aux = aux + i.dados.toString();
+		}
+
+		return aux.toString();
+	}
+
+	public String imprimaInv() {
+		String[] aux = imprima().split("\n");
+		String reverso = "";
+
+		for (int i = 0; i < aux.length; i++) {
+			if (i == aux.length - 1)
+				reverso = aux[i] + reverso;
+			else
+				reverso = "\n" + aux[i] + reverso;
+		}
+		return reverso;
+	}
+}
+
