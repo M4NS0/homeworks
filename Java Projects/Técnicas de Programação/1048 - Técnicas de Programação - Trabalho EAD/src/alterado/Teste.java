@@ -10,8 +10,8 @@ public class Teste {
 	public static Scanner leia = new Scanner(System.in);
 	private static double totalMeias;
 	private static double totalInteiras;
-	public static int MAX = 1004;
-	public static int MIN = 1019;
+	public static int MAX = 1003;
+	public static int MIN = 1000;
 
 	private static void fim() {
 		for (int j = 0; j < 100; j++) {
@@ -93,7 +93,7 @@ public class Teste {
 
 	private static void obterPessoa(Fila pessoas) {
 		int j = 1;
-
+		
 		for (int i = MIN; i < MAX; i++) {
 			System.out.print(" Número [" + j + "] Nome:");
 			Pessoa aux = new Pessoa(leia.next());
@@ -121,14 +121,14 @@ public class Teste {
 		System.out.println("----------------------------");
 		System.out.println(" -- Empilhando Ingressos -- ");
 		System.out.println("\n       [Fim da Pilha] \n");
-		Thread.sleep(400);
+		Thread.sleep(200);
 		for (int i = MIN; i <= MAX; i++) {
-			Thread.sleep(400);
+			Thread.sleep(200);
 			ingressos.push(i);
 			System.out.println("          - " + i + " - ");
 
 		}
-		Thread.sleep(400);
+		Thread.sleep(200);
 		System.out.println("\n       [Topo da Pilha] ");
 
 	}
@@ -179,6 +179,7 @@ public class Teste {
 			case "s":
 				fim();
 			}
+			
 		} while (!e.equalsIgnoreCase("v") || !e.equalsIgnoreCase("i") || !e.equalsIgnoreCase("s"));
 	}
 
