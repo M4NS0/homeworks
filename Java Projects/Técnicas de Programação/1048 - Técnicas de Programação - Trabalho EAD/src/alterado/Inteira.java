@@ -1,3 +1,4 @@
+package alterado;
 
 public class Inteira extends Ingresso {
 	final private double valor = 20.00;

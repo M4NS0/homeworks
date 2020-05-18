@@ -1,3 +1,5 @@
+package proposto;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,10 +9,10 @@ public class Teste {
 
 	private static double totalMeias;
 	private static double totalInteiras;
-	private static int contaMeias;
-	private static int contaInteiras;
-	public static final int MAX = 1019;
-	public static final int MIN = 1000;
+	private static int contaMeias = 0;
+	private static int contaInteiras = 0;
+	public static int MAX = 1019;
+	public static int MIN = 1000;
 
 	private static void fim() {
 		for (int j = 0; j < 100; j++) {
@@ -22,46 +24,56 @@ public class Teste {
 	}
 
 	private static void imprimeLista() {
-		System.out.println("\n ---------- Vendas ----------\n");
+		System.out.println("\n -----------------------------");
+		System.out.println("  Lista de Ingressos Vendidos  ");
+		System.out.println(" -----------------------------");
+		System.out.println("    No     Tipo      Valor\n");
 		for (int j = 0; j < vendidos.size(); j++) {
 			System.out.println("   " + vendidos.get(j));
 		}
-		System.out.println("    Lucro: " + (totalInteiras + totalMeias));
-		System.out.println(" ----------------------------");
+		System.out.println("\n    Lucro: R$" + (totalInteiras + totalMeias));
+		System.out.println(" -----------------------------");
 
 	}
 
 	private static void imprimeSaldo() {
 		Meia me = new Meia();
 		Inteira in = new Inteira();
-		System.out.println("\n --------------------------------------------");
-		System.out.println("   Vendidos: " + (contaMeias + contaInteiras));
-		System.out.println(" Quantidade: " + contaMeias + " - R$" + me.getValor() + " - Total: R$" + totalMeias);
-		System.out.println(" Quantidade: " + contaInteiras + " - R$" + in.getValor() + " - Total: R$" + totalInteiras);
-		System.out.println("      Lucro: " + (totalInteiras + totalMeias));
-		System.out.println(" --------------------------------------------\n");
+		System.out.println("\n ------------------------------------");
+		System.out.println("                Extrato                 ");
+		System.out.println(" ------------------------------------");
+		System.out.println("   Qt   Valor Unit    Sub-Total\n");
+		System.out.println("   " +contaMeias + "    R$" + me.getValor() + "        R$" + totalMeias);
+		System.out.println("   " +contaInteiras + "    R$" + in.getValor() + "        R$" + totalInteiras);
+		System.out.println("\n ------------------------------------");
+		System.out.println("   Vendidos: " + (contaMeias + contaInteiras) + "        Lucro: R$" + (totalInteiras + totalMeias));
+		System.out.println(" ------------------------------------\n");
 
 	}
 
 	private static void InteiraVendida(int i) {
+		contaInteiras++;
+		MAX--;
 		Inteira inteira = new Inteira();
 		System.out.println();
 		System.out.println(" - " + i + " Retirado do topo");
 		inteira.setId(i);
 		inteira.venderIngresso();
 		totalInteiras = totalInteiras + inteira.getValor();
-		String aux = " " + i + " - " + "Inteira" + " - R$" + inteira.getValor();
+		String aux = " " + i + "   " + "Inteira" + "   R$" + inteira.getValor();
 		vendidos.add(aux);
 	}
 
 	private static void MeiaVendida(int i) {
+		contaMeias++;
+		MAX--;
 		Meia meia = new Meia();
 		System.out.println();
 		System.out.println(" - " + i + " Retirado do topo");
 		meia.setId(i);
 		meia.venderIngresso();
 		totalMeias = totalMeias + meia.getValor();
-		String aux = " " + i + " - " + "Meia   " + " - R$" + meia.getValor();
+		String aux = " " + i + "   " + "Meia   " + "   R$" + meia.getValor();
 		vendidos.add(aux);
 
 	}
@@ -87,43 +99,21 @@ public class Teste {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		Pilha ingressos = new Pilha();
 		String e = "";
-		contaMeias = 0;
-		contaInteiras = 0;
-		int i;
-		System.out.println(" -- Empilhando Ingressos -- ");
-		System.out.println("         -- FIM  -- ");
-		Thread.sleep(400);
-		for (i = MIN; i <= MAX; i++) {
-			Thread.sleep(400);
-			ingressos.push(i);
-			System.out.println("          - " + i + " - ");
-			
-		}
-		Thread.sleep(400);
-		System.out.println("         -- TOPO -- ");
-
 		do {
 			switch (e = menuEscolha()) {
 			case "v":
-				if (ingressos.vazia() == true) {
+				if (MAX == MIN) {
 					System.out.println(" Ingressos Esgotados!");
 					break;
 				}
+			
 				switch (escolhaTipo()) {
 				case "m":
-					MeiaVendida(i - 1);
-					ingressos.pop();
-					contaMeias++;
-					i--;
-
+					MeiaVendida(MAX - 1);
 					break;
 				case "i":
-					InteiraVendida(i - 1);
-					ingressos.pop();
-					contaInteiras++;
-					i--;
+					InteiraVendida(MAX - 1);
 					break;
 				}
 				break;

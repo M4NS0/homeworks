@@ -1,3 +1,4 @@
+package alterado;
 
 public class Pilha {
 	public class No {
