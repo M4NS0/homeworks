@@ -3,13 +3,15 @@ package proposto;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Teste {
+public class TesteAux {
 	public static Scanner leia = new Scanner(System.in);
-	
+	public static ArrayList<String> vendidos = new ArrayList<String>();
 
 	private static double totalMeias;
 	private static double totalInteiras;
-	public static int MAX = 1003;
+	private static int contaMeias = 0;
+	private static int contaInteiras = 0;
+	public static int MAX = 1019;
 	public static int MIN = 1000;
 
 	private static void fim() {
@@ -21,7 +23,7 @@ public class Teste {
 
 	}
 
-	private static void imprimeLista(ArrayList<String> vendidos) {
+	private static void imprimeLista() {
 		System.out.println("\n -----------------------------");
 		System.out.println("  Lista de Ingressos Vendidos  ");
 		System.out.println(" -----------------------------");
@@ -34,7 +36,7 @@ public class Teste {
 
 	}
 
-	private static void imprimeSaldo(int contaMeias, int contaInteiras) {
+	private static void imprimeSaldo() {
 		Meia me = new Meia();
 		Inteira in = new Inteira();
 		System.out.println("\n ------------------------------------");
@@ -49,7 +51,7 @@ public class Teste {
 
 	}
 
-	private static void InteiraVendida(int i, int contaInteiras, ArrayList<String> vendidos) {
+	private static void InteiraVendida(int i) {
 		contaInteiras++;
 		MAX--;
 		Inteira inteira = new Inteira();
@@ -62,7 +64,7 @@ public class Teste {
 		vendidos.add(aux);
 	}
 
-	private static void MeiaVendida(int i, int contaMeias, ArrayList<String> vendidos) {
+	private static void MeiaVendida(int i) {
 		contaMeias++;
 		MAX--;
 		Meia meia = new Meia();
@@ -96,9 +98,7 @@ public class Teste {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		ArrayList<String> lista = new ArrayList<String>();
-		int contaMeias = 0;
-		int contaInteiras = 0;
+
 		String e = "";
 		do {
 			switch (e = menuEscolha()) {
@@ -110,18 +110,18 @@ public class Teste {
 			
 				switch (escolhaTipo()) {
 				case "m":
-					MeiaVendida(MAX - 1, contaMeias, lista);
+					MeiaVendida(MAX - 1);
 					break;
 				case "i":
-					InteiraVendida(MAX - 1, contaInteiras, lista);
+					InteiraVendida(MAX - 1);
 					break;
 				}
 				break;
 			case "i":
-				imprimeSaldo(contaMeias, contaInteiras);
+				imprimeSaldo();
 				break;
 			case "t":
-				imprimeLista(lista);
+				imprimeLista();
 				break;
 			case "s":
 				fim();

@@ -21,20 +21,31 @@ public class Teste {
 		System.exit(0);
 
 	}
-
-	private static void imprimeLista(ArrayList<String> vendidos) {
+	private static void imprimeListaEncadeada(Lista list) {
+		if (list.vazia() == true) System.out.println("\n -- A lista está vazia -- ");
+		else { 
+			String aux = list.imprima();
+			System.out.println(aux);
+		}
+		
+		
+	}
+	private static void imprimeLista(ArrayList<Pessoa> lista) {
 		System.out.println("\n ---------------------------------------");
-		System.out.println("       Lista de Ingressos Vendidos  ");
+		System.out.println("       Lista de Ingressos lista  ");
 		System.out.println(" ---------------------------------------");
-		System.out.println("    No     Tipo    Valor    Comprador\n");
-		for (int j = 0; j < vendidos.size(); j++) {
-			System.out.println("   " + vendidos.get(j));
+		System.out.println("    No    Tipo      Valor  Comprador\n");
+		for (int j = 0; j < lista.size(); j++) {
+			System.out.println("   " + lista.get(j).getNumero() 
+							 + "   " + lista.get(j).getTipo()
+							 + "   " + lista.get(j).getValor()
+							 + "   " + lista.get(j).getNome());
 		}
 		System.out.println("\n    Lucro: R$" + (totalInteiras + totalMeias));
 		System.out.println(" ---------------------------------------");
 
 	}
-
+	
 	private static void imprimeSaldo(int contaMeias, int contaInteiras) {
 		Meia me = new Meia();
 		Inteira in = new Inteira();
@@ -45,14 +56,12 @@ public class Teste {
 		System.out.println("   " + contaMeias + "    R$" + me.getValor() + "        R$" + totalMeias);
 		System.out.println("   " + contaInteiras + "    R$" + in.getValor() + "        R$" + totalInteiras);
 		System.out.println("\n -------------------------------------");
-		System.out.println(
-				"   Vendidos: " + (contaMeias + contaInteiras) + "        Lucro: R$" + (totalInteiras + totalMeias));
+		System.out.println("   lista: " + (contaMeias + contaInteiras) + "        Lucro: R$" + (totalInteiras + totalMeias));
 		System.out.println(" -------------------------------------\n");
 
 	}
 
-	private static void inteiraVendida(int i, Inteira inteira, Fila fila, Pilha pilha, int contaInteiras,
-			ArrayList<String> vendidos) {
+	private static void inteiraVendida(int i, Inteira inteira, Fila fila, Pilha pilha, int contaInteiras,ArrayList<Pessoa> lista, Lista list) {
 		pilha.pop();
 		contaInteiras++;
 		MAX--;
@@ -62,12 +71,12 @@ public class Teste {
 		inteira.setId(i);
 		inteira.venderIngresso();
 		totalInteiras = totalInteiras + inteira.getValor();
-		String aux = " " + i + "  " + "Inteira" + "  R$" + inteira.getValor() + "   " + nome;
-		vendidos.add(aux);
+		Pessoa p = new Pessoa(i, "Inteira", inteira.getValor(), nome);
+		lista.add(p);
+		list.adicionaOrdenado(p);
 	}
 
-	private static void meiaVendida(int i, Meia meia, Fila fila, Pilha pilha, int contaMeias,
-			ArrayList<String> vendidos) {
+	private static void meiaVendida(int i, Meia meia, Fila fila, Pilha pilha, int contaMeias,ArrayList<Pessoa> lista, Lista list ) {
 		pilha.pop();
 		contaMeias++;
 		MAX--;
@@ -77,8 +86,9 @@ public class Teste {
 		meia.setId(i);
 		meia.venderIngresso();
 		totalMeias = totalMeias + meia.getValor();
-		String aux = " " + i + "  " + "Meia   " + "  R$" + meia.getValor() + "   " + nome;
-		vendidos.add(aux);
+		Pessoa p = new Pessoa(i, "Meia   ", meia.getValor(), nome);
+		lista.add(p);
+		list.adicionaOrdenado(p);
 
 	}
 
@@ -95,8 +105,10 @@ public class Teste {
 		int j = 1;
 		
 		for (int i = MIN; i < MAX; i++) {
-			System.out.print(" Número [" + j + "] Nome:");
-			Pessoa aux = new Pessoa(leia.next());
+			leia.skip("\\R");
+			System.out.print(" Número " + j + " da fila:" );
+			String nome = leia.next();
+			Pessoa aux = new Pessoa(i, " ", 0, nome);
 			pessoas.enfileirar(aux);
 			j++;
 
@@ -109,7 +121,8 @@ public class Teste {
 		System.out.println(" [E]nfileirar Pessoas");
 		System.out.println(" [C]ontar Fila");
 		System.out.println(" [V]ender ingresso");
-		System.out.println(" [I]mprimir Saldo");
+		System.out.println(" [A]rray - imprimir");
+		System.out.println(" [L]ista Encadeada Ordenada - imprimir");
 		System.out.println(" [T]odas as vendas");
 		System.out.println(" [S]air");
 		System.out.print("\n Escolha: ");
@@ -134,7 +147,8 @@ public class Teste {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		ArrayList<String> vendidos = new ArrayList<String>();
+		ArrayList<Pessoa> lista = new ArrayList<Pessoa>();
+		Lista list = new Lista();
 		Fila pessoas = new Fila();
 		pessoas.setTamanho(MAX - MIN);
 		Pilha ingressos = new Pilha();
@@ -163,18 +177,21 @@ public class Teste {
 
 				switch (escolhaTipo()) {
 				case "m":
-					meiaVendida(MAX - 1, meia, pessoas, ingressos, contaMeias, vendidos);
+					meiaVendida(MAX - 1, meia, pessoas, ingressos, contaMeias, lista, list);
 					break;
 				case "i":
-					inteiraVendida(MAX - 1, inteira, pessoas, ingressos, contaInteiras, vendidos);
+					inteiraVendida(MAX - 1, inteira, pessoas, ingressos, contaInteiras, lista, list);
 					break;
 				}
 				break;
-			case "i":
+			case "a":
 				imprimeSaldo(contaMeias, contaInteiras);
 				break;
+			case "l":
+				imprimeListaEncadeada(list);
+				break;
 			case "t":
-				imprimeLista(vendidos);
+				imprimeLista(lista);
 				break;
 			case "s":
 				fim();
@@ -182,5 +199,9 @@ public class Teste {
 			
 		} while (!e.equalsIgnoreCase("v") || !e.equalsIgnoreCase("i") || !e.equalsIgnoreCase("s"));
 	}
+
+	
+
+	
 
 }
