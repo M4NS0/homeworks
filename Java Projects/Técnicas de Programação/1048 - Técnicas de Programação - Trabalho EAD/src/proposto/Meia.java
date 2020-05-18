@@ -1,3 +1,5 @@
+package proposto;
+
 
 public class Meia extends Ingresso {
 	final private double valor = 10.00;

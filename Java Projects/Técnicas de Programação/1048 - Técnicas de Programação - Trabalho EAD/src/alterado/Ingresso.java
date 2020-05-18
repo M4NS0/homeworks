@@ -1,3 +1,4 @@
+package alterado;
 
 public abstract class Ingresso implements Cinema {
 	public int Id;
