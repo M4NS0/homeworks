@@ -39,7 +39,7 @@ public class GerArquivo {
 	public static Lista lerArquivo(Lista list) throws FileNotFoundException, IOException {
 		FileReader fr = new FileReader(NOME_ARQ);
 		BufferedReader br = new BufferedReader(fr);
-		FrmContatosLista lista = new FrmContatosLista();
+		Programa lista = new Programa();
 		ArrayList<Pessoa> arrayPessoas = new ArrayList<Pessoa>();
 
 		while (br.ready()) {
