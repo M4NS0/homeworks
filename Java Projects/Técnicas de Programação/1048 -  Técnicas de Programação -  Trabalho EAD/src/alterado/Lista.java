@@ -34,7 +34,7 @@ public class Lista {
 		if (i == null) {
 			return null;
 		}
-		Pessoa novo = new Pessoa(aux.getNumero(), aux.getTipo() , aux.getValor(),aux.getNome());
+		Pessoa novo = new Pessoa(aux.getNome(), aux.getNumero(), aux.getTipo() , aux.getValor());
 		return novo;
 	}
 
@@ -87,10 +87,12 @@ public class Lista {
 		String aux = new String("");
 
 		for (No i = inicio; i != null; i = i.proximo) {
-			aux = aux + i.dados.toString();
+			aux += " " + i.dados;
+			aux.toString();
 		}
-
-		return aux.toString();
+		System.out.println(aux);
+		return aux + "\n";
+		
 	}
 
 	public String imprimaInv() {
@@ -105,5 +107,6 @@ public class Lista {
 		}
 		return reverso;
 	}
-}
+	}
+
 
