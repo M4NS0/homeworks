@@ -873,7 +873,48 @@ AND 	"Cod-produto"	= 	2;
 	FROM 	"CLIENTE" 
 	WHERE 	("Data-nasc-cli" > ('31/12/1900'));
 
+ -------------------------------------------------------------------------
+ -- Pedido, data do pedido, e o nome de quem pediu -  usando inner join --
+ -------------------------------------------------------------------------
+ 	
+	SELECT 		P."Num-pedido",
+				C."Nome-cli"
+	
+	FROM 		"PEDIDO" P
+	
+	INNER JOIN 	"CLIENTE" c
+	ON 			"Cpf-cli" = "Cpf-cliente";
+	
+	WHERE 		"Num-pedido" > 30;	
+	
+ -------------------------------------------------------------------------	
+ 	
+	SELECT 			"Num-pedido",
+					"Nome-cli"
+	
+	FROM 			"CLIENTE"
+	
+	LEFT OUTER JOIN	"PEDIDO"
+	ON 				"Cpf-cli" = "Cpf-cliente";
+	
+ ----------------------------------------------------------
+ -- Num-Pedido, nome-cli, cod-prod  -  usando inner join --
+ ----------------------------------------------------------
+ 						
+	SELECT 		P."Num-pedido",
+      			C."Nome-cli",
+		   		I."cod-prod"
+	FROM 		"CLIENTE" C
+	
+	INNER JOIN 	"PEDIDO" P 
+	ON 			(P."Cpf-cli" = C."Cpf-cliente")
+	
+	INNER JOIN 	"ITEM-PEDIDO" I 
+	ON (I."Num-ped" = P."Num-pedido");
+
+ ------------------------------------------------------------
+ -- Num-Pedido, nome-cli  e o numero de produtos pedidos   --
+ ------------------------------------------------------------
 		
-		
-		
+	
 		
