@@ -152,36 +152,36 @@ public class Abp {
 			aux = new Item(z.dados.getNome(), z.dados.getFone());
 			No y = null;
 			No x = null;
-			
+
 			// o no z tem 1 filho só ou nenhum filho
 			if (z.fd == null || z.fe == null) {
 				y = z;
-			} 
-			
+			}
+
 			// o no z tem dois filhos
 			else {
 				y = sucessor(z);
-			} 
+			}
 			if (y.fe != null) {
 				x = y.fe;
 			} else {
 				x = y.fd;
 			}
-			
+
 			// pois y tem um filho
 			if (x != null) {
 				x.pai = y.pai;
-			} 
-			
+			}
+
 			// y é a raiz
 			if (y.pai == null) {
 				raiz = x;
-				
+
 				// pois y tem um filho
 				if (x != null) {
 					x.pai = null;
-				} 
-				
+				}
+
 				// y não é raiz
 			} else {
 				if (y == y.pai.fe) {
@@ -190,29 +190,104 @@ public class Abp {
 					y.pai.fd = x;
 				}
 			}
-			
+
 			// y é o sucessor de z --> copia dados de y para z
 			if (y != z) {
 				z.dados = y.dados;
-			} 
+			}
 			tamanho--;
 		}
 		return aux;
 	}
 
 	public void visitaEmOrdem(StringBuffer aux) {
+		// se a árvore estiver vazia não faz as chamadas recursivas
+		if (vazia()) {
+			aux.append("Ärvore vazia!");
+		}
 		// chamar método recursivo
+		else {
+			visitaEmOrdem(aux, raiz);
+		}
+	}
+
+	private void visitaEmOrdem(StringBuffer aux, No obj) {
+		if (obj != null) {
+			visitaEmOrdem(aux, obj.fe);
+			aux.append(obj.dados.toString());
+			visitaEmOrdem(aux, obj.fd);
+		}
 	}
 
 	public void visitaEmPreOrdem(StringBuffer aux) {
+		// se a árvore estiver vazia não faz as chamadas recursivas
+		if (vazia()) {
+			aux.append("Ärvore vazia!");
+		}
 		// chamar método recursivo
+		else {
+			visitaEmPreOrdem(aux, raiz);
+		}
+	}
+
+	private void visitaEmPreOrdem(StringBuffer aux, No obj) {
+		if (obj != null) {
+			aux.append(obj.dados.toString());
+			visitaEmPreOrdem(aux, obj.fe);
+			visitaEmPreOrdem(aux, obj.fd);
+		}
 	}
 
 	public void visitaEmPosOrdem(StringBuffer aux) {
+		// se a árvore estiver vazia não faz as chamadas recursivas
+		if (vazia()) {
+			aux.append("Ärvore vazia!");
+		}
 		// chamar método recursivo
+		else {
+			visitaEmPosOrdem(aux, raiz);
+		}
+	}
+
+	private void visitaEmPosOrdem(StringBuffer aux, No obj) {
+		if (obj != null) {
+			visitaEmPosOrdem(aux, obj.fe);
+			visitaEmPosOrdem(aux, obj.fd);
+			aux.append(obj.dados.toString());
+		}
 	}
 
 	public void testaIntegridade(StringBuffer aux) {
+		// se a árvore estiver vazia não faz as chamadas recursivas
+		if (vazia()) {
+			aux.append("Ärvore vazia!");
+		}
 		// chamar método recursivo
+		else {
+			testaIntegridade(aux, raiz);
+			aux.append("Árvore provavelment sem erros.\nVeja mensagens de erro a anteriores.\n");
+		}
+	}
+
+	private void testaIntegridade(StringBuffer aux, No obj) {
+		if (obj == null) {
+			return;
+		}
+		if (obj.fe != null) {
+			if (obj.dados.getNome().compareTo(obj.fe.dados.getNome()) < 0) {
+				aux.append("Erro!!! Pai menor que filho da esquerda.\n");
+				aux.append("Pai --> " + obj.dados.getNome() + "\n");
+				aux.append("Filho da esquerda --> " + obj.fe.dados.getNome() + "\n");
+			}
+		}
+		if (obj.fd != null) {
+			if (obj.dados.getNome().compareTo(obj.fd.dados.getNome()) > 0) {
+				aux.append("Erro!!! Pai maior que filho da direita.\n");
+				aux.append("Pai --> " + obj.dados.getNome() + "\n");
+				aux.append("Filho da direita --> " + obj.fd.dados.getNome() + "\n");
+			}
+		}
+		testaIntegridade(aux, obj.fe);
+		testaIntegridade(aux, obj.fd);
 	}
 }
