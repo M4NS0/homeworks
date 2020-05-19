@@ -24,15 +24,16 @@ public class Teste {
 	private static void imprimeListaEncadeada(Lista list) {
 		if (list.vazia() == true) System.out.println("\n -- A lista está vazia -- ");
 		else { 
-			String aux = list.imprima();
-			System.out.println(aux);
+			
+			list.imprima();
+			
 		}
 		
 		
 	}
 	private static void imprimeLista(ArrayList<Pessoa> lista) {
 		System.out.println("\n ---------------------------------------");
-		System.out.println("       Lista de Ingressos lista  ");
+		System.out.println("           Lista de Ingressos  ");
 		System.out.println(" ---------------------------------------");
 		System.out.println("    No    Tipo      Valor  Comprador\n");
 		for (int j = 0; j < lista.size(); j++) {
@@ -61,35 +62,36 @@ public class Teste {
 
 	}
 
-	private static void inteiraVendida(int i, Inteira inteira, Fila fila, Pilha pilha, int contaInteiras,ArrayList<Pessoa> lista, Lista list) {
-		pilha.pop();
-		contaInteiras++;
-		MAX--;
-		String nome = fila.desenfileirar().getNome();
-		System.out.println("\n Vendido para " + nome + " [Saiu da Fila]");
-		System.out.println(" Retirado do topo [" + i + "] \n");
-		inteira.setId(i);
-		inteira.venderIngresso();
-		totalInteiras = totalInteiras + inteira.getValor();
-		Pessoa p = new Pessoa(i, "Inteira", inteira.getValor(), nome);
-		lista.add(p);
-		list.adicionaOrdenado(p);
+	private static Pessoa inteiraVendida(int i, Inteira inteira, Fila fila, Pilha pilha,ArrayList<Pessoa> lista, Lista list) {
+		
+		MAX--;                                                                  // Decrementa o índice máximo
+		System.out.println("\n -------------------------------------------");
+		String nome = fila.desenfileirar().getNome();                           // Desenfileira fila de Pessoas, passada por parâmetro, e guarda o nome em uma variável
+		System.out.println("\n Vendido para " + nome + " [Saiu da Fila]");      // Informa que pessoa de nome x saiu da fila  
+		pilha.pop();                                                            // Retira ingresso da pilha de Ingressos
+		System.out.println(" Retirado da Pilha [" + i + "] \n");                 // Informa que Ingresso de número, passado por parâmetro, saiu da lista
+		inteira.setId(i);                                                       // Configura o id da classe Meia com o número que foi passado por parâmetro
+		inteira.venderIngresso();                                               // Chama método da classe e imprime para o Usuário
+		System.out.println(" -------------------------------------------\n");
+		totalInteiras = totalInteiras + inteira.getValor();                     // Guarda na variável, passada por parâmetro, incrementando o valor do ingresso (meia) cada vez que é comprado
+		Pessoa p = new Pessoa(nome, i, "Inteira", inteira.getValor());          // Cria um objeto do tipo Pessoa instanciado pelos valores colhidos
+		return p;
 	}
 
-	private static void meiaVendida(int i, Meia meia, Fila fila, Pilha pilha, int contaMeias,ArrayList<Pessoa> lista, Lista list ) {
-		pilha.pop();
-		contaMeias++;
-		MAX--;
-		String nome = fila.desenfileirar().getNome();
-		System.out.println("\n Vendido para " + nome + " [Saiu da Fila]");
-		System.out.println(" Retirado do topo [" + i + "] \n");
-		meia.setId(i);
-		meia.venderIngresso();
-		totalMeias = totalMeias + meia.getValor();
-		Pessoa p = new Pessoa(i, "Meia   ", meia.getValor(), nome);
-		lista.add(p);
-		list.adicionaOrdenado(p);
-
+	private static Pessoa meiaVendida(int i, Meia meia, Fila fila, Pilha pilha, ArrayList<Pessoa> lista, Lista list ) {
+		
+		MAX--;                                                                  // Decrementa o índice máximo
+		System.out.println("\n -------------------------------------------");
+		String nome = fila.desenfileirar().getNome();                           // Desenfileira fila de Pessoas, passada por parâmetro, e guarda o nome em uma variável
+		System.out.println("\n Vendido para " + nome + " [Saiu da Fila]");      // Informa que pessoa de nome x saiu da fila
+		pilha.pop();                                                            // Retira ingresso da pilha de Ingressos
+		System.out.println(" Retirado da Pilha [" + i + "] \n");                 // Informa que Ingresso de número, passado por parâmetro, saiu da lista
+		meia.setId(i);                                                          // Configura o id da classe Meia com o número que foi passado por parâmetro
+		meia.venderIngresso();                                                  // Chama método da classe e imprime para o Usuário
+		System.out.println(" -------------------------------------------\n");
+		totalMeias = totalMeias + meia.getValor();                              // Guarda na variável, passada por parâmetro, incrementando o valor do ingresso (meia) cada vez que é comprado
+		Pessoa p = new Pessoa(nome, i, "Meia   ", meia.getValor());             // Cria um objeto do tipo Pessoa instanciado pelos valores colhidos
+		return p;
 	}
 
 	public static String escolhaTipo() {
@@ -108,7 +110,7 @@ public class Teste {
 			leia.skip("\\R");
 			System.out.print(" Número " + j + " da fila:" );
 			String nome = leia.next();
-			Pessoa aux = new Pessoa(i, " ", 0, nome);
+			Pessoa aux = new Pessoa(nome, i, " ", 0);
 			pessoas.enfileirar(aux);
 			j++;
 
@@ -121,9 +123,10 @@ public class Teste {
 		System.out.println(" [E]nfileirar Pessoas");
 		System.out.println(" [C]ontar Fila");
 		System.out.println(" [V]ender ingresso");
-		System.out.println(" [A]rray - imprimir");
+		System.out.println(" [T]udo  - imprimir lista de ingresso");
+		System.out.println(" [A]rray - imprimir extrato das vendas");
 		System.out.println(" [L]ista Encadeada Ordenada - imprimir");
-		System.out.println(" [T]odas as vendas");
+		System.out.println(" [B]uscar pessoa na Lista");
 		System.out.println(" [S]air");
 		System.out.print("\n Escolha: ");
 		String escolha = leia.next();
@@ -150,6 +153,7 @@ public class Teste {
 		ArrayList<Pessoa> lista = new ArrayList<Pessoa>();
 		Lista list = new Lista();
 		Fila pessoas = new Fila();
+		Pessoa p = new Pessoa();
 		pessoas.setTamanho(MAX - MIN);
 		Pilha ingressos = new Pilha();
 		Meia meia = new Meia();
@@ -177,10 +181,18 @@ public class Teste {
 
 				switch (escolhaTipo()) {
 				case "m":
-					meiaVendida(MAX - 1, meia, pessoas, ingressos, contaMeias, lista, list);
+					contaMeias++; 
+					p = new Pessoa();
+					p = meiaVendida(MAX - 1, meia, pessoas, ingressos, lista, list);
+					lista.add(p);                                                           
+					list.adicionaOrdenado(p);                                             
 					break;
 				case "i":
-					inteiraVendida(MAX - 1, inteira, pessoas, ingressos, contaInteiras, lista, list);
+					contaInteiras++;
+					p = new Pessoa();
+					p = inteiraVendida(MAX - 1, inteira, pessoas, ingressos, lista, list);
+					lista.add(p);                                                           
+					list.adicionaOrdenado(p);
 					break;
 				}
 				break;
@@ -192,6 +204,12 @@ public class Teste {
 				break;
 			case "t":
 				imprimeLista(lista);
+				break;
+			case "b":
+				p = new Pessoa();
+				System.out.print("\n Digite o nome que deseja buscar: ");
+				p.setNome(leia.next());
+				System.out.println(list.busca(p));
 				break;
 			case "s":
 				fim();

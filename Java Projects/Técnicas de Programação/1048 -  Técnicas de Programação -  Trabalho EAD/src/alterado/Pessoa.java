@@ -7,11 +7,14 @@ public class Pessoa {
 	double valor;
 	
 	
-	public Pessoa(int numero, String tipo, double valor, String nome ) {
+	public Pessoa(String nome ,int numero, String tipo, double valor) {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.numero = numero;
 		this.valor = valor;
+	}
+	public Pessoa() {
+		
 	}
 	
 	public String getNome() {
