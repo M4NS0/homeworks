@@ -55,6 +55,11 @@ public class FrmContatos extends JFrame {
 					limparCampos();
 				}
 			}
+			@Override
+			public void windowClosed( WindowEvent arg0) {
+				Programa programa = new Programa();
+				programa.setVisible(true);
+			}
 		});
 		
 		setTitle("Agenda - Contatos");
