@@ -25,7 +25,7 @@ public class Teste {
 		if (list.vazia() == true) System.out.println("\n -- A lista está vazia -- ");
 		else { 
 			
-			list.imprima();
+			System.out.println(list.imprima());
 			
 		}
 		
