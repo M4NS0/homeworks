@@ -107,7 +107,7 @@ public class FrmContatos extends JFrame {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				FrmContatosLista frm = new FrmContatosLista();
+				Programa frm = new Programa();
 				frm.setVisible(true);	
 			}
 		});
@@ -131,7 +131,7 @@ public class FrmContatos extends JFrame {
 					JOptionPane.showMessageDialog(null, mens);	
 				}
 				dispose();
-				FrmContatosLista frm = new FrmContatosLista();
+				Programa frm = new Programa();
 				frm.setVisible(true);
 			}
 		});

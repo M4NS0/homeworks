@@ -55,7 +55,7 @@ import java.awt.event.ActionEvent;
 import java.awt.FlowLayout;
 import java.awt.Dimension;
 
-public class FrmContatosLista extends JFrame {
+public class Programa extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -78,21 +78,21 @@ public class FrmContatosLista extends JFrame {
 				}
 			}
 		} catch (ClassNotFoundException ex) {
-			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(Programa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (InstantiationException ex) {
-			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(Programa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (IllegalAccessException ex) {
-			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(Programa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		} catch (javax.swing.UnsupportedLookAndFeelException ex) {
-			java.util.logging.Logger.getLogger(FrmContatosLista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+			java.util.logging.Logger.getLogger(Programa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
 		
 		EventQueue.invokeLater(new Runnable() {
-			public FrmContatosLista frame;
+			public Programa frame;
 
 			public void run() {
 				try {
-					frame = new FrmContatosLista();
+					frame = new Programa();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -103,7 +103,7 @@ public class FrmContatosLista extends JFrame {
 
 	/* Configurando Janela */
 	
-	public FrmContatosLista() {
+	public Programa() {
 		setFont(new Font("Ubuntu Mono", Font.BOLD, 12));
 		setTitle("Lista de Contatos");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -202,7 +202,7 @@ public class FrmContatosLista extends JFrame {
 					
 				} else {
 					JOptionPane.showMessageDialog(null, "Selecione uma pessoa na tabela");
-					FrmContatosLista janelaCadastro = new FrmContatosLista();
+					Programa janelaCadastro = new Programa();
 					janelaCadastro.setVisible(true);	
 				}
 			}
@@ -240,7 +240,7 @@ public class FrmContatosLista extends JFrame {
 						JOptionPane.showMessageDialog(null,           // Avisar ao usuário caso não consiga
 						"Falha ao gravar os dados da agenda!");
 					}
-					FrmContatosLista janela = new FrmContatosLista(); // Cria um Objeto desta Classe para permitir o acesso a ela  
+					Programa janela = new Programa(); // Cria um Objeto desta Classe para permitir o acesso a ela  
 					janela.setVisible(true);                          // Religa o Painel Principal
 				}
 			}
