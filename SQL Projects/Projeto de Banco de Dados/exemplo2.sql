@@ -1,3 +1,10 @@
+/**DELETES*/ 
+	DELETE FROM "ITEM-PEDIDO"; 
+	DELETE FROM "PEDIDO"; 
+	DELETE FROM "PRODUTO"; 
+	DELETE FROM "CLIENTE"; 
+	DELETE FROM "VENDEDOR"; 
+
 --------------
 -- DELEÇÕES --
 --------------
@@ -105,236 +112,72 @@
 	REFERENCES 	public."PRODUTO"("Cod-produto"));
 
 
----------------------
--- INSERIR VALORES --
----------------------
+SELECT * FROM "VENDEDOR";
 
---------------
--- VENDEDOR --
---------------
-	INSERT 
-	INTO 	public."VENDEDOR"
-	VALUES 	('Vend-1', 6789, 0.2, 'M'),
-		   	('Vend-2', 7890, 0.15, 'M'),
-		   	('Vend-3', 8901, 0.21, 'M'),
-		   	('Vend-4', 9012, 0.2, 'M'),
-		   	('Paulo', 3456, 0.16, 'M');
+/*VENDEDOR*/ 
+Insert into "VENDEDOR" values (6789, 'Vend-1', 'M', 1400.00, 0.02); 
+insert into "VENDEDOR" values (7890, 'Vend-2', 'M', 1550.00, 0.15); 
+insert into "VENDEDOR" values (8901, 'Vend-3', 'M', 1550.00, 0.21); 
+insert into "VENDEDOR" values (9012, 'Vend-4', 'M', 1700.00, 0.02); 
+insert into "VENDEDOR" values (3456, 'Paulo', 'M', 1200.00, 0.16); 
+insert into "VENDEDOR" values (8745, 'Pedro', 'M', 1550.00, 0.15); 
+insert into "VENDEDOR" values (8933, 'Valeria', 'F', 1550.00, 0.21); 
+insert into "VENDEDOR" values (9044, 'Maria', 'F', 1700.00, 0.02); 
+insert into "VENDEDOR" values (3455, 'Paulinha', 'F', 1200.00, 0.16); 
 
 
--------------
--- CLIENTE --
--------------
+/*CLIENTE*/ 
+Delete from "CLIENTE"; 
+Insert into "CLIENTE" values (1234, 'Pedro', '22/02/1922', 'M', 'End1', 'Goiania', 1234, 'GO'); 
+Insert into "CLIENTE" values (2345, 'Ana', '23/03/1923','F', 'Ende2',  'Guapo', 2345, 'GO'); 
+Insert into "CLIENTE" values (3456, 'Paulo', '24/04/1984','M', 'end. do Paulo',  'Goiania', 3456,'GO'); 
+Insert into "CLIENTE" values (4567, 'Jacob', '24/09/1994','M', 'end. do Jacob',  'Marilia', 999999, 'SP'); 
+Insert into "CLIENTE" values (4577, 'Jacira', '27/08/1996', 'F','end. do Jacira', 'Maringa', 999999, 'PR'); 
+Insert into "CLIENTE" values (4588, 'Bolsonora', '24/09/1954','F', 'end. do presid',  'Brasilia', 666666, 'DF'); 
+Insert into "CLIENTE" values (4599, 'Lulala', '05/10/1945','M', 'end. do Lulala',  'Coritiba', 999999, 'PR'); 
 
-	INSERT 
-	INTO 	public."CLIENTE"
-	VALUES 	('Pedro', 'End1', '1922-02-22', 'M', 1234),
-			('Ana', 'Ende2', '1923-03-23', 'F', 2345),
-			('Paulo', 'end. do Paulo', '1984-04-24', 'M', 3456),
-			('Jose A', 'Endereço A', '1985-05-25', 'M', 4567),
-			('Jose B', 'XXXXXX', '1996-06-26', 'M', 5678);
-
-
---------------
--- PRODUTOS --
---------------
-
-	INSERT INTO public."PRODUTO"
-	VALUES (1, 'Arroz', 10.5, 'pacot'),
-		   (2, 'Feijao', 4.3, 'KG'),
-		   (3, 'TV', 2530, 'UN'),
-		   (4, 'SAPATO', 89.9, 'PAR'),
-		   (5, 'CAMISA', 120, 'UN'),
-		   (6, 'BATOM', 8.5, 'dz');
+ 
 
 
--------------
--- PEDIDOS --
--------------
 
-	INSERT 
-	INTO 	public."PEDIDO"
-	VALUES 	(25, '2019-01-12', 'END-ENTREGA-1', '2019-01-12', 6789, 1234),
-			(26, '2019-01-13', 'END-ENTREGA-2', '2019-01-17', 8901, 4567),
-			(27, '2019-01-14', 'END-ENTREGA-3', '2019-01-22', 6789, 3456),
-			(28, '2019-01-15', 'END-ENTREGA-4', '2019-01-27', 6789, 1234),
-			(29, '2019-01-16', 'END-ENTREGA-5', '2019-02-01', 9012, 3456),
-			(30, '2019-01-17', 'END-ENTREGA-6', '2019-02-06', 7890, 2345);
+/*PRODUTOS*/ 
+insert into "PRODUTO" values (1, 'Arroz', 10.50, 'KG'); 
+insert into "PRODUTO" values (2, 'feijao', 4.30, 'KG'); 
+insert into "PRODUTO" values (3, 'TV', 2530.00, 'UN'); 
+insert into "PRODUTO" values (4, 'SAPATO', 89.90, 'PAR'); 
+insert into "PRODUTO" values (5, 'CAMISA', 120, 'UN'); 
+insert into "PRODUTO" values (6, 'BATOM', 8.50, 'dz'); 
 
 
------------------
--- ITEM-PEDIDO --
------------------
 
-	INSERT 
-	INTO 	public."ITEM-PEDIDO"
-	VALUES 	(25, 1, 1, 2),
-			(25, 2, 2, 0.6),
-			(25, 3, 5, 10),
-			(26, 1, 2, 1),
-			(27, 1, 6, 2);
+/*PEDIDOS*/ 
+insert into "PEDIDO" values  
+(27,'2019-01-14','10','END-ENTREGA-3','2019-01-22',6789,3456), 
+(28,'2019-01-15',5,'END-ENTREGA-4','2019-01-27',6789,1234), 
+(29,'2019-01-16',8,'END-ENTREGA-5','2019-02-01',9012,3456), 
+(30,'2020-02-17',2,'END-ENTREGA-6','2020-05-06',7890,2345), 
+(31,'2020-01-17',2,'END-ENTREGA-6','2020-05-04',7890,2345), 
+(32,'2020-04-17',2,'END-ENTREGA-6','2020-05-06',7890,2345), 
+(33,'2020-04-19',2,'END-ENTREGA-6','2020-05-07',7890,2345), 
+(34,'2020-04-13',4,'END-ENTREGA-6','2020-05-08',7890,2345), 
+(35,'2020-04-27',6,'END-ENTREGA-6','2020-05-09',7890,2345); 
 
+/*item pedido*/ 
+insert into "ITEM-PEDIDO" values (27, 5, 1, 2),  
+                                  (27, 2, 2, 0.6),(27, 3, 5, 10), 
+                                  (27, 4, 2, 1),(27, 1, 6, 2),(28, 3, 4, 5), 
+								  (28, 4, 2, 2),(28, 5, 5, 13),(28, 1, 2, 4),(28, 2, 6, 2),   
+								  (29, 1, 5, 2),(29, 2, 5, 13),(29, 3, 4, 4),(29, 4, 6, 12),(30, 1, 2, 2), 
+                                  (30, 2, 5, 13),(30, 3, 5, 4),(30, 4, 6, 2),(31, 1, 2, 2),(31, 2, 5, 13),(31, 3, 5, 4),   
+								  (31, 4, 6, 2),(32, 1, 2, 2),(32, 2, 5, 13),(32, 3, 5, 4),(32, 4, 6, 2),(33, 1, 2, 2),(33, 2, 5, 13), 
+                                  (33, 3, 5, 4),(33, 4, 6, 2),(34, 1, 2, 2),(34, 2, 5, 13),(34, 3, 5, 4),(34, 4, 6, 2),(35, 1, 2, 2),(35, 2, 5, 13),(35, 3, 5, 4),   (35, 4, 6, 2); 
 
--------------
--- UPDATE  --
--------------
+ALTER TABLE "CLIENTE" ADD COLUMN "Uf" character varying (2); 
+UPDATE "CLIENTE" SET "Uf" = 'go' WHERE "Cpf-cliente" = 1234 OR "Cpf-cliente" = 4567; 
+UPDATE "CLIENTE" SET "Uf" = 'sp' WHERE "Cpf-cliente" = 2345 OR "Cpf-cliente" = 3456; 
+UPDATE "CLIENTE" SET "Uf" = 'pi' WHERE "Cpf-cliente" = 5678 ; 
 
-	UPDATE 	"VENDEDOR" 
-	SET 	"Tx-comissao" = "Tx-comissao" * 10 
-	WHERE 	"Cpf-vend" = 7890;
-	
-	UPDATE 	"VENDEDOR" 
-	SET 	"Tx-comissao" = "Tx-comissao" * 10;
-
-
------------------------------------------------------------
--- incluir atributo chamado uf em cliente campo opcional --
------------------------------------------------------------
-
-	ALTER 
-	TABLE 	"CLIENTE" 
-	ADD 
-	COLUMN 	"UF" character varying(2);
-
-
-------------
--- APAGAR --
-------------
-
---ALTER TABLE "CLIENTE" DROP COLUMN "uf";
-
-
-----------------------------------------------------------------
--- incluir pedro e jose A (Go), Ana e paulo (SP), jose B (Pi) --
-----------------------------------------------------------------
-
-	UPDATE 	"CLIENTE" 
-	SET 	"UF" = 'PR' 
-	WHERE 	"Cpf-cliente" = 1234 
-	OR 		"Cpf-cliente" = 4567;
-	
-------------------------------------------------------
-	
-	UPDATE 	"CLIENTE" 
-	SET 	"UF" = 'GO' 
-	WHERE 	"Cpf-cliente" 	
-	IN 		(1234,4567);
-
-------------------------------------------------------
-
-	UPDATE 	"CLIENTE" 
-	SET 	"UF" = 'MT' 
-	WHERE 	"Cpf-cliente" = 2345 
-	OR 		"Cpf-cliente" = 3456;
-	
-------------------------------------------------------
-
-	UPDATE 	"CLIENTE" 
-	SET 	"UF" = 'SP' 
-	WHERE 	"Cpf-cliente" 	
-	IN 	(2345,3456);
-
-
-----------
--- OBS: --
-----------
-
--- OR não pode ser AND pq não existe um valor q contenha as duas 
--- referências em uma só, resultando sempre em uma operação falsa
--- IN aninha a sintaxe das referencias
-
----------------------------------------------------------------------
-
-	UPDATE 	"CLIENTE" 
-	SET 	"UF" = 'PI' 
-	WHERE 	"Cpf-cliente" = 5678;
-
----------------------------------------------------------------------
-
-	UPDATE 	"CLIENTE" 
-	SET 	"Data-nasc-cli" = '1984/12/09' 
-	WHERE 	"Cpf-cliente" = 3456;
-
----------------------------------------------------------------------
-
-	UPDATE 	"CLIENTE" 
-	SET 	"Data-nasc-cli" = '1984/09/12' 
-	WHERE 	"Cpf-cliente" = 3456;
-
----------------------------------------------------------------------
-
-	UPDATE 	"VENDEDOR" 
-	SET 	"Tx-comissao" = "Tx-comissao" + ("Tx-comissao"*2/100);
-	
-	
-----------
--- OBS: --
-----------
-
--- valor atributos aspas simples
--- nome atributos em aspas duplas
--- comandos nao sao case sensitive
--- campo numerico não tem aspas
-
-
---------------
--- DELEÇÕES --
---------------
-
-	DELETE 
-	FROM 	"CLIENTE" 
-	WHERE 	"Cpf-cliente" = 5678;
-
-
-----------
--- OBS: --
-----------
-
--- se deletar um cliente tem q ver se ele tem pedido
--- Pedido é pai, e nao existe filho sem pai
--- ex:. DELETE FROM "CLIENTE" WHERE "Cpf-cliente" = 3456;
--- ERROR:  update or delete on table "CLIENTE" violates foreign key constraint "Fk-Cliente" on table "PEDIDO"
--- DETAIL:  Key (Cpf-cliente)=(3456) is still referenced from table "PEDIDO".
-
--- DELETE FROM "PRODUTO" 
--- Deleta todo conteudo da tabela
-
--- DELETE FROM "ITEM-PEDIDO" WHERE "cod-prod" = 2;
--- DELETE FROM "PRODUTO" WHERE "Cod-produto" = 2;
-
----------------------------------------------------
--- registrar 2 produtos no msm pedido, na ordem: --
----------------------------------------------------
-
-	INSERT 
-	INTO 	public."PEDIDO"
-	VALUES 	(37, '2019-01-12', 'END-ENTREGA-8', '2019-01-12', 6789, 1234);
-
------------------------------------------------------------------------------
-
-	INSERT 
-	INTO 	public."ITEM-PEDIDO"
-	VALUES 	(37, 1, 1, 5);
-
------------------------------------------------------
-
-	INSERT INTO public."ITEM-PEDIDO"
-	VALUES 	(37, 2, 3, 8);
-
------------------------------------------------------
--- para deleção dos pedidos acima, fazer na ordem: --
------------------------------------------------------
-
-	DELETE 
-	FROM 	"ITEM-PEDIDO" 
-	WHERE 	"Num-ped" = 37;
-
---------------------------------
-	
-	DELETE 
-	FROM 	"PEDIDO" 
-	WHERE 	"Num-pedido" = 37;
-
-
+ 
 ---------------
 -- CONSULTAS --
 ---------------

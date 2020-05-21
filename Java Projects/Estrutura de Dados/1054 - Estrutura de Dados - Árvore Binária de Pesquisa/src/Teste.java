@@ -3,113 +3,89 @@ import java.util.Scanner;
 public class Teste {
 	static Scanner leia = new Scanner(System.in);
 
-	public static Item ObterDados() {
-		String pNome, pFone;
-		System.out.print(" Digite o nome: ");
-		pNome = leia.next();
-		System.out.print(" Digite o fone: ");
-		pFone = leia.next();
-		Item dados = new Item(pNome, pFone);
-		return dados;
-
+	public static Item obtemItem() {
+		String nome, fone;
+		leia.skip("\\R");
+		System.out.print("Nome:");
+		nome = leia.nextLine();
+		System.out.print("Telefone:");
+		fone = leia.next();
+		Item aux = new Item(nome, fone);
+		return aux;
 	}
 
-	public static int Escolha() {
-		System.out.println("\n----------------------");
-		System.out.println(" 1. Inserir Dados");
-		System.out.println(" 2. Pesquisar ");
-		System.out.println(" 3. Retirar");
-		System.out.println(" 4. Ver Nó Maximo e Mínimo");
-		System.out.println(" 5. Antecessor e Sucessor de um Nó");
-		System.out.println(" 6. Visita em Ordem");
-		System.out.println(" 7. Visita em pré Ordem");
-		System.out.println(" 8. Visita em pós Ordem");
-		System.out.println(" 9. Testa Integridade");
-		System.out.println(" 0. Sair\n");
-		System.out.print(" Escolha: ");
-		int escolha = leia.nextInt();
-		System.out.println();
-		return escolha;
+	public static int menu() {
+		int valor;
+		System.out.println("Digite:");
+		System.out.println("1 - para adicionar um item.");
+		System.out.println("2 - para remover um item.");
+		System.out.println("3 - para pesquisar um item.");
+		System.out.println("4 - para imprimir a árvore.");
+		System.out.println("5 - para testar integridade da árvore.");
+		System.out.println("6 - para encerrar o programa.");
+		System.out.println("\n  Escolha: ");
+		valor = Integer.parseInt(leia.next());
+		return valor;
 	}
 
 	public static void main(String[] args) {
-		StringBuffer sb = new StringBuffer();
-		Abp aux = new Abp();
-		int escolha = 0;
-
+		Abp arvore = new Abp();
+		int n;
+		boolean ok = false;
+		Item novo = null;
 		do {
-			escolha = Escolha();
-			switch (escolha) {
+			n = menu();
+			switch (n) {
 			case 1:
-				Item pessoa = ObterDados();
-				aux.inserir(pessoa);
+				novo = obtemItem();
+				ok = arvore.inserir(novo);
+				if (ok)
+					System.out.println("Sucesso!");
+				else
+					System.out.println("Insucesso - item já está na lista!");
+				System.out.println("Árvore com " + arvore.getTamanho() + " itens.");
+				novo = null;
 				break;
-
 			case 2:
-				Item emArvore = ObterDados();
-				if (aux.vazia() == true) System.out.println("\n -- Árvore Vazia --\n");
-				if (aux.pesquisar(emArvore) != null) System.out.println("\n -- Valor Encontrado -- \n");
-				else System.out.println("\n -- Valor não Encontrado! -- ");
+				novo = obtemItem();
+				novo = arvore.retirar(novo);
+				if (novo == null)
+					System.out.println("Erro!");
+				else
+					System.out.println(novo.toString());
+				System.out.println("Árvore com " + arvore.getTamanho() + " itens.");
+				novo = null;
 				break;
-	
 			case 3:
-				Item aRetirar = ObterDados();
-				if (aux.vazia() == true) System.out.println("\n -- Árvore Vazia --\n");
-				if (aux.pesquisar(aRetirar) == null) System.out.println("\n -- Valor não Encontrado -- \n");
-				else System.out.println("\n Valor Removido: \n " + aux.retirar(aRetirar));
+				novo = obtemItem();
+				novo = arvore.pesquisar(novo);
+				if (novo == null)
+					System.out.println("Erro!");
+				else
+					System.out.println(novo.toString());
+				System.out.println("Árvore com " + arvore.getTamanho() + " itens.");
+				novo = null;
 				break;
-			
 			case 4:
+				StringBuffer aux = new StringBuffer();
+				arvore.visitaEmOrdem(aux);
+				System.out.println(aux.toString() + "\nFim ............. \n");
+				StringBuffer aux2 = new StringBuffer();
+				arvore.visitaEmPreOrdem(aux2);
+				System.out.println(aux2.toString() + "\nFim ............. \n");
+				StringBuffer aux3 = new StringBuffer();
+				arvore.visitaEmPosOrdem(aux3);
+				System.out.println(aux3.toString() + "\nFim ............. \n");
 				break;
-			
 			case 5:
+				StringBuffer aux4 = new StringBuffer();
+				arvore.testaIntegridade(aux4);
+				System.out.println(aux4.toString() + "\nFim .............. \n");
 				break;
-			
 			case 6:
-				sb = new StringBuffer();
-				System.out.print(" Digite um nome para ser visitado em Ordem: ");
-				sb.append(leia.next());
-				aux.visitaEmOrdem(sb);
-				break;
-			
-			case 7:
-				sb = new StringBuffer();
-				System.out.print(" Digite um nome para ser visitado em Pré Ordem: ");
-				sb.append(leia.next());
-				aux.visitaEmPreOrdem(sb);
-				break;
-			
-			case 8:
-				sb = new StringBuffer();
-				System.out.print(" Digite um nome para ser visitado em Pós Ordem: ");
-				sb.append(leia.next());
-				aux.visitaEmPosOrdem(sb);
-				break;
-			
-			case 9:
-				sb = new StringBuffer();
-				System.out.print(" Digite um nome para Testar sua Integridade na Árvore: ");
-				sb.append(leia.next());
-				aux.testaIntegridade(sb);
-				break;				
-			
-			case 0:
-				System.exit(0);
-				
-
+				System.out.println("Árvore com " + arvore.getTamanho() + " itens.");
+				System.out.println("Programa encerrando!");
 			}
-
-		} while (escolha != 8);
+		} while (n != 6);
 	}
-
 }
-
-// ver: https://gist.github.com/divanibarbosa/819e7cfcf1b9bae48c4e0f5bd74fb658
-
-
-
-
-
-
-
-
