@@ -16,6 +16,6 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return ("Nome: " + nome + "\n Fone: " + fone + "\n");
+		return (" Nome: " + nome + "\n Fone: " + fone + "\n");
 	}
 }

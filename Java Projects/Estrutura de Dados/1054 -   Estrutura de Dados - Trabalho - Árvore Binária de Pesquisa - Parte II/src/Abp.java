@@ -1,9 +1,9 @@
 public class Abp {
 	public class No {
-		private Item dados;
+		private Produto dados;
 		private No fd, fe, pai;
 
-		public No(Item aux) {
+		public No(Produto aux) {
 			dados = aux;
 			fd = fe = pai = null;
 		}
@@ -24,28 +24,29 @@ public class Abp {
 		return (raiz == null); // retorna true caso raiz == null
 	}
 
-	private No consultar(Item obj) {
+	private No consultar(Produto obj) {
 		No aux = raiz;
 		while (aux != null) {
-			if (obj.getNome().compareTo(aux.dados.getNome()) < 0)
+			if (obj.getMatricula() < aux.dados.getMatricula())
 				aux = aux.fe;
-			else if (obj.getNome().compareTo(aux.dados.getNome()) > 0)
+			else if (obj.getMatricula() > aux.dados.getMatricula())
 				aux = aux.fd;
 			else
 				return aux; // Sucesso(encontrou)
 		}
 		return null; // Insucesso --> null
 	}
+	
 
-	public Item pesquisar(Item obj) {
+	public Produto pesquisar(Produto obj) {
 		No aux = consultar(obj);
 		if (aux == null) {
 			return null; // Insucesso à não encontrou
 		}
-		return (new Item(aux.dados.getNome(), aux.dados.getFone())); // Ssucesso --> encontrou
+		return (new Produto(aux.dados.getMatricula(), aux.dados.getPreco(),aux.dados.getDescricao())); // Ssucesso --> encontrou
 	}
 
-	public boolean inserir(Item obj) {
+	public boolean inserir(Produto obj) {
 		// cria-se um novo nó
 		No aux = new No(obj);
 		// verifica-se a árvore está vazia e caso afirmativo faz do nó aux a raiz da
@@ -58,23 +59,27 @@ public class Abp {
 		No ptr = raiz;
 		No ant = raiz;
 		while (ptr != null) {
-			if (obj.getNome().compareTo(ptr.dados.getNome()) < 0) {
+			if (obj.getMatricula() < aux.dados.getMatricula()) {
 				ant = ptr;
 				ptr = ptr.fe;
-			} else if (obj.getNome().compareTo(ptr.dados.getNome()) > 0) {
+			} else if (obj.getMatricula() > aux.dados.getMatricula()) {
 				ant = ptr;
 				ptr = ptr.fd;
 			} else
-				return false; // Insucesso --> item já está na árvore
+				return false; // Insucesso --> Produto já está na árvore
 		}
+		
 		// faz o nó referenciado por ant o pai do nó aux
 		aux.pai = ant;
 		// verifica-se é filho a esquerda ou a direita
-		if (obj.getNome().compareTo(ant.dados.getNome()) < 0) {
+		if (obj.getMatricula() <  aux.dados.getMatricula()) {
 			ant.fe = aux;
+			
 		} else {
 			ant.fd = aux;
+			
 		}
+		
 		return true; // Sucesso
 	}
 
@@ -90,9 +95,9 @@ public class Abp {
 		}
 		return atual; // maior valor na árvore
 	}
-	public void getMaximo () {
-		System.out.println(maximo(raiz));
-		}
+	public No maximo() {
+	    return maximo(raiz);
+	  }
 
 	private No minimo(No obj) {
 		if (obj == null)
@@ -105,6 +110,11 @@ public class Abp {
 		}
 		return atual; // maior valor na árvore
 	}
+	 public No minimo() { 
+		    return minimo(raiz);
+		  }
+	
+
 
 	private No antecessor(No obj) {
 		if (obj == null)
@@ -147,11 +157,11 @@ public class Abp {
 		return atual;
 	}
 
-	public Item retirar(Item obj) {
-		Item aux = null;
+	public Produto retirar(Produto obj) {
+		Produto aux = null;
 		No z = consultar(obj);
 		if (z != null) {
-			aux = new Item(z.dados.getNome(), z.dados.getFone());
+			aux = new Produto(z.dados.getMatricula(), z.dados.getPreco(), z.dados.getDescricao());
 			No y = null;
 			No x = null;
 
@@ -224,7 +234,7 @@ public class Abp {
 	public void visitaEmPreOrdem(StringBuffer aux) {
 		// se a árvore estiver vazia não faz as chamadas recursivas
 		if (vazia()) {
-			aux.append("Ärvore vazia!");
+			aux.append("Árvore vazia!");
 		}
 		// chamar método recursivo
 		else {
@@ -276,37 +286,25 @@ public class Abp {
 			return;
 		}
 		if (obj.fe != null) {
-			if (obj.dados.getNome().compareTo(obj.fe.dados.getNome()) < 0) {
+			if (obj.dados.getMatricula() > obj.fe.dados.getMatricula()) {
 				aux.append("Erro!!! Pai menor que filho da esquerda.\n");
-				aux.append("Pai --> " + obj.dados.getNome() + "\n");
-				aux.append("Filho da esquerda --> " + obj.fe.dados.getNome() + "\n");
+				aux.append("Pai --> " + obj.dados.getMatricula() + " - " + obj.dados.getDescricao() + "\n");
+				aux.append("Filho da esquerda --> " + obj.dados.getMatricula() + " - " + obj.fd.dados.getDescricao() + "\n");
 			}
 		}
 		if (obj.fd != null) {
-			if (obj.dados.getNome().compareTo(obj.fd.dados.getNome()) > 0) {
+			if (obj.dados.getMatricula() < obj.fd.dados.getMatricula()) {
 				aux.append("Erro!!! Pai maior que filho da direita.\n");
-				aux.append("Pai --> " + obj.dados.getNome() + "\n");
-				aux.append("Filho da direita --> " + obj.fd.dados.getNome() + "\n");
+				aux.append("Pai --> " + obj.dados.getMatricula() + " - " + obj.dados.getDescricao() + "\n");
+				aux.append("Filho da direita --> " + obj.dados.getMatricula() + " - " + obj.fd.dados.getDescricao() + "\n");
 			}
 		}
 		testaIntegridade(aux, obj.fe);
 		testaIntegridade(aux, obj.fd);
 	}
-
-	int getContaFolhas() {
-		return getContaFolhas(raiz);
-	}
-
-	int getContaFolhas(No no) {
-		if (no == null)
-			return 0;
-		if (no.fe == null && no.fd == null)
-			return 1;
-		else
-			return getContaFolhas(no.fe) + getContaFolhas(no.fd);
-	}
-
-	static int getContaNos(No raiz) {
+	
+	// 2.Escreva um método em Java para determinar o número de nós em uma árvore binária de pesquisa.
+	static int getNos(No raiz) {
 		if (raiz == null)
 			return 0;
 
@@ -314,12 +312,55 @@ public class Abp {
 		if (raiz.fe != null && raiz.fd != null)
 			res++;
 
-		res += (getContaNos(raiz.fe) + getContaNos(raiz.fd));
+		res += (getNos(raiz.fe) + getNos(raiz.fd));
 		return res;
 	}
 
-	public int getContaNos() {
-		return getContaNos(raiz);
+	public int getNos() {
+		return getNos(raiz);
 	}
+	
+	
+	// 3.Escreva um método que conta o número de folhas de uma Árvores binária de pesquisa (ABP).
+		int getFolhas() {
+			return getFolhas(raiz);
+		}
 
+		int getFolhas(No no) {
+			if (no == null)
+				return 0;
+			if (no.fe == null && no.fd == null)
+				return 1;
+			else
+				return getFolhas(no.fe) + getFolhas(no.fd);
+		}
+
+	// 4. Duas Árvores binárias de pesquisa(ABP) são IGUAIS (ou similares) se são ambas vazias ou então se
+	// armazenam valores iguais em suas raízes, suas sub-árvores esquerdas são iguais, e suas sub-árvores
+	// direitas são iguais. Implemente um método que verifica se duas a árvores são iguais (ou similares).
+
+		
+	// 5.Uma ABP é estritamente binária se todos os nós da árvore tem 2 filhos. 
+	// Implemente um método que verifica se uma ABP e ́ estritamente binária.
+		
+	// 6.Implemente um método para testar se uma a Árvore binária é uma ABP.
+		
+		private void isBinary(StringBuffer aux, No obj) {
+			if (obj != null) {
+				visitaEmOrdem(aux, obj.fe);
+				aux.append(obj.dados.toString());
+				visitaEmOrdem(aux, obj.fd);
+			}
+		}
 }
+
+
+
+
+
+
+
+
+
+
+

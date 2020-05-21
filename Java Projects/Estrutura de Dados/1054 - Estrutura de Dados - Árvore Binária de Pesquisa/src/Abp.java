@@ -27,9 +27,9 @@ public class Abp {
 	private No consultar(Item obj) {
 		No aux = raiz;
 		while (aux != null) {
-			if (obj.getNome().compareTo(aux.dados.getNome()) < 0)
+			if (obj.getNome().compareToIgnoreCase(aux.dados.getNome()) < 0)
 				aux = aux.fe;
-			else if (obj.getNome().compareTo(aux.dados.getNome()) > 0)
+			else if (obj.getNome().compareToIgnoreCase(aux.dados.getNome()) > 0)
 				aux = aux.fd;
 			else
 				return aux; // Sucesso(encontrou)
@@ -58,10 +58,10 @@ public class Abp {
 		No ptr = raiz;
 		No ant = raiz;
 		while (ptr != null) {
-			if (obj.getNome().compareTo(ptr.dados.getNome()) < 0) {
+			if (obj.getNome().compareToIgnoreCase(ptr.dados.getNome()) < 0) {
 				ant = ptr;
 				ptr = ptr.fe;
-			} else if (obj.getNome().compareTo(ptr.dados.getNome()) > 0) {
+			} else if (obj.getNome().compareToIgnoreCase(ptr.dados.getNome()) > 0) {
 				ant = ptr;
 				ptr = ptr.fd;
 			} else
@@ -75,6 +75,7 @@ public class Abp {
 		} else {
 			ant.fd = aux;
 		}
+		tamanho ++;
 		return true; // Sucesso
 	}
 
@@ -215,8 +216,11 @@ public class Abp {
 		if (obj != null) {
 			visitaEmOrdem(aux, obj.fe);
 			aux.append(obj.dados.toString());
+
 			visitaEmOrdem(aux, obj.fd);
 		}
+		System.out.println("\n");
+		System.out.println(aux);
 	}
 
 	public void visitaEmPreOrdem(StringBuffer aux) {
@@ -228,6 +232,7 @@ public class Abp {
 		else {
 			visitaEmPreOrdem(aux, raiz);
 		}
+
 	}
 
 	private void visitaEmPreOrdem(StringBuffer aux, No obj) {
@@ -236,6 +241,8 @@ public class Abp {
 			visitaEmPreOrdem(aux, obj.fe);
 			visitaEmPreOrdem(aux, obj.fd);
 		}
+		System.out.println("\n");
+		System.out.println(aux);
 	}
 
 	public void visitaEmPosOrdem(StringBuffer aux) {
@@ -255,6 +262,8 @@ public class Abp {
 			visitaEmPosOrdem(aux, obj.fd);
 			aux.append(obj.dados.toString());
 		}
+		System.out.println("\n");
+		System.out.println(aux);
 	}
 
 	public void testaIntegridade(StringBuffer aux) {
@@ -267,6 +276,7 @@ public class Abp {
 			testaIntegridade(aux, raiz);
 			aux.append("Árvore provavelment sem erros.\nVeja mensagens de erro a anteriores.\n");
 		}
+
 	}
 
 	private void testaIntegridade(StringBuffer aux, No obj) {
@@ -274,14 +284,14 @@ public class Abp {
 			return;
 		}
 		if (obj.fe != null) {
-			if (obj.dados.getNome().compareTo(obj.fe.dados.getNome()) < 0) {
+			if (obj.dados.getNome().compareToIgnoreCase(obj.fe.dados.getNome()) < 0) {
 				aux.append("Erro!!! Pai menor que filho da esquerda.\n");
 				aux.append("Pai --> " + obj.dados.getNome() + "\n");
 				aux.append("Filho da esquerda --> " + obj.fe.dados.getNome() + "\n");
 			}
 		}
 		if (obj.fd != null) {
-			if (obj.dados.getNome().compareTo(obj.fd.dados.getNome()) > 0) {
+			if (obj.dados.getNome().compareToIgnoreCase(obj.fd.dados.getNome()) > 0) {
 				aux.append("Erro!!! Pai maior que filho da direita.\n");
 				aux.append("Pai --> " + obj.dados.getNome() + "\n");
 				aux.append("Filho da direita --> " + obj.fd.dados.getNome() + "\n");
@@ -289,5 +299,8 @@ public class Abp {
 		}
 		testaIntegridade(aux, obj.fe);
 		testaIntegridade(aux, obj.fd);
+		System.out.println("\n");
+		System.out.println(aux);
 	}
+
 }
