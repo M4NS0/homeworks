@@ -8,9 +8,9 @@ public class Teste {
 		leia.skip("\\R");
 		System.out.print("Nome:");
 		nome = leia.nextLine();
-		System.out.print("Telefone:");
-		fone = leia.next();
-		Item aux = new Item(nome, fone);
+		//System.out.print("Telefone:");
+		//fone = leia.next();
+		Item aux = new Item(nome, "000");
 		return aux;
 	}
 
