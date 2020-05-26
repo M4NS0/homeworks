@@ -1,38 +1,33 @@
 package formasGeometricas;
 
 public abstract class Quadrilatero implements FormaGeometrica {
-	float ladoA;
-	float ladoB;
-	float ladoC;
-	float ladoD;
+	private double lado1;
+	private double lado2;
+	private double lado3;
+	private double lado4;
 
-	public Quadrilatero(float ladoA, float ladoB, float ladoC, float ladoD) {
-		this.ladoA = ladoA;
-		this.ladoB = ladoB;
-		this.ladoC = ladoC;
-		this.ladoD = ladoD;
-
-	}
-
-	public Quadrilatero(float lado) {
-		this.ladoA = lado;
-	}
-
-	public Quadrilatero(float base, float altura) {
-		this.ladoA = base;
-		this.ladoB = altura;
+	public Quadrilatero(double lado1, double lado2, double lado3, double lado4) {
+		this.lado1 = lado1;
+		this.lado2 = lado2;
+		this.lado3 = lado3;
+		this.lado4 = lado4;
 	}
 
 	@Override
-	public void calculaPerimetro() {
-		float perimetro = ladoA + ladoB + ladoC + ladoD;
-		System.out.println(" Perímetro: " + perimetro);
+	public double perimetro() {
+		return (this.lado1 + this.lado2 + this.lado3 + this.lado4);
 	}
 
-	@Override
-	public void calculaArea() {
-		float area = ladoA * ladoB;
-		System.out.println(" Área: " + area);
+	public double getLado1() {
+		return lado1;
+	}
+
+	public double getBase() {
+		return lado2;
+	}
+
+	public double getAltura() {
+		return lado3;
 	}
 
 }

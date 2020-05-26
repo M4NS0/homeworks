@@ -17,12 +17,12 @@ DROP TABLE public."GERENTE";
 
 CREATE TABLE public."GERENTE" 
 (
-    "nome-gerente" character varying(80) COLLATE pg_catalog."default" NOT NULL,
+    "nome-gerente" character varying(80) NOT NULL,
     "cpf-gerente" bigint NOT NULL,
     "salario-gerente" numeric(8,2) NOT NULL,
     "telefone-gerente" bigint NOT NULL,
-    "turno-gerente" character varying(1) COLLATE pg_catalog."default" NOT NULL,
-    "sexo-gerente" character varying(1) COLLATE pg_catalog."default" NOT NULL,
+    "turno-gerente" character varying(1) NOT NULL,
+    "sexo-gerente" character varying(1) NOT NULL,
     CONSTRAINT "GERENTE_pkey" PRIMARY KEY ("nome-gerente", "cpf-gerente")
 );
 	-- Pergunta antiga: 
@@ -158,6 +158,10 @@ CREATE TABLE public."INGREDIENTE-ITEM-CARDAPIO"
         REFERENCES public."ITEM-CARDAPIO" ("Numero-item-cardapio")
 	
 );
+	-- 	-- Pergunta Nova: PK de INGREDIENTE ITEM CARDAPIO DEVE SER a FK de item-cardapio e de ingrediete. PQ?
+		-- isso faz com que repitam valores
+		
+		
 	-- Perguntas antigas:
 	-- nessa tabela deve aparecer quantidades? 
 	-- r: sim, abaixo:
@@ -717,6 +721,8 @@ SELECT * FROM "CLIENTE-EXTERNO";
 	
 	/* GERENTE */
 
+	SELECT * FROM "GERENTE";
+
 ---------------------------------------------------------------------------------------------------
 	UPDATE 	"GERENTE" 
 	SET 	"salario-gerente" = "salario-gerente" + ("salario-gerente"*5/100) 
@@ -745,9 +751,9 @@ SELECT * FROM "CLIENTE-EXTERNO";
 	WHERE 	"nome-gerente" = 'Gerente2' OR "nome-gerente" = 'Gerente1';
 ---------------------------------------------------------------------------------------------------
 
-	SELECT * FROM "GERENTE";
-
 	/* GARCOM */
+
+	SELECT * FROM "GARCOM" ;
 
 ---------------------------------------------------------------------------------------------------
 	UPDATE 	"GARCOM" 
@@ -777,9 +783,10 @@ SELECT * FROM "CLIENTE-EXTERNO";
 	WHERE 	"Turno-garcom" = 'N' AND "Sexo-garcom" = 'M'; 
 ---------------------------------------------------------------------------------------------------
 
-	SELECT * FROM "GARCOM" ;
 
 	/* MESA */
+
+	SELECT * FROM "MESA";
 
 ---------------------------------------------------------------------------------------------------
 	UPDATE 	"MESA"
@@ -794,24 +801,318 @@ SELECT * FROM "CLIENTE-EXTERNO";
 	WHERE   "Numero-mesa" = '18' OR "Numero-mesa" = '19';
 ---------------------------------------------------------------------------------------------------
 
-	SELECT * FROM "MESA";
-	
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"MESA"
+	SET 	"Numero-lugares" = 5
+	WHERE	"Numero-lugares" = 4;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	* 
+	FROM	"MESA"
+	WHERE 	"Numero-lugares" != 5;
+---------------------------------------------------------------------------------------------------
+
+
 /* ENTREGADOR */
+
+	SELECT * FROM "ENTREGADOR";
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"ENTREGADOR"
+	SET 	"Telefone" = 9999991, "Turno-entregador" = 'N'
+	WHERE	"Nome-entregador" = 'Entregador1'; 	
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Nome-entregador" AS "Entregador",
+			"Telefone" AS "Novo Número",
+			"Turno-entregador" AS "Novo Turno"
+	FROM 	"ENTREGADOR"
+	WHERE	"Turno-entregador" = 'N';
+---------------------------------------------------------------------------------------------------
+	
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"ENTREGADOR"
+	SET 	"Salario-entregador" = "Salario-entregador" + ("Salario-entregador"*15/100)
+	WHERE 	"Turno-entregador" = 'N';
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Nome-entregador" AS "Nome",
+			"Turno-entregador" AS "Turno",
+			"Salario-entregador" AS "Salário Atualizado"
+	FROM	"ENTREGADOR"
+	WHERE	"Turno-entregador" = 'N';
+---------------------------------------------------------------------------------------------------
+
+
 /* CLIENTE-EXTERNO */
+
+	SELECT * FROM "CLIENTE-EXTERNO";
+	
+---------------------------------------------------------------------------------------------------
+	
+	
+	UPDATE 	"CLIENTE-EXTERNO"
+	SET		"Endereço" = CONCAT("Endereço",' - Número 100')
+	WHERE 	"Endereço" = 'Rua A';
+---------------------------------------------------------------------------------------------------
+	
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Nome-cliente" AS "Nome do Cliente",
+			"Endereço"		AS "Endereço Atualizado"
+	FROM	"CLIENTE-EXTERNO"
+	WHERE 	"Nome-cliente" = 'Cliente1' OR "Nome-cliente" = 'Cliente27';
+---------------------------------------------------------------------------------------------------
+	
+---------------------------------------------------------------------------------------------------	
+	UPDATE 	"CLIENTE-EXTERNO"
+	SET		"Celular" = 901001
+	WHERE 	"Nome-cliente" = 'Cliente1';
+---------------------------------------------------------------------------------------------------
+	
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Nome-cliente" AS "Nome do Cliente",
+			"Celular"      AS "Celular corrigido"
+	FROM 	"CLIENTE-EXTERNO"
+	WHERE	"Cpf-cliente" = 11127 OR "Cpf-cliente" < 11102;
+---------------------------------------------------------------------------------------------------
+
 /* COZINHEIRO */
+
+
+	SELECT * FROM "COZINHEIRO";
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"COZINHEIRO"
+	SET		"Salario-cozinheiro" = "Salario-cozinheiro" - ("Salario-cozinheiro"*20/100)
+	WHERE	"Turno-cozinheiro" = 'V';
+---------------------------------------------------------------------------------------------------
+	
+---------------------------------------------------------------------------------------------------	
+	SELECT 	"Nome-cozinheiro" AS "Nome",
+			"Salario-cozinheiro" AS "Salário Reajustado",
+			"Turno-cozinheiro"
+	FROM	"COZINHEIRO"
+	WHERE	"Turno-cozinheiro" = 'V';
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"COZINHEIRO"
+	SET 	"Turno-cozinheiro" = 'V'
+	WHERE	"Sexo-cozinheiro" = 'M' AND "Turno-cozinheiro" = 'M';
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Nome-cozinheiro" AS "Nome",
+			"Salario-cozinheiro" AS "Salario",
+			"Telefone",
+			"Turno-cozinheiro" AS "Novo Turno"
+			
+	FROM	"COZINHEIRO"
+	WHERE	"Turno-cozinheiro" = 'V' AND "Salario-cozinheiro" <= 1400;
+---------------------------------------------------------------------------------------------------
+
 /* ITEM-CARDAPIO */
+
+	SELECT * FROM "ITEM-CARDAPIO";
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"ITEM-CARDAPIO"
+	SET 	"Valor-item" = "Valor-item" - ("Valor-item"*0.05)
+	WHERE	("Numero-item-cardapio" BETWEEN 5 AND 7) OR ("Numero-item-cardapio" BETWEEN 15 AND 17);
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Numero-item-cardapio" AS "Item do cardápio",
+			"Descricao",
+			"Valor-item" AS "Preço"
+	FROM	"ITEM-CARDAPIO"
+	WHERE	("Numero-item-cardapio" BETWEEN 5 AND 7) OR ("Numero-item-cardapio" BETWEEN 15 AND 17);
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"ITEM-CARDAPIO"
+	SET 	"Valor-item" = "Valor-item" - ("Valor-item"*0.05),
+			"Descricao" = CONCAT("Descricao",' - com acréssimo')
+	WHERE	"Valor-item" >= 10 AND "Valor-item" < 20;
+---------------------------------------------------------------------------------------------------
+	
+---------------------------------------------------------------------------------------------------
+	SELECT 	* 
+	FROM 	"ITEM-CARDAPIO"
+	WHERE	"Valor-item" >= 10 AND "Valor-item" < 20;
+
+---------------------------------------------------------------------------------------------------
+	
 /* INGREDIENTE */ 
+
+	SELECT * FROM "INGREDIENTE";
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"INGREDIENTE"
+	SET		"Descricao" = CONCAT("Descricao",' - indisponível')
+	WHERE 	"Numero-ingrediente" BETWEEN 1 AND 4;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Descricao",
+			"Numero-ingrediente" AS "Código"
+	FROM 	"INGREDIENTE"
+	WHERE	"Numero-ingrediente" <= 4;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"INGREDIENTE"
+	SET		"Descricao" = CONCAT("Descricao",' - disponível')	
+	WHERE	"Numero-ingrediente" > 4;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Descricao",
+			"Numero-ingrediente" AS "Código"
+	FROM 	"INGREDIENTE"
+	WHERE	"Numero-ingrediente" > 4;
+---------------------------------------------------------------------------------------------------
+
 /* INGREDIENTE-ITEM-CARDAPIO */
+
+	SELECT * FROM "INGREDIENTE-ITEM-CARDAPIO";
+	
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"INGREDIENTE-ITEM-CARDAPIO"
+	SET		"Valor-ingrediente" = "Valor-ingrediente" + ("Valor-ingrediente"*0.05)
+	WHERE	"Quantidade-ingrediente" >= 50;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Quantidade-ingrediente" 	AS "Quantidade em Gramas", 
+			"Valor-ingrediente"			AS "Valor por Grama",		 
+			("Quantidade-ingrediente") * ("Valor-ingrediente") AS "Total em Reais"
+	FROM 	"INGREDIENTE-ITEM-CARDAPIO"
+	WHERE	"Quantidade-ingrediente" >= 50;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"INGREDIENTE-ITEM-CARDAPIO"
+	SET 	"Quantidade-ingrediente" = 100
+	WHERE 	"Quantidade-ingrediente" >= 80;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT	"numero-ingrediente"		AS "Número do Ingrediente",
+			"Quantidade-ingrediente" 	AS "Quantidade em Gramas", 
+			"Valor-ingrediente"			AS "Valor por Grama",	
+			("Quantidade-ingrediente") * ("Valor-ingrediente") AS "Total em Reais"
+	FROM 	"INGREDIENTE-ITEM-CARDAPIO"
+	WHERE 	"Quantidade-ingrediente" = 100;	
+---------------------------------------------------------------------------------------------------
+	
 /* PEDIDO */
+
+	SELECT * FROM "PEDIDO";
+	
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"PEDIDO"
+	SET		"Valor-desconto" = 0.3
+	WHERE 	"numero-mesa" = '1' OR
+			"numero-mesa" = '2' OR
+			"numero-mesa" = '3' OR
+			"numero-mesa" = '4' OR
+			"numero-mesa" = '5' OR
+			"numero-mesa" = '6' OR
+			"numero-mesa" = '7' OR
+			"numero-mesa" = '8' OR
+			"numero-mesa" = '9' OR
+			"numero-mesa" = '10';
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Numero-pedido"	 AS "Numero do Pedido",
+			"numero-mesa"	 AS "Mesas em Sistema de Cupom",
+			"nome-gerente"	 AS "Nome do Gerente Responsável",
+			"Valor-desconto" AS "Desconto Aprovado"
+	FROM 	"PEDIDO"
+	WHERE	"Valor-desconto" != 0.00
+	ORDER BY"Numero-pedido" DESC;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"PEDIDO"
+	SET 	"nome-garcom" = 'Garçom1',
+			"cpf-garcom" = 10031
+	WHERE	"Numero-pedido" = 12;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Numero-pedido" AS "Pedido",
+			"numero-mesa"	AS "Mesa",
+			"nome-garcom"	AS "Atendente",
+			"cpf-garcom"	AS "CPF"
+	FROM 	"PEDIDO"
+	WHERE 	"nome-garcom" IS NOT NULL AND "Numero-pedido" >= 12
+	ORDER BY "Numero-pedido";
+---------------------------------------------------------------------------------------------------
+
 /* ITEM-CARDAPIO-PEDIDO */
+
+	SELECT * FROM "ITEM-CARDAPIO-PEDIDO";
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"ITEM-CARDAPIO-PEDIDO"
+	SET		"Cpf-cozinheiro" = 10062
+	WHERE	"Numero-pedido" = 2 OR "Numero-pedido" = 3 OR "Numero-pedido" = 4;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	*
+	FROM 	"ITEM-CARDAPIO-PEDIDO"
+	WHERE 	"Cpf-cozinheiro" = 10061
+	ORDER BY"Numero-item-cardapio" DESC;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"ITEM-CARDAPIO-PEDIDO"
+	SET		"Cpf-cozinheiro" = 10062
+	WHERE 	"Numero-pedido" BETWEEN 5 AND 10;
+---------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+	SELECT 	*
+	FROM 	"ITEM-CARDAPIO-PEDIDO"
+	WHERE 	"Numero-pedido" >= 5 AND "Numero-pedido" <= 10;
+---------------------------------------------------------------------------------------------------
+
 /* INGREDIENTE-ITEM-PEDIDO */
 
+	SELECT * FROM "INGREDIENTE-ITEM-PEDIDO";
+	
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"INGREDIENTE-ITEM-PEDIDO"
+	SET	   	"Quantidade-item-pedido" = "Quantidade-item-pedido" + 3
+	WHERE	"Quantidade-item-pedido" <= 10;
+---------------------------------------------------------------------------------------------------
 
 
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Numero-pedido" AS "Pedido",
+			"Quantidade-item-pedido" AS "Quantidade Surrupiada"
+	FROM 	"INGREDIENTE-ITEM-PEDIDO"
+	WHERE	"Quantidade-item-pedido" <= 10
+	ORDER BY"Quantidade-item-pedido";
+---------------------------------------------------------------------------------------------------
 
 
+---------------------------------------------------------------------------------------------------
+	UPDATE 	"INGREDIENTE-ITEM-PEDIDO"
+	SET	   	"Quantidade-item-pedido" = "Quantidade-item-pedido" - 0.5
+	WHERE	"Quantidade-item-pedido" <= 10;
+---------------------------------------------------------------------------------------------------
 
 
-
-
-
+---------------------------------------------------------------------------------------------------
+	SELECT 	"Numero-pedido" AS "Pedido",
+			"Quantidade-item-pedido" AS "Quantidade"
+	FROM 	"INGREDIENTE-ITEM-PEDIDO"
+	WHERE	"Quantidade-item-pedido" <= 10
+	ORDER BY"Numero-pedido";
+---------------------------------------------------------------------------------------------------

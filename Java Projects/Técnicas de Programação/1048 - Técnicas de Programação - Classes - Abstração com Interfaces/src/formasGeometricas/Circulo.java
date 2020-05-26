@@ -1,24 +1,25 @@
 package formasGeometricas;
 
-public class Circulo implements FormaGeometrica{
-	float raio;
-	
-	public Circulo(float raio) {
+public class Circulo implements FormaGeometrica {
+	private double raio;
+
+	public Circulo(double raio) {
 		this.raio = raio;
 	}
 
-	@Override
-	public void calculaArea() {
-		float area = 3.14f * (raio*raio);
-		System.out.println(" A área do Círculo é de: " + area);
-		
+	public double getRaio() {
+		return raio;
 	}
 
 	@Override
-	public void calculaPerimetro() {
-		float perimetro = (2*3.14f)*raio;
-		System.out.println(" O perímetro do Círculo é de: " + perimetro);
-		
+	public double perimetro() {
+		return 2*raio*Math.PI;
 	}
+
+	@Override
+	public double area() {
+		return Math.pow(raio,2)*Math.PI;
+	}
+	
 
 }
