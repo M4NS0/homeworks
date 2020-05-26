@@ -1,121 +1,69 @@
 package formasGeometricas;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Teste {
 	public static Scanner leia = new Scanner(System.in);
-	private static Quadrado quadrado;
-	private static Retangulo retangulo;
-	private static Circulo circulo;
-
-	public static FormaGeometrica ObtemLadoQuadrado() {
-		System.out.print(" Lado: ");
-		float ladoA = leia.nextFloat();
-		quadrado = new Quadrado(ladoA) {
-			
-		};
-
-		return quadrado;
-	}
-
-	public static FormaGeometrica ObtemLadosRetangulo() {
-		System.out.print(" Base: ");
-		float base = leia.nextFloat();
-		System.out.print(" Altura: ");
-		float altura = leia.nextFloat();
-
-		retangulo = new Retangulo(base, altura) {
-		};
-		return retangulo;
-	}
-
-	private static FormaGeometrica ObterCircunferencia() {
-		System.out.print(" Raio: ");
-		float raio = leia.nextFloat();
-
-		circulo = new Circulo(raio);
-		return circulo;
-	}
-
-	public static String Escolha() {
-		System.out.println("\n [Q]uadrado");
-		System.out.println(" [R]etângulo");
-		System.out.println(" [C]írculo");
-		System.out.print("\n Escolha: ");
-		String e = leia.next().toLowerCase();
-		return e;
-	}
-
-	public static String Escolha0() {
-		System.out.println("\n [I]nserir");
-		System.out.println(" [V]er");
-		System.out.println(" [S]air");
-		System.out.print("\n Escolha: ");
-		String e0 = leia.next().toLowerCase();
-		return e0;
-
-	}
 
 	public static void main(String[] args) {
-		ArrayList<FormaGeometrica> lista = new ArrayList<FormaGeometrica>();
+		int n, i = 1;
+		char f;
+		double x, b, h;
+		System.out.print(" Quantas formas geométricas pretende criar: ");
+		n = leia.nextInt();
 
-		String e0 = "";
-		do {
-			switch (e0 = Escolha0()) {
-			case "i":
-				System.out.print(" Quantas formas deseja criar: ");
-				int quantidade = leia.nextInt();
+		List<FormaGeometrica> figuras = new ArrayList<FormaGeometrica>();
 
-				for (int i = 0; i < quantidade; i++) {
-					String e = "";
+		while (i++ <= n) {
+			System.out.println(" Escolha a forma: " + (i - 1) + "\n[Q]uadrado \n[R]etangulo \n[C]irculo");
+			f = leia.next().charAt(0);
+			f = Character.toLowerCase(f);
 
-					switch (e = Escolha()) {
-					case "q":
-						lista.add(ObtemLadoQuadrado());
-						break;
-					case "r":
-						lista.add(ObtemLadosRetangulo());
-						break;
-					case "c":
-						lista.add(ObterCircunferencia());
-						break;
-					}
-				}
+			switch (f) {
+			case 'q':
+				System.out.print(" Digite o lado do Quadrado: ");
+				x = leia.nextDouble();
+				figuras.add(new Quadrado(x));
 				break;
-			case "v":
-			
-				for (int i = 0; i < lista.size(); i++) {
-					if (lista.get(i).equals(quadrado)) {
-						System.out.println();
-						System.out.println("\n Quadrado: ");
-						System.out.println(" Lado: " + quadrado.ladoA);		
-						quadrado.calculaArea(); 								
-						quadrado.calculaPerimetro();							
-						
-						
-					}
-					if (lista.get(i).equals(retangulo)) {
-						System.out.println();
-						System.out.println(" Retângulo: ");
-						System.out.println(" Base: " + retangulo.base);  		
-						System.out.println(" Altura: " + retangulo.altura);								retangulo.calculaArea();
-						retangulo.calculaPerimetro();
-						
-					}
-					if (lista.get(i).equals(circulo)) {
-						System.out.println();
-						System.out.println(" Círculo: ");
-						System.out.println(" Raio: " + circulo.raio);
-						circulo.calculaArea();
-						circulo.calculaPerimetro();
-					}
-				}
+			case 'r':
+				System.out.print(" Digite a base do Retângulo: ");
+				b = leia.nextDouble();
+				System.out.print(" Digite a altura do Retângulo: ");
+				h = leia.nextDouble();
+				figuras.add(new Retangulo(b, h));
 				break;
+			case 'c':
+				System.out.print(" Digite o raio do Círculo: ");
+				x = leia.nextDouble();
+				figuras.add(new Circulo(x));
+				break;
+
 			}
 
-		} while (!e0.equalsIgnoreCase("s"));
-		System.out.println("Fim");
+		}
+		System.out.println("\n Informações da Formas cadastradas: ");
+		for (FormaGeometrica forma : figuras) {
+			if (forma instanceof Quadrado) {
+				System.out.println("\n Quadrado: ");
+				System.out.println(" Lado     : " + ((Quadrado) forma).getLado1());
+				System.out.println(" Área     : " + forma.area());
+			}
+			if (forma instanceof Retangulo) {
+				System.out.println("\n Retângulo: ");
+				System.out.println(" Base        :" + ((Retangulo) forma).getBase());
+				System.out.println(" Altura      :" + ((Retangulo) forma).getAltura());
+				System.out.println(" Área        :" + forma.area());
+			}
+			if (forma instanceof Circulo) {
+				System.out.println("\n Circulo: ");
+				System.out.println(" Raio        :" + ((Circulo) forma).getRaio());
+				System.out.printf(" Área        :%.2f\n", forma.area());
+			}
+			System.out.printf(" Perímetro:%.2f\n", forma.perimetro());
 
+		}
 	}
+
 }

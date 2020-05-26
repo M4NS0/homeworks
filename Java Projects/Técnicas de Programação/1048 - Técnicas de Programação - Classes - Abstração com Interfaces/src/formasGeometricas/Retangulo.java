@@ -1,11 +1,14 @@
 package formasGeometricas;
 
-public abstract class Retangulo extends Quadrilatero {
-	float base;
-	float altura;
+public class Retangulo extends Quadrilatero {
 
-	public Retangulo(float base, float altura) {
-		super(base, altura);
+	public Retangulo(double base, double altura) {
+		super(base, base, altura, altura);
+	}
+
+	@Override
+	public double area() {
+		return super.getBase()*super.getAltura();
 	}
 
 }

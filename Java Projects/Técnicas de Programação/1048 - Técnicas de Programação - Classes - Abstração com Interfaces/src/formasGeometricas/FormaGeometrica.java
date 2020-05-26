@@ -1,8 +1,6 @@
 package formasGeometricas;
 
 public interface FormaGeometrica {
-	public void calculaArea();
-	public void calculaPerimetro();
-
-
+	public double perimetro();
+	public double area();
 }
