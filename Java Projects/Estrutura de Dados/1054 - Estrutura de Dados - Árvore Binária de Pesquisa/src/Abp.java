@@ -1,3 +1,5 @@
+
+
 public class Abp {
 	public class No {
 		private Item dados;
@@ -302,5 +304,53 @@ public class Abp {
 		System.out.println("\n");
 		System.out.println(aux);
 	}
+	// 2.Escreva um método em Java para determinar o número de nós em uma árvore binária de pesquisa.
+		static int getNos(No raiz) {
+			if (raiz == null)
+				return 0;
 
-}
+			int res = 0;
+			if (raiz.fe != null && raiz.fd != null)
+				res++;
+
+			res += (getNos(raiz.fe) + getNos(raiz.fd));
+			return res;
+		}
+
+		public int getNos() {
+			return getNos(raiz);
+		}
+		
+		
+		// 3.Escreva um método que conta o número de folhas de uma Árvores binária de pesquisa (ABP).
+			int getFolhas() {
+				return getFolhas(raiz);
+			}
+
+			int getFolhas(No no) {
+				if (no == null)
+					return 0;
+				if (no.fe == null && no.fd == null)
+					return 1;
+				else
+					return getFolhas(no.fe) + getFolhas(no.fd);
+			}
+
+		// 4. Duas Árvores binárias de pesquisa(ABP) são IGUAIS (ou similares) se são ambas vazias ou então se
+		// armazenam valores iguais em suas raízes, suas sub-árvores esquerdas são iguais, e suas sub-árvores
+		// direitas são iguais. Implemente um método que verifica se duas a árvores são iguais (ou similares).
+
+			
+		// 5.Uma ABP é estritamente binária se todos os nós da árvore tem 2 filhos. 
+		// Implemente um método que verifica se uma ABP e ́ estritamente binária.
+			
+		// 6.Implemente um método para testar se uma a Árvore binária é uma ABP.
+			
+			private void isBinary(StringBuffer aux, No obj) {
+				if (obj != null) {
+					visitaEmOrdem(aux, obj.fe);
+					aux.append(obj.dados.toString());
+					visitaEmOrdem(aux, obj.fd);
+				}
+			}
+	}
