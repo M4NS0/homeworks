@@ -21,8 +21,9 @@ public class Teste {
 		System.out.println("2 - para remover um item.");
 		System.out.println("3 - para pesquisar um item.");
 		System.out.println("4 - para imprimir a árvore.");
-		System.out.println("5 - para testar integridade da árvore.");
-		System.out.println("6 - para encerrar o programa.");
+		System.out.println("5 - Informações Sobre a Árvore");
+		System.out.println("6 - para testar integridade da árvore.");
+		System.out.println("7 - para encerrar o programa.");
 		System.out.println("\n  Escolha: ");
 		valor = Integer.parseInt(leia.next());
 		return valor;
@@ -78,14 +79,18 @@ public class Teste {
 				System.out.println(aux3.toString() + "\nFim ............. \n");
 				break;
 			case 5:
+				System.out.println("\n Número de nós: " + arvore.getNos());
+				System.out.println("\n Número de Folhas: " + arvore.getFolhas());
+				break;
+			case 6:
 				StringBuffer aux4 = new StringBuffer();
 				arvore.testaIntegridade(aux4);
 				System.out.println(aux4.toString() + "\nFim .............. \n");
 				break;
-			case 6:
+			case 7:
 				System.out.println("Árvore com " + arvore.getTamanho() + " itens.");
 				System.out.println("Programa encerrando!");
 			}
-		} while (n != 6);
+		} while (n != 7);
 	}
 }
