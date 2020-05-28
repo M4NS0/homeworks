@@ -1050,7 +1050,7 @@ SELECT * FROM "CLIENTE-EXTERNO";
 			"cpf-garcom"	AS "CPF"
 	FROM 	"PEDIDO"
 	WHERE 	"nome-garcom" IS NOT NULL AND "Numero-pedido" >= 12
-	ORDER BY "Numero-pedido";
+	ORDER BY"Numero-pedido";
 ---------------------------------------------------------------------------------------------------
 
 /* ITEM-CARDAPIO-PEDIDO */
@@ -1092,7 +1092,6 @@ SELECT * FROM "CLIENTE-EXTERNO";
 	WHERE	"Quantidade-item-pedido" <= 10;
 ---------------------------------------------------------------------------------------------------
 
-
 ---------------------------------------------------------------------------------------------------
 	SELECT 	"Numero-pedido" AS "Pedido",
 			"Quantidade-item-pedido" AS "Quantidade Surrupiada"
@@ -1101,13 +1100,11 @@ SELECT * FROM "CLIENTE-EXTERNO";
 	ORDER BY"Quantidade-item-pedido";
 ---------------------------------------------------------------------------------------------------
 
-
 ---------------------------------------------------------------------------------------------------
 	UPDATE 	"INGREDIENTE-ITEM-PEDIDO"
 	SET	   	"Quantidade-item-pedido" = "Quantidade-item-pedido" - 0.5
 	WHERE	"Quantidade-item-pedido" <= 10;
 ---------------------------------------------------------------------------------------------------
-
 
 ---------------------------------------------------------------------------------------------------
 	SELECT 	"Numero-pedido" AS "Pedido",

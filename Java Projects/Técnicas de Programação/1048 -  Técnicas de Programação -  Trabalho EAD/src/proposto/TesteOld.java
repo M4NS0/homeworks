@@ -1,14 +1,15 @@
 package proposto;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Teste {
+public class TesteOld {
 	public static Scanner leia = new Scanner(System.in);
 	
 
 	private static double totalMeias;
 	private static double totalInteiras;
-	public static int MAX = 1019;
+	public static int MAX = 1003;
 	public static int MIN = 1000;
 
 
@@ -21,23 +22,35 @@ public class Teste {
 
 	}
 
+	private static void imprimeLista(ArrayList<String> vendidos) {
+		System.out.println("\n -----------------------------");
+		System.out.println("  Lista de Ingressos Vendidos  ");
+		System.out.println(" -----------------------------");
+		System.out.println("    No     Tipo      Valor\n");
+		for (int j = 0; j < vendidos.size(); j++) {
+			System.out.println("   " + vendidos.get(j));
+		}
+		System.out.println("\n    Lucro: R$" + (totalInteiras + totalMeias));
+		System.out.println(" -----------------------------");
+
+	}
 
 	private static void imprimeSaldo(int contaMeias, int contaInteiras) {
 		Meia me = new Meia();
 		Inteira in = new Inteira();
-		System.out.println("\n ------------------------------------------");
-		System.out.println("                   Extrato                 ");
-		System.out.println(" ------------------------------------------");
-		System.out.println("\t       Qt   Valor Unit    Sub-Total\n");
-		System.out.println("    Meias -    " + contaMeias    + "    R$" + me.getValor() + "        R$" + totalMeias);
-		System.out.println(" Inteiras -    " + contaInteiras + "    R$" + in.getValor() + "        R$" + totalInteiras);
-		System.out.println("\n ------------------------------------------");
-		System.out.println(" Vendidos:     " + (contaMeias + contaInteiras) +   "    Lucro:        R$" + (totalInteiras + totalMeias));
-		System.out.println(" ------------------------------------------\n");
+		System.out.println("\n ------------------------------------");
+		System.out.println("                Extrato                 ");
+		System.out.println(" ------------------------------------");
+		System.out.println("   Qt   Valor Unit    Sub-Total\n");
+		System.out.println("   " +contaMeias + "    R$" + me.getValor() + "        R$" + totalMeias);
+		System.out.println("   " +contaInteiras + "    R$" + in.getValor() + "        R$" + totalInteiras);
+		System.out.println("\n ------------------------------------");
+		System.out.println("   Vendidos: " + (contaMeias + contaInteiras) + "        Lucro: R$" + (totalInteiras + totalMeias));
+		System.out.println(" ------------------------------------\n");
 
 	}
 
-	private static void InteiraVendida(int i) {
+	private static void InteiraVendida(int i, ArrayList<String> vendidos) {
 		MAX--;                                                                  // Decrementa o índice máximo
 		Inteira inteira = new Inteira();                                        // Cria objeto do tipo Inteira
 		inteira.setId(i);                                                       // Configura o id da classe Meia com o número que foi passado por parâmetro
@@ -46,9 +59,11 @@ public class Teste {
 		inteira.venderIngresso();                                               // Chama método da classe e imprime para o Usuário
 		System.out.println(" ------------------------------------\n");
 		totalInteiras = totalInteiras + inteira.getValor();                     // Guarda na variável, passada por parâmetro, incrementando o valor do ingresso (inteira) cada vez que é comprado
+		String aux = " " + i + "   " + "Inteira" + "   R$" + inteira.getValor();// Gera uma String auxiliar com os dados para ser armazenada no ArrayList (vendidos)
+		vendidos.add(aux);                                                      // Guarda String auxiliar no ArrayList passado por parâmetro
 	}
 
-	private static void MeiaVendida(int i) {
+	private static void MeiaVendida(int i, ArrayList<String> vendidos) {
 		
 		MAX--;                                                                  // Decrementa o índice máximo
 		Meia meia = new Meia();                                                 // Cria objeto do tipo Meia
@@ -58,6 +73,8 @@ public class Teste {
 		meia.venderIngresso();                                                  // Chama método da classe e imprime para o Usuário
 		System.out.println(" ------------------------------------\n");
 		totalMeias = totalMeias + meia.getValor();                              // Guarda na variável, passada por parâmetro, incrementando o valor do ingresso (meia) cada vez que é comprado
+		String aux = " " + i + "   " + "Meia   " + "   R$" + meia.getValor();   // Gera uma String auxiliar com os dados para ser armazenada no ArrayList (vendidos)
+		vendidos.add(aux);                                                      // Guarda String auxiliar no ArrayList passado por parâmetro
 
 	}
 
@@ -70,23 +87,24 @@ public class Teste {
 		return escolha.toLowerCase();
 	}
 
-	public static int menuEscolha() {
-		System.out.println("\n 1 - Vender ingresso");
-		System.out.println(" 2 - Imprimir Saldo");
-		System.out.println(" 3 - Sair");
+	public static String menuEscolha() {
+		System.out.println("\n [V]ender ingresso");
+		System.out.println(" [I]mprimir Saldo");
+		System.out.println(" [T]odas as vendas");
+		System.out.println(" [S]air");
 		System.out.print("\n Escolha: ");
-		int escolha = leia.nextInt();
-		return escolha;
+		String escolha = leia.next();
+		return escolha.toLowerCase();
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		
+		ArrayList<String> lista = new ArrayList<String>();
 		int contaMeias = 0;
 		int contaInteiras = 0;
-		int e = 0;
+		String e = "";
 		do {
 			switch (e = menuEscolha()) {
-			case 1:
+			case "v":
 				if (MAX == MIN) {
 					System.out.println(" Ingressos Esgotados!");
 					break;
@@ -94,21 +112,24 @@ public class Teste {
 			
 				switch (escolhaTipo()) {
 				case "m":
-					contaMeias++;             
-					MeiaVendida(MAX - 1);
+					contaMeias++;                                                           // Contador de Ingressos (meia) vendidos
+					MeiaVendida(MAX - 1, lista);
 					break;
 				case "i":
-					contaInteiras++;                              													
-					InteiraVendida(MAX - 1);
+					contaInteiras++;                                                        // Contador de Ingressos (meia) vendidos													
+					InteiraVendida(MAX - 1, lista);
 					break;
 				}
 				break;
-			case 2:
+			case "i":
 				imprimeSaldo(contaMeias, contaInteiras);
 				break;
-			case 3:
+			case "t":
+				imprimeLista(lista);
+				break;
+			case "s":
 				fim();
 			}
-		} while (e != 1 || e != 2 || e != 3);
+		} while (!e.equalsIgnoreCase("v") || !e.equalsIgnoreCase("i") || !e.equalsIgnoreCase("s"));
 	}
 }
