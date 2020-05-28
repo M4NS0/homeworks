@@ -958,5 +958,39 @@ AND 	"Cod-produto"	= 	2;
       			P."Data-pedido" = (SELECT max("Data-pedido") FROM "PEDIDO");
 	
 	
+  ---------------------------------------------------------------
+  -- Qual vendedor vendeu maior pedido                         --
+  ---------------------------------------------------------------
+  
+	SELECT        	"numero-pedido-maior", "Nome-vend"
+    FROM        	"VENDEDOR" v, "PEDIDO" p,
+
+        (SELECT     	"numero-pedido-maior"
+        FROM
+
+            (SELECT      
+            MAX            	("Total-do-pedido")
+            AS             	"Maior-valor-pedido"
+            FROM
+
+                (SELECT     	"Num-ped" ,
+                SUM            	("Qtde-item-ped" * "Val-produto")              	AS        "Total-do-pedido"
+                FROM         	"ITEM-PEDIDO", "PRODUTO"
+                WHERE         	"Cod-produto" = "cod-prod"
+                GROUP BY		"Num-ped")                                    	AS         "VALOR-TOTAL-PEDIDO")             
+                                                                            	AS         "TAB-MAIOR-PEDIDO",
+                    (SELECT      	"Num-ped"                                   AS         "numero-pedido-maior",
+                    SUM          	("Qtde-item-ped" * "Val-produto")           AS         "Total-do-pedido"
+                    FROM         	"ITEM-PEDIDO", "PRODUTO"
+                    WHERE        	"Cod-produto" = "cod-prod"
+                    GROUP BY     	"Num-ped")                                  AS         "VALOR-TOTAL-PEDIDO"
+                    WHERE         	"Maior-valor-pedido" = "Total-do-pedido")   AS         "TAB_MAIOR_PEDIDO"
+                    WHERE         	"numero-pedido-maior" = p."Num-pedido"         
+                    AND           	p."Cpf-vend" = v."Cpf-vend";
+
+
+
+
+	
 	
 	
