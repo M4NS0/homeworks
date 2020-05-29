@@ -1,4 +1,17 @@
-/* DELEÇÂO DE TABELAS */
+/* DELEÇÃO DOS ITENS E DAS TABELAS */
+
+DELETE FROM "INGREDIENTE-ITEM-PEDIDO";
+DELETE FROM "ITEM-CARDAPIO-PEDIDO";
+DELETE FROM "PEDIDO";
+DELETE FROM "INGREDIENTE-ITEM-CARDAPIO";
+DELETE FROM "INGREDIENTE";
+DELETE FROM "ITEM-CARDAPIO";
+DELETE FROM "COZINHEIRO";
+DELETE FROM "CLIENTE-EXTERNO";
+DELETE FROM "ENTREGADOR";
+DELETE FROM "MESA";
+DELETE FROM "GARCOM";
+DELETE FROM "GERENTE";
 
 DROP TABLE public."INGREDIENTE-ITEM-PEDIDO";
 DROP TABLE public."ITEM-CARDAPIO-PEDIDO";
@@ -23,16 +36,9 @@ CREATE TABLE public."GERENTE"
     "telefone-gerente" bigint NOT NULL,
     "turno-gerente" character varying(1) NOT NULL,
     "sexo-gerente" character varying(1) NOT NULL,
-    CONSTRAINT "GERENTE_pkey" PRIMARY KEY ("nome-gerente", "cpf-gerente")
-);
-	-- Pergunta antiga: 
-	-- cpfs realmente deve aparecer como id? 
-	-- r: sim
 	
-	-- Nova pergunta: 
-	-- cpfs devem ser auto incrementados?
-	-- r: nao
-
+    CONSTRAINT "Pk-Gerente" PRIMARY KEY ("nome-gerente", "cpf-gerente")
+);
 
 /* TABELA GARÇOM */
 
@@ -141,7 +147,7 @@ CREATE TABLE public."ITEM-CARDAPIO"
 
 /* TABELA INGREDIENTE-ITEM-CARDAPIO */
 /* PK de INGREDIENTE ITEM CARDAPIO DEVE SER a FK de item-cardapio e de ingrediete. Faltou o atributo QTDE */	
-CREATE TABLE public."INGREDIENTE-ITEM-CARDAPIO"
+CREATE TABLE "INGREDIENTE-ITEM-CARDAPIO"
 (
     "Quantidade-ingrediente" numeric (5,2) NOT NULL,
 	"numero-item-cardapio" int NOT NULL,
