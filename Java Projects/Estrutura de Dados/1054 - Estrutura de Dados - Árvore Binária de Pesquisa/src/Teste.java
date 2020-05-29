@@ -161,6 +161,7 @@ public class Teste {
 				StringBuffer auxAI = new StringBuffer();
 				StringBuffer auxBI = new StringBuffer();
 				
+				
 				System.out.println("\n Árvore A - Número  de  Nós: " + arvoreA.getNos());
 				System.out.println(" Árvore A - Número de Folhas: " + arvoreA.getFolhas());
 				

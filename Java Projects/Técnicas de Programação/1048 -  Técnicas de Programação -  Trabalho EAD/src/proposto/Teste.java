@@ -84,6 +84,7 @@ public class Teste {
 		int contaMeias = 0;
 		int contaInteiras = 0;
 		int e = 0;
+	
 		do {
 			switch (e = menuEscolha()) {
 			case 1:

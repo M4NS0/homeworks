@@ -127,7 +127,7 @@ CREATE TABLE public."ITEM-CARDAPIO"
 	"Descricao" character varying (300) NOT NULL,
 	"Valor-item" numeric (4,2) NOT NULL,
 	
-	CONSTRAINT "Pkey-numero-item-cardapio" PRIMARY KEY ("Numero-item-cardapio")
+	CONSTRAINT "Pkey-item-cardapio" PRIMARY KEY ("Numero-item-cardapio")
 	
 	-- valor item pedido esta em item cardapio
 	
@@ -151,7 +151,7 @@ CREATE TABLE public."INGREDIENTE-ITEM-CARDAPIO"
     
 	CONSTRAINT "Pk-ingrediente-item-cardapio" PRIMARY KEY ("numero-ingrediente","numero-item-cardapio"),
    
-	CONSTRAINT "Fk-Numero-cardapio" FOREIGN KEY ("numero-ingrediente")
+	CONSTRAINT "Fk-Numero-ingrediente" FOREIGN KEY ("numero-ingrediente")
         REFERENCES public."INGREDIENTE" ("Numero-ingrediente"),
 	
 	CONSTRAINT "Fk-Numero-item-cardapio" FOREIGN KEY ("numero-item-cardapio")
@@ -180,29 +180,29 @@ CREATE TABLE public."PEDIDO"
     "Numero-pedido" int NOT NULL,
     "Valor-desconto" numeric(2,2),
     "cpf-gerente" int NOT NULL,
-	"nome-gerente" character varying NOT NULL,
+	"nome-gerente" character varying (80) NOT NULL,
     "cpf-garcom" int,
-	"nome-garcom" character varying,
+	"nome-garcom" character varying (80),
     "cpf-cliente" int,
 	"cpf-entregador" int,
     "numero-mesa" character varying (4),
 	"numero-lugares" int,
 	
-    CONSTRAINT "Numero-pedido" PRIMARY KEY ("Numero-pedido"),
+    CONSTRAINT "Pkey-pedido" PRIMARY KEY ("Numero-pedido"),
 	
-    CONSTRAINT "Fkey-cpf-cliente" FOREIGN KEY ("cpf-cliente")
+    CONSTRAINT "Fkey-cliente" FOREIGN KEY ("cpf-cliente")
         REFERENCES public."CLIENTE-EXTERNO" ("Cpf-cliente"),
 	
     CONSTRAINT "Fkey-garcom" FOREIGN KEY ("cpf-garcom","nome-garcom")
         REFERENCES public."GARCOM" ("Cpf-garcom","Nome-garcom"),
 	
-    CONSTRAINT "Fkey-cpf-gerente" FOREIGN KEY ("cpf-gerente","nome-gerente")
+    CONSTRAINT "Fkey-gerente" FOREIGN KEY ("cpf-gerente","nome-gerente")
         REFERENCES public."GERENTE" ("cpf-gerente","nome-gerente"),
 	
-	CONSTRAINT "Fkey-cpf-entregador" FOREIGN KEY ("cpf-entregador")
+	CONSTRAINT "Fkey-entregador" FOREIGN KEY ("cpf-entregador")
         REFERENCES public."ENTREGADOR" ("Cpf-entregador"),
 	
-    CONSTRAINT "Fkey-numero-mesa" FOREIGN KEY ("numero-mesa","numero-lugares")
+    CONSTRAINT "Fkey-mesa" FOREIGN KEY ("numero-mesa","numero-lugares")
         REFERENCES public."MESA" ("Numero-mesa","Numero-lugares") 
 );
 /* TABELA ITEM-CARDAPIO-PEDIDO */
@@ -215,13 +215,13 @@ CREATE TABLE public."ITEM-CARDAPIO-PEDIDO"
 	
 	CONSTRAINT "Pkey-item-cardapio-pedido" PRIMARY KEY ("Numero-pedido","Numero-item-cardapio"),
 	
-	CONSTRAINT "Fkey-numero-pedido" FOREIGN KEY ("Numero-pedido") 
+	CONSTRAINT "Fkey-pedido" FOREIGN KEY ("Numero-pedido") 
         REFERENCES public."PEDIDO" ("Numero-pedido"),	
 	
-	CONSTRAINT "Fkey-cpf-cozinheiro" FOREIGN KEY ("Cpf-cozinheiro") 
+	CONSTRAINT "Fkey-cozinheiro" FOREIGN KEY ("Cpf-cozinheiro") 
         REFERENCES public."COZINHEIRO" ("Cpf-cozinheiro"),
 	
-	CONSTRAINT "Fkey-numero-item-cardapio" FOREIGN KEY ("Numero-item-cardapio") 
+	CONSTRAINT "Fkey-item-cardapio" FOREIGN KEY ("Numero-item-cardapio") 
         REFERENCES public."ITEM-CARDAPIO" ("Numero-item-cardapio")
 	
 	-- pergunta antiga:
@@ -237,10 +237,13 @@ CREATE TABLE public."INGREDIENTE-ITEM-PEDIDO"
     "Numero-pedido" bigint NOT NULL,
     "Numero-item-cardapio" bigint NOT NULL,
     "Quantidade-item-pedido" numeric (4,2) NOT NULL,
-    CONSTRAINT "INGREDIENTE-ITEM-PEDIDO_pkey" PRIMARY KEY ("Numero-pedido", "Quantidade-item-pedido"),
-    CONSTRAINT "Fk-ingrediente-item-pedido" FOREIGN KEY ("Numero-item-cardapio")
+    
+	CONSTRAINT "Pk-Ingrediente-item-pedido" PRIMARY KEY ("Numero-pedido", "Quantidade-item-pedido"),
+    
+	CONSTRAINT "Fk-numero-item-cardapio" FOREIGN KEY ("Numero-item-cardapio")
         REFERENCES public."ITEM-CARDAPIO" ("Numero-item-cardapio"),
-    CONSTRAINT "Fk-numero-ingrediente-item-pedido" FOREIGN KEY ("Numero-pedido")
+   
+	CONSTRAINT "Fk-numero-ingrediente" FOREIGN KEY ("Numero-pedido")
         REFERENCES public."PEDIDO" ("Numero-pedido")
 );
 
