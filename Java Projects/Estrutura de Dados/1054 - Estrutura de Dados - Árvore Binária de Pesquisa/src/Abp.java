@@ -347,35 +347,64 @@ public class Abp {
 	// iguais (ou similares).
 
 	public void areEquals(Abp arvoreA, Abp arvoreB) {
+		int count = 0;
 		if (arvoreA.vazia() && arvoreB.vazia())
 			System.out.println(" As Árvores A e B são iguais! Ambas estão vazias!");
 		else {
-			if (arvoreA.getFolhas() != arvoreB.getFolhas()) {
+			if (arvoreA.getNos() != arvoreB.getNos())
+				System.out.println(" As Árvores A e B podem ser diferentes, não possuem a mesma quantidade de Nós");
+			else
+				System.out.println(" As Árvores A e B podem ser iguais, possuem a mesma quantidade de Nós");
+
+			if (arvoreA.getFolhas() != arvoreB.getFolhas())
 				System.out.println(" As Árvores A e B podem ser diferentes, não possuem a mesma quantidade de Folhas");
-			} else {
+			else
 				System.out.println(" As Árvores A e B podem ser iguais, possuem a mesma quantidade de Folhas");
-			}
-			
-			if (arvoreA.raiz.dados.getNome().equalsIgnoreCase(arvoreB.raiz.dados.getNome())) {
+
+			if (arvoreA.raiz.dados.getNome().equalsIgnoreCase(arvoreB.raiz.dados.getNome()))
 				System.out.println(" As Árvores A e B possuem Raizes iguais");
-			} else {
+			else
 				System.out.println(" As Árvores A e B têm raizes diferentes");
-			}
-			if (arvoreA.raiz.fd.dados.getNome().equalsIgnoreCase(arvoreB.raiz.fd.dados.getNome())) {
-				System.out.println("As Árvores A e B são iguais!\\n Sub-Árvores à direita e à esquerda iguais ");
-			} else {
-				System.out.println("As Árvores A e B não são iguais!\\n Sub-Árvores à direita e à esquerda diferentes ");
 
-			}
-			//System.out.println(" As Árvores A e B são iguais!\n Sub-Árvores à direita e à esquerda iguais");
+			if (arvoreA.raiz.fe != null) {
+				if (arvoreA.raiz.dados.getNome()
+						.compareToIgnoreCase(arvoreA.raiz.fe.dados.getNome()) == arvoreB.raiz.dados.getNome()
+								.compareToIgnoreCase(arvoreB.raiz.fe.dados.getNome())) {
+					System.out.println(" Iguais a esquerda");
+					
 
+				} else {
+					System.out.println(" Diferentes a esquerda");
+					count ++;
+				}
+			}
+			if (arvoreA.raiz.fd != null) {
+				if (arvoreA.raiz.dados.getNome()
+						.compareToIgnoreCase(arvoreA.raiz.fd.dados.getNome()) == arvoreB.raiz.dados.getNome()
+								.compareToIgnoreCase(arvoreB.raiz.fd.dados.getNome())) {
+					System.out.println(" Iguais a direita");
+
+				} else {
+					System.out.println(" Diferentes a direita");
+					count ++;
+
+				}
+				
+			}
+			if (arvoreA.sucessor(arvoreA.raiz.fd) == (arvoreB.sucessor(arvoreB.raiz.fd))) System.out.println("sucessores dos fd iguais");
+			else System.out.println("sucessores diferentes");
+			if (count > 0) System.out.println("Árvore A e B são diferentes! ");
+			if (count == 0) System.out.println("Árvore A e B são iguais! ");
 		}
-		
 	}
 
-
+	
 	// 5.Uma ABP é estritamente binária se todos os nós da árvore tem 2 filhos.
 	// Implemente um método que verifica se uma ABP e ́ estritamente binária.
+	
+	public void isStrictlyBinary(Abp arvoreA, Abp arvoreB) {
+
+	}
 
 	// 6.Implemente um método para testar se uma a Árvore binária é uma ABP.
 	public void isBinary(StringBuffer aux) {
