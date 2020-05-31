@@ -13,11 +13,11 @@ public class Teste {
 	public static Item obtemItem() {
 		String nome, fone;
 		leia.skip("\\R");
-		System.out.print("\n Nome:");
+		System.out.print("\n     Nome:");
 		nome = leia.nextLine();
-		//System.out.print("Telefone:");
-		//fone = leia.next();
-		Item aux = new Item(nome, "000");
+		System.out.print(" Telefone:");
+		fone = leia.next();
+		Item aux = new Item(nome, fone);
 		return aux;
 	}
 
@@ -161,31 +161,37 @@ public class Teste {
 				StringBuffer auxAI = new StringBuffer();
 				StringBuffer auxBI = new StringBuffer();
 				
+				System.out.println("\n\n"
+						+ "   ----------------------------\n"
+						+ "  |  Sobre as Árvores A e B    |\n"
+						+ "   ----------------------------\n\n");
+				arvoreA.testaIntegridade(auxAI);
+				System.out.println(" Árvore A " + auxAI);
 				
-				System.out.println("\n Árvore A - Número  de  Nós: " + arvoreA.getNos());
-				System.out.println(" Árvore A - Número de Folhas: " + arvoreA.getFolhas());
+				arvoreB.testaIntegridade(auxBI);
+				System.out.println(" Árvore B " + auxBI);
+				
 				
 				arvoreA.isBinary(auxA);
-				System.out.println(" A " + auxA.toString());
-				arvoreA.testaIntegridade(auxAI);
-				
-				System.out.println("\n Árvore B - Número  de  Nós: " + arvoreB.getNos());
-				System.out.println(" Árvore B - Número de Folhas: " + arvoreB.getFolhas());
-				
+				System.out.println(" Árvore A " + auxA.toString());
+				System.out.println();
 				arvoreB.isBinary(auxB);
-				System.out.println(" B " + auxB.toString());
-				arvoreB.testaIntegridade(auxBI);
+				System.out.println(" Árvore B " + auxB.toString());		
+								
+				System.out.println("\n Árvore A - Número  de  Nós: " + arvoreA.getNos() );
+				System.out.println("\n Árvore A - Número de Folhas: " + arvoreA.getFolhas() );
 				
-				teste.areEquals(arvoreA, arvoreB);
-				
-				
-				
-				
+				System.out.println("\n Árvore B - Número  de  Nós: " + arvoreB.getNos() );
+				System.out.println("\n Árvore B - Número de Folhas: " + arvoreB.getFolhas() );
+				System.out.println();
+
+				teste.info(arvoreA, arvoreB);
+
 				break;
 
 			case 6:
-				System.out.println(" Árvore com " + arvoreA.getTamanho() + " itens.");
 				System.out.println(" Programa encerrando!");
+				System.exit(0);
 			}
 		} while (n != 6);
 	}
