@@ -272,12 +272,12 @@ public class Abp {
 	public void testaIntegridade(StringBuffer aux) {
 		// se a árvore estiver vazia não faz as chamadas recursivas
 		if (vazia()) {
-			aux.append(" Árvore vazia!");
+			aux.append(" - Árvore vazia!\n");
 		}
 		// chamar método recursivo
 		else {
 			testaIntegridade(aux, raiz);
-			aux.append(" Árvore provavelmente sem erros.\nVeja mensagens de erro a anteriores.\n");
+			aux.append("- Árvore é provavelmente Integra!\n");
 		}
 
 	}
@@ -324,8 +324,8 @@ public class Abp {
 		return getNos(raiz);
 	}
 
-	// 3.Escreva um método que conta o número de folhas de uma Árvores binária de
-	// pesquisa (ABP).
+	// 3.Escreva um método que conta o número de folhas de uma Árvores binária de pesquisa (ABP).
+	
 	int getFolhas() {
 		return getFolhas(raiz);
 	}
@@ -339,83 +339,98 @@ public class Abp {
 			return getFolhas(no.fe) + getFolhas(no.fd);
 	}
 
-	// 4. Duas Árvores binárias de pesquisa(ABP) são IGUAIS (ou similares) se são
-	// ambas vazias ou então se
-	// armazenam valores iguais em suas raízes, suas sub-árvores esquerdas são
-	// iguais, e suas sub-árvores
-	// direitas são iguais. Implemente um método que verifica se duas a árvores são
-	// iguais (ou similares).
+	
 
-	public void areEquals(Abp arvoreA, Abp arvoreB) {
-		int count = 0;
+	public void info(Abp arvoreA, Abp arvoreB) {
+
 		if (arvoreA.vazia() && arvoreB.vazia())
 			System.out.println(" As Árvores A e B são iguais! Ambas estão vazias!");
-		else {
+		if (arvoreA.raiz != null && arvoreB.raiz != null) {
+			
 			if (arvoreA.getNos() != arvoreB.getNos())
-				System.out.println(" As Árvores A e B podem ser diferentes, não possuem a mesma quantidade de Nós");
+				System.out.println(" As Árvores A e B podem ser diferentes, não possuem a mesma quantidade de Nós \n");
 			else
-				System.out.println(" As Árvores A e B podem ser iguais, possuem a mesma quantidade de Nós");
+				System.out.println(" As Árvores A e B podem ser iguais, possuem a mesma quantidade de Nós \n");
 
 			if (arvoreA.getFolhas() != arvoreB.getFolhas())
-				System.out.println(" As Árvores A e B podem ser diferentes, não possuem a mesma quantidade de Folhas");
+				System.out.println(" As Árvores A e B podem ser diferentes, não possuem a mesma quantidade de Folhas \n");
 			else
-				System.out.println(" As Árvores A e B podem ser iguais, possuem a mesma quantidade de Folhas");
+				System.out.println(" As Árvores A e B podem ser iguais, possuem a mesma quantidade de Folhas \n");
 
 			if (arvoreA.raiz.dados.getNome().equalsIgnoreCase(arvoreB.raiz.dados.getNome()))
-				System.out.println(" As Árvores A e B possuem Raizes iguais");
+				System.out.println(" As Árvores A e B possuem Raizes iguais \n");
 			else
-				System.out.println(" As Árvores A e B têm raizes diferentes");
+				System.out.println(" As Árvores A e B têm raizes diferentes, por isso são diferentes entre si \n");
+			
+			if (saoEstrBinarias(arvoreA.raiz) == true)
+				System.out.println(" Arvore A é Estritamente Binária \n");
+			else
+				System.out.println(" Arvore A não é Estritamente Binária \n");
 
-			if (arvoreA.raiz.fe != null) {
-				if (arvoreA.raiz.dados.getNome()
-						.compareToIgnoreCase(arvoreA.raiz.fe.dados.getNome()) == arvoreB.raiz.dados.getNome()
-								.compareToIgnoreCase(arvoreB.raiz.fe.dados.getNome())) {
-					System.out.println(" Iguais a esquerda");
-					
+			if (saoEstrBinarias(arvoreB.raiz) == true)
+				System.out.println(" Arvore B é Estritamente Binária \n");
+			else
+				System.out.println(" Arvore B não é Estritamente Binária \n");
+			
+			if (saoIguais(arvoreA.raiz, arvoreB.raiz))
+				System.out.println(" As Árvores A e B são iguais \n");
+			else
+				System.out.println(" As Árvores A e B são diferentes \n");
 
-				} else {
-					System.out.println(" Diferentes a esquerda");
-					count ++;
-				}
-			}
-			if (arvoreA.raiz.fd != null) {
-				if (arvoreA.raiz.dados.getNome()
-						.compareToIgnoreCase(arvoreA.raiz.fd.dados.getNome()) == arvoreB.raiz.dados.getNome()
-								.compareToIgnoreCase(arvoreB.raiz.fd.dados.getNome())) {
-					System.out.println(" Iguais a direita");
-
-				} else {
-					System.out.println(" Diferentes a direita");
-					count ++;
-
-				}
-				
-			}
-			if (arvoreA.sucessor(arvoreA.raiz.fd) == (arvoreB.sucessor(arvoreB.raiz.fd))) System.out.println("sucessores dos fd iguais");
-			else System.out.println("sucessores diferentes");
-			if (count > 0) System.out.println("Árvore A e B são diferentes! ");
-			if (count == 0) System.out.println("Árvore A e B são iguais! ");
 		}
+		else System.out.println(  "\n   ----------------------------------------"
+								+ "\n  | Uma das Árvores(ou ambas) estão vazias |"
+								+ "\n  | preencha antes de usar essa opção para |"
+								+ "\n  |       ver os outros resultados         |"
+								+ "\n   ----------------------------------------");
+		
+
+	}
+	
+	// 4. Duas Árvores binárias de pesquisa(ABP) são IGUAIS (ou similares) se são
+	// ambas vazias ou então se armazenam valores iguais  em  suas  raízes,  suas 
+	// sub-árvores esquerdas são iguais, e suas sub-árvores direitas  são  iguais. 
+	// Implemente um método que verifica se duas a árvores são iguais (ou similares).
+	
+	private boolean saoIguais(No A, No B) {
+		 // tive problema com essa função! tentei de varias formas e não funcionou
+		 if(A==null && B==null) return true;
+	        if(A==null || B==null) return false;
+	       
+	        if(A.dados.getNome()!=B.dados.getNome()) return false;
+	        
+	        if (saoIguais(A.fe,B.fe) && saoIguais(A.fd,B.fd)) return true;
+			return false;
 	}
 
-	
 	// 5.Uma ABP é estritamente binária se todos os nós da árvore tem 2 filhos.
-	// Implemente um método que verifica se uma ABP e ́ estritamente binária.
-	
-	public void isStrictlyBinary(Abp arvoreA, Abp arvoreB) {
+	// Implemente um método que verifica se uma  ABP  é  estritamente  binária.
 
+	boolean saoEstrBinarias(No aux) {
+		
+		if (aux == null)
+			return true;
+
+		if (aux.fe == null && aux.fd == null)
+			return true;
+
+		if ((aux.fe != null) && (aux.fd != null))
+			return (saoEstrBinarias(aux.fe) && saoEstrBinarias(aux.fd));
+
+		return false;
 	}
 
 	// 6.Implemente um método para testar se uma a Árvore binária é uma ABP.
+	
 	public void isBinary(StringBuffer aux) {
-		// se a árvore estiver vazia não faz as chamadas recursivas
+		
 		if (vazia()) {
-			aux.append(" Árvore vazia! Não foi possível verificar se é uma ABP");
+			aux.append(" - Não foi possível verificar se é uma ABP");
 		}
-		// chamar método recursivo
+		
 		else {
 			testaIntegridade(aux, raiz);
-			aux.append(" é Árvore Binária de Pesquisa!\n");
+			aux.append("- Árvore Binária de Pesquisa!");
 		}
 
 	}
