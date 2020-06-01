@@ -1,3 +1,4 @@
+package entrega;
 
 public class Funcionario {
 	private String nome;
