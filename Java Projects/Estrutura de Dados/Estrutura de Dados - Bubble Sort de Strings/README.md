@@ -1,37 +1,3 @@
-# Trabalho N1
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
-| Nome |  Bruno C. Manso |
-| ------ | ------ |
-| Instituição | Pontifícia Universidade Católica de Goiás |
-| Departamento | Escola de Ciências Exatas e da Computação |
-| Curso | Análise e Desenvolvimento de Sistemas |
-| Código |
-| Matéria |  |
-| Professor |  |
-| Periodo |  |
-| Avaliação | 
-| Título |
-| Objetivo |
-| Descrição |
-|  |  |
-
-![N|Solid](https://cead.pucgoias.edu.br/home/wp-content/uploads/2015/01/tumb2.jpg)
-
-
-# Estudo
-
-| Nome |   |
-| ------ | ------ |
-| Título |  |
-| Autor |  |
-| Página |  |
-| Matéria |  |
-| Objetivo |  |
-| Descrição |
-|  |  |
-
 # Estudo
 
 | Livro |   Estrutura de Dados e Técnicas de Programação |
