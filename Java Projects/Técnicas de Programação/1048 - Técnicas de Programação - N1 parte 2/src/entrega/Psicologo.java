@@ -1,3 +1,4 @@
+package entrega;
 import java.util.ArrayList;
 
 public class Psicologo extends Funcionario {

@@ -1,3 +1,4 @@
+package entrega;
 
 public class Consulta {
 	private String paciente;
