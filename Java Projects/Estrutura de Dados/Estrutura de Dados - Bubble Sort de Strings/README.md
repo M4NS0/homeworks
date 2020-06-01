@@ -1,5 +1,4 @@
 # Estudo
-
 | | |
 | ------ | ------ |
 | Livro |   Estrutura de Dados e Técnicas de Programação |
