@@ -13,12 +13,14 @@
     Language
 -->
 <head>
-    <meta charset="UTF-8"> <!-- aceita caracteres especiais -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- para que caiba em telas diferentes -->
+    <!-- aceita caracteres especiais -->
+    <meta charset="UTF-8"> 
+
+    <!-- para que caiba em telas diferentes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Ecoleta</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/main.css">
 
 </head>
@@ -26,24 +28,43 @@
 
 <body>
 
-    <div id="page-home"> <!-- #page-home-->
+    <!-- #page-home-->
+    <div id="page-home"> 
 
-        <div class="content"> <!-- class: permite reutilização de código  -->
+        <!-- class: permite reutilização de código  -->
+        <div class="content"> 
 
             <header>
-                <h3 class="red">Ecoleta</h3>       
-                <a href="http://google.com.br">Cadastre um ponto de Coleta</a> <!-- hiperlink --> 
+                
+                <!-- caso arquivo não abra, ou não exista ele abre outro em 'alt' e funciona para leitura em voz alta para acessbilidade -->
+                <img src="../EColeta/assets/logo.svg" alt="Logomarca"> 
+                
+                <!-- <h3 class="red">Ecoleta</h3> o red vem da classe red do css -->       
+                <a href="http://google.com.br">
+
+                    <!-- span está configurado na classe #page-home header span em main.css -->
+                    <span> 
+                          </span>
+
+                    Cadastre um ponto de Coleta
+                
+                </a> <!-- hiperlink --> 
     
             </header>
     
+            <main>
+
+                <h1>Seu Marketplace de Coleta de resíduos</h1>
+        
+                <p>Ajudamos pessoas a encontrar coletas de resíduos de forma eficiente!</p>   
+                
+                <a href=""><span></span><strong> Pesquisar pontos de Coletas </strong> </a>
+
+                <!-- <button>  </button>  inline  <a> clique </a> -->
+
+            </main>
+        
             
-        
-            <h1>Seu Marketplace de Coleta de resíduos</h1>
-        
-             <p>Ajudamos pessoas a encontrar coletas de resíduos de forma eficiente!</p>   
-        
-            <button> Pesquisar pontos de Coletas </button> <!-- inline --> <a> clique </a>
-         
         </div> 
 
     </div>
