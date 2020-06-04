@@ -20,6 +20,7 @@
     /* atalho para cor */
     --title-color: #322153;    
     --primary-color: #34cb79;
+    box-sizing: border-box;
 }
 
 /* referencia todos os seletores */

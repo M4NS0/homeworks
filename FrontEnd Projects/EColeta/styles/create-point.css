@@ -2,7 +2,13 @@
     width: 90%;
     max-width: 1100px;
 
-    margin: 0 auto; /* em cima e em baixo 0 e nas laterais sejam dimensionadas automaticamente */
+
+    /* 
+    - Em cima e em baixo 0 e nas laterais 
+      sejam dimensionadas automaticamente 
+    - Alinhamento de caixa pelo lado de fora 
+    */
+    margin: 0 auto; 
 }
 
 #page-create-point header {
@@ -23,6 +29,133 @@
     margin-right: 16px;
     background-image: url(../assets/arrow-left.svg);
     display: flex;
+    
     width: 20px;
-    height: 20px;
+    height: 24px;
+}
+
+form {
+    background-color: white;
+
+    margin: 80px auto;
+    margin-top: 80px;
+
+    /* responsável pelo PREENCHIMENTO 
+    interno da caixa */
+    padding: 64px; 
+
+    border-radius: 8px;
+
+    max-width: 730px;
+
+    /* o padrão de tamanho 
+    da caixa baseado na borda */
+    box-sizing: border-box;
+
+}
+/* Obs:. Control + / comenta a linha */
+
+/* Fim da configuração do box 
+   início da configuração do 
+   conteúdo do box */ 
+
+form h1 {
+
+    font-size: 36px;
+
+}
+form fieldset {
+    margin-top: 64px;
+    border: 0;
+
+}
+
+form legend {
+    margin-bottom: 40px;
+
+}
+from legend h2 {
+    font-size: 24px;
+
+}
+
+form .field {
+
+    /* para esticar os campos até a borda */
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 24px;
+    
+}
+
+form .field-group {
+
+    display: flex;
+
+}
+
+form input,
+form select {
+
+    background-color: #f0f0f5;
+
+    border: 0;
+
+    /* aumenta o espaçamento interno entre linhas */
+    padding: 16px 24px;
+    font-size: 16px;
+
+    border-radius: 8px;
+
+    /* tira a linha preta em volta do campo */
+    /* outline: none; */
+}
+
+form select {
+
+    /* retira interferência do browser sobre o comportamento */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+
+form label {
+
+    font-size: 14px;
+    margin-bottom: 8px;
+
+}
+
+/* o primeiro .field referencia  o  campo 'Endereço' 
+   enquanto o segundo .field referencia o 'Num/Comp' */
+form .field-group .field + .field {
+
+    /* a alteração acontecerá no campo a direita 'Num/Comp' */
+    margin-left: 24px;
+
+}
+form button {
+    width: 260px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+
+    border: 0;
+
+    margin-top: 40px;
+    
+    transition: background-color 400ms;
+}
+
+/* hover: quando passar cursor em cima */
+form button:hover {
+    background-color: #2fd86e;
+
 }
