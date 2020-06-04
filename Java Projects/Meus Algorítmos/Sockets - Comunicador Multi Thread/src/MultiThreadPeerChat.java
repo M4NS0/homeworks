@@ -62,7 +62,7 @@ class Chat4 extends Thread{
 public class MultiThreadPeerChat {
     public static void main(String[] args) throws Exception {
         Chat4 chat = new Chat4();
-        Thread t = new Thread(chat);
+		Thread t = new Thread(chat);
         t.start();
         chat.enviarMensagens();
 
