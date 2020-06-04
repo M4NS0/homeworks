@@ -1,11 +1,12 @@
+package comPOO;
 
 
 import java.util.Scanner;
 
-public class TesteComunicador1 {
+public class Teste {
 
 	public static void main(String[] args) throws Exception {
-		ComunicadorSeguro com = new ComunicadorSeguro();
+		ClienteServidor com = new ClienteServidor();
 		System.out.println("Escolha o modo de funcionamento: ");
 		System.out.println("1 - Servidor");
 		System.out.println("2 - Cliente ");

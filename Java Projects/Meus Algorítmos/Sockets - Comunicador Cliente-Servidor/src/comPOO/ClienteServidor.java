@@ -1,3 +1,4 @@
+package comPOO;
 
 
 import java.io.ObjectInputStream;
@@ -7,7 +8,7 @@ import java.security.*;
 import java.util.Scanner;
 
 import javax.crypto.*;
-public class ComunicadorSeguro {
+public class ClienteServidor {
 	Socket conexao;
 	ServerSocket server;
 	ObjectInputStream entrada;
