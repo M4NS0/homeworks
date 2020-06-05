@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+
+
+<head>
+    <!-- aceita caracteres especiais -->
+    <meta charset="UTF-8"> 
+
+    <!-- para que caiba em telas diferentes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Criar um ponto de Coleta</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/main.css">
+    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/search-results.css">
+    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/responsive.css">
+    
+
+</head>
+
+
+<body>
+
+    <!-- #page-home-->
+    <div id="page-search-results"> 
+
+        <!-- class: permite reutilização de código  -->
+       
+
+            <header>
+                
+                <!-- caso arquivo não abra, ou  não  exista 
+                    ele abre outro em 'alt' e funciona para 
+                    leitura em voz alta para  acessbilidade -->
+                <img src="../EColeta/assets/logo.svg" alt="Logomarca"> 
+                
+                <a href="index.html">
+
+                    <!-- span está configurado na classe 
+                        #page-home header span em main.css -->
+                    <span></span>
+
+                    Voltar para home
+                
+                </a> <!-- hiperlink --> 
+    
+            </header>  
+
+            <!-- cria caixa de formulário -->
+            <main>
+                <h4>
+                    <strong>2 Pontos</strong> Encontrados
+                </h4>
+
+                <div class="cards">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=801&q=80" alt="Colectoria">
+                        <h1>Colectoria</h1>
+                        <h3>Resíduos Eletrônicos, Lâmpadas</h3>
+                        <p>
+                            Rio do Sul, Santa Catarina <br/>
+                            Guilherme Gemballa, Jardim América <br/>
+                            Número 260
+                        </p>
+
+                    </div>
+                    <div class="cards">
+                        <div class="card">
+                            <img src="https://images.unsplash.com/photo-1567393528677-d6adae7d4a0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="Papersider">
+                            <h1>Papersider</h1>
+                            <h3>Papéis e Papelão</h3>
+                            <p>
+                                Rio do Sul, Santa Catarina <br/>
+                                Guilherme Gemballa, Jardim América <br/>
+                                Número 260
+                            </p>
+                </div>
+
+            </main>
+
+    </div>
+    
+</body>
+</html>
