@@ -20,17 +20,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Ecoleta</title>
 
+    <!-- se atentar para a sequencia abaixo para nao haver sobrescrita -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&wght@300;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/main.css">
     <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/home.css">
+    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/modal.css">
+
     <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/responsive.css">
     
 
 </head>
-
-
 <body>
-
     <!-- #page-home-->
     <div id="page-home"> 
 
@@ -43,11 +43,10 @@
                 <img src="../EColeta/assets/logo.svg" alt="Logomarca"> 
                 
                 <!-- <h3 class="red">Ecoleta</h3> o red vem da classe red do css -->       
-                <a href="http://google.com.br">
+                <a href="../EColeta/create-point.html">
 
                     <!-- span está configurado na classe #page-home header span em main.css -->
-                    <span> 
-                          </span>
+                    <span></span>
 
                     Cadastre um ponto de Coleta
                 
@@ -66,13 +65,35 @@
                 <!-- <button>  </button>  inline  <a> clique </a> -->
 
             </main>
-        
-            
         </div> 
-
     </div>
+        <div id="modal" class=""> 
+            <!-- bug aqui teria que ter hide, desta forma 
+                a pagina q aparece primeiro é a de busca -->
+                
+            <div class="content">
+                <div class="header">
+                    <h1>Pontos de Coleta</h1>
+                    <a href="#">Fechar</a>
+                </div>
+                <form action="../EColeta/search-results.html">
+                    <label for="search">Cidade</label>
+                    <div class="search field">
+                        <input 
+                        type="text" 
+                        name="search"
+                        placeholder="Pesquise por Cidade"
+                        >
+                        <button>
+                            <img src="../EColeta/assets/search.svg" alt="Buscar">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     
     
-    
+    <script src="../EColeta/scripts/index.js"></script>
+
 </body>
 </html>
