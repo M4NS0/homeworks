@@ -1057,7 +1057,30 @@
 					 GROUP BY ip."Num-ped";
 
 	SELECT * FROM "VIEW-VALOR-PEDIDO" ;
+	
+	-- Criar uma visão que contenha apenas os produtos vendidos em quilograma.
 
+	create view prod_kg
+	(codigo,descricao,unidade)
+	as select cod_prod,desc_prod,unid_prod from produto
+	where unid_prod=’kg’;
+	
+	-- Criar uma visão contendo o código do vendedor, o seu nome e o salário fixo anual.
+
+	create view salario_anual
+	(codigo,nome,sal_anual)
+	as select cod_vend,nome_vend,sal_fixo*12 from vendedor;
+	
+	-- Criar  uma  visão  contendo  os  vendedores,  seus  
+	-- pedidos  efetuados  e  os respectivos produtos.
+
+
+	create view "lista-pedidos"
+	as select "Nome-vend","Num-ped","Desc-produto"
+	from "VENDEDOR" V, "PEDIDO" P, "ITEM-PEDIDO" I, "PRODUTO" PR
+	where V."Cpf-vend" = P."Cpf-vend" and P."Num-pedido" = I."cod-prod" and I."cod-prod"=PR."Cod-produto";
+
+	
 	-------------------------------------------------------
 	-- Listar os pedidos cujo valor estao acima da média --
 	-------------------------------------------------------
@@ -1066,7 +1089,36 @@
 	FROM    "VIEW-VALOR-PEDIDO"
 	WHERE "View-val-pedido" > (SELECT AVG("View-val-pedido") FROM "VIEW-VALOR-PEDIDO");
 
+	--------------------------------------------------------------
+	-- Faça um SQL, usando subselect e VIEWS,  para listar os   --
+	-- clientes que compraram os produtos mais vendidos em 2020 --  
+	-- ( Nome do cliente,  nome do produto , qtde vendida).     --
+    --------------------------------------------------------------
+	
+	
+	CREATE VIEW MAIS_VENDIDOS (NOME_DO_PRODUTO, QTD_VENDIDA) 
+	AS select  P."Desc-produto",  SUM(I."Qtde-item-ped") AS QTD from "ITEM-PEDIDO" I 
+	INNER JOIN "PRODUTO" P ON P."Cod-produto" = I."cod-prod"
+	GROUP BY 1;
 
 
-
-
+	SELECT 		c."Nome-cli" as "Nome do Cliente", 
+				v.nome_do_produto as "Nome do Produto", 
+				v.qtd_vendida as "Quantiadde Vendida" 
+	FROM 		"CLIENTE" c  
+	
+	INNER JOIN 	"PEDIDO" p 
+	ON 			p."Cpf-cli" = c."Cpf-cliente"
+	
+	INNER JOIN 	"ITEM-PEDIDO" i 
+	ON 			i."Num-ped" = p."Num-pedido"
+	
+	INNER JOIN 	"PRODUTO" pd 
+	ON 			pd."Cod-produto" = i."cod-prod"
+	
+	INNER JOIN 	MAIS_VENDIDOS v 
+	ON 			v.nome_do_produto = pd."Desc-produto"
+	
+	WHERE 		v.qtd_vendida 
+	IN 			(SELECT MAX (q.qtd_vendida)
+				FROM MAIS_VENDIDOS q);
