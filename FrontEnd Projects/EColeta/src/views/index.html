@@ -22,11 +22,11 @@
 
     <!-- se atentar para a sequencia abaixo para nao haver sobrescrita -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/main.css">
-    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/home.css">
-    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/modal.css">
+    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/public/styles/main.css">
+    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/public/styles/home.css">
+    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/public/styles/modal.css">
 
-    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/styles/responsive.css">
+    <link rel="stylesheet" href="/FrontEnd Projects/EColeta/public/styles/responsive.css">
     
 
 </head>
@@ -40,10 +40,10 @@
             <header>
                 
                 <!-- caso arquivo não abra, ou não exista ele abre outro em 'alt' e funciona para leitura em voz alta para acessbilidade -->
-                <img src="../EColeta/assets/logo.svg" alt="Logomarca"> 
+                <img src="/FrontEnd Projects/EColeta/public/assets/logo.svg" alt="Logomarca"> 
                 
                 <!-- <h3 class="red">Ecoleta</h3> o red vem da classe red do css -->       
-                <a href="../EColeta/create-point.html">
+                <a href="/FrontEnd Projects/EColeta/src/views/create-point.html">
 
                     <!-- span está configurado na classe #page-home header span em main.css -->
                     <span></span>
@@ -60,14 +60,14 @@
         
                 <p>Ajudamos pessoas a encontrar coletas de resíduos de forma eficiente!</p>   
                 
-                <a href=""><span></span><strong> Pesquisar pontos de Coletas </strong> </a>
+                <a href="#"><span></span><strong> Pesquisar pontos de Coletas </strong> </a>
 
                 <!-- <button>  </button>  inline  <a> clique </a> -->
 
             </main>
         </div> 
     </div>
-        <div id="modal" class=""> 
+        <div id="modal" class="hide"> 
             <!-- bug aqui teria que ter hide, desta forma 
                 a pagina q aparece primeiro é a de busca -->
                 
@@ -76,7 +76,7 @@
                     <h1>Pontos de Coleta</h1>
                     <a href="#">Fechar</a>
                 </div>
-                <form action="../EColeta/search-results.html">
+                <form action="/FrontEnd Projects/EColeta/src/views/search-results.html">
                     <label for="search">Cidade</label>
                     <div class="search field">
                         <input 
@@ -85,7 +85,7 @@
                         placeholder="Pesquise por Cidade"
                         >
                         <button>
-                            <img src="../EColeta/assets/search.svg" alt="Buscar">
+                            <img src="/FrontEnd Projects/EColeta/public/assets/search.svg" alt="Buscar">
                         </button>
                     </div>
                 </form>
@@ -93,7 +93,7 @@
         </div>
     
     
-    <script src="../EColeta/scripts/index.js"></script>
+    <script src="/FrontEnd Projects/EColeta/public/scripts/index.js"></script>
 
 </body>
 </html>
