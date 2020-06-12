@@ -2,7 +2,7 @@ package entrega;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class App {
+public class Teste {
 	static Scanner leia = new Scanner(System.in);
 
 	public static String Escolha() {

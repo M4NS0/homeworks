@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author anibal.jukemura
  */
-public class App {
+public class Teste {
 
 	public static void menu() {
 		System.out.println("#########################");
