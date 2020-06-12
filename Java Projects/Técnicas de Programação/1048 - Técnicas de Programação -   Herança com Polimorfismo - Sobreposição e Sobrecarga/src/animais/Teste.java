@@ -1,6 +1,6 @@
 package animais;
 
-public class AppAnimais {
+public class Teste {
 	public static void main(String[] args) {
 		Animal cao = new Cachorro("Minduim"); 
 		

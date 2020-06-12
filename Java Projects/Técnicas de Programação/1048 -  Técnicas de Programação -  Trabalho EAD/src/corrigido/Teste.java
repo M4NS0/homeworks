@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author anibal.jukemura
  */
-public class Projeto01 {
+public class Teste {
 
     public static final int IDINICIAL = 1000;
     public static final double MEIA = 10.00;
