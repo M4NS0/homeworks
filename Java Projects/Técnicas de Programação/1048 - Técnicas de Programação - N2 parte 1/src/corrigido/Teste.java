@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @implNote Exemplo de como fazer casting *.class.isInstance
  * 
  */
-public class JavaApplication43 {
+public class Teste {
 
     public static void imprimeDados(List L)
     {

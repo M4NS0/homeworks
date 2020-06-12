@@ -2,7 +2,7 @@ package correcao;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Produtos {
+public class Teste {
 
 	public static void menu() {
 		System.out.println("#########################");
