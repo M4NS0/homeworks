@@ -9,7 +9,7 @@
  *
  * @author japa
  */
-public class HerancaMultiplaInterfaces {
+public class Teste {
 
     /**
      * @param args the command line arguments
