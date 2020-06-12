@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
  *
  * @author japa
  */
-public class JavaApplication271 {
+public class Lambdas {
 
     /**
      * @param args the command line arguments
