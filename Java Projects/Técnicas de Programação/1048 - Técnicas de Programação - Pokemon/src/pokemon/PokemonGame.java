@@ -16,7 +16,8 @@ import javax.sound.sampled.Clip;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * 
+ * @see in   https://web.microsoftstream.com/video/1c097c3a-ae34-4813-90e3-f1f811edd956?referrer=https:%2F%2Fmoodle.pucgoias.edu.br%2Fcourse%2Fview.php%3Fid%3D2702
  * @author japa
  */
 public class PokemonGame extends javax.swing.JFrame {
