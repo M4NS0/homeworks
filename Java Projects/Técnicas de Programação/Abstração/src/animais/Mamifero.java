@@ -3,22 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package animaisabstract;
+package animais;
 
 /**
  *
  * @author japa
  */
-public abstract class Passaro extends Animal{
+public abstract class Mamifero extends Animal{
 
-    public Passaro(String n) 
+    public Mamifero(String n) 
     {
         super(n);
     }
     
-    public  void talk()
-    {
-        System.out.println("Piu... Piu...");
-    }
+    public abstract void talk();
     
 }
