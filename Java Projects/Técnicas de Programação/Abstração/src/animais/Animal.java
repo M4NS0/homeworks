@@ -3,16 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package animaisabstract;
+package animais;
 
 /**
  *
  * @author japa
  */
-public class BemTeVi extends Passaro{
+public abstract class Animal {
+    private String nome;
 
-    public BemTeVi(String n) {
-        super(n);
+    public Animal(String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome() {
+        return nome;
     }
     
+    public abstract void talk();
 }
