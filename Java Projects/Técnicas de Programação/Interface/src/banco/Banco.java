@@ -12,7 +12,7 @@ public class Banco implements Imprimivel {
 
 	public void inserir(ContaBancaria conta) {
 		contas.add(conta);
-		System.out.println("Conta adicionada com sucesso \n" + "O seu número de conta é :" + (contas.size() - 1));
+		System.out.println(" Conta adicionada com sucesso \n" + " O seu número de conta é:" + conta.getNumerodaConta() + "\n");
 	}
 
 	public boolean remover(ContaBancaria conta) {
