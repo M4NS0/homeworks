@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author japa
  */
-public class ExemploExcecao1 {
+public class ExcecaoExemplo1 {
 
     public static int divisao(int n, int d)
     {
