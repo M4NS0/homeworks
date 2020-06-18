@@ -1,17 +1,13 @@
 #modal {
     /* apos o hexadecimal é a opacidade onde ff é 100% e 00 é 0% */
     background-color: #0e0a14ef;
-
     height: 100vh;
     width: 100vw;
-
     position: fixed;
     top: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     transition: 400ms;
 }
 
@@ -21,9 +17,7 @@
 
 #modal .content {
     color: white;
-    
     width: 420px;
-   
 }
 
 #modal .header {
@@ -31,17 +25,13 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 48px;
-
 }
 
 #modal .header a {
     background-image: url(../assets/x.svg);
-
     width: 20px;
     height: 20px;
-
     display: flex;
-
     font-size: 0.01px;
 }
 
@@ -49,33 +39,25 @@
     color: white;
     font-size: 36px;
     line-height: 42px;
-    
 }
 
 #modal form label {
     font-size: 14px;
     line-height: 16px;
-    
     display: block;
     margin-bottom: 8px;
-
 }
 
 #modal form .field {
     display: flex;
-
 }
 
 #modal form input {
     flex: 1;
-    
     background-color: #f0f0f5;
-
     border-radius: 8px 0 0 8px;
     border: 0;
-
     padding: 16px 24px;
-
     font-size: 16px;
     color: #6c6c80;
 }
@@ -91,4 +73,3 @@
 #modal form button:hover {
     background-color: #2fb85e;
 }
-
