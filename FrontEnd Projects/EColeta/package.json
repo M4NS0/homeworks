@@ -1,16 +1,16 @@
 {
-  "name": "ecoleta",
-  "version": "1.0.0",
-  "main": "src/server.js",
-  "scripts": {
-    "start": "nodemon src/server.js"
-  },
-  "author": "Bruno C. Manso",
-  "description": "Projeto experimental - Coleta de resíduos",
-  "dependencies": {
-    "express": "^4.17.1"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.4"
-  }
+    "name": "ecoleta",
+    "version": "1.0.0",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "nodemon src/server.js"
+    },
+    "author": "Bruno C. Manso",
+    "description": "Projeto experimental - Coleta de resíduos",
+    "dependencies": {
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    }
 }

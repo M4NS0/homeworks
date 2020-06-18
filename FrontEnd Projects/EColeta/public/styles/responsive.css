@@ -2,6 +2,7 @@
 
 
 /* se a tela for menor q 900px aplica a regra abaixo */
+
 @media (max-width: 900px) {
     #page-home {
         background-position-x: 70vw;
@@ -27,18 +28,19 @@
 #page-search-results .cards {
     grid-template-columns: 1fr;
 }
+
 #page-search-results .cards {
     height: 200px;
 }
+
 @media (min-width: 1700px) {
     #page-home {
-        background-position-x: 40vw;  
+        background-position-x: 40vw;
     }
-   
 }
+
 @media (max-height: 760px) {
     #page-home {
         background-position-y: 200px;
     }
 }
-
