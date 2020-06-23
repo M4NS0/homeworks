@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso JavaScript </title>
+</head>
+<body>
+    <div id="app">
+        <input id="nome"/>
+    </div>
+
+   
+    <script>
+        var linkElement = document.createElement('a');
+        linkElement.setAttribute('href', 'https://m4ns0.github.io/');
+        linkElement.setAttribute('title', 'C.V');
+
+
+        var textElement = document.createTextNode('Acessar C.V.');
+
+        linkElement.appendChild(textElement);
+
+        var containerElement = document.querySelector('#app');
+        containerElement.appendChild(linkElement);
+
+        // removendo o input via javascript
+        var inputElement = document.querySelector('#nome');
+        containerElement.removeChild(inputElement);  
+
+    </script>
+</body>
+</html>
