@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de JavaScript</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" name="nome" id="nome" id="nome"/>
+        <input type="text" name="nome" id="nome2" id="nome"/>
+        <button class = "botao">Adicionar</button>
+          
+
+    </div>
+
+    <!-- daqui pra cima é a árvores de elementos html (DOM) -->
+    <script>
+        
+        var inputElement = document.getElementById('nome');     // document. referencia a árvore de elementos (DOM)
+        console.log(inputElement);
+
+        var inputElement = document.getElementsByTagName('input')[0];     // document. referencia a árvore de elementos (DOM)
+        console.log(inputElement); 
+
+        var inputElement = document.getElementsByClassName('nome')[0];     // document. referencia a árvore de elementos (DOM)
+        console.log(inputElement); 
+    
+        var inputElement = document.querySelector('body div#app input');     // query selector percorre a DOM ate encontrar o elemento
+        console.log(inputElement);                                           // procura elemento que esta em body, no div app que seja um input
+        
+        var inputElement = document.querySelector('input[name=nome]');     // query selector percorre a DOM ate encontrar o elemento
+        console.log(inputElement);  
+
+        var inputElement = document.querySelectorAll('input[name=nome]');     // query selector percorre a DOM ate encontrar o elemento
+        console.log(inputElement); 
+        
+        var inputElement = document.querySelector('input[name=nome]'); 
+        var btnElement = document.querySelector('button.botao'); 
+     
+       
+        btnElement.onclick = function () {
+            alert('Botão clicado');
+        }
+
+        btnElement.onclick = function () {
+            var text = inputElement.value;
+            alert(text);
+        }
+    </script>
+
+
+</body>
+</html>

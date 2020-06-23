@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Curso JavaScript</title>
+    </head>
+    <body>
+        <script>
+            // AND
+            var sexo = 'M', idade =23;
+            if(sexo === 'M' && idade >=18) {
+                console.log('OK');
+            }
+
+            // OR
+            var sexo = 'M', idade =10;            
+            if(sexo === 'M' || idade >=18) {
+                console.log('OK');
+            }
+
+            // NOT
+            var sexo = 'F', idade = 23;
+            if(sexo !== 'M' && idade >=18) {
+                console.log('OK');
+            }
+
+            // Armazenamento de valor de Condição
+            var sexo = 'M', idade = 23;
+            var masculino;
+            if(sexo === 'M') {
+                masculino = true;
+            } else {
+                masculino = false;
+            }
+            console.log(masculino);
+
+            // Forma Reduzida
+            var masculino = (sexo === 'M');
+            console.log(masculino);            
+
+        </script>
+    </body>
+</html>
