@@ -42,6 +42,25 @@ ul {
     margin-top: 15px;;
     margin-left: 15px;
 }
+
+html body.single-post div#content.site-content.center-relative div.single-post-wrapper.content-1070.center-relative article.center-relative div.entry-content div.content-wrap.content-660.center-relative ul li a {
+    margin-left: 18px;
+}
+html body.single-post div#content.site-content.center-relative div.single-post-wrapper.content-1070.center-relative article.center-relative div.entry-content div.content-wrap.content-660.center-relative ul li img {    
+    
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    margin-left: 5px;
+    
+}
+
+html body.single-post div#content.site-content.center-relative div.single-post-wrapper.content-1070.center-relative article.center-relative div.entry-content div.content-wrap.content-660.center-relative ul li a img:hover{    
+    filter: invert(100%);
+
+}
+
+
 input,
 textarea,
 select {
