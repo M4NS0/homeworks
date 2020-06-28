@@ -1,0 +1,7 @@
+html body div.navbar-fixed nav div.nav-wrapper.blue-grey.darken-2 ul.right.hide-on-med-and-down {
+    margin-right: 30px;
+}
+
+html body div.navbar-fixed nav div.nav-wrapper.blue-grey.darken-2 a#mobile_trigger.button-collapse.right i.material-icons {
+    margin-right: 30px;
+}
