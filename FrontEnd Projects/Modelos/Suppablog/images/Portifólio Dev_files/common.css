@@ -41,12 +41,12 @@
 }
 
 .center-relative {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .center-absolute {
-    left: 5%;
+    left: 50%;
 }
 
 .center-text {
@@ -282,9 +282,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: 30px;
-    margin-bottom: 30px;
-    padding: 50px auto;
+    padding: 50px 0;
 }
 
 h1 {

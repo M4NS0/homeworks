@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Portifólio Dev</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <link rel="stylesheet" href="/dist/materialize/css/style.css">
+  <link rel="stylesheet" href="/dist/materialize/css/darkLight.css">
+  <link rel="stylesheet" href="/dist/materialize/css/rightBar.css">
+  <link rel="stylesheet" href="/dist/materialize/css/table.css">
+  <link rel="stylesheet" href="/dist/materialize/css/mainPage.css">
+
+</head>
+
+<body>
+
+  <h1>Responsive Table Layouts</h1>
+
+
+  <p>These table styles are a cleaned up version of some table styles from a fantasy sports web app. The original table
+    styles were written using regular CSS <code>@media</code> queries, but as soon as the tables needed to be added to a
+    layout with a sidebar or other content we had to re-do the breakpoints all the time and we ended up with a lot of
+    duplicate code.</p>
+  <p>These tables use <code>@element</code> queries instead, via <a href=http://elementqueries.com>EQCSS.js </a>, so the
+      responsive breakpoints are based on the width of the <code>&lt;table></code> elements themselves rather than the
+      width of the browser. This way this one set of responsive styles should be able to style a <code>&lt;table></code>
+      placed into any layout.</p>
+  <br>
+
+  <!-- Six Col -->
+  <table data-table="tabela1">
+    <caption>comentario sobre a tabela abaixo</caption>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>X Axis</th>
+        <th>Y Axis</th>
+        <th>Z Axis</th>
+        <th>Speed</th>
+        <th>Time</th>
+        <th>Finish</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-heading="Name">Test Flight 1</td>
+        <td data-heading="X Axis">120°</td>
+        <td data-heading="Y Axis">40°</td>
+        <td data-heading="Z Axis">157°</td>
+        <td data-heading="Speed">1503㎧</td>
+        <td data-heading="Time">1:05</td>
+        <td data-heading="Finish">459</td>
+      </tr>
+      <tr>
+        <td data-heading="Name">Test Flight 2</td>
+        <td data-heading="X Axis">80°</td>
+        <td data-heading="Y Axis">94°</td>
+        <td data-heading="Z Axis">30°</td>
+        <td data-heading="Speed">200㎧</td>
+        <td data-heading="Time">0:45</td>
+        <td data-heading="Finish">487</td>
+      </tr>
+      <tr>
+        <td data-heading="Name">Test Flight 3</td>
+        <td data-heading="X Axis">77°</td>
+        <td data-heading="Y Axis">78°</td>
+        <td data-heading="Z Axis">90°</td>
+        <td data-heading="Speed">55㎧</td>
+        <td data-heading="Time">1:20</td>
+        <td data-heading="Finish">458</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <div class="navbar-fixed">
+
+    <nav>
+
+      <div class="nav-wrapper blue-grey darken-2">
+
+        <a href="#" id="mobile_trigger" data-activates="mobile-demo" class="button-collapse right">
+          <i class="material-icons">menu</i>
+        </a>
+
+        <ul class="left brand-logo hide-on-med-and-up" id="left_icon">
+        </ul>
+
+        <ul class="left brand-logo hide-on-small-only hide-on-large-only">
+          <div class="toggle toggle-dark"></div>
+        </ul>
+
+        <ul class="right hide-on-med-and-down">
+          <li><a class="button_fix" href="index.html">Home</a></li>
+          <li><a class="button_fix" href="aboutus.php">Timeline</a></li>
+          <li><a class="button_fix" href="favorites.php">About</a></li>
+        </ul>
+
+        <ul class="side-nav blue-grey darken-1" id="mobile-demo">
+          <center><span><img src="/dist/img/logo.png" alt=""></span></center>
+          <li><a class="button_fix" href="index.html">Home</a></li>
+          <li><a class="button_fix" href="index.html">Timeline</a></li>
+          <li><a class="button_fix" href="index.html">Home</a></li>
+        </ul>
+
+      </div>
+    </nav>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  <script src="/dist/materialize/js/darkmode.js"></script>
+  <script src="/dist/materialize/js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/eqcss/1.9.2/EQCSS.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/eqcss/1.9.2/EQCSS-polyfills.min.js"></script>
+</body>
+
+</html>
