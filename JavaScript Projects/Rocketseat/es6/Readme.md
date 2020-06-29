@@ -24,23 +24,31 @@
 ```sh
 yarn init
 ```
-4. Instalando dependências do babel:
+4. Instalar dependências do babel:
 ```sh
 yarn add @babel/cli
 yarn add @babel/preset-env
 ```
-5. Criando arquivo gitignore de modulos:
+5. Criar arquivo gitignore de modulos:
 ```sh
 touch .gitignore && echo "node_modules/" >> .gitignore && git rm -r --cached node_modules ; git status
 ```
-6. Criando arquivo .babelrc:
+6. Criar arquivo .babelrc:
 ```sh
 touch .babelrc && echo '{"presets": ["@babel/preset-env"]}' > .babelrc
 ``` 
-7. Adicionando em package.json: 
+7. Adicionar em package.json: 
 ```sh
  ,
   "scripts": {
     "dev": "babel ./main.js -o ./bundle.js"
   } 
+```
+8. Adicionar nova dependencia do babel
+```sh
+yarn add @babel/core
+```
+9. Testar yarn
+```sh
+yarn dev
 ```
