@@ -17,10 +17,10 @@
 - Asyn/Await
 
 
-# Passo a passo de instalações
+### Passo a passo de instalações: ###
 1. Instalar o Node.JS
 2. Instalar o Yarn
-3. No diretório do projeto: 
+3. No diretório do projeto:
 ```sh
 $ yarn init
 ```
