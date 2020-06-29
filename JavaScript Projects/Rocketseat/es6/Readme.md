@@ -18,6 +18,7 @@
 
 
 ### Passo a passo de instalações: ###
+
 1. Instalar o Node.JS
 2. Instalar o Yarn
 3. No diretório do projeto:
@@ -51,4 +52,11 @@ yarn add @babel/core
 9. Testar yarn
 ```sh
 yarn dev
+```
+7. Adicionar -w em package.json: 
+```sh
+ ,
+  "scripts": {
+    "dev": "babel ./main.js -o ./bundle.js -w"
+  } 
 ```
