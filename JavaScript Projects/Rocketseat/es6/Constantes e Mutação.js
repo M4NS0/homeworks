@@ -5,7 +5,6 @@ const a = 1;
 // Error: "a" is read-only
 
 // mutação de variáveis
-
 const usuario = { nome: 'Bruno'};
 usuario.nome = 'Manso';
 console.log(usuario);
