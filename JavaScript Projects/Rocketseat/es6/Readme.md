@@ -2,6 +2,7 @@
 ## JavaScript e ES6+ ##
 ## ES6+ (ECMA Script) ##
 
+### Módulos ###
  1. Conceitos
  	1.  Introdução
  	2.  Instalando Node e Yarn
@@ -15,19 +16,21 @@
  	10. Operadores Rest/Spread
  	11. Template Literals
  	12. Object Short Syntax
+ 2. WebPack Server
+	1.  Configurando WebPAck
+	2.  Import/Export
+	3.  WebPack Dev Server
+ 3. Async/Await
+	1.  Conceitos
+ 	2.  Configurando Axios
+ 4. Aplicação com o ES6+
+	1.  Estruturas de Estilos
+	2.  Adicionar Repositórios
+	3.  Render em Tela
+	4.  Buscando em API
+	5.  Loading Error
 
-1. Introdução
-- Babel: pega o codigo e converte versões em funções(5+, 6+, 7+...) em um codigo que todo entenderão
-- Webpack: servidor
-- Classes
-- Arrow Functions
-- Desestruturação
-- Rest/Spread
-- Inport/Export
-- Asyn/Await
-
-
-### Passo a passo de instalações: ###
+### Passo a passo de instalações, módulo 1: ###
 
 1. Instalar o Node.JS
 2. Instalar o Yarn
@@ -86,3 +89,7 @@ yarn dev
   }
 }
 ```
+
+### Passo a passo de instalações, módulo 2: ###
+### Passo a passo de instalações, módulo 3: ###
+

@@ -5,6 +5,7 @@
 ## Curso de JavaScript - Módulo Starter ##
 
 ## Curso JavaScript ##
+### Módulos: ###
 1. Introdução a JavaScript
 	1.  Introdução
   	2.  Confugurando Ambiente
