@@ -1,4 +1,3 @@
-[![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
 
  ![N|Solid](https://xesque.rocketseat.dev/platform/1564681946529.svg) ![N|Solid](https://xesque.rocketseat.dev/platform/1564682281422.svg) ![N|Solid](https://xesque.rocketseat.dev/platform/1564682425906.svg) 
  
@@ -97,6 +96,12 @@ yarn dev
 }
 ```
 
+
+
 ### Passo a passo de instalações, módulo 2: ###
 ### Passo a passo de instalações, módulo 3: ###
+
+
+[![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
+
 

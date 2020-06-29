@@ -1,8 +1,11 @@
-[![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
+
 
  ![N|Solid](https://xesque.rocketseat.dev/platform/1564681946529.svg) ![N|Solid](https://xesque.rocketseat.dev/platform/1564682281422.svg) ![N|Solid](https://xesque.rocketseat.dev/platform/1564682425906.svg) 
  
  ![N|Solid](https://xesque.rocketseat.dev/platform/1566444110414.png) ![N|Solid](https://xesque.rocketseat.dev/platform/1566444881250.png)
+
+##
+
 ## RocketSeat Skylab ##
 
 ## Curso de JavaScript - Módulo Starter ##
@@ -38,3 +41,5 @@
   	2.  Promisses
   	3.  Utilizando Axios
 # 	
+
+[![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
