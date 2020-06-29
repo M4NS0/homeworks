@@ -4,9 +4,9 @@
 
 ## Curso de JavaScript - Módulo Starter ##
 
-# Conteúdo
+## Conteúdo
 
-# Curso JavaScript
+## Curso JavaScript ##
  1. Introdução a JavaScript
   1.  Introdução
   2.  Confugurando Ambiente
@@ -36,7 +36,7 @@
   3.  Utilizando Axios
 # 
 
-# Curso JavaScript ES6
+## Curso JavaScript ES6 ##
  1. Conceitos
  1.  Introdução
  2.  Instalando Node e Yarn
