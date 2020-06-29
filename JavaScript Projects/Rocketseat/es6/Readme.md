@@ -60,3 +60,19 @@ yarn dev
     "dev": "babel ./main.js -o ./bundle.js -w"
   } 
 ```
+8. O package.json ficará assim:
+```sh
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.10.3",
+    "@babel/preset-env": "^7.10.3"
+  },
+  "scripts": {
+    "dev": "babel ./main.js -o ./bundle.js -w"
+  }
+}
+```
