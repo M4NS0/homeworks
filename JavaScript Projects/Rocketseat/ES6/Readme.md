@@ -29,3 +29,7 @@ $ yarn init
 $ yarn add @babel/cli
 $ yarn add babel/preset-env
 ```
+5. Criando gitignore de modulos
+```sh
+$ touch .gitignore && echo "node_modules/" >> .gitignore && git rm -r --cached node_modules ; git status
+```
