@@ -33,19 +33,3 @@
   	2.  Promisses
   	3.  Utilizando Axios
 # 	
-
-## Curso JavaScript ES6 ##
- 1. Conceitos
- 	1.  Introdução
- 	2.  Instalando Node e Yarn
- 	3.  Configurando o Babel
- 	4.  Classes e Heranças
- 	5.  Const e Let
- 	6.  Operações em Array
- 	7.  Arrow Functions
- 	8.  Valores Padrão
- 	9.  Desestruturação
- 	10. Operadores Rest/Spread
- 	11. Template Literals
- 	12. Object Short Syntax
-
