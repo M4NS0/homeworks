@@ -1,5 +1,11 @@
 ## 
 
+[![N|Solid](https://xesque.rocketseat.dev/platform/1580220889586.svg)](https://skylab.rocketseat.com.br/journey/starter) 
+
+![N|Solid](https://xesque.rocketseat.dev/platform/1566444110414.png) ![N|Solid](https://xesque.rocketseat.dev/platform/1566444881250.png)
+
+![N|Solid](https://xesque.rocketseat.dev/platform/1564681946529.svg) ![N|Solid](https://xesque.rocketseat.dev/platform/1564682281422.svg) ![N|Solid](https://xesque.rocketseat.dev/platform/1564682425906.svg) 
+
 ## RocketSeat Skylab ##
 
 ## Curso de JavaScript - Módulo Starter ##
