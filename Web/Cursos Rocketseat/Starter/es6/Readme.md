@@ -116,7 +116,9 @@ echo '{"presets": ["@babel/preset-env"],"plugins": ["@babel/plugin-proposal-obje
 ```
 3. Reiniciar o Yarn Dev
 
-## Configurando Web Pack Server
+## 
+### Configurando Web Pack Server
+## 
 
 1. Adicionar dependência ao Yarn
 ```sh
