@@ -1,0 +1,1 @@
+Para que os scripts acima sejam testados os retorne para a raiz principal junto ao index
