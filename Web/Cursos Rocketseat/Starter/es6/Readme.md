@@ -38,9 +38,9 @@
 
 ### Passo a passo de instalações, módulo 1 ###
 
-### 
-
+## 
 ### Node.Js e Yarn
+## 
 1. Instalar o Node.JS
 2. Instalar o Yarn
 3. No diretório do projeto:
@@ -104,6 +104,7 @@ yarn dev
 ```
 ## 
 ### Rest/Spread
+## 
 1. Adicionar ao babel:
 ```sh
 yarn add @babel/plugin-proposal-object-rest-spread
