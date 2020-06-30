@@ -119,11 +119,53 @@ echo '{"presets": ["@babel/preset-env"],"plugins": ["@babel/plugin-proposal-obje
 ## 
 ### Configurando Web Pack Server
 ## 
-
-1. Adicionar dependência ao Yarn
+1. Alterar em package.json 'dependencies' para 'devDependencies' 
+2. Adicionar dependência ao Yarn
 ```sh
-yarn add webpack webpack-cli
+yarn add webpack webpack-cli -D
 ```
+3. Criar arquivo de configuração
+```sh
+touch webpack.config.js
+```
+4. Inserir o Script dentro do webpack.config.js
+```sh
+module.exports = {
+    entry: './main.js',
+    output: {
+        path: __dirname,
+        filename: 'bundle.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            }
+        ],
+    },
+};
+```
+5. Instalar o babel loader
+```sh
+yarn add babel-loader -D
+```
+6. Modificar a leitura de scripts no package.json para:
+```sh
+},
+ "scripts": {
+	 "dev": "webpack --mode=development -w"
+ }
+}
+```
+7. Reiniciar o Yarn
+```sh
+yarn dev
+```
+
 ### Passo a passo de instalações, módulo 2: ###
 ### Passo a passo de instalações, módulo 3: ###
 
