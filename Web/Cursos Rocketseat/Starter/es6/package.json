@@ -19,6 +19,7 @@
     "build": "webpack --mode=production"
   },
   "dependencies": {
-    "@babel/plugin-transform-async-to-generator": "^7.10.4"
+    "@babel/plugin-transform-async-to-generator": "^7.10.4",
+    "axios": "^0.19.2"
   }
 }
