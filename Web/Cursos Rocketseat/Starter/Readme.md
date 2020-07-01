@@ -275,6 +275,32 @@ no final, depois dos passos 2 e 4, ficará assim:
 yarn dev
 ```
 <br /><br /><br />
+
+##
+## Instalando Async Await
+1. Adicionar ao Yarn
+```sh
+yarn add @babel/plugin-transform-async-to-generator -D
+```
+2. Adicionar Polyfill
+```sh
+yarn add @babel/polyfill -D
+```
+3. Adicionar linhas ao .babelrc
+```sh
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-object-rest-spread",
+        "@babel/plugin-transform-async-to-generator"
+    ]
+}
+```
+4. Alterar webpack.config.js
+```sh
+module.exports = {
+    entry: ['@babel/polyfill','./src/main.js'],
+```
+5. Reiniciar Yarn dev
 ## 
 [![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
 ## 
