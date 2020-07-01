@@ -6,6 +6,7 @@
 
 
 # JavaScript e ES6+ (ECMA Script)   
+<br /><br /><br />
 
 ## Módulos
  1. Conceitos
@@ -34,7 +35,7 @@
 	3.  Render em Tela
 	4.  Buscando em API
 	5.  Loading Error
-	6.  
+	  
 ## 
 ## Passo a passo de instalações 
 Tudo que foi instalado e configurado estará descrito abaixo: <br /><br /><br />
@@ -102,11 +103,10 @@ touch main.js
 12. Usar o yarn
 ```sh
 yarn dev
-```
+``` 
+<br /><br /><br />
 ## 
 ## Rest/Spread 
-
-
 
 1. Adicionar ao babel:
 ```sh
