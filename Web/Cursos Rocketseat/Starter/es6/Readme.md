@@ -34,10 +34,11 @@
 	3.  Render em Tela
 	4.  Buscando em API
 	5.  Loading Error
-
-## Passo a passo de instalações 
-Tudo que foi instalado e configurado estará descrito abaixo: <br />
+	6.  
 ## 
+## Passo a passo de instalações 
+Tudo que foi instalado e configurado estará descrito abaixo: <br /><br /><br />
+
 ## Node.Js e Yarn 
 
 
