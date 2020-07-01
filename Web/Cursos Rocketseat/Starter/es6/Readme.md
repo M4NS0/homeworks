@@ -3,12 +3,11 @@
  
  ![N|Solid](https://xesque.rocketseat.dev/platform/1566444110414.png) ![N|Solid](https://xesque.rocketseat.dev/platform/1566444881250.png)
 
-##
+## 
 
-## JavaScript e ES6+ ##
-## ES6+ (ECMA Script) ##
+### JavaScript e ES6+ (ECMA Script) ###
 
-### Módulos ###
+## Módulos ##
  1. Conceitos
  	1.  Introdução
  	2.  Instalando Node e Yarn
@@ -36,7 +35,7 @@
 	4.  Buscando em API
 	5.  Loading Error
 
-### Passo a passo de instalações ###
+## Passo a passo de instalações ##
 Tudo que foi instalado e configurado estará descrito abaixo
 
 ## 
