@@ -36,7 +36,7 @@
 	4.  Buscando em API
 	5.  Loading Error
 
-### Passo a passo de instalações, módulo 1 ###
+### Passo a passo de instalações ###
 Tudo que foi instalado e configurado estará descrito abaixo
 
 ## 
@@ -251,7 +251,7 @@ no final, depois dos passos 2 e 4, ficará assim:
 * Utilize http://localhost:8080/ para visualização do conteúdo.
 
 
-# Para usar o projeto Online
+### Para usar o projeto Online
 1. Inserir comando "build" nos scripts do package.json abaixo de "dev"
 ```sh
    },
@@ -266,11 +266,6 @@ no final, depois dos passos 2 e 4, ficará assim:
   yarn build
 ```
 * Aqui será criado um arquivo bundle.js, que será necessário Online
-
-
-
-### Passo a passo de instalações, módulo 2: ###
-### Passo a passo de instalações, módulo 3: ###
 
 
 [![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
