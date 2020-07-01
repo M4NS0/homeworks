@@ -1,4 +1,9 @@
 
+A pasta src contém os fundamentos básicos de javaScript. 
+Para que funcione, o arquivo main.js deve ser copiado para 
+raiz da pasta src, siga os passos abaixo para fazer as 
+devidas configurações
+
 ## 
 ### Node.Js e Yarn
 ## 

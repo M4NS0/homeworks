@@ -37,6 +37,7 @@
 	5.  Loading Error
 
 ### Passo a passo de instalações, módulo 1 ###
+Tudo que foi instalado e configurado estará descrito abaixo
 
 ## 
 ### Node.Js e Yarn
