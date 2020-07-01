@@ -38,7 +38,8 @@
 ## Passo a passo de instalações 
 Tudo que foi instalado e configurado estará descrito abaixo:
 
-### Node.Js e Yarn ###
+### Node.Js e Yarn 
+### 
 
 1. Instalar o Node.JS
 2. Instalar o Yarn
@@ -101,7 +102,8 @@ touch main.js
 ```sh
 yarn dev
 ```
-### Rest/Spread ###
+### Rest/Spread 
+### 
 
 
 1. Adicionar ao babel:
@@ -115,7 +117,8 @@ echo '{"presets": ["@babel/preset-env"],"plugins": ["@babel/plugin-proposal-obje
 ```
 3. Reiniciar o Yarn Dev
 
-### Configurando Web Pack ###
+### Configurando Web Pack 
+### 
 
 1. Alterar em package.json 'dependencies' para 'devDependencies' 
 2. Adicionar dependência ao Yarn
@@ -165,7 +168,8 @@ yarn dev
 ```
 
 
-### Configurando Web Pack Dev Server ###
+### Configurando Web Pack Dev Server 
+### 
 Existem 2 modos,  o  primeiro  Offline  que  não  necessita  o  bundle.js 
 e o segundo Online que irá  gerar um bundle.js  novo,  essa  configuração
 permite   que  toda  e  qualquer  alteração  feita  seja  automaticamente 
@@ -245,7 +249,8 @@ no final, depois dos passos 2 e 4, ficará assim:
 * Utilize http://localhost:8080/ para visualização do conteúdo.
 
 
-### Para usar o projeto Online ###
+### Para usar o projeto Online 
+### 
 1. Inserir comando "build" nos scripts do package.json abaixo de "dev"
 ```sh
    },
