@@ -171,10 +171,10 @@ yarn dev
 
 ## 
 ### Configurando Web Pack Dev Server
-Existem 2 modos,  o  primeiro  Offline que  não  necessita  o  bundle.js 
-e o segundo Online que irá gerar um bundle.js  novo,  essa  configuração
-permite  que  toda  e  qualquer  alteração  feita  seja  automaticamente 
-complementada e atualizada no navegador.
+Existem 2 modos,  o  primeiro  Offline  que  não  necessita  o  bundle.js 
+e o segundo Online que irá  gerar um bundle.js  novo,  essa  configuração
+permite   que  toda  e  qualquer  alteração  feita  seja  automaticamente 
+complementada e atualizada diretamente no navegador ou no servidor Online.
 ## 
 
 1. Criar e mover arquivos para as pastas src e public
