@@ -23,7 +23,7 @@
  	11. Template Literals
  	12. Object Short Syntax
  2. WebPack Server
-	1.  Configurando WebPAck
+	1.  Configurando WebPack
 	2.  Import/Export
 	3.  WebPack Dev Server
  3. Async/Await
@@ -41,6 +41,7 @@
 ## 
 ### Node.Js e Yarn
 ## 
+
 1. Instalar o Node.JS
 2. Instalar o Yarn
 3. No diretório do projeto:
@@ -61,12 +62,12 @@ touch .gitignore && echo "node_modules/" >> .gitignore && git rm -r --cached nod
 touch .babelrc && echo '{"presets": ["@babel/preset-env"]}' > .babelrc
 ``` 
 7. Adicionar em package.json: 
-```sh
- ,
-  "scripts": {
-    "dev": "babel ./main.js -o ./bundle.js"
-  } 
-```
+  ```sh
+  ,
+    "scripts": {
+      "dev": "babel ./main.js -o ./bundle.js"
+    } 
+  ```
 8. Adicionar nova dependencia do babel
 ```sh
 yarn add @babel/core
@@ -84,19 +85,19 @@ touch main.js
 ```
 11. O package.json ficará assim:
 ```sh
-{
-  "name": "es6",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "@babel/cli": "^7.10.3",
-    "@babel/preset-env": "^7.10.3"
-  },
-  "scripts": {
-    "dev": "babel ./main.js -o ./bundle.js -w"
+  {
+    "name": "es6",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "dependencies": {
+      "@babel/cli": "^7.10.3",
+      "@babel/preset-env": "^7.10.3"
+    },
+    "scripts": {
+      "dev": "babel ./main.js -o ./bundle.js -w"
+    }
   }
-}
 ```
 12. Usar o yarn
 ```sh
@@ -105,9 +106,10 @@ yarn dev
 ## 
 ### Rest/Spread
 ## 
+
 1. Adicionar ao babel:
 ```sh
-yarn add @babel/plugin-proposal-object-rest-spread
+  yarn add @babel/plugin-proposal-object-rest-spread
 ```
 2. Editar .babelrc com a linha:
 ```sh
@@ -117,8 +119,9 @@ echo '{"presets": ["@babel/preset-env"],"plugins": ["@babel/plugin-proposal-obje
 3. Reiniciar o Yarn Dev
 
 ## 
-### Configurando Web Pack Server
+### Configurando Web Pack
 ## 
+
 1. Alterar em package.json 'dependencies' para 'devDependencies' 
 2. Adicionar dependência ao Yarn
 ```sh
@@ -130,24 +133,24 @@ touch webpack.config.js
 ```
 4. Inserir o Script dentro do webpack.config.js
 ```sh
-module.exports = {
-    entry: './main.js',
-    output: {
-        path: __dirname,
-        filename: 'bundle.js',
-    },
-    module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
-            }
-        ],
-    },
-};
+  module.exports = {
+      entry: './main.js',
+      output: {
+          path: __dirname,
+          filename: 'bundle.js',
+      },
+      module: {
+          rules: [
+              {
+                  test: /\.js$/,
+                  exclude: /node_modules/,
+                  use: {
+                      loader: 'babel-loader'
+                  }
+              }
+          ],
+      },
+  };
 ```
 5. Instalar o babel loader
 ```sh
@@ -155,16 +158,113 @@ yarn add babel-loader -D
 ```
 6. Modificar a leitura de scripts no package.json para:
 ```sh
-},
- "scripts": {
-	 "dev": "webpack --mode=development -w"
- }
-}
+  },
+  "scripts": {
+    "dev": "webpack --mode=development -w"
+  }
+  }
 ```
 7. Reiniciar o Yarn
 ```sh
 yarn dev
 ```
+
+## 
+### Configurando Web Pack Dev Server
+Existem 2 modos,  o  primeiro  Offline que  não  necessita  o  bundle.js 
+e o segundo Online que irá gerar um bundle.js  novo,  essa  configuração
+permite  que  toda  e  qualquer  alteração  feita  seja  automaticamente 
+complementada e atualizada no navegador.
+## 
+
+1. Criar e mover arquivos para as pastas src e public
+2. Apagar bundle.js
+3. Modificar path webpack.config.js
+```sh
+ module.exports = {
+    entry: './main.js',
+    output: {
+        path: __dirname,
+        filename: 'bundle.js',
+    },
+ ``` 
+ para
+
+ ```sh
+ module.exports = {
+    entry: './src/main.js',
+    output: {
+        path: __dirname + '/public',
+        filename: 'bundle.js',
+    },
+  ```
+3. Re-adicionar ao Yarn o novo Webpack server
+```sh
+  yarn add webpack-dev-server -D
+```
+
+4. Adicionar nova configuração ao webpack.config.json
+```sh
+  },
+  devServer: {
+    contentBase:  __dirname + '/public'
+  },
+```
+no final, depois dos passos 2 e 4, ficará assim:
+```sh
+  module.exports = {
+      entry: './src/main.js',
+      output: {
+          path: __dirname,
+          filename: 'bundle.js',
+      },
+  devServer: {
+    contentBase:  __dirname + '/public'
+  },
+      module: {
+          rules: [
+              {
+                  test: /\.js$/,
+                  exclude: /node_modules/,
+                  use: {
+                      loader: 'babel-loader'
+                  }
+              }
+          ],
+      },
+  };
+5. Alterar o módulo de scripts do package.json
+```sh
+   },
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development"
+  }
+}
+```
+6. Executar o Yarn dev novamente
+```sh
+  yarn dev
+```
+* Webpack dev ja contém um bundle.js próprio, não sendo necessário criar outro.
+* Utilize http://localhost:8080/ para visualização do conteúdo.
+
+
+# Para usar o projeto Online
+1. Inserir comando "build" nos scripts do package.json abaixo de "dev"
+```sh
+   },
+  "scripts": {
+    "dev": "webpack-dev-server --mode=development",
+    "build": "webpack --mode=production"
+  }
+}
+2. Fazer build no Yarn
+```sh
+  yarn build
+```
+* Aqui será criado um arquivo bundle.js, que será necessário Online
+
+
 
 ### Passo a passo de instalações, módulo 2: ###
 ### Passo a passo de instalações, módulo 3: ###
