@@ -1,14 +1,1 @@
-## 
-### Rest/Spread
-## 
-
-1. Adicionar ao babel:
-```sh
-  yarn add @babel/plugin-proposal-object-rest-spread
-```
-2. Editar .babelrc com a linha:
-```sh
-echo ".babelrc" >> '"plugins": [@babel/plugin-proposal-object-rest-spread]'
-echo '{"presets": ["@babel/preset-env"],"plugins": ["@babel/plugin-proposal-object-rest-spread"]}' > .babelrc
-```
-3. Reiniciar o Yarn Dev
+Adicione o Rest/Spread seguindo as instruções do [Readme.md](https://git.io/JJJFH) da pasta /es6
