@@ -40,6 +40,7 @@
 ## Passo a passo de instalações 
 Tudo que foi instalado e configurado estará descrito abaixo: <br /><br /><br />
 
+## 
 ## Node.Js e Yarn 
 
 
@@ -118,7 +119,7 @@ echo ".babelrc" >> '"plugins": [@babel/plugin-proposal-object-rest-spread]'
 echo '{"presets": ["@babel/preset-env"],"plugins": ["@babel/plugin-proposal-object-rest-spread"]}' > .babelrc
 ```
 3. Reiniciar o Yarn Dev
-
+<br /><br /><br />
 ## 
 ## Configurando Web Pack 
 
@@ -168,7 +169,7 @@ yarn add babel-loader -D
 ```sh
 yarn dev
 ```
-
+<br /><br /><br />
 ## 
 ## Configurando Web Pack Dev Server 
 
@@ -250,6 +251,7 @@ no final, depois dos passos 2 e 4, ficará assim:
 * Webpack dev ja contém um bundle.js próprio, não sendo necessário criar outro.
 * Utilize http://localhost:8080/ para visualização do conteúdo.
 
+<br /><br /><br />
 ## 
 ## Para usar o projeto Online 
 
@@ -269,8 +271,10 @@ no final, depois dos passos 2 e 4, ficará assim:
 * Aqui será criado um arquivo bundle.js, que será necessário Online
 
 
-[![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
-
+<br /><br /><br />
 ## 
+[![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
+## 
+
 
 
