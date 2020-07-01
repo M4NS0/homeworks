@@ -270,7 +270,10 @@ no final, depois dos passos 2 e 4, ficará assim:
 ```
 * Aqui será criado um arquivo bundle.js, que será necessário Online
 
-
+3. Conectar ao Yarn dev
+```sh
+yarn dev
+```
 <br /><br /><br />
 ## 
 [![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
