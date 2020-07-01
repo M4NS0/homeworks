@@ -309,9 +309,11 @@ tem a função de acessar apis, no caso a do github
 ```sh
 yarn add axios -D
 <br /><br /><br />
+
 ## 
 
 [![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
+
 ## 
 
 
