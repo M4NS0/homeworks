@@ -7,7 +7,7 @@
 
 # JavaScript e ES6+ (ECMA Script)   #
 
-## Módulos ##
+## Módulos
  1. Conceitos
  	1.  Introdução
  	2.  Instalando Node e Yarn
@@ -37,7 +37,6 @@
 
 ## Passo a passo de instalações 
 > Tudo que foi instalado e configurado estará descrito abaixo
-## 
 
 ### Node.Js e Yarn 
 
@@ -102,7 +101,6 @@ touch main.js
 ```sh
 yarn dev
 ```
-### 
 ### Rest/Spread
 
 
@@ -116,8 +114,6 @@ echo ".babelrc" >> '"plugins": [@babel/plugin-proposal-object-rest-spread]'
 echo '{"presets": ["@babel/preset-env"],"plugins": ["@babel/plugin-proposal-object-rest-spread"]}' > .babelrc
 ```
 3. Reiniciar o Yarn Dev
-
-### 
 
 ### Configurando Web Pack
 
@@ -167,7 +163,7 @@ yarn add babel-loader -D
 ```sh
 yarn dev
 ```
-### 
+
 
 ### Configurando Web Pack Dev Server
 Existem 2 modos,  o  primeiro  Offline  que  não  necessita  o  bundle.js 
@@ -247,7 +243,7 @@ no final, depois dos passos 2 e 4, ficará assim:
 ```
 * Webpack dev ja contém um bundle.js próprio, não sendo necessário criar outro.
 * Utilize http://localhost:8080/ para visualização do conteúdo.
-### 
+
 
 ### Para usar o projeto Online
 1. Inserir comando "build" nos scripts do package.json abaixo de "dev"
@@ -264,7 +260,7 @@ no final, depois dos passos 2 e 4, ficará assim:
   yarn build
 ```
 * Aqui será criado um arquivo bundle.js, que será necessário Online
-### 
+
 
 [![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
 
