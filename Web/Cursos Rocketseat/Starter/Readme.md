@@ -276,7 +276,7 @@ yarn dev
 ```
 <br /><br /><br />
 
-##
+## 
 ## Instalando Async Await
 1. Adicionar ao Yarn
 ```sh
@@ -286,7 +286,7 @@ yarn add @babel/plugin-transform-async-to-generator -D
 ```sh
 yarn add @babel/polyfill -D
 ```
-3. Adicionar linhas ao .babelrc
+3. Adicionar linha do async ao .babelrc
 ```sh
     ],
     "plugins": [
@@ -301,6 +301,14 @@ module.exports = {
     entry: ['@babel/polyfill','./src/main.js'],
 ```
 5. Reiniciar Yarn dev
+<br /><br /><br />
+##  
+## Instalando o Axios
+tem a função de acessar apis, no caso a do github
+1. Adicionar o Axios ao Yarn
+```sh
+yarn add axios -D
+<br /><br /><br />
 ## 
 [![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
 ## 
