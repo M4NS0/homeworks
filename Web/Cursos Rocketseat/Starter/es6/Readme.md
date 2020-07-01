@@ -233,6 +233,7 @@ no final, depois dos passos 2 e 4, ficará assim:
           ],
       },
   };
+```
 5. Alterar o módulo de scripts do package.json
 ```sh
    },
@@ -258,6 +259,7 @@ no final, depois dos passos 2 e 4, ficará assim:
     "build": "webpack --mode=production"
   }
 }
+```
 2. Fazer build no Yarn
 ```sh
   yarn build
