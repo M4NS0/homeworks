@@ -36,7 +36,7 @@
 	5.  Loading Error
 
 ## Passo a passo de instalações 
-Tudo que foi instalado e configurado estará descrito abaixo:
+Tudo que foi instalado e configurado estará descrito abaixo: <br />
 ## 
 ## Node.Js e Yarn 
 
@@ -269,5 +269,7 @@ no final, depois dos passos 2 e 4, ficará assim:
 
 
 [![N|Solid](https://rocketseat.com.br/static/images/og/rocketseat.png)](https://skylab.rocketseat.com.br/journey/starter) 
+
+## 
 
 
