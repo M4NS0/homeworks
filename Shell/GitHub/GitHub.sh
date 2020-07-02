@@ -19,7 +19,5 @@ git commit -m "$CRUD - $COMMENT"
 git status
 git push
 
-pwd
 
-echo $NAME $CRUD $COMMENT
-
+echo Foi feito um $CRUD no Repositório $NAME com comentário: "$COMMENT"
