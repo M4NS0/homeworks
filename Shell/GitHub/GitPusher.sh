@@ -4,6 +4,7 @@ repName=$(echo "Workspaces,Matriz.Curricular,Projetos,M4ns0.github.io")
 crud=$(echo "Create,Remove,Update,Delete")
 yad --width 500 --height 250 --title="GitPusher" \
 --form --separator="," --item-separator="," \
+--button="Exit" \
 --field="Repositório:CB" \
 --field="CRUD:CBE" \
 --field="\n\nSe deseja adicionar algum comentário adicional, escreva abaixo::TXT" \
