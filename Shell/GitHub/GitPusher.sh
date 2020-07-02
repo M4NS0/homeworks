@@ -11,6 +11,9 @@ yad --width 500 --height 250 --title="GitPusher" \
 --field="\n\nSe deseja adicionar algum comentário adicional, escreva abaixo::TXT" \
 "$repName" "$crud" "" > config
 
+ret=$?
+[[ $ret -eq 0 ]] && exit 0 #sair
+
 NAME=`cat config | awk -F',' '{print $1}'`
 CRUD=`cat config | awk -F',' '{print $2}'`
 COMMENT=`cat config | awk -F',' '{print $3}'`
