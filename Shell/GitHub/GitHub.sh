@@ -17,6 +17,7 @@ cd ~/$USR/$NAME
 git add .
 git commit -m "$CRUD - $COMMENT"
 git status
+git push
 
 pwd
 
