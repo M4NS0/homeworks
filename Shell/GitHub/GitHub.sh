@@ -16,6 +16,7 @@ COMMENT=`cat config | awk -F',' '{print $3}'`
 cd ~/$USR/$NAME
 git add .
 git commit -m "$CRUD - $COMMENT"
+git status
 
 pwd
 
