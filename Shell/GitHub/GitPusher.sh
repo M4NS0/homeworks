@@ -20,5 +20,5 @@ git status
 git push
 
 yad --form --title "GitPusher" --text="\n\nFoi feito um $CRUD no Repositório $NAME com comentário: "$COMMENT"\n\n"  
-cd ~/$USR/Workspaces/Shell/github
+cd ~/$USR/Workspaces/Shell/GitHub
 ./GitPusher.sh
