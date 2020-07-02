@@ -3,15 +3,11 @@
 repName=$(echo "Workspaces,Matriz.Curricular,Projetos,M4ns0.github.io")
 crud=$(echo "Create,Remove,Update,Delete")
 yad --width 500 --height 250 --title="GitPusher" \
---button=gtk-ok:"bash -c on_click" \
---button="gtk-ok:0" --button="gtk-close:1"    \
 --form --separator="," --item-separator="," \
 --field="Repositório:CB" \
 --field="CRUD:CBE" \
 --field="\n\nSe deseja adicionar algum comentário adicional, escreva abaixo::TXT" \
 "$repName" "$crud" "" > config
-
-
 
 NAME=`cat config | awk -F',' '{print $1}'`
 CRUD=`cat config | awk -F',' '{print $2}'`
