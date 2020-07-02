@@ -1,0 +1,90 @@
+# enable bash completion in interactive shells
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+alias usage='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
+alias ls="ls --color"
+
+# Powerline
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+    source /usr/share/powerline/bindings/bash/powerline.sh
+fi
+
+# Linux Lite Custom Terminal
+LLVER=$(awk '{print}' /etc/llver)
+
+# cria variável de ip e cidade
+MEUIP=`host myip.opendns.com resolver1.opendns.com | grep "myip.opendns.com has" | awk '{print $4}'`
+IP=`echo $MEUIP | cut -d '{' -f1`
+
+CITY=`geoiplookup $IP | grep City | cut -d : -f2`
+CIDADE=`echo $CITY | cut -d , -f 4`
+
+
+UP=`uptime -p | cut -c4-30`
+USERS=`uptime | cut -c22-27`
+NAREDE=`nmap -n -sn 192.168.25.225/24 -oG - | awk '/Up$/{print $2}'`
+
+echo ""
+echo -e "  Bem vindo ao Terminal"
+echo ""
+
+
+
+hostnamectl | grep -i "operating system"
+free -m | awk 'NR==2{printf "      Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
+df -h | awk '$NF=="/"{printf "        Disk Usage: %d/%dGB (%s)\n", $3,$2,$5}'
+echo -e "            Distro: $LLVER"
+hostnamectl | grep -i "kernel"
+echo -e "                IP: $MEUIP"
+echo -e "            Uptime: $UP"
+echo -e "             Users: $USERS"
+echo -e ""
+echo -e "Wireless Users:"
+echo -e "$NAREDE"
+
+echo ""
+
+echo $CIDADE","
+
+date "+%A %d %B %Y, %T"
+
+
+# echo "Support - https://www.linuxliteos.com/forums/ (Right click, Open Link)"
+echo " "
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/linuxlite/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/linuxlite/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/linuxlite/.anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/linuxlite/.anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+export RECIPEPUPPY_HOSTPORT=www.recipepuppy.com:80
+export PATH="$HOME/.rebenv/bin:$PATH"
+eval "$(rbenv init -)"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export RECIPEPUPPY_HOSTPORT=www.recipepuppy.com:80
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
