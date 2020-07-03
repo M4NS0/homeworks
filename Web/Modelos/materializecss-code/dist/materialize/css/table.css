@@ -1,6 +1,3 @@
-/* EQCSS Required - http://elementqueries.com for info */
-
-/* Responsive Table Reset */
 :root {
   /*https://materializecss.com/color.html*/
   --blue-darken-1: #1e88e5;
@@ -16,7 +13,8 @@
 
   --blue-grey: #607d8b;
   --blue-grey-darken-1: #546e7a;
-  --blue-grey-darken-2: #455a64; /* cor principal */
+  --blue-grey-darken-2: #455a64;
+  /* cor principal */
   --blue-grey-darken-3: #37474f;
   --blue-grey-darken-4: #263238;
 
@@ -24,131 +22,143 @@
   --yellow-darken-2: #fbc02d;
 }
 
-html body table thead {
-  background-color: var(--grey);
-  font-size: 18px;
-  
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+div.table-title {
+  display: block;
+  margin: auto;
+  max-width: 600px;
+  padding: 5px;
+  width: 100%;
+}
+
+.table-title h3 {
+  color: var(--grey-lighten-3);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  text-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
 }
 
 
+/*** Table Styles **/
 
-[data-table] {
-    font-size: 12pt;
-    width: 85%;
-    margin-left: 65px;
-   
-  }
-  @element [data-table] and (max-width: 500px) {
-    $this,
-    $this caption,
-    $this thead,
-    $this tbody,
-    $this tfoot,
-    $this tr,
-    $this th,
-    $this td {
-      display: block;
-      width: 100%;
-    }
-  }
-  @element [data-table] and (min-width: 500px) {
-    $this { display: table; width: 100%; }
-    $this caption { display: table-caption; width: auto; }
-    $this thead { display: table-header-group; width: auto; }
-    $this tbody { display: table-row-group; width: auto; }
-    $this tfoot { display: table-footer-group; width: auto; }
-    $this tr { display: table-row; width: auto; }
-    $this th,
-    $this td { display: table-cell; width: auto; }
-  }
+.table-fill {
+  background: var(--grey-lighten-2);
+  border-radius: 3px;
+  border-collapse: collapse;
+  height: 200px;
+  margin: auto;
+  max-width: 80%; /* tamanho da tabela na horizontal */
+  padding: 5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+
+th {
+  color: var(--grey-lighten-3);
+  background: var(--blue-grey-darken-2);
+  border-bottom: 1px solid var(--grey);
+  border-right: 1px solid var(--grey-darken-3);
+  font-size: 23px;
+  font-weight: 100;
+  padding: 15px;
+  height: 10px;
+  text-align: left;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  vertical-align: middle;
+}
+
+th:first-child {
+  border-top-left-radius: 30px;
+}
+
+th:last-child {
+  border-top-right-radius: 30px;
+  border-right: none;
+}
+
+tr {
+  border-top: 1px solid var(--grey-lighten-2);
+  border-bottom: 1px solid var(--grey-lighten-2);
+  color: var(--blue-grey);
+  font-size: 16px;
+  font-weight: normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+
+tr:hover td {
+  background: var(--blue-grey-darken-1);
+  color: var(--grey-lighten-2);
   
-  /* Default Table Theme */
-  @element [data-table] {
-    $this {
-      font-family: 'Source Sans Pro', sans-serif;
-      margin: 1em 0;
-      color: #888;
-      border-collapse: collapse;
-    }
-    $this thead th,
-    $this tfoot th {
-      color: #777;
-      background: rgba(0,0,0,.1);
-    }
-    $this caption {
-      padding: .5em;
-    }
-    $this th,
-    $this td {
-      padding: .5em;
-      background: white;
-      border: 1px solid #aaa;
-    }
-    $this tbody tr:nth-of-type(even) {
-      background: rgba(0,0,0,.05);
-    }
-  }
-  
-  /* Grid Table Layout */
-  @element [data-table^=col-] and (max-width: 500px) {
-    $this thead {
-      display: none;
-    }
-    $this tr:after {
-      content: '';
-      display: block;
-      clear: both;
-    }
-    $this[data-table$=-one] td { width: 100%; }
-    $this[data-table$=-two] td { width: 50%; }
-    $this[data-table$=-three] td { width: 33.33%; }
-    $this[data-table$=-four] td { width: 25%; }
-    $this[data-table$=-five] td {width: 20%; }
-    $this[data-table$=-six] td { width: 16.66%; }
-    $this td {
-      float: left;
-      line-height: 1.4;
-      padding: .5em 0;
-      text-align: center;
-      position: relative;
-    }
-    $this td:nth-of-type(n+2) {
-      padding-bottom: 17.5pt;
-    }
-    $this td:after {
-      content: attr(data-heading);
-      display: block;
-      width: 100%;
-      position: absolute;
-      bottom: 5pt;
-      left: 0;
-      font-size: 10pt;
-      line-height: 1.2;
-      color: #999;
-    }
-    $this td:first-of-type:after {
-      display: none;
-    }
-    $this td:nth-of-type(n+2) {
-      border-top: none;
-    }
-    $this[data-table$=-two] td:nth-of-type(n+2):nth-of-type(odd),
-    $this[data-table$=-three] td:nth-of-type(n+2):nth-of-type(3n),
-    $this[data-table$=-three] td:nth-of-type(n+2):nth-of-type(3n+1),
-    $this[data-table$=-four] td:nth-of-type(n+2),
-    $this[data-table$=-five] td:nth-of-type(n+2),
-    $this[data-table$=-six] td:nth-of-type(n+2) {
-      border-left-color: transparent;
-    }
-    $this[data-table$=-four] td:nth-of-type(4n+2),
-    $this[data-table$=-five] td:nth-of-type(5n+2),
-    $this[data-table$=-six] td:nth-of-type(6n+2) {
-      border-left-color: #aaa;
-    }
-    $this td:first-of-type {
-      color: #777;
-      background: rgba(0,0,0,.1);
-      font-weight: 600;
-      width: 100%;
-    }
-  }
+}
+
+tr:first-child {
+  border-top: none;
+}
+
+tr:last-child {
+  border-bottom: none;
+}
+
+tr:nth-child(odd) td {
+  background: var(--grey-lighten-3);
+}
+
+tr:nth-child(odd):hover td {
+  background: var(--blue-grey-darken-1);
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+
+tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+
+td {
+  background: whitesmoke;
+  padding: 10px;  /* altura da linha */
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 15px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid var(--grey-lighten-2);
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
+}
