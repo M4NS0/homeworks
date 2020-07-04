@@ -19,6 +19,7 @@ git add .
 git commit -m "$CRUD  $COMMENT"
 git status
 git push
+exit
 
 yad --form --title "GitAutoPusher" --text="\n\n  Foi feito um $CRUD no Repositório $NAME  \n\n"  
 cd ~/$USR/Workspaces/Shell/GitHubPusher
