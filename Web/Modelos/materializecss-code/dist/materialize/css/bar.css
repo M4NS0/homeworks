@@ -1,7 +1,11 @@
-html body div.navbar-fixed nav div.nav-wrapper.blue-grey.darken-2 ul.right.hide-on-med-and-down {
-    margin-right: 30px;
+:root {
+    --blue-grey-darken-1: #546e7a;
 }
 
 html body div.navbar-fixed nav div.nav-wrapper.blue-grey.darken-2 a#mobile_trigger.button-collapse.right i.material-icons {
     margin-right: 30px;
+}
+
+html body div.navbar-fixed nav div.nav-wrapper.blue-grey.darken-2 ul#mobile-demo.side-nav.blue-grey.darken-1.right-aligned li:hover {
+    background-color: var(--blue-grey-darken-1);
 }

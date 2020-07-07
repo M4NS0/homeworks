@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
     <link rel="stylesheet" href="/dist/materialize/css/style.css">
     <link rel="stylesheet" href="/dist/materialize/css/darkLight.css">
     <link rel="stylesheet" href="/dist/materialize/css/rightBar.css">
@@ -23,45 +22,23 @@
 
     <h1>RoadMap Dev</h1>
 
+    <p><img src="/dist/img/Road-Large.jpg"></p>
+
     <p><i> Esse Roadmap contém todo caminho traçado do didático ao extra-curricular até o momento. Abaixo, os mapas de links que redirecionam aos conteúdos correspondentes. </i></p>
 
 
     <ul>
         <li>
-            <thead>
-                <tr>
-                    <th>
-                        <a href="#modulos"><img src="/dist/img/scrollDown.png" style="vertical-align:middle"></a> Mapa de Módulos </th>
-                </tr>
-            </thead>
+            <a href="#modulos"><img src="/dist/img/scrollDown.png" style="vertical-align:middle"></a> Mapa de Módulos </th>
         </li>
-
         <li>
-            <thead>
-                <tr>
-                    <th>
-                        <a href="#repositorios"><img src="/dist/img/scrollDown.png" style="vertical-align:middle"></a> Mapa de Repositórios </th>
-                </tr>
-            </thead>
+            <a href="#repositorios"><img src="/dist/img/scrollDown.png" style="vertical-align:middle"></a> Mapa de Repositórios </th>
         </li>
-
-
         <li>
-            <thead>
-                <tr>
-                    <th>
-                        <a href="#codigos"><img src="/dist/img/scrollDown.png" style="vertical-align:middle"></a> Mapa de Códigos </th>
-                </tr>
-            </thead>
+            <a href="#codigos"><img src="/dist/img/scrollDown.png" style="vertical-align:middle"></a> Mapa de Códigos </th>
         </li>
-
         <li>
-            <thead>
-                <tr>
-                    <th>
-                        <a href="#projetos"><img src="/dist/img/scrollDown.png" style="vertical-align:middle"></a> Mapa de Projetos </th>
-                </tr>
-            </thead>
+            <a href="#projetos"><img src="/dist/img/scrollDown.png" style="vertical-align:middle"></a> Mapa de Projetos </th>
         </li>
     </ul>
 
@@ -466,16 +443,32 @@
                 <ul class="left brand-logo hide-on-small-only hide-on-large-only">
                 </ul>
                 <ul class="right hide-on-med-and-down">
+                    <!-- top bar -->
                     <li><a class="button_fix" href="index.html">Home</a></li>
                     <li><a class="button_fix" href="aboutus.php">Timeline</a></li>
                     <li><a class="button_fix" href="favorites.php">About</a></li>
+
                 </ul>
                 <ul class="side-nav blue-grey darken-1" id="mobile-demo">
+                    <!-- side bar -->
                     <center><span><img src="/dist/img/logo.png" alt=""></span></center>
-                    <li><a class="button_fix" href="index.html">Home</a></li>
+                    <li><a class="button_fix" href="index.html">Home</a>
+                        <ul>
+                            <li>
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <a href="#modulos">Módulos</a> </th>
+                                        <a href="#repositorios">Repositórios</a> </th>
+                                        <a href="#codigos">Códigos</a> </th>
+                                        <a href="#projetos">Projetos</a> </th>
+                                    </tr>
+                                </thead>
+                            </li>
+                    </li>
                     <li><a class="button_fix" href="index.html">Timeline</a></li>
                     <li><a class="button_fix" href="index.html">Home</a></li>
-                </ul>
+                    </ul>
 
             </div>
         </nav>
@@ -486,6 +479,7 @@
     <script src="/dist/materialize/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/eqcss/1.9.2/EQCSS.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/eqcss/1.9.2/EQCSS-polyfills.min.js"></script>
+
 </body>
 
 </html>
