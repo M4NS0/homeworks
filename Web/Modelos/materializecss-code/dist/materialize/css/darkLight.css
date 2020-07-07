@@ -28,14 +28,14 @@
 }
 
 .toggle {
-    margin-top: 10%;
+    margin-top: 1.6%;
     margin-bottom: 0;
-    margin-left: 5%;
+    margin-left: 93%;
     border: thick;
     border-radius: 0%;
     display: block;
     overflow: hidden;
-    position: relative;
+    position: fixed;
     height: 48px;
     width: 48px;
     transition: 0.5s all ease;
@@ -118,7 +118,7 @@ html body p1 {
 .toggle-dark:after {
     animation-duration: .5s;
     animation-name: moon-shadow;
-    background: var(--grey-lighten-4);
+    background: white;
     border-radius: 100%;
     content: "";
     display: block;
@@ -132,14 +132,14 @@ html body p1 {
 
 @keyframes moon-shadow {
     from {
-        background-color: var(--grey-lighten-4);
+        background-color: white;
         height: 0;
         right: 7px;
         top: 7px;
         width: 0;
     }
     to {
-        background-color: var(--grey-lighten-4);
+        background-color: white;
         height: 36px;
         right: -2px;
         top: -2px;

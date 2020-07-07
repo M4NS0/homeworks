@@ -32,11 +32,11 @@ html body h1 {
     /* Título */
     font-family: "Roboto", helvetica, arial, sans-serif;
     font-weight: 700;
-    margin-top: 10px;
-    margin-left: 32%;
-    margin-bottom: 100px;
+    margin-top: 150px;
+    margin-left: 15%;
+    margin-bottom: 50px;
     font-size: 55px;
-    -webkit-text-stroke: 3px var(--blue-grey-darken-3);
+    -webkit-text-stroke: 3px var(--grey-darken-4);
     -webkit-text-fill-color: var(--blue-grey);
     text-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
 }
@@ -54,20 +54,23 @@ p {
     font-size: 18px;
 }
 
+html body p img {
+    width: 70%;
+    height: auto;
+    margin-left: 15%;
+    border-radius: 30px;
+}
+
+.iframe-1 {
+    width: 70%;
+    height: 100%;
+    margin-left: 15%;
+    border-radius: 30px;
+}
+
 ul {
     margin-bottom: 30px;
     font-size: 18px;
-}
-
-html body table.table-fill tbody.table-hover tr td.text-left a {
-    color: var(--grey-darken-1);
-    font-weight: 500;
-}
-
-html body table.table-fill tbody.table-hover tr td.text-left a p2 {
-    margin-left: 30px;
-    text-align: center;
-    vertical-align: middle;
 }
 
 html body a ul h1 {
@@ -83,6 +86,17 @@ html body ul li img {
     margin-right: 1%;
     height: 40px;
     width: 40px;
+}
+
+html body table.table-fill tbody.table-hover tr td.text-left a {
+    color: var(--grey-darken-1);
+    font-weight: 500;
+}
+
+html body table.table-fill tbody.table-hover tr td.text-left a p2 {
+    margin-left: 30px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 html body div.row div.column a img {
