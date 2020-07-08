@@ -13,7 +13,8 @@
 - Node JS
 - Browser Sync 
 
-### Instalations and Procedures
+### Installations and Procedures
+
 1. Install node JS Version
 2. Check nodeJS Version
 ```sh
@@ -26,7 +27,7 @@ $ npm node --version
 4. Install npm
 5. Check npm Version
 ```sh
-$ npm npm --version
+$ npm --version
 ``` 
 6. Install Browser Sync
 ```sh
@@ -36,9 +37,15 @@ $ npm install -g browser-sync
 ```sh
 $ npm browser-sync --version
 ``` 
+8. Removing node_modules from Git
+```sh
+$ git rm -r --cached node_modules
+$ git commit -m 'Remove the now ignored directory node_modules'
+$ git push origin master
+```
 #### Alternative to Browser Sync: 
-1. Install live-server
-2. Create a test folder with an index.html
+1. Create a test repository
+2. Create an index.html
 ```sh
 <!DOCTYPE html>
 <html lang="en">
@@ -62,4 +69,5 @@ $ npm install -g live-server
 ```sh
 $ live-server
 ```
-
+#### Alternative to live-server
+1. Install VsCode extension "Live Server"
