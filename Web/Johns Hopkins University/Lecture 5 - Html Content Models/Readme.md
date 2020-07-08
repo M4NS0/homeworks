@@ -80,7 +80,8 @@ Block element or inline elements?
 
 See kinds of contents on infographic on *[Markup Validation Service](https://www.w3.org/TR/2011/WD-html5-20110525/images/content-venn.svg)*
 
-[![Infographic](/Lecture%205%20-%20Html%20Content%20Models/infographic.png)
+
+[![Markup Validation Service](https://git.io/JJqXW)](https://www.w3.org/TR/2011/WD-html5-20110525/images/content-venn.svg)
 #  
 #  
 
