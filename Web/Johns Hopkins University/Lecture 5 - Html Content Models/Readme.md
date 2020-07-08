@@ -18,3 +18,10 @@ Block element or inline elements?
 > *Html5 replaces these definitions with more complex set of content categories.*
 > *This distinction remeins practical because it aligns well with existing CSS rules*
   
+```sh
+
+```
+
+
+ *Roughly - aproximadamente*  
+ *Phrasing - fraseado*
