@@ -5,16 +5,11 @@
 >  *Safeguard against more limited character encoding*
 > 
 >  *Provide characters not avaliable on a keyboard*
-##
-|              |              |              |
-|--------------|--------------|--------------|
-|**Instead of**|**Instead of**|**Instead of**|
-| <            |>             |&             |
-|**Use**       |**Use**       |**Use**       |
-| & lt;        |& gt;         |& amp;        |
-|              |              |              |
+## 
 
-###### ** *remove the space after &*
+
+<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/Lecture%208%20-%20Characters%20Entity%20References/Character%20Entities.png" width="100%" height="auto" />
+
 ## 
 > A wrong exemple of use:
 
@@ -91,5 +86,4 @@
 
 ```
 
-> Some other entities:
 
