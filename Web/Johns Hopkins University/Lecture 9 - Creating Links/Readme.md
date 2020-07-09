@@ -73,3 +73,4 @@
 </html>
 
 ```
+> *_blank is used to open in another tab

@@ -3,6 +3,7 @@
  > Semantic to html means elements that implies some  meaning do the content
  > - *Human and/or machine can understand the meaning of content  surrounded by a semantic element*
  > - *May help search engine ranking (Search End Optimization - SEO)*
+ > 
   
 ```sh
     <!DOCTYPE html>
