@@ -1,9 +1,6 @@
 # John Hopkings University
 
-
-
-
-<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/JHUniversity-logo.png" width="300" />
+<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/JHUniversity-logo.png" width="900" />
 
 ## HTML, CSS and JavaScript for Web Developers
 
