@@ -1,0 +1,25 @@
+### Creating Links
+
+> - Internal Links:
+
+```sh
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Internal Links</title>
+    </head>
+    <body>
+        <h1>Internal Links</h1>
+        <section>
+            We can link to a file in the same directory as this HTML file, like this:
+            <a href="same-directory.html" title="same dir link"> Linking file im same directory</a>
+
+            <a href="same-directory.html" title="same dir link">
+                <div>Div Linking file im same directory</div>
+            </a>
+        </section>
+    </body>
+    </html>
+```
+> *Href means Hipertext Reference*
