@@ -73,6 +73,6 @@ $ live-server
 #### Alternative to live-server
 1. Install VsCode extension "Live Server"
 # 
-## Usefull Tag Table
+## Usefull Tags Table
 
 <img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/tags-table.jpg" width="80%" height="auto" />
