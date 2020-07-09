@@ -60,6 +60,7 @@
 ```
 ## 
 > *Is a bad practice using '& nbsp;' to have blank spaces between words*
+> 
 > *A good Practice is adding a span tag surrounding the word and a stylesheet to apply margins left and right*
 
 ```sh
@@ -71,3 +72,24 @@
 ```sh
     &quot;Donec malesuada viverra urna, eu consectetur ante placerat eu.&quot;
 ```
+> Finally, with all implementations, the code will looks like this:
+```sh
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>HTML Entities</title>
+    </head>
+    <body>
+        <h1>Lorem ipsum dolor sit amet, &lt; consectetur adipiscing &gt; &amp; elit: </h1>
+        <p>&quot;Donec malesuada <span style="margin-left:30px;margin-right:30px;">viverra urna,</span> eu consectetur ante&nbsp;placerat&nbsp;eu.&quot;
+        </p>
+        <p>Lorem Ipsum Generator 2020 &copy Copyright</p>
+    </body>
+    </html>
+
+```
+
+> Some other entities:
+
