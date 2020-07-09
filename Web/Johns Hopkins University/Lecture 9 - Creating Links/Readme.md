@@ -73,4 +73,56 @@
 </html>
 
 ```
-> *_blank is used to open in another tab
+> *_blank is used to open in another tab*
+#
+###### Same page Links:
+
+```sh
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Links to Sections of Same Page</title>
+    </head>
+
+    <body>
+        <h2 id="top">Links to Sections of Same Page</h2>
+        <section>
+            <ul>
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>
+                <li><a href="#section4">Section 4</a></li>
+                <li><a href="#section5">Section 5</a></li>
+                <li><a href="#section6">Section 6</a></li>
+            </ul>
+        </section>
+        <section id="section1">
+            <h3> Section 1</h3>
+            <p> bla-blas sec 1 </p>
+        </section>
+        <section id="section2">
+            <h3> Section 2</h3>
+            <p> bla-blas sec 2 </p>
+        </section>
+        <section id="section3">
+            <h3> Section 3</h3>
+            <p> bla-blas sec 3 </p>
+        <section id="section4">
+            <h3> Section 4</h3>
+            <p> bla-blas sec 4 </p>
+        </section>
+        <section id="section5">
+            <h3> Section 5</h3>
+            <p> bla-blas sec 5 </p>
+        </section>
+        <section id="section6">
+            <h3> Section 6</h3>
+            <p> bla-blas sec 6 </p>
+        </section>
+        <a href="#top">Back to top</a>
+    </body>
+    </html>
+
+```
