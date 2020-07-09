@@ -60,7 +60,6 @@
 ```
 ## 
 > *Is a bad practice using '& nbsp;' to have blank spaces between words*
-> 
 > *A good Practice is adding a span tag surrounding the word and a stylesheet to apply margins left and right*
 
 ```sh
