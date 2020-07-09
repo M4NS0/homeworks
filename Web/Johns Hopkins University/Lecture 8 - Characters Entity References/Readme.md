@@ -10,6 +10,8 @@
 
 <img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/Lecture%208%20-%20Characters%20Entity%20References/Character%20Entities.png" width="50%" height="auto" />
 
+
+ Common HTML entities used for typography: [https://www.w3.org/wiki/Common_HTML_entities_used_for_typography](https://www.w3.org/wiki/Common_HTML_entities_used_for_typography)
 ## 
 > A wrong exemple of use:
 
