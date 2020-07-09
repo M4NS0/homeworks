@@ -1,5 +1,5 @@
 
-<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/JHUniversity-logo.png" max-width="900" />
+<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/JHUniversity-logo.png" width="100%" height="auto" />
 
 ## HTML, CSS and JavaScript for Web Developers
 
