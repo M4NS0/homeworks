@@ -86,6 +86,9 @@ See kinds of contents on infographic on *[Markup Validation Service](https://www
 #  
 #  
 
+
+<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/tags-table.jpg" width="60%" height="auto" />
+
   ** *Roughly  - aproximadamente*  
   ** *Phrasing - fraseado*
   ** *Span - período*  
