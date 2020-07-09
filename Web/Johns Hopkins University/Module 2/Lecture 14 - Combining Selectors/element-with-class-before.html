@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Element with class</title>
+    <style>
+        html {
+            margin: 0 auto;
+            max-width: 600px;
+            background-color: rgb(124, 124, 124);
+        }
+        
+        p {
+            color: lightgreen;
+            background-color: blueviolet;
+        }
+        /* all with class="highlight" */
+        
+        .highlight {
+            background-color: green;
+            color: purple;
+        }
+        /* all p elements with class="highlight" */
+        
+        p.highlight {
+            font-style: italic;
+            color: lightgreen;
+        }
+        /* all  elements with class="highlight" as well as with class="mainpoint" */
+        
+        .highlight.mainpoint {
+            color: black;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="highlight"> Effervescing Elephant </h1>
+    <p>An Effervescing Elephant with tiny eyes and great big trunk once whispered to the tiny ear the ear of one inferior that by next June he'd die, oh yeah!</p>
+    <p class="highlight">because the tiger would roam. The little one said: "Oh my goodness I must stay at home! and every time I hear a growl I'll know the tiger's on the prowl and I'll be really safe, you know the elephant he told me so." Everyone was nervy, oh yeah!</p>
+    <div class="mainpoint highlight">and the message was spread to zebra, mongoose, and the dirty hippopotamus who wallowed in the mud and chewed his spicy hippo-plankton food and tended to ignore the word preferring to survey a herd of stupid water bison, oh yeah!</div>
+</body>
+
+</html>
