@@ -57,7 +57,7 @@ $ git push origin master
 #### Alternative to Browser Sync: 
 1. Create a test repository
 2. Create an index.html
-```sh
+```html
 <!DOCTYPE html>
 <html lang="en">
 
