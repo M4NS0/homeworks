@@ -1,0 +1,18 @@
+/* The entire viewport */
+
+body {
+    background-color: rgb(212, 212, 212);
+    font-size: 130%;
+}
+
+html {
+    color: rgb(68, 68, 68);
+    margin: 0 auto;
+    max-width: 600px;
+    text-align: justify;
+}
+
+h2 {
+    font-size: 16px;
+    color: blueviolet;
+}

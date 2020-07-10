@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cascade of CSS</title>
+    <link rel="stylesheet" href="external.css">
+    <style>
+        p {
+            color: maroon;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Origin Exemple</h1>
+    <p>The rule is simple: last declaration wins! <br>(color="maroon";font-size="120%";background-color="grey")</p>
+    <p style="color:black;">If there is no condflict, declarations merge into one rule <br>(color="black";font-size="120%";background-color="grey")</p>
+</body>
+
+</html>
