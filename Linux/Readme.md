@@ -8,7 +8,7 @@
 ```
 2. Use the command with syntax: 
 ```sh
-	$ xrandr --output /*Target-Screen-Here*/ --brightness /*Numeral Value*/
+	$ xrandr --output Target-Screen-Here --brightness Numeral-Value
 ```
 > Exemple:
 ```sh
