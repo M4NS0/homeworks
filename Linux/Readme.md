@@ -3,6 +3,8 @@
 1. To recognize the connected screens, run:
 ```sh
 	$ xrandr -q
+	# Or
+	$ xrandr --listactivemonitors
 ```
 2. Use the command with syntax: 
 ```sh
