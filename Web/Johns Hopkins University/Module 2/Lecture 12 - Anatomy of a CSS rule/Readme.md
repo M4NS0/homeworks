@@ -7,7 +7,7 @@
 > 
 > Style Sheet
 
-```sh
+```css
     p {
         color: blue;
     }
@@ -19,7 +19,7 @@
 >
 > *Declaration is separeted by a colon and finished with a semicolon*
 
-```sh
+```css
     p {
         color: blue;
         font-size: 20px;
@@ -36,7 +36,7 @@
 >
 > *The collection of declarations is called Stylesheet*
 
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
 

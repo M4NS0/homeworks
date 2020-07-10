@@ -5,7 +5,7 @@
  > - *May help search engine ranking (Search End Optimization - SEO)*
  > 
   
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -59,7 +59,7 @@
 > Footer
 > Information about copyrights and author
 
-```sh
+```html
 
     <!DOCTYPE html>
     <html lang="en">

@@ -18,7 +18,7 @@ Block element or inline elements?
 > *Html5 replaces these definitions with more complex set of content categories.*
 > *This distinction remeins practical because it aligns well with existing CSS rules*
   
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -41,7 +41,7 @@ Block element or inline elements?
 > - *Div is most generical block-level element*
 > - *Span is the supergenerical inline element*
 
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -63,7 +63,7 @@ Block element or inline elements?
 
 > - *Above a bad insertion of a div inside a span*
 > - *It generates the following error:*
-```sh
+```html
     Error: Element div not allowed as child of element span in this context. (Suppressing further errors from this subtree.)
 
     From line 13, column 13; to line 13, column 17

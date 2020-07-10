@@ -1,7 +1,7 @@
 ### Element, Class and ID Selectors
 #
 ###### Element Selector
-```sh
+```css
     p {
         color:blue;
     }
@@ -13,7 +13,7 @@
 #
 ###### Class Selector
 
-```sh
+```css
     .blue {
         color: blue;
     }
@@ -21,7 +21,7 @@
 > Class name is defined by a dot 
 >
 > *To apply, line beyond must appear in html code part that needs to be stylized:*
-```sh
+```html
     ...
     <p> Unnaffected by CSS <p>
     <p class="blue">  Blue text will show up here  </p>
@@ -36,7 +36,7 @@
 
 ###### Id Selector
 
-```
+```css
     #name {
         color: blue;
     }
@@ -45,7 +45,7 @@
 > *Defined by #*
 >
 > *To apply, line beyond must appear in html code part that needs to be stylized:*
-```sh
+```html
     ...
     <p> Unnaffected by CSS <p>
     <div id="name"> Blue text will show up here </div>
@@ -55,7 +55,7 @@
 #
 ###### Grouping Selectors
 
-```sh
+```css
     div, .blue {
         color: blue;
     }
@@ -63,7 +63,7 @@
 > *Selectors can be group to share the same attributes*
 >
 > *Those selectors must be separated by commas*
-```sh
+```html
     ...
     <p class="blue"> Blue text will show up here </p>
     <p> Unnaffected by CSS </p>

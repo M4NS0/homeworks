@@ -16,7 +16,7 @@
 
 
 ### Before and after style set
-```sh
+```html
 
     <!DOCTYPE html>
         <html>
@@ -31,7 +31,7 @@
             <footer>Big Hiccups Soluções</footer>
         </html>
 ```
-```sh
+```html
     <!DOCTYPE html>
     <html>
         <head>
