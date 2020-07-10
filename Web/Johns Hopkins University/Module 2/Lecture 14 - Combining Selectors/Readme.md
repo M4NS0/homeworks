@@ -1,5 +1,11 @@
 ## Combining CSS Selectors
 
+- Element with class Selector (selector.class)
+- Child (direct only) selector (selector > selector)
+- Descendent selector (selector selector)
+#
+
+###### Class Selector:
 ```sh
     p.big {
         font-size: 20px;
@@ -79,8 +85,23 @@
 #
 
 ```sh 
+    .colored>p {
+        color: blue;
+    }
+```
+> *Reading Right to Left:
+> Only p that is direct child of class="colored"*
+
+#
+```sh 
     article > .colored {
         color: blue;
     }
 ```
 > *Every element with class="colorized" that is direct child of article element*
+
+### To see about:
+- Adjacent sibling selector (selector + selector)
+- General sibling selector (selector ~ selector)
+# 
+# 
