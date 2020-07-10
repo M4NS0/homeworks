@@ -8,11 +8,14 @@
 ```
 2. Use the command with syntax: 
 ```sh
-	$ xrandr --output Target-Screen-Here --brightness Numeral-Value
+	$ xrandr --output Target-Screen --brightness Numeral-Value (x.x)
+	$ xrandr --output Target-Screen --gamma Numeral-Group(x.xx:x.xx:x.xx)
 ```
 > Exemple:
 ```sh
 	$ xrandr --output HDMI-0 --brightness 1
-	$ xrandr --output DVI-1 --brightness 0.8
+	$ xrandr --output DVI-1 --brightness 1
+	$ xrandr --output HDMI-0 --gamma 0.8:0.8:0.75
+
 ```
 
