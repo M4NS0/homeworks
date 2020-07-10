@@ -1,7 +1,7 @@
 ### Displaying Images
 
 ###### Internal Images:
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -22,7 +22,7 @@
 ```
 ###### External Images
 
-```sh 
+```html 
     <!DOCTYPE html>
     <html lang="en">
     <head>

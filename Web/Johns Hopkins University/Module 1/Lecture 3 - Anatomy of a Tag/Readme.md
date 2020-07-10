@@ -1,13 +1,13 @@
 ### Anatomy of an HTML Tag
 
 > - *Cannot place spaces between '<' and 'p' or '/p'*
-```sh
+```html
     <p> Element </p>
 
 ```
 
 > - *Tags that don't need to be closed:* 
-```sh
+```html
     <br> Line Break  
     <hr> Horizontal Rule 
 
@@ -18,20 +18,20 @@
 > - *Must have spaces between p and its attributes*
 > - *Cannot specify an attribute out of tags*
 > - *Values between single or double quotes:*
-```sh
+```html
     <p id="myId"> </p>
 
 ```
 
 > - *Inner single quotes always inside outer double quotes*
 > - *Can be nested as long as it is properly closed*
-```sh
+```html
     <p onclick="alert('hi')"> </p>
 
 ```
 
 > - *Self closing tag, short notation that does not contains any content*
-```sh
+```html
     <p></p>
     
 ```

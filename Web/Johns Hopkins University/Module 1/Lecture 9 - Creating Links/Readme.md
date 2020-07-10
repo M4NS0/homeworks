@@ -4,7 +4,7 @@
 ##
 ###### Internal Links:
 
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -28,7 +28,7 @@
 #
 > The same-directory page will looks like this:
 
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -53,7 +53,7 @@
 > *It allows to having a div inside 'a' tag*
 ##
 ###### External Links:
-```sh
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -77,7 +77,7 @@
 #
 ###### Same page Links:
 
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
 

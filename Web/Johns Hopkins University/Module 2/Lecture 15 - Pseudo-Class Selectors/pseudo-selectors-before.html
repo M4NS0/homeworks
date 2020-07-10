@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Class Selectors</title>
+    <style>
+        html {
+            background-color: gray;
+        }
+        
+        header li {
+            list-style: none;
+            /* remove the dots of the list*/
+        }
+        
+        a:link,
+        a:visited {
+            /* visited: diferent style can be applyed after clicking */
+            text-decoration: none;
+            /* removes the underline */
+            background-color: blueviolet;
+            border: 2px solid yellowgreen;
+            color: yellowgreen;
+            width: 200px;
+            text-align: center;
+            margin-bottom: 1px;
+            display: block;
+            /* changes inline to block element filling 
+            up all the space possible within that line*/
+        }
+        
+        a:hover,
+        a:active {
+            background-color: green;
+            color: purple;
+        }
+        
+        header li:nth-child(3) {
+            /* nth-child(3) refers to the 3rd element in the List in Header*/
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Pseudo Class Selector</h1>
+    <header>
+        <ul>
+            <li> <a href="/">Home</a> </li>
+            <li> <a href="https://github.com/M4ns0" target="_blank">My Github Repositories</a></li>
+            <li><a href="https://m4ns0.github.io" target="_blank">My Portifolio Page</a></li>
+        </ul>
+    </header>
+    <section>
+        <div>Div 1</div>
+        <div>Div 2</div>
+        <div>Div 3</div>
+        <div>Div 4</div>
+        <div>Div 5</div>
+        <div>Div 6</div>
+        <div>Div 7</div>
+        <div>Div 8</div>
+        <div>Div 9</div>
+        <div>Div 10</div>
+
+    </section>
+</body>
+
+</html>

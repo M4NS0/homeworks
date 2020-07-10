@@ -4,18 +4,18 @@
 > - *Declaring a html*
 > - *Tells the browser that the document is ready for render a HTML*
 > - *Distinguish between the complied and not complied pages*
-```sh
+```html
     <!doctype html> 
 
 ```
 > - *Html Tag: contains whole html document*
-```sh
+```html
     <!doctype html> 
     <html> </html>
 
 ```
 > - *Head Tag: Describe content of the page*
-```sh
+```html
     <!doctype html> 
     <html>
     <head> </head>
@@ -24,7 +24,7 @@
 ```
 > - *Meta Tag: specify the character set*
 > - *Is stand alone, do not close it*
-```sh
+```html
     <!doctype html> 
     <html>
     <head> 
@@ -34,7 +34,7 @@
 
 ```
 > - *Title Tag: is required to make it work*
-```sh
+```html
     <!doctype html> 
     <html>
     <head> 
@@ -45,7 +45,7 @@
 
 ```
 > - *Body Tag: content that is visible to the user*
-```sh
+```html
     <!doctype html> 
     <html>
     <head> 
@@ -61,7 +61,7 @@
 Is a good practice to validate the html content to see if it is under conformity:  *[Markup Validation Service](https://validator.w3.org/)*
 
 > - *Nesting contents in a wrong way*
-```sh
+```html
     <!doctype html> 
     <html>
     <head> 
@@ -75,7 +75,7 @@ Is a good practice to validate the html content to see if it is under conformity
 
 ```
 > - *Running the validator with the code above, we will have:*
-```sh
+```html
     Error: End tag p seen, but there were open elements.
     From line 8, column 36; to line 8, column 39
     pan> goes </p> here 

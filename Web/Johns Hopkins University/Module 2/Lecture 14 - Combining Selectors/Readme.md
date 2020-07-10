@@ -6,7 +6,7 @@
 #
 
 ###### Class Selector:
-```sh
+```css
     p.big {
         font-size: 20px;
     }
@@ -14,11 +14,11 @@
 > *Reading Right to Left:
 > Every p that has class="big"*
 > 
-> *The lack od space between 'p.big' if the opposite happens will show up a completely different combination* 
+> *The lack od space between 'p.big' if the opposite happens will cssow up a completely different combination* 
 >
 > The code:
 
-```sh
+```html
     ...
     <p class="big"> Text size here will be 20px </p>
     <div class="big"> Unnaffected by CSS </div>
@@ -27,7 +27,7 @@
 ```
 #
 ###### Child Selector:
-```sh
+```css
     article > p {
         color:blue;
     }
@@ -36,7 +36,7 @@
 > Every p that is a direct child of article*
 >
 > The code:
-```sh
+```html
     ...
     <article> ...
         <p> Blue Text here </p>
@@ -51,7 +51,7 @@
 ```
 #
 ###### Descendant Selector:
-```sh
+```css
     article p {
         color: blue;
     }
@@ -61,7 +61,7 @@
 > Every p that is inside (at any level) of article*
 >
 > The code:
-```sh
+```html
     ...
     <article> ...
         <p> Blue Text here </p>
@@ -75,7 +75,7 @@
 
 ```
 ###### Exemples:
-```sh 
+```css 
     .colored p {
         color: blue;
     }
@@ -84,7 +84,7 @@
 > Every p that is inside (at any level) an element with class="colored"*
 #
 
-```sh 
+```css 
     .colored>p {
         color: blue;
     }
@@ -93,7 +93,7 @@
 > Only p that is direct child of class="colored"*
 
 #
-```sh 
+```css 
     article > .colored {
         color: blue;
     }

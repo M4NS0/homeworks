@@ -2,7 +2,7 @@
 
 
 
-```sh 
+```html 
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -31,7 +31,7 @@
 > Ul
 > Unordered List
 
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -60,7 +60,7 @@
 ```
 > If, for exemple Item 4 is not between list tags an error will ocurre:
 
-```sh
+```html
 Error: Text not allowed in element ul in this context.
 From line 20, column 1; to line 20, column 22
 
@@ -73,7 +73,7 @@ Zero or more li and script-supporting elements.
 > OL
 > Ordered List
 
-```sh
+```html
     <!DOCTYPE html>
     <html lang="en">
     <head>
