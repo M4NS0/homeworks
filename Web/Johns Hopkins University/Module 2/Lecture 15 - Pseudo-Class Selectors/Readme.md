@@ -7,7 +7,7 @@
 - Simple/Readable > Complicated/Tricky
 #
 ###### Syntax:
-```sh
+```css
     selector:pseudo-class {
         ...
     }
@@ -58,7 +58,6 @@
 > *nth-child(3) refers to the 3rd element in the List in Header*
 ```css
     header li:nth-child(3) {
-        //
         font-size: 20px;
     }
 ```
