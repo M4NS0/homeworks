@@ -1,5 +1,5 @@
 ## Useful Linux Stuff
-<content style="margin: 0 auto">
+<content style="margin-left:30%">
 
 |Subject                 |Shortcut|
 |------------------------|--------|
