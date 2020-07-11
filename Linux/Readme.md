@@ -1,6 +1,6 @@
 ## Useful Linux Stuff
 
- <table class="table"
+ <table style:"margin: 0 auto;">
         <thead>
             <tr>
                 <th>Subject</th>
@@ -21,7 +21,7 @@
                 </td>
             </tr>
         </tbody>
-    </table>
+ </table>
 
 
 <br>
