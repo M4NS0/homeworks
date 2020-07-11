@@ -1,41 +1,6 @@
 ## Useful Linux Stuff
 
- <table class="table" <style>
-  html {
-            font-size: 1.3em;
-            color: #373D49;
-        }
-        
-        body {
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 2rem;
-        }
-        
-        .table {
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-        
-        .table thead th {
-            color: whitesmoke;
-            text-align: center;
-            background-color: #727272;
-            border-width: 1px;
-            border-color: #373D49;
-        }
-        
-        .table thead tr,
-        .table tbody,
-        .table tbody td {
-            padding-left: 20px;
-            padding-right: 20px;
-            border-style: solid;
-            border-width: 1px;
-            border-color: #444444;
-            background-color: whitesmoke;
-        }
-</style>>
+ <table class="table"
         <thead>
             <tr>
                 <th>Subject</th>
