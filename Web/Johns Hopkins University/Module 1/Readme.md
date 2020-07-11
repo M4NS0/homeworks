@@ -7,6 +7,6 @@
 
 |Subject                      |Lectures|
 |-----------------------------|--------|
-|Development Enviroment Setup |<a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Readme.md"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:8px; height:12px" title="Github Repository" alt="Github Repository"></a> |
+|Development Enviroment Setup |<a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University#development-enviroment-setup"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:8px; height:12px" title="Github Repository" alt="Github Repository"></a> |
 |HTML Basics                  |1 to 5  |
 |Essential HTML Tags          |6 to 10 |

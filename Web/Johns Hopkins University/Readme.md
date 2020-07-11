@@ -17,14 +17,15 @@
 
 
 ## Development Enviroment Setup
+###### Requirements:
 - Git
 - GitHub Account
 - Chrome CDT
-- Sublime Text 3
+- Sublime Text 3/VsCode
 - Node JS
 - Browser Sync 
 
-### Installations and Procedures
+###### Installations and Procedures
 
 1. Install node JS Version
 2. Check nodeJS Version
@@ -54,7 +55,7 @@ $ git rm -r --cached node_modules
 $ git commit -m 'Remove the now ignored directory node_modules'
 $ git push origin master
 ```
-#### Alternative to Browser Sync: 
+###### Alternative to Browser Sync: 
 1. Create a test repository
 2. Create an index.html
 ```html
@@ -80,9 +81,11 @@ $ npm install -g live-server
 ```sh
 $ live-server
 ```
-#### Alternative to live-server
+###### Alternative to live-server
 1. Install VsCode extension "Live Server"
-# 
-## Usefull Tags Table
+
+###### Usefull Tags Table
 
 <img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/tags-table.jpg" width="80%" height="auto" />
+
+######
