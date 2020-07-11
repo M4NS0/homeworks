@@ -1,5 +1,6 @@
 ## Useful Linux Stuff
-<style>
+
+ <table class="table" <style>
   html {
             font-size: 1.3em;
             color: #373D49;
@@ -34,8 +35,7 @@
             border-color: #444444;
             background-color: whitesmoke;
         }
-</style>
- <table class="table">
+</style>>
         <thead>
             <tr>
                 <th>Subject</th>
