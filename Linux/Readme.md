@@ -1,9 +1,13 @@
 ## Useful Linux Stuff
+<content style="margin: 0 auto">
 
 |Subject                 |Shortcut|
 |------------------------|--------|
 |Screen Brightness       |<a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#screen-brightness"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:8px; height:12px" title="Screen Brightness" alt="Screen Brightness"></a> |
 |One Line Update/Upgrade |<a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#one-line-updateupgrade"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:8px; height:12px" title="One Line Update/Upgrade" alt="One Line Update and Upgrade"></a> |
+
+</content>
+
 <br>
 <br>
 <br>
