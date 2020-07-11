@@ -1,6 +1,6 @@
 ## Useful Linux Stuff
 
- <table style:"margin: 0 auto;">
+ <table>
         <thead>
             <tr>
                 <th>Subject</th>
