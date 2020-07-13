@@ -32,8 +32,11 @@
     </head>
     <body>
         <h1>Origin Exemple</h1>
-        <p>color="maroon";font-size="120%";background-color="grey"</p>
-        <p style="color:black;">color="black";font-size="120%";background-color="grey"</p>
+        <p>
+            
+            <br>color="maroon";font-size="120%";background-color="grey"</p>
+        <p style="color:black;">
+        <br>color="black";font-size="120%";background-color="grey"</p>
     </body>
     </html>
 ```
