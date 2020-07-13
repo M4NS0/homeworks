@@ -61,10 +61,21 @@
 	$ xrandr --output DVI-1 --brightness 1
 	$ xrandr --output HDMI-0 --gamma 0.8:0.8:0.75
 ```
+<br>
+<br>
+<br>
+<br>
+
 ###### One Line Update/Upgrade
 ```sh
 $ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 ```
+
+<br>
+<br>
+<br>
+<br>
+
 ###### Git Ignoring Anything
 ```sh
 $ git rm -r --cached <folder/file>
@@ -75,3 +86,7 @@ $ git rm -r --cached <folder/file>
 $ git rm -r --cached .vscode
 #commit and push
 ```
+<br>
+<br>
+<br>
+<br>
