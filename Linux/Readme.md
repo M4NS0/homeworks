@@ -34,13 +34,6 @@
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
 ###### Screen Brightness
 
