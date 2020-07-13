@@ -43,14 +43,6 @@
 <br>
 
 ###### Screen Brightness
-  <ol>
-        <li>To recognize the connected screens, run:</li>
-        ```sh
-            $ xrandr -q
-            # Or
-            $ xrandr --listactivemonitors
-        ```
-    </ol>
 
 1. To recognize the connected screens, run:
 ```sh
@@ -68,19 +60,18 @@
 	$ xrandr --output HDMI-0 --brightness 1
 	$ xrandr --output DVI-1 --brightness 1
 	$ xrandr --output HDMI-0 --gamma 0.8:0.8:0.75
-
 ```
-
 ###### One Line Update/Upgrade
-
 ```sh
 $ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 ```
-
 ###### Git Ignoring Anything
-
+```sh
+$ git rm -r --cached <folder/file>
+#commit and push
+```
+> Exemple:
 ```sh
 $ git rm -r --cached .vscode
 #commit and push
 ```
-
