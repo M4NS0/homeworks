@@ -9,7 +9,7 @@ yad --width 500 --height 200 --title="GitAutoPusher" \
 --field="Repositório:CB" \
 --field="CRUD:CBE" \
 --field="\n\nSe deseja adicionar algum comentário adicional, escreva abaixo::TXT" \
-"$repName" "$crud" "" > config
+"$repName" "$crud" "" > ~/$USR/.cache/config
 
 NAME=`cat config | awk -F',' '{print $1}'`
 CRUD=`cat config | awk -F',' '{print $2}'`
