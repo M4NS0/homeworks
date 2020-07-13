@@ -11,13 +11,19 @@
             <tr>
                 <td>Screen Brightness</td>
                 <td>
-                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#screen-brightness"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:8px; height:12px" title="Screen Brightness" alt="Screen Brightness"></a>
+                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#screen-brightness"><img src="github.png" style="width:8px; height:12px" title="Screen Brightness" alt="Screen Brightness"></a>
                 </td>
             </tr>
             <tr>
                 <td>One Line Update/Upgrade</td>
                 <td>
-                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#one-line-updateupgrade"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:8px; height:12px" title="One Line Update/Upgrade" alt="One Line Update and Upgrade"></a>
+                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#one-line-updateupgrade"><img src="github.png" style="width:8px; height:12px" title="One Line Update/Upgrade" alt="One Line Update and Upgrade"></a>
+                </td>
+            </tr>
+             <tr>
+                <td>Git Ignoring Anything</td>
+                <td>
+                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#git-ignoring-anything"><img src="github.png" style="width:8px; height:12px" title="One Line Update/Upgrade" alt="Git Ignoring Anything"></a>
                 </td>
             </tr>
         </tbody>
@@ -37,6 +43,15 @@
 <br>
 
 ###### Screen Brightness
+  <ol>
+        <li>To recognize the connected screens, run:</li>
+        ```sh
+            $ xrandr -q
+            # Or
+            $ xrandr --listactivemonitors
+        ```
+    </ol>
+
 1. To recognize the connected screens, run:
 ```sh
 	$ xrandr -q
@@ -62,4 +77,10 @@
 $ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 ```
 
+###### Git Ignoring Anything
+
+```sh
+$ git rm -r --cached .vscode
+#commit and push
+```
 
