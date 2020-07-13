@@ -11,7 +11,7 @@ yad --width 500 --height 200 --title="GitAutoPusher" \
 --field="\n\nSe deseja adicionar algum comentário adicional, escreva abaixo::TXT" \
 
 mydir="${0%/*}"
-echo mydir
+echo $mydir
 
 "$repName" "$crud" "" > temp
 
