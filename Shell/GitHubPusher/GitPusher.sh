@@ -1,7 +1,7 @@
 #!/bin/sh
 
 repName=$(echo "Workspaces,Matriz.Curricular,Projetos,M4NS0.github.io")
-crud=$(echo "Create,Remove,Update,Delete")
+crud=$(echo "Create,Read,Update,Delete")
 yad --width 500 --height 200 --title="GitAutoPusher" \
 --image marca.png \
 --form --separator="," --item-separator="," \
