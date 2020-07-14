@@ -27,6 +27,7 @@
         <style>
             p {
                 color: maroon;
+                /* Origin */
             }
         </style>
     </head>
@@ -39,4 +40,28 @@
         <br>color="black";font-size="120%";background-color="grey"</p>
     </body>
     </html>
+
 ```
+
+```css
+    p {
+        font-size: 130%;
+        background-color: grey;
+        color: whitesmoke;
+    }
+```
+
+###### Inheritance
+
+*Inheritance allow to write more global styles on <br>parent elements and then "fine-tune" the styles <br> for some of the child elements as needed.  <br> Such approach makes writing CSS very efficient.*
+
+> DOM Tree
+```html
+    <body>
+        <element>
+            <element>
+            </element>
+        </element>
+    </body>
+```
+> A child tag or a child of a child tag will inherit the style of father tag
