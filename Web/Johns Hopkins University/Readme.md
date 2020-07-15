@@ -86,6 +86,6 @@ $ live-server
 
 ###### Usefull Tags Table
 
-<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/tags-table.jpg" width="80%" height="auto" />
+<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/tags-table.jpg" width="100%" height="auto" />
 
 ######
