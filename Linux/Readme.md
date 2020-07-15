@@ -50,9 +50,15 @@
 ```
 > Exemple:
 ```sh
-	$ xrandr --output HDMI-0 --brightness 1
+	$ xrandr --output HDMI-0 --brightness 1 
 	$ xrandr --output DVI-1 --brightness 1
 	$ xrandr --output HDMI-0 --gamma 0.8:0.8:0.75
+	$ xrandr --output HDMI-0 --brightness 0.85 --gamma 1.55:1.5:1.5 && xrandr --output DVI-1 --brightness 0.7 --gamma 1:1.2:1.4
+```
+> To check values, use:
+```sh
+	$ xrandr --verbose | grep -i brightness
+	$ xrandr --verbose | grep -i gamma
 ```
 <br>
 <br>
