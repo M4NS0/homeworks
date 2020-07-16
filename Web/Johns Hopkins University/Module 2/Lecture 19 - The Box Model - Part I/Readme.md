@@ -24,3 +24,4 @@
 ```
 
 > *Border-box ensures that the sizing of box do not exceed the size of box after stylization*
+> *Inheritance is not alowed*
