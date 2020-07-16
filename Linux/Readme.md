@@ -67,7 +67,7 @@
 
 ###### One Line Update/Upgrade
 ```sh
-$ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
+	$ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && sudo apt clean -y && sudo apt autoclean -y
 ```
 
 <br>
@@ -77,13 +77,32 @@ $ sudo apt update -y && sudo apt full-upgrade -y && sudo apt autoremove -y && su
 
 ###### Git Ignoring Anything
 ```sh
-$ git rm -r --cached <folder/file>
+	$ git rm -r --cached <folder/file>
 #commit and push
 ```
 > Exemple:
 ```sh
-$ git rm -r --cached .vscode
+	$ git rm -r --cached .vscode
 #commit and push
+```
+<br>
+<br>
+<br>
+<br>
+
+###### Boot-repair
+*from: https://askubuntu.com/questions/88384/how-can-i-repair-grub-how-to-get-ubuntu-back-after-installing-windows* 
+```sh
+	$ sudo add-apt-repository ppa:yannubuntu/boot-repair && sudo apt-get update
+	$ sudo apt-get install -y boot-repair && boot-repair
+```
+<br>
+<br>
+<br>
+<br>
+###### Removing PPA
+```sh
+	$ sudo add-apt-repository --remove ppa:PPA_Name/ppa
 ```
 <br>
 <br>
