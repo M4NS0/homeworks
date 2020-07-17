@@ -1,5 +1,5 @@
 
-<img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/JHUniversity-logo.png" width="100%" height="auto" />
+<img src="logo.png" width="100%" height="auto" />
 
 ## HTML, CSS and JavaScript for Web Developers
 
@@ -8,10 +8,10 @@
 
 | Module | Subject  |  Link |
 |--------|----------|-------|
-|1       |HTML      | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%201"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:12px; height:16px" title="Github Repository" alt="Github Repository"></a>|
-|2       |CSS       | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%202"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:12px; height:16px" title="Github Repository" alt="Github Repository"></a>|
-|3       |          | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%203"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:12px; height:16px" title="Github Repository" alt="Github Repository"></a>|
-|4       |          | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%204"><img src="https://github.com/M4NS0/Workspaces/blob/master/Web/Johns%20Hopkins%20University/github.png" style="width:12px; height:16px" title="Github Repository" alt="Github Repository"></a>|
+|1       |HTML      | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%201"><img src="github.png" style="width:12px; height:16px" title="Github Repository" alt="Github Repository"></a>|
+|2       |CSS       | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%202"><img src="github.png" style="width:12px; height:16px" title="Github Repository" alt="Github Repository"></a>|
+|3       |          | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%203"><img src="github.png" style="width:12px; height:16px" title="Github Repository" alt="Github Repository"></a>|
+|4       |          | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%204"><img src="github.png" style="width:12px; height:16px" title="Github Repository" alt="Github Repository"></a>|
 
 
 
