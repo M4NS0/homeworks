@@ -119,6 +119,13 @@
         clear: left;
     }
 ```
-> - *Clearing left will consider the border as a element, with its own border, margin and not resizable with the correct width, and the column two goes to next line*
-> - *But if you tells the browser that all elements (star selector) is a border box, so whole document will ajust using the right width*
+
+> - *Clearing left will consider the border as a element,*
+> *with its own border, margin and not resizable with the*
+> *correct width, and the column two goes to next line*
+<br>
+> - *But if you tells the browser that all elements (star*
+> *selector) is a border box, so whole document will ajust* 
+> *using the right width*
+
 
