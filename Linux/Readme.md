@@ -108,3 +108,18 @@
 <br>
 <br>
 <br>
+
+###### Fixing security vulnerabilities in npm dependencies (GitHub)
+
+```sh
+	$ sudo npm update
+	$ sudo npm install
+	$ sudo npm audit
+```
+
+<br>
+<br>
+<br>
+<br>
+
+
