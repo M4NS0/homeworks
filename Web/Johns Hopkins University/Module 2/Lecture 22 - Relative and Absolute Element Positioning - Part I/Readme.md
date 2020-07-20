@@ -16,7 +16,8 @@ Normal document flow
 <br>
 
 ### Relative Positioning:
-Elemtent is positioned relative to its position in normal document flow
+
+Elemtent is positioned relative to its position in normal document flow position
 
 ```css 
     * {
