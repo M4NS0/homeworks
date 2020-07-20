@@ -57,5 +57,38 @@ All offsets(top, bottom, left, right) are relative to the position of the neares
 
 > - *By default, html is the only element that has non-static positioning set on it (relative)*
 > - *Element is taken out of the normal document flow*
+> 
+> Offsetting the relative container element offsets it's contents as well:
 
-<br>
+```css
+    div#container {
+        background-color: grey;
+        position: relative;
+        top: 60px;
+    }
+
+    p {
+        width: 50px;
+        height: 50px;
+        border: 1px solid black;
+        margin-bottom: 15px;
+    }
+
+    #p1 {
+        background-color: #a52a2a;
+        position: relative;
+        top: 65px;
+        left: 65px;
+    }
+
+    #p2 {
+        background-color: #deb887;
+    }
+
+    #p3 {
+        background-color: #5f9ea0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+```
