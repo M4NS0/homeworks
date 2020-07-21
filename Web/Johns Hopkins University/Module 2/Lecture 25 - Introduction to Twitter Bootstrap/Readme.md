@@ -1,6 +1,6 @@
 
 
-<img src="bootstrap.png" width="60%" height="auto" />
+<img src="bootstrap.png" width="100%" height="auto" />
 
 
 - JS Frameworks
