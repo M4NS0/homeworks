@@ -42,21 +42,21 @@
 > *Use the following lines, below:*
 
 ```html
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Starter Page</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bootstrap Starter Page</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
 
-<body>
-    <script src="js/jquery-3.5.1.js"></script>
-    <script src="js/bootstrap.bundle.js"></script>
-    <script src="js/script.js"></script>
-</body>
+    <body>
+        <script src="js/jquery-3.5.1.js"></script>
+        <script src="js/bootstrap.bundle.js"></script>
+        <script src="js/script.js"></script>
+    </body>
 ```
 >*Bootstrap stylesheet must be on top, so styles.css can override  preferences*
 >
