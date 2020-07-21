@@ -6,7 +6,10 @@ Designed to adapt its layout to the viewingenvironment by using fluid, proportio
 > 
 > *Content verbosity or it's visual delivery may change*
 
-Most common layouts is the 12 Column Grid (*is used in Bootstrap*)
+> Most common layouts is the 12 Column Grid (*is used in Bootstrap*)
+> - Use % to archive fluid width (wrt browser width)
+>
+> Viewport meta tag to turn off default mobile zooming
 
 <img src="12ColumnGrid.png" width="100%" height="auto" />
 
