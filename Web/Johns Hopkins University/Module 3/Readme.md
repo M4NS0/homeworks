@@ -1,4 +1,5 @@
-### Visit the Client
+
+<p style="font-family: Ubuntu, serif; font-size:20pt; color:maroon ">   CLIENT VISIT </p>
 
 <br>
 
@@ -7,6 +8,7 @@
 > <br>
 > 
 > <img align="right" width="20%" height="auto" src="client.png"/>
+> 
 >     Visit with the client most clients have no idea what they want
 >     It’s your job to ask questions to figure it out! 
 >
