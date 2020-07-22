@@ -3,7 +3,7 @@
 
 > <br>
 > 
->                                       CLIENT VISIT
+> ######  Visit With The Client
 > <br>
 > <br>
 > <br>
@@ -42,12 +42,14 @@
 > <br>
 > <br>
 
+<br>
+<br>
+<br>
+
+
 *[Google: Web Development Client Questionaries](https://www.google.com/search?client=ubuntu&channel=fs&q=web+development+client+questionnaire&ie=utf-8&oe=utf-8)*
 
-
-
-
-
-
+*[Vist with the client - Vlog ](https://coursera.org/share/29555e85aed789e3fc2a76caac7c71d2)*
+    
 
 
