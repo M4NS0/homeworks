@@ -1,8 +1,9 @@
 
-<p style="font-family: Ubuntu, serif; font-size:20pt; color:maroon ">   CLIENT VISIT </p>
+<p style="text-align: center">CLIENT VISIT</p>
 
-<br>
-
+> <br>
+> 
+>                     CLIENT VISIT
 > <br>
 > <br>
 > <br>
