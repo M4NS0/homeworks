@@ -25,8 +25,6 @@
 > <br>
 > <img align="left" src="dev.png" width="20%" height="auto" />
 > <br>
-> <br>
-> <br>
 > 
 >     Involve others if needed
 > 
@@ -35,7 +33,9 @@
 >     photography, if your site needs one
 > 
 >     Get an idea of what the client has right now
-> 
+>
+> <br>
+> <br>
 
 *[Google: Web Development Client Questionaries](https://www.google.com/search?client=ubuntu&channel=fs&q=web+development+client+questionnaire&ie=utf-8&oe=utf-8)*
 
