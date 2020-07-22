@@ -2,33 +2,38 @@
 
 <br>
 
-> <img src="client.png" width="100%" height="auto" />
+> <br>
+> <img align="right" width="30%" height="auto" src="client.png"/>
 > 
-> ###### Visit with the client most clients have no idea what they want
+>     Visit with the client most clients have no idea what they want
+>     It’s your job to ask questions to figure it out! 
 >
-> ###### It’s your job to ask questions to figure it out! 
+>     Bring web site examples of similar businesses
+>     Less is more! 
 > 
-> Bring web site examples of similar businesses
-> ###### Less is more! 
-> 
-> Encourage your client not to cram information on the site 
-> ###### Client should invest in the project
+>     Encourage your client not to cram information on the site 
+>     Client should invest in the project
 >
-> Especially true if you’re doing this for free  just to build up your portfolio. E.g., have them commit to pay for product photograph
-> ###### Have client designate one person responsible for decisions
+>     Especially true if you’re doing this for free  just to build up your 
+>     portfolio. E.g., have them commit to pay for product photograph
+>     Have client designate one person responsible for decisions
 >
-> Limit number of revisions upfront 
-> If it’s a paying job, limit number of FREE revisions
+>     Limit number of revisions upfront 
+>     If it’s a paying job, limit number of FREE revisions
 > 
 > *[Google: Web Development Client Questionaries](https://www.google.com/search?client=ubuntu&channel=fs&q=web+development+client+questionnaire&ie=utf-8&oe=utf-8)*
+> <br>
+> <img align="left" src="dev.png" width="30%" height="auto" />
+>
+>     Involve others if needed
 > 
-> ###### Involve others if needed
+>     Contact a local college and see if a graphic design student 
+>     wants to join you by providing free design services! Same for 
+>     photography, if your site needs one
 > 
-> Contact a local college and see if a graphic design student wants to join you by providing free design services !Same for photography, if your site needs one
+>     Get an idea of what the client has right now
 > 
-> ###### Get an idea of what the client has right now
-> 
-> <img src="dev.png" width="100%" height="auto" />
+
 
 
 
