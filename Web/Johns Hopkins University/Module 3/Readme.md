@@ -3,7 +3,7 @@
 <br>
 
 > <br>
-> <img align="right" width="30%" height="auto" src="client.png"/>
+> <img align="right" width="20%" height="auto" src="client.png"/>
 > 
 >     Visit with the client most clients have no idea what they want
 >     It’s your job to ask questions to figure it out! 
@@ -21,10 +21,13 @@
 >     Limit number of revisions upfront 
 >     If it’s a paying job, limit number of FREE revisions
 > 
-> *[Google: Web Development Client Questionaries](https://www.google.com/search?client=ubuntu&channel=fs&q=web+development+client+questionnaire&ie=utf-8&oe=utf-8)*
+> 
 > <br>
-> <img align="left" src="dev.png" width="30%" height="auto" />
->
+> <img align="left" src="dev.png" width="20%" height="auto" />
+> <br>
+> <br>
+> <br>
+> 
 >     Involve others if needed
 > 
 >     Contact a local college and see if a graphic design student 
@@ -34,6 +37,7 @@
 >     Get an idea of what the client has right now
 > 
 
+*[Google: Web Development Client Questionaries](https://www.google.com/search?client=ubuntu&channel=fs&q=web+development+client+questionnaire&ie=utf-8&oe=utf-8)*
 
 
 
