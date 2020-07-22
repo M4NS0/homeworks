@@ -3,6 +3,9 @@
 <br>
 
 > <br>
+> <br>
+> <br>
+> 
 > <img align="right" width="20%" height="auto" src="client.png"/>
 > 
 >     Visit with the client most clients have no idea what they want
