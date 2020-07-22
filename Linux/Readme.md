@@ -23,9 +23,31 @@
              <tr>
                 <td>Git Ignoring Anything</td>
                 <td>
-                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#git-ignoring-anything"><img src="github.png" style="width:8px; height:12px" title="One Line Update/Upgrade" alt="Git Ignoring Anything"></a>
+                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#git-ignoring-anything"><img src="github.png" style="width:8px; height:12px" title="Git Ignoring Anything" alt="Git Ignoring Anything"></a>
                 </td>
             </tr>
+
+			<tr>
+                <td>Boot-repair</td>
+                <td>
+                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#boot-repair"><img src="github.png" style="width:8px; height:12px" title="Boot-repair" alt="Boot-repair"></a>
+                </td>
+            </tr>
+
+			<tr>
+                <td>Removing PPA</td>
+                <td>
+                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#Removing-ppa"><img src="github.png" style="width:8px; height:12px" title="Removing PPA" alt="Removing PPA"></a>
+                </td>
+            </tr>
+			
+			<tr>
+                <td> Fixing security vulnerabilities in npm dependencies on github</td>
+                <td>
+                    <a href="https://github.com/M4NS0/Workspaces/tree/master/Linux#fixing-security-vulnerabilities-in-npm-dependencies-github"><img src="github.png" style="width:8px; height:12px" title="Fixing security vulnerabilities in npm dependencies on github<" alt="Fixing security vulnerabilities in npm dependencies on github<"></a>
+                </td>
+            </tr>
+
         </tbody>
  </table>
 
@@ -100,6 +122,7 @@
 <br>
 <br>
 <br>
+
 ###### Removing PPA
 ```sh
 	$ sudo add-apt-repository --remove ppa:PPA_Name/ppa
