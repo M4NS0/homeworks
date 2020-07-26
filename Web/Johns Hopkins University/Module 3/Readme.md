@@ -31,12 +31,11 @@ to show the steps of a  Web  site Development
 > 
 > script src="js/script.js"
 >
-> Double Dots and a Slash means that the folder 
+> *Double Dots and a Slash means that the folder 
 location is in the root path, so they are unmutable 
-folders that contains Bootstrap files.
->
-> No Dots and Slash means that the folder sits inside 
-the same Lecture Folder, and they are mutable folders
+folders that contains Bootstrap files.*
+> *No Dots and Slash means that the folder sits inside 
+the same Lecture Folder, and they are mutable folders.*
 >
 > <br>
 
