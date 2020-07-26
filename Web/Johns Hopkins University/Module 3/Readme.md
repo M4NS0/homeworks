@@ -4,6 +4,39 @@
 
 <img src="page.png" width="60%" height="auto" />
 
+<br>
+<br>
+<br>
+
+> **Attention:**
+> 
+> Unmutable folders are inside the  root  path.
+Mutable folders are inside the lecture class.
+Mutable folders are always receiving updates 
+through lectures. Paths inside html files are 
+redirected to both, root and lecture folders.
+It's some kind of wrong practice but the idea 
+is avoid  overwriting  earlier  modifications 
+to show the steps of a  Web  site Development 
+>
+> Exemples:
+> link rel="stylesheet" href="../css/bootstrap.min.css"
+> link rel="stylesheet" href="css/styles.css"
+>
+> script src="../js/jquery-2.1.4.min.js"
+> script src="../js/bootstrap.min.js"
+> script src="js/script.js"
+>
+> Double Dots and a Slash means that the folder 
+location is in the root path, so they are unmutable 
+folders that contains Bootstrap files.
+>
+> No Dots and Slash means that the folder sits inside 
+the same Lecture Folder, and they are mutable folders
+>
+> <br>
+
+<br>
 
 
 ###### Contents:
