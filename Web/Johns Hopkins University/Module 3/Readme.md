@@ -20,18 +20,16 @@ is avoid  overwriting  earlier  modifications
 to show the steps of a  Web  site Development 
 >
 > Exemples:
+> <br>
 
 ```html 
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-
     <link rel="stylesheet" href="css/styles.css">
 
-    <script src="../js/jquery-2.1.4.min.js">
-
-    <script src="../js/bootstrap.min.js">
-
-    <script src="js/script.js">
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
 ```
 
 > <br>
