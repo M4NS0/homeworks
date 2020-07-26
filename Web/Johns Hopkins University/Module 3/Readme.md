@@ -8,16 +8,31 @@
 <br>
 <br>
 
+
+###### Contents:
+
+|Subject                                        |Lecture  |
+|-----------------------------------------------|---------|
+|Intro                                          |27-29    |
+|Coding the Navigation Bar of the Site          |30-33    |
+|Coding the Home Page and The Footer            |34-36    |
+|Coding Restaurant Menu Pages                   |37-39    |
+
+<br>
+<br>
+<br>
+
 > **Attention:**
 > 
 > Unmutable folders are inside the  root  path.
-Mutable folders are inside the lecture class.
+Mutable folders are inside the lecture path.
 Mutable folders are always receiving updates 
 through lectures. Paths inside html files are 
 redirected to both, root and lecture folders.
-It's some kind of wrong practice but the idea 
-is avoid  overwriting  earlier  modifications 
-to show the steps of a  Web  site Development 
+>
+>It's some kind of wrong practice but the idea 
+is to avoid  overwriting  earlier  modifications 
+showing up the steps of a  Web  Site Development 
 >
 > Exemples:
 > <br>
@@ -38,18 +53,9 @@ to show the steps of a  Web  site Development
 location is in the root path, so they are unmutable 
 folders that contains Bootstrap files.*
 > *No Dots and Slash means that the folder sits inside 
-the same Lecture Folder, and they are mutable folders.*
+the same Lecture Folder, and they are mutable folders that recieves continuously updates.*
 >
 > <br>
 
 <br>
 
-
-###### Contents:
-
-|Subject                                        |Lecture  |
-|-----------------------------------------------|---------|
-|Intro                                          |27-29    |
-|Coding the Navigation Bar of the Site          |30-33    |
-|Coding the Home Page and The Footer            |34-36    |
-|Coding Restaurant Menu Pages                   |37-39    |
