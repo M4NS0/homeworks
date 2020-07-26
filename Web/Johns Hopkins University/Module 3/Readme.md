@@ -20,17 +20,22 @@ is avoid  overwriting  earlier  modifications
 to show the steps of a  Web  site Development 
 >
 > Exemples:
+
+```html 
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script src="../js/jquery-2.1.4.min.js">
+
+    <script src="../js/bootstrap.min.js">
+
+    <script src="js/script.js">
+```
+
+> <br>
 > 
-> link rel="stylesheet" href="../css/bootstrap.min.css"
-> 
-> link rel="stylesheet" href="css/styles.css"
->
-> script src="../js/jquery-2.1.4.min.js"
-> 
-> script src="../js/bootstrap.min.js"
-> 
-> script src="js/script.js"
->
 > *Double Dots and a Slash means that the folder 
 location is in the root path, so they are unmutable 
 folders that contains Bootstrap files.*
