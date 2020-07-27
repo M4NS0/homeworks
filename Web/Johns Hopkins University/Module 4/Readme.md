@@ -1,6 +1,6 @@
 ### JavaScript 
 
-<img src="js.jpg" width="60%" height="auto" />
+<img src="js.jpg" width="40%" height="auto" />
 
 
 |Subject                                        |Lecture  |
