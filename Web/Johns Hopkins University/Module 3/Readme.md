@@ -24,7 +24,7 @@
 
 > **Attention:**
 > 
-> Unmutable folders are inside the  root  path (*Module 3/*).
+> Immutable folders are inside the  root  path (*Module 3/*).
 Mutable folders are inside the lecture path.
 Mutable folders are always receiving updates 
 through lectures. Paths inside html files are 

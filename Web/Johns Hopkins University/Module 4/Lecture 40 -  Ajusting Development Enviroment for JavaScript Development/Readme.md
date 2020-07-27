@@ -1,7 +1,7 @@
 ### Ajusting Development Enviroment for JavaScript Development
 
-1. Open module 4 folder in IDE
-   1. Open project folder with favorite IDE or open a terminal in project's path and type:
+
+1. Open project folder with favorite IDE or open a terminal in project's path and type:
 ```sh
     $ sublime .
 ```
@@ -20,30 +20,31 @@
 
 ###### Where to include Javascript 
 
-```html <!DOCTYPE html>
-<html lang="en">
+```html 
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
 
-    <!----------------->
-    <script src="js/script.js"></script>
-    <!----------------->
-    <script>
-        console.log(x);
-    </script>
-    <!----------------->
-</head>
+        <!----------------->
+        <script src="js/script.js"></script>
+        <!----------------->
+        <script>
+            console.log(x);
+        </script>
+        <!----------------->
+    </head>
 
-<body>
-    <h1>Lecture 40</h1>
+    <body>
+        <h1>Lecture 40</h1>
 
-    <!----------------->
-    <script></script>
-    <!----------------->
-    <script src="js/script.js"></script>
-    <!----------------->
+        <!----------------->
+        <script></script>
+        <!----------------->
+        <script src="js/script.js"></script>
+        <!----------------->
 
-</body>
-</html>
+    </body>
+    </html>
 ```
