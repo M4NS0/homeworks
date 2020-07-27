@@ -12,8 +12,8 @@
 |1       |HTML      | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%201"><img src="github.png" style="width:12px; height:16px" title="Module 1 - HTML" alt="Module 1 - HTML"></a>|
 |2       |CSS       | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%202"><img src="github.png" style="width:12px; height:16px" title="Module 2 - CSS" alt="Module 2 - CSS"></a>|
 |3       |Restaurant Site Development | <a href="https://github.com/M4NS0/Workspaces/tree/master/Web/Johns%20Hopkins%20University/Module%203"><img src="github.png" style="width:12px; height:16px" title="Module 3 - Web Site Development" alt="Module 3 - Web Site Development"></a>|
-|4       |JavaScript Basics           | <a href="http://tinyurl.com/yxqsakaz"><img src="github.png" style="width:12px; height:16px" title="JavaScript Basics " alt="JavaScript Basics "></a>|
-|5       |Using Javascript to Build Web Applications         | <a href="http://tinyurl.com/y28rme52"><img src="github.png" style="width:12px; height:16px" title="Using Javascript to Build Web Applications" alt="Using Javascript to Build Web Applications"></a>|
+|4       |JavaScript Basics           | <a href="http://tinyurl.com/yxfxlr3e"><img src="github.png" style="width:12px; height:16px" title="JavaScript Basics " alt="JavaScript Basics "></a>|
+|5       |Using Javascript to Build Web Applications         | <a href="http://tinyurl.com/yxfxlr3e"><img src="github.png" style="width:12px; height:16px" title="Using Javascript to Build Web Applications" alt="Using Javascript to Build Web Applications"></a>|
 
 
 
