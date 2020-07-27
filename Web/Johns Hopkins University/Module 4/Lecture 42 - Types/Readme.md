@@ -54,6 +54,8 @@ but you should never do it
 
     Its meaning is that it’s never been defined, so defining it to undefined is counter to its core meaning
 
+<br>
+
 ```js
     var x;
     console.log(x);
@@ -69,19 +71,19 @@ but you should never do it
         console.log("x has been defined")
     }
 ```
-> *Result:*
-> x is undefined
-> x has been defined
+    Result:
+    
+    x is undefined
+    x has been defined
 
 ```js
     console.log(x);
 ```
 
-> *Result:*
-> <span style="color: red"> Uncaught ReferenceError: x is not defined <span>
+    Result:
+
+    Uncaught ReferenceError: x is not defined 
     
-
-
 <br>
 
 ###### Primitive Type: Null
