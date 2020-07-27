@@ -1,4 +1,11 @@
-### JavaScript
+### JavaScript 
 
-<img src="js.jpg" width="100%" height="auto" />
+<img src="js.jpg" width="80%" height="auto" />
 
+
+|Subject                                        |Lecture  |
+|-----------------------------------------------|---------|
+|Basics                                         |40-41    |
+|Types and Common Language Constructs           |42-44    |
+|Objects and Functions                          |45-49    |
+|Arrays, Closures and Namespaces                |50-52    |
