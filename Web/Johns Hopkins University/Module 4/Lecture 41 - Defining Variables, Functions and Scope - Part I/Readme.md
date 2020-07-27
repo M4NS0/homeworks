@@ -104,13 +104,12 @@ undefined.
 
     a();
 ```
-> *Result:* 
-> 
-> Global: message = in global
-> a: message = inside a
-> b: message = in global
+    Result: 
+    
+    Global: message = in global
+    a: message = inside a
+    b: message = in global
 
-<br>
 <br>
 
 ```js
@@ -129,11 +128,11 @@ undefined.
     a( );
 ```
 
-> *Result:*
-> 
-> Global: message = in global 
-> a: message = inside a 
-> b: message = inside a
+    Result:
+
+    Global: message = in global 
+    a: message = inside a 
+    b: message = inside a
 
 <br>
 <br>
