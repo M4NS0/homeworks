@@ -1,4 +1,3 @@
-### JavaScript 
 
 <img src="js.jpg" width="40%" height="auto" />
 
