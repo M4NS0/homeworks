@@ -1,1 +1,0 @@
-### Creating Objects Using '*New Object()*' Syntax
