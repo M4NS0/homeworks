@@ -1,5 +1,5 @@
 
-<img src="js.jpg" width="100%" height="auto" />
+<img src="js.jpg" width="90%" height="auto" />
 
 
 |Subject                                        |Lecture  |
