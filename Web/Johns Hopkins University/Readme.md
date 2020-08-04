@@ -29,60 +29,78 @@
 
 ###### Installations and Procedures
 
-1. Install node JS Version
-2. Check nodeJS Version
+1. Install npm
 ```sh
-$ npm nodejs --version
-``` 
-3. Check node Version
+    $ sudo apt install npm
+```
+
+2. Check npm Version
 ```sh
-$ npm node --version
+    $ npm --version
 ``` 
-4. Install npm
-5. Check npm Version
+
+3. Install node JS Version
 ```sh
-$ npm --version
+    $ sudo npm install nodejs
+```
+
+4. Check nodeJS Version
+```sh
+    $ npm nodejs --version
 ``` 
+
+5. Check node Version
+```sh
+    $ npm node --version
+```
+
 6. Install Browser Sync
 ```sh
-$ npm install -g browser-sync
+    $ npm install -g browser-sync
 ```
+
 7. Check Browser Sync Version
 ```sh
-$ npm browser-sync --version
+    $ npm browser-sync --version
 ``` 
+
 8. Removing node_modules from Git
 ```sh
-$ git rm -r --cached node_modules
-$ git commit -m 'Remove the now ignored directory node_modules'
-$ git push origin master
+    $ git rm -r --cached node_modules
+    $ git commit -m 'Remove the now ignored directory node_modules'
+    $ git push origin master
 ```
+
 ###### Alternative to Browser Sync: 
 1. Create a test repository
 2. Create an index.html
 ```html
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>Document</title>
-    </head>
+        <head>
+            <meta charset="UTF-8">
+            <title>Document</title>
+        </head>
 
-    <body>
-        Hello World
-    </body>
+        <body>
+            Hello World
+        </body>
 
-</html>
+    </html>
 ```
 3. Into test folder, run:
+
 ```sh
-$ npm install -g live-server
+    $ sudo npm install -g live-server
 ```
+
 3. In same folder, run:
+
 ```sh
-$ live-server
+    $ live-server
 ```
+<!--  -->
 ###### Alternative to live-server
 1. Install VsCode extension "Live Server"
 
