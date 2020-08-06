@@ -1,5 +1,6 @@
 ### Lecture 49 - Object Literals and the 'this' Keyword
 
+[Link to Lesson](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/XaYeq/lecture-49-object-literals-and-the-this-keyword)
 
 ```js
     var literalCircle = {

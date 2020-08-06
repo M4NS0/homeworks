@@ -1,5 +1,5 @@
 ### Creating Objects Using '*New Object()*' Syntax - Part I
-
+[Link to Lesson](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/JEVy8/lecture-45-part-1-creating-objects-using-new-object-syntax)
 An object is, again, a collection of name-value pairs.
 
 <br>

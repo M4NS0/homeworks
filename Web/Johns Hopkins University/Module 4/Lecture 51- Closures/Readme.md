@@ -177,7 +177,7 @@
 
         A closure is a function having access to the parent scope, even after the parent function has closed.
 
-> More Exemples from Coursera: 
+> More Exemples from [Coursera](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/5jhf0/lecture-51-closures): 
 
 ```js
     function makeMultiplier(multiplier) {

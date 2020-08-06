@@ -1,5 +1,5 @@
 ### Handling Default Values
-
+[Link to Lesson](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/ovB9V/lecture-44-handling-default-values)
 ```js
     function orderChickenWith(sideDish) {
         console.log("Chicken with " + sideDish);
