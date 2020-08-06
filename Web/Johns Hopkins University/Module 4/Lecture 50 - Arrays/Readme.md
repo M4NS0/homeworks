@@ -1,5 +1,6 @@
 ### Arrays
-
+[Link to Lesson - Part I](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/WWTOG/lecture-50-part-1-arrays)
+[Link to Lesson - Part 2](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/HkHpN/lecture-50-part-2-arrays)
 ###### Syntaxes:
 ```js
     var array = new Array();

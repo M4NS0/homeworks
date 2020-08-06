@@ -1,5 +1,6 @@
 ### Passing Variables by Value vs by Reference
-
+[Link to Lesson - Part 1](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/6RF3x/lecture-47-part-1-passing-variables-by-value-vs-by-reference)
+[Link to Lesson - Part 2](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/GlV4H/lecture-47-part-2-passing-variables-by-value-vs-by-reference)
 
 ###### Passing (or Copying) by Value
 Given b=a, passing/copying by value means changing copied value 

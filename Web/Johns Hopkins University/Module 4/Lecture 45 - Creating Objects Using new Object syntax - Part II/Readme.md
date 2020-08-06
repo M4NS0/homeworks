@@ -1,5 +1,5 @@
 ### Creating Objects Using '*New Object()*' Syntax - Part II
-
+[Link to Lesson](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/z3Anw/lecture-45-part-2-creating-objects-using-object-literal-syntax)
 ###### Less Verbose Syntax: Object Literal
 
 ``` js
