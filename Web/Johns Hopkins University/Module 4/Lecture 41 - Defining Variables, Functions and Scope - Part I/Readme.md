@@ -1,5 +1,6 @@
 ### Defining Variables, Functions and Scope - Part I
 [Link to Lesson - Part 1](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/4tOjk/lecture-41-part-1-defining-variables-function-and-scope)
+
 [Link to Lesson - Part 2](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/avyZO/lecture-41-part-2-defining-variables-function-and-scope)
 ###### Variables
 

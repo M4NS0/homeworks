@@ -1,5 +1,6 @@
 ### JavaScript Types
 [Link to Lesson - Part 1](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/4dwte/lecture-42-part-1-javascript-types)
+
 [Link to Lesson - Part 2](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/qbD55/lecture-42-part-2-javascript-types)
 A type is a partcular data structure.	
   
