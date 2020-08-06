@@ -1,6 +1,8 @@
 ### Common Language Constructs
 [Link to Lesson - Part 1](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/igIL4/lecture-43-part-1-common-language-constructs)
+
 [Link to Lesson - Part 2](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/AQwu7/lecture-43-part-2-common-language-constructs)
+
 [Link to Lesson - Part 3](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/laSkp/lecture-43-part-3-common-language-constructs)
 ###### String Concatenation
 
