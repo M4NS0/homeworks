@@ -75,4 +75,34 @@
 ```
         Result:
 
-<img src="Screenshot.png" width="60%" height="auto" />
+<img src="Screenshot.png" width="40%" height="auto" />
+
+>  To change h1 tag when the name 'student' is filled:
+
+```js
+    function sayHello() {
+        var name =
+            document.getElementById("name").value;
+        var message = "<h2>Hello " + name + "!<h2>"
+
+        document
+            .getElementById("content")
+            .innerHTML = message;
+
+        if (name === "student") {
+            var title =
+                //document.getElementById("title")
+                document
+                //.querySelector("#title")
+                .querySelector("h1")
+                .textContent;
+            title += " & Lovin' it!";
+            document
+                .querySelector("#title")
+                .textContent = title;
+        }
+    }
+```
+        Result:
+
+<img src="Screenshot2.png" width="40%" height="auto" />
