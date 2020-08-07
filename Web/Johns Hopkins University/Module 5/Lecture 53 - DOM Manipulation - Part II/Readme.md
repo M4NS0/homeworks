@@ -1,4 +1,5 @@
 ### Lecture 53 - DOM Manipulation - Part II
+[Link to Lesson](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/lJMkf/lecture-53-part-2-dom-manipulation)
 
         HTML Document:
 ```html
