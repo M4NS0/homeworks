@@ -47,7 +47,9 @@
         Hi Bruno
 
 > Inner Functions cannot be accessed by external script
+>
 > JavaScript will use the first greeting function and applies it to the other functions, overriding them, so to make it works, must create a new function to surround the specific greeting that will be used.
+>
 > *The correct way in the last exemple* 
 
 ###### Remembering Function Syntaxes
@@ -57,6 +59,7 @@
     }
     a(); // executing a function
 ```
+> or
 
 ```js
     var a = function() {
@@ -82,7 +85,7 @@
 
 ###### Updating Scripts with IIFE
 
-        Script 1
+        Script 1:
 ```js
     (function(window) {
         var yaakovGreeter = {};
@@ -95,7 +98,7 @@
         window.yaakovGreeter = yaakovGreeter;
     })(window);
 ```
-        Script 2
+        Script 2:
 ```js
     (function(window) {
         var brunoGreeter = {};
@@ -108,7 +111,7 @@
         window.brunoGreeter = brunoGreeter;
     })(window);
 ```
-        App Script
+        App Script:
 ```js
     yaakovGreeter.sayHello();
     brunoGreeter.sayHi();
@@ -119,4 +122,5 @@
         Hi Bruno
 
 > As above, the exemple shows how to expose functions to external classes and making it global, to be accessed by another script.
+>
 > The inner function sayHello or sayHi are now accesseble, and can be run, using the global function 'window'.

@@ -1,8 +1,6 @@
 
 [Link to Lesson - Part 1](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/uz3nG/lecture-52-part-1-fake-namespaces)
 
-[Link to Lesson - Part 2](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/DGFRL/lecture-52-part-2-immediately-invoked-function-expressions-iifes)
-
 
 ### Fake Namespace 
 
@@ -48,7 +46,10 @@
 > One script is stepping on the toes of the other
 > To solve it is using the Fake Namespaces
 
-        Changing script 1:
+
+        Updating Scripts
+
+        Script 1:
 ```js
     var yaakovGreeter = {};
     yaakovGreeter.name = "Yaakov";
@@ -57,7 +58,7 @@
         console.log("Hello " + yaakovGreeter.name);
     }
 ```
-        Changing script 2:
+        Script 2:
 ```js
     var brunoGreeter = {};
     brunoGreeter.name = "Bruno";
@@ -66,7 +67,7 @@
         console.log("Hi " + brunoGreeter.name);
     }
 ```
-        Changing app script
+        App script:
 
 ```js
     yaakovGreeter.sayHello();
