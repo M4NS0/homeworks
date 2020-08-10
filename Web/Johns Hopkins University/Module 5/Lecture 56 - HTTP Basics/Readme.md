@@ -1,8 +1,11 @@
 ## Introuction to AJAX
+
+[Link to Lesson](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/21pyt/lesson-56-http-basics)
+
 ### HTTP Basics
  **H**yper**T**ext **T**ransfer **P**rotocol
 
-[Link to Lesson](https://www.coursera.org/learn/html-css-javascript-for-web-developers/lecture/21pyt/lesson-56-http-basics)
+
 
 > Essentially a client-server communication technique
 >
@@ -19,7 +22,7 @@ to a request from a browser, that response does not depend on any previous reque
 > * Client closes the connection to server
 > <br>
 
-<img src="image.jpeg" width="70%" height="auto" />
+<img src="image.jpeg" width="30%" height="auto" />
 
 ###### URN:
 **U**niform **R**esorce **N**ame
