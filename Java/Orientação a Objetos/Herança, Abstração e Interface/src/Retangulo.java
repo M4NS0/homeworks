@@ -17,11 +17,9 @@ public class Retangulo extends FiguraGeometrica{
 		this.altura = altura;
 	}
 	
-	@Override
 	public float area() {
 		return base * altura;
 	}
-	@Override
 	public float perimetro() {
 		return base * 2 + altura * 2;
 	}
