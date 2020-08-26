@@ -11,12 +11,10 @@ public class Poligono extends FiguraGeometrica{
 		this.lados = lados;
 	}
 
-	@Override
 	public float area() {
 		return 0;
 	}
 
-	@Override
 	public float perimetro() {
 		return 0;
 	}
