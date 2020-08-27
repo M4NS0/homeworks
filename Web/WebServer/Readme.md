@@ -1,5 +1,5 @@
 
-###### TomCat Eclipse Installation
+### TomCat Eclipse Installation
 
 1. Baixe a versão 8.5 do Tomcat na pagina
 2. Abra o Eclipse
@@ -15,7 +15,7 @@
 8. Marque a caixa  "Generate web.xml deployment descriptor"
 9. FINISH
 
-### Criando o Servidor
+###### Criando o Servidor
 10. No Eclipse:  Window > Show View > Server
 11. Clique em "New Server"
 12. Arraste o projeto para direita (ProjetoWeb)
