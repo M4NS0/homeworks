@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulário com Validador de CPF</title>
+</head>
+<body>
+
+<h4> Atividade prática <br> </h4>
+01.Crie o projeto java web FormServlet. <br> Esse projeto deve ter um Servlet para receber a
+requisição de um formulário de uma página html, contendo os campos: nome, cpf, telefone e salário. <br> <br>
+O Servlet deve validar as informações do formulário considerando as seguintes regras: <br> <br>
+a) O nome deve ser obrigatório <br>
+b) Deve-se validar o cpf (pesquisar como é realizado o cálculo dessa validação) <br>
+c) O telefone só deve receber os dígitos de 0 a 9. <br>
+d) O salário só deve receber os dígitos de 0 a 9 e a vírgula decimal. <br>
+e) O Servlet deve apresentar uma mensagem indicando os erros de validação <br>
+e) Se os dados estiverem corretos, apresentar o conteúdo dos dados, sendo que o 
+nome deve apresentar todas as letras minúsculas, com a primeira letra de cada parte
+do nome em maiúscula <br> <br>
+Nota: UTILIZE MÉTODOS ESPECÍFICOS PARA CADA UMA DAS VALIDAÇÕES E TAMBÉM
+PARA AJUSTAR O NOME
+<br> <br>
+
+
+<form method="post" action="http://localhost:8282/FormCpfValidator/Servlet01">
+
+	Nome: <input type="text" name="nome"/> <br>
+	CPF: <input type="text" name="cpf"/> <br>
+	Fone: <input type="text" name="fone"/> <br>
+	Salário: <input type="text" name="sal"/>
+	<input type="submit" name="enviar" value="Enviar"/>
+	</form>
+
+</body>
+</html>
