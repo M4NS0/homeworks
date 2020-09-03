@@ -1,4 +1,4 @@
-package com.FormCpfValidator.apps;
+package com.formcpfvalidator.apps;
 
 public class Validators {
 
@@ -21,7 +21,7 @@ public class Validators {
 		return false;
 	}
 
-	public static boolean dontHavaLetters(String str) {
+	public static boolean dontHaveLetters(String str) {
 		return ((!str.equals("")) && (str != null) && (str.matches("\\d+")));
 	}
 	public static boolean checkMonetaryDigits(String str) {

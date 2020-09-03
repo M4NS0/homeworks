@@ -1,4 +1,5 @@
-package com.FormCpfValidator.apps;
+
+package com.formcpfvalidator.apps;
 
 import java.util.InputMismatchException;
 
