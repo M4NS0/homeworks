@@ -1,4 +1,4 @@
-package com.FormCpfValidator.servlets;
+package com.formcpfvalidator.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
-import com.FormCpfValidator.apps.CPFValidator;
-import com.FormCpfValidator.apps.Validators;
+import com.formcpfvalidator.apps.CPFValidator;
+import com.formcpfvalidator.apps.Validators;
 
 /**
  * Servlet implementation class Servlet01
@@ -46,7 +46,7 @@ public class Servlet01 extends HttpServlet {
 			JOptionPane.showMessageDialog(null, "CPF inválido!");
 		}
 
-		if (Validators.dontHavaLetters(fone) == false) {
+		if (Validators.dontHaveLetters(fone) == false) {
 			JOptionPane.showMessageDialog(null, "O telefone informado contém letras");
 		}
 
