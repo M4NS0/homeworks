@@ -1,4 +1,4 @@
-package br.edu.pucgoias.sistemaestoque.dao;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
