@@ -51,8 +51,8 @@ public class EstoqueDao extends BaseDao {
 		Connection conn = null;
 		try {
 			conn = this.getConnection();
-			String sql = "SELECT * FROM estoque WHERE LOWER(descricao) like ?";
-			pstm = conn.prepareStatement(sql);
+			String sql = "SELECT * FROM estoque WHERE LOWER(descricao) LIKE ? ORDER BY nome";
+			pstm = (PreparedStatement) conn.prepareStatement(sql);
 			pstm.setString(1, "%" + nome.toLowerCase() + "%");
 			ResultSet rs = pstm.executeQuery();
 			while (rs.next()) {
@@ -74,17 +74,17 @@ public class EstoqueDao extends BaseDao {
 		try {
 			conn = this.getConnection();
 			if (estoque.getId() == 0) {
-				sql = "INSERT INTO estoque (descricao, precounit, quantidade)";
-				sql += " values (?, ?, ?)";
+				sql = "INSERT INTO estoque (descricao, precounit, quantidade) values";
+				sql += " (?, ?, ?)";
 				pstm = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			} else {
-				sql = "UPDATE estoque set descricao=?, precounit=?, quantidade=?";
+				sql = "UPDATE estoque SET descricao=?, precounit=?, quantidade=?";
 				sql += " WHERE id=?";
 				pstm = conn.prepareStatement(sql);
 			}
 			pstm.setString(1, estoque.getDescricao());
-			pstm.setDouble(1, estoque.getPrecounit());
-			pstm.setDouble(1, estoque.getQuantidade());
+			pstm.setDouble(2, estoque.getPrecounit());
+			pstm.setDouble(3, estoque.getQuantidade());
 			if (estoque.getId() != 0) {
 				pstm.setInt(4, estoque.getId());
 			}
