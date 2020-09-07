@@ -13,7 +13,7 @@ public class BaseDao {
 			}
 		}
 		public Connection getConnection() throws SQLException {
-			String url= "jdbc:mysql://localhost/sistema_estoque_web";
+			String url= "jdbc:mysql://localhost/sistema_estoque_web?verifyServerCertificate=false&useSSL=true";
 			Connection conn = (Connection) DriverManager.getConnection(url, "root", "00loki00");
 			return conn;
 		}
