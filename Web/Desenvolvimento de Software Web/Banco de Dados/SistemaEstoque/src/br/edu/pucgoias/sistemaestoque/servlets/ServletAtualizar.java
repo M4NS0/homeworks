@@ -1,6 +1,8 @@
 package br.edu.pucgoias.sistemaestoque.servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,76 +12,60 @@ import javax.servlet.http.HttpServletResponse;
 import br.edu.pucgoias.sistemaestoque.controle.EstoqueControle;
 import br.edu.pucgoias.sistemaestoque.modelo.Estoque;
 
-/**
- * Servlet implementation class ServletAtualizar
- */
 @WebServlet("/ServletAtualizar")
 public class ServletAtualizar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ServletAtualizar() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ServletAtualizar() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String descricao = request.getParameter("descricao");
-		double precounit = 0;
-		double quantidade = 0;
-		int id = 0;
-		String strPu = request.getParameter("precounit");
-		String strQt = request.getParameter("quantidade");
-		String strId = request.getParameter("id");
-		
-		precounit = Double.parseDouble(strPu);
-		quantidade = Double.parseDouble(strQt);
-		id = Integer.parseInt(strId);
-		
-		String retorno = "Erro";
+		double preunit = Double.parseDouble(request.getParameter("preunit"));
+		double quantidade = Double.parseDouble(request.getParameter("quantidade"));
+		int id = Integer.parseInt(request.getParameter("id"));
+
+		String retorno = "ERRO";
 		boolean acao = false;
-		
-		if ((descricao == null || descricao.length() == 0) && id == 0)  retorno = "Descrição inválida";
-		else {
-			Estoque estoque = new Estoque();
+		if ((descricao == null || descricao.length() == 0) && id == 0) {
+			retorno = "Descricao invalida!";
+		} else {
 			if ((descricao == null || descricao.length() == 0) && id != 0) {
 				EstoqueControle ec = new EstoqueControle();
 				acao = ec.excluir(id);
-			}
-			else {
+				if (acao) {
+					retorno = "OK";
+				} else {
+					retorno = "DEU ALGUM PROBLEMA";
+				}
+			} else {
+				EstoqueControle ec = new EstoqueControle();
+				Estoque estoque = new Estoque();
 				estoque.setDescricao(descricao);
-				estoque.setPrecounit(precounit);
+				estoque.setPreunit(preunit);
 				estoque.setQuantidade(quantidade);
 				estoque.setId(id);
-				EstoqueControle ec = new EstoqueControle();
-				acao = ec.salvar(estoque);
+				try {
+					acao = ec.salvar(estoque);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				if (acao) {
+					retorno = "OK";
+				} else {
+					retorno = "Problema ao Salvar";
+				}
 			}
-			if (acao) retorno = "OK";
-			response.setContentType("text/html;charset=utf-8");
-			response.getWriter().print(" Resposta = " + retorno);
 		}
+		response.getWriter().println("Resposta: " + retorno);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
-
 }
-
-
-
-
-
-
-
-
-
