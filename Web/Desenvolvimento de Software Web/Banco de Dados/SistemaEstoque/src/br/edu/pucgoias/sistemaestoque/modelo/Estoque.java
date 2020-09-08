@@ -1,10 +1,22 @@
 package br.edu.pucgoias.sistemaestoque.modelo;
 
 public class Estoque {
+
 	private int id;
 	private String descricao;
-	private Double quantidade;
-	private Double precounit;
+	private double quantidade;
+	private double preunit;
+
+	public Estoque() {
+	}
+
+	public Estoque(int id, String descricao, double quantidade, double preunit) {
+		super();
+		this.id = id;
+		this.descricao = descricao;
+		this.quantidade = quantidade;
+		this.preunit = preunit;
+	}
 
 	public int getId() {
 		return id;
@@ -22,26 +34,25 @@ public class Estoque {
 		this.descricao = descricao;
 	}
 
-	public Double getQuantidade() {
+	public double getQuantidade() {
 		return quantidade;
 	}
 
-	public void setQuantidade(Double quantidade) {
+	public void setQuantidade(double quantidade) {
 		this.quantidade = quantidade;
 	}
 
-	public Double getPrecounit() {
-		return precounit;
+	public double getPreunit() {
+		return preunit;
 	}
 
-	public void setPrecounit(Double precounit) {
-		this.precounit = precounit;
+	public void setPreunit(double preunit) {
+		this.preunit = preunit;
 	}
 
 	@Override
 	public String toString() {
-		return "Estoque [id=" + id + ", descricao=" + descricao + ", quantidade=" + quantidade + ", precounit="
-				+ precounit + "]";
+		return "Estoque [id=" + id + ", descricao=" + descricao + ", quantidade=" + quantidade + ", preunit=" + preunit
+				+ "]";
 	}
-
 }
