@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Área dos Colaboradores</title>
+	<title>Cadastro de Alunos</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -51,31 +51,61 @@
 
 		}
 
-		button.btn {
-			width:  20vw;
-			margin-top: 40px;
+		html body div form div {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+		}
+
+		html body div form button {
+			width: 20vw;
+			margin-top: 75px;
 			margin-left: 25px;
 			margin-right: 25px;
+			margin-bottom: 35px;
 			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+
+		}	
+
+
+		form {
+			font-family: 'Kufam', cursive;
+			font-weight: bold;
+			color: rgb(70, 70, 70);
+			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
 		}
-		body>div>button>span {
-			display: block;
-			text-align: center;
+
+		html body div form input {
+			width: 100%;
+			background-color: rgb(131, 131, 131);
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: auto;
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+
 		}
+		
 	</style>
 </head>
 
 <body>
-	<h3> Bem vindo, <span> Colaborador!</span> </h3><br>
-	<h5> Escolha: </h5>
-	<div>
-				<button onclick="location.href='professores.html'" type="button" class="btn btn-primary btn-lg"><span>Nossas </span>Disciplinas</button>
-		<button onclick="location.href='administracao-cadastro.html'" type="button" class="btn btn-success btn-lg"><span>Novo</span>Cadastro</button>
-		<button onclick="location.href='administracao-funcionario-consulta.html'" type="button" class="btn btn-dark btn-lg"><span>Consulta </span>Funcionário</button>
-		<button onclick="location.href='aluno-consulta.html'" type="button" class="btn btn-secondary btn-lg"><span>Consulta</span>Dicente</button>
-		<button onclick="location.href='administracao-professor-consulta.html'" type="button" class="btn btn-info btn-lg"><span>Consulta</span>Docente</button>
-	</div>
+	<h3> Consulte pelo nome do Aluno</h3><br>
+	<h5>  </h5>
 
+	<div>
+		<form method="post" action="http://localhost:8282/Crudelis/ServletConsultaAluno">
+			
+			<input type="text" id="nome" name="nome" placeholder="use o nome completo para fazer consultas" autocomplete="on" required><br>
+			<div>
+			<button type="submit" value="salvar" name="Salvar" class="btn btn-success btn-lg">Buscar</button>
+			<button type="reset" value="reset" name="Limpar" class="btn btn-danger btn-lg">Limpar</button>
+			</div>
+		</form>
+	</div>
 </body>
 
 </html>

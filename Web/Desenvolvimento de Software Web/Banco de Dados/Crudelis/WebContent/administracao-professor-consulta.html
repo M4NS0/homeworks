@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Cadastro de Professores</title>
+	<title>Cadastro de Alunos</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
 		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
@@ -58,77 +58,53 @@
 
 		}
 
-		button.btn {
+		html body div form button {
 			width: 20vw;
-			margin-top: 40px;
+			margin-top: 75px;
 			margin-left: 25px;
 			margin-right: 25px;
+			margin-bottom: 35px;
 			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+
+		}	
+
+
+		form {
+			font-family: 'Kufam', cursive;
+			font-weight: bold;
+			color: rgb(70, 70, 70);
+			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
 		}
 
-		body>div>button>span {
-			display: block;
-			text-align: center;
-		}
-		
 		html body div form input {
-		width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-		
+			width: 100%;
+			background-color: rgb(131, 131, 131);
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: auto;
+			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+
 		}
+		
 	</style>
 </head>
 
 <body>
-	<h3> Cadastre-se </h3><br>
-	<h5> Preencha os campos a seguir: </h5>
+	<h3> Consulte pelo nome do Professor </h3><br>
+	<h5>  </h5>
 
 	<div>
-		<form method="post" action="http://localhost:8282/Crudelis/Servlet01">
-			<label for="nome">Nome:</label><br>
-            <input type="text" id="nome" name="nome" placeholder="seu nome.."  autocomplete="on" required><br>
-			
-			<label for="nasc">Data de Nascimento:</label><br>
-            <input type="datetime-local" id="nasc" name="nasc" placeholder="seu nascimento.."  autocomplete="on" required><br>
-			
-			
-			<label for="telefone">Telefone:</label><br>
-            <input type="text" formControlName="sGPTypeDeliveryId"  id="telefone" name="telefone" placeholder="seu telefone..." required maxlength="9" ><br>
-			
-			<label for="cpf">Cpf:</label><br>
-            <input type="text" id="cpf" name="cpf" placeholder="seu cpf..." required maxlength="11"><br>
-			
-			<label for="cnh">Cnh:</label><br>
-            <input type="text" id="cnh" name="cnh" placeholder="sua cnh..." required ><br>
-			
-		
-
-			<button type="submit" value="salvar" name="Salvar" class="btn btn-success btn-lg">Salvar</button>
+		<form method="post" action="http://localhost:8282/Crudelis/ServletConsultaProfessor">	
+			<input type="text" id="nome" name="nome" placeholder="use o nome completo para fazer consultas" autocomplete="on" required><br>
+			<div>
+			<button type="submit" value="salvar" name="Salvar" class="btn btn-success btn-lg">Buscar</button>
 			<button type="reset" value="reset" name="Limpar" class="btn btn-danger btn-lg">Limpar</button>
-
+			</div>
 		</form>
 	</div>
-
-
-	<!-- <form method="post" action="http://localhost:8282/FormCpfValidator/Servlet01">
-
-		Nome: <input type="text" name="nome" /> <br>
-		Nacimento: <input type="date" name="nasc" /> <br>
-		CPF: <input type="text" name="cpf" /> <br>
-		Email: <input type="email" name="email" /> <br>
-		CNH: <input type="text" name="cnh" />
-		<input type="submit" name="enviar" value="Enviar" />
-
-	</form> -->
-
-
-
 </body>
 
 </html>

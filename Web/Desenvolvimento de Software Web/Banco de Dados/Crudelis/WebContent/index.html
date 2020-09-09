@@ -4,12 +4,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Crudelis Acadêmico</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Link para estilos Bootstrap 4 -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<!-- Link para fontes usadas no texto, em google fonts -->
 	<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Kufam&family=Permanent+Marker&display=swap" rel="stylesheet">
+	
+	<!-- Inicio da estilização por CSS  -->
+	<!-- Uma dica: para saber qual o seletor desejado, no Firefox, clique sobre 
+		 com o botão direito em inspect, clique na opção Copy > CSS Path        -->
+	
 	<style>
 		body {
+		/* Seletor de todo corpo do texto  */
 			font-family: 'Kufam', cursive;
 			background: #ADA996;
 			/* fallback for old browsers */
@@ -19,7 +27,8 @@
 			/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 		}
-
+		
+		/* Seletor de Título h3  */
 		h3 {
 			font-family: 'Kufam', cursive;
 			font-weight: bold;
@@ -29,12 +38,14 @@
 			text-align: center;
 			text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
 		}
-
+		
+		/* Seletor do span do Título h3  */
 		h3 span {
 			font-family: 'Permanent Marker', cursive;
 			color: rgb(150, 46, 46);
 		}
-
+	
+		/* Seletor do sub-titulo  */
 		h5 {
 			font-family: 'Kufam', cursive;
 			margin-top: 50px;
@@ -44,7 +55,8 @@
 			text-shadow: 0 1px 1px rgba(0, 0, 0, 0.9);
 
 		}
-
+		
+		/* Seletor de todos os div dentro de body  */
 		body>div {
 
 			margin-top: 50px;
@@ -60,7 +72,8 @@
 			margin-right: 25px;
 			box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
 		}
-
+		
+		/* Seletor de todos os spans contidos dentro de botões  */
 		body>div>button>span {
 			display: block;
 			text-align: center;
@@ -74,8 +87,17 @@
 	<h3> Bem vindo ao <span>CRUD</span>elis Acadêmico</h3><br>
 	<h5> Escolha uma das Opções de Acesso: </h5>
 	<div>
-
-		<button onclick="location.href='estudantes.html'" type="button" class="btn btn-primary btn-lg">Portal <span> do
+		<!-- Para 'chamar' o Bootstrap deve-se usar as classes 'premoldadas' que ele contém -->
+		<!-- É como se fosse uma passagem de valores para que o Bootstrap acesse uma classe especifica -->
+		<!-- no exemplo: class="btn btn-primary btn-lg"  
+			 é uma classe de:
+			 botões (btn) 
+			 botão que tem cor primária (btn-primary)
+			 botão que são do tamanho grande (btn-lg) 
+		-->
+		<!-- Busque as classes (botoes, navbars, tabelas etc) no site do Bootstrap 4 para saber mais-->
+		
+		<button onclick="location.href='aluno.html'" type="button" class="btn btn-primary btn-lg">Portal <span> do
 				Aluno</span></button>
 		<button onclick="location.href='administracao.html'" type="button" class="btn btn-success btn-lg">Portal do
 			<span> Colaborador </span></button>
