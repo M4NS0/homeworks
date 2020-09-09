@@ -1,4 +1,4 @@
-package br.com.crudelisacademico.model;
+package br.com.crudelis.model;
 
 import java.util.Date;
 
