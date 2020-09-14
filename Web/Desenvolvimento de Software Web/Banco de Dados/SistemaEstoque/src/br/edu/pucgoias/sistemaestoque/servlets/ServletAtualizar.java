@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.edu.pucgoias.sistemaestoque.controle.EstoqueControle;
-import br.edu.pucgoias.sistemaestoque.modelo.Estoque;
+import br.edu.pucgoias.sistemaestoque.modelo.Aluno;
 
 @WebServlet("/ServletAtualizar")
 public class ServletAtualizar extends HttpServlet {
@@ -43,7 +43,7 @@ public class ServletAtualizar extends HttpServlet {
 				}
 			} else {
 				EstoqueControle ec = new EstoqueControle();
-				Estoque estoque = new Estoque();
+				Aluno estoque = new Aluno();
 				estoque.setDescricao(descricao);
 				estoque.setPreunit(preunit);
 				estoque.setQuantidade(quantidade);
@@ -56,7 +56,7 @@ public class ServletAtualizar extends HttpServlet {
 				if (acao) {
 					retorno = "OK";
 				} else {
-					retorno = "Problema ao Salvar";
+					retorno = "DEU ALGUM PROBLEMA";
 				}
 			}
 		}

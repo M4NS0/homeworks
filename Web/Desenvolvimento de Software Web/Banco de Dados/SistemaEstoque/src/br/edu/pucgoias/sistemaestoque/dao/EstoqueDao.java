@@ -8,12 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.edu.pucgoias.sistemaestoque.modelo.Estoque;
+import br.edu.pucgoias.sistemaestoque.modelo.Aluno;
 
 public class EstoqueDao extends BaseDao {
 
-	public Estoque getEstoqueViaId(int id) {
-		Estoque estoque = new Estoque();
+	public Aluno getEstoqueViaId(int id) {
+		Aluno estoque = new Aluno();
 		PreparedStatement pstm = null;
 		Connection conn = null;
 		try {
@@ -30,8 +30,8 @@ public class EstoqueDao extends BaseDao {
 		return estoque;
 	}
 
-	public Estoque criaEstoque(ResultSet rs) throws SQLException {
-		Estoque estoque = new Estoque();
+	public Aluno criaEstoque(ResultSet rs) throws SQLException {
+		Aluno estoque = new Aluno();
 		estoque.setDescricao(rs.getString("descricao"));
 		estoque.setId(rs.getInt("id"));
 		estoque.setPreunit(rs.getDouble("preunit"));
@@ -39,9 +39,9 @@ public class EstoqueDao extends BaseDao {
 		return null;
 	}
 
-	public List<Estoque> getEstoqueViaNome(String nome) {
-		List<Estoque> list = new ArrayList<>();
-		Estoque estoque = new Estoque();
+	public List<Aluno> getEstoqueViaNome(String nome) {
+		List<Aluno> list = new ArrayList<>();
+		Aluno estoque = new Aluno();
 		PreparedStatement pstm = null;
 		Connection conn = null;
 		try {
@@ -60,7 +60,7 @@ public class EstoqueDao extends BaseDao {
 		return list;
 	}
 
-	public Boolean salvarEstoque(Estoque estoque) throws SQLException {
+	public Boolean salvarEstoque(Aluno estoque) throws SQLException {
 		boolean retorno = false;
 		PreparedStatement pstm = null;
 		Connection conn = null;
@@ -119,9 +119,9 @@ public class EstoqueDao extends BaseDao {
 		}
 	}
 
-	public List<Estoque> getTodos() {
-		List<Estoque> lista = new ArrayList<>();
-		Estoque estoque = new Estoque();
+	public List<Aluno> getTodos() {
+		List<Aluno> lista = new ArrayList<>();
+		Aluno estoque = new Aluno();
 		ResultSet rs = null;
 		PreparedStatement pstm = null;
 		Connection conn = null;
@@ -138,5 +138,4 @@ public class EstoqueDao extends BaseDao {
 		}
 		return lista;
 	}
-
 }

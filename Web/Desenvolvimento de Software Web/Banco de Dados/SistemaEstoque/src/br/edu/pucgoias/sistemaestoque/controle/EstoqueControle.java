@@ -4,17 +4,17 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.edu.pucgoias.sistemaestoque.dao.EstoqueDao;
-import br.edu.pucgoias.sistemaestoque.modelo.Estoque;
+import br.edu.pucgoias.sistemaestoque.modelo.Aluno;
 
 public class EstoqueControle {
 
 	private EstoqueDao ed = new EstoqueDao();
 
-	public List<Estoque> getTodos() {
+	public List<Aluno> getTodos() {
 		return ed.getTodos();
 	}
 
-	public Estoque getPorId(int id) {
+	public Aluno getPorId(int id) {
 		return ed.getEstoqueViaId(id);
 	}
 
@@ -22,11 +22,11 @@ public class EstoqueControle {
 		return ed.excluir(id);
 	}
 
-	public Boolean salvar(Estoque estoque) throws SQLException {
+	public Boolean salvar(Aluno estoque) throws SQLException {
 		return ed.salvarEstoque(estoque);
 	}
 
-	public List<Estoque> buscaPorDescricao(String nome) {
+	public List<Aluno> buscaPorDescricao(String nome) {
 		return ed.getEstoqueViaNome(nome);
 	}
 }
