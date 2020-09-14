@@ -8,15 +8,14 @@ public class BaseDao {
 
 	public BaseDao() {
 		try {
-			//Class.forName("com.mysql.jdbc.Driver");
-			Class.forName("com.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e) {
 		}
 	}
 
 	public Connection getConnection() throws SQLException {
 		String url = "jdbc:mysql://localhost/sistema_estoque_web";
-		Connection conn = (Connection) DriverManager.getConnection(url, "root", "00loki00");
+		Connection conn = (Connection) DriverManager.getConnection(url, "root", "B4p7ist@");
 		return conn;
 	}
 
