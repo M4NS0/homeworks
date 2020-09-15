@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert com input form</title>
+</head>
+<body>
+    <h1>Alert com input form</h1>
+
+    <script>
+        function condicao() {
+            if (form1.nome.value == "") {
+                alert("Favor preencher o campo");
+                form1.nome.value = prompt("Digite seu nome agora ", "")
+            }
+            window.alert("Obrigado, " +form1.nome.value);
+        }
+
+    </script>
+    <pre>
+        <form name="form1">
+            Nome:
+            <input type="text" name="nome" onblur="condicao(this.value)">
+        </form>
+    </pre>
+</body>
+</html>
