@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 1 de JS</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        document.write("Hello JavaScript <br/><br/>");
+        console.log("Hello JavaScript");
+        window.alert("Aula 1 de JS");
+        window.confirm("Fucking confirmation");
+
+        var num1 = "1234" + 1;
+        document.write(num1 + "<br/><br/>");
+
+        var num2 = "1234" -10;
+        document.write(num2 + "<br/><br/>");
+
+        valor = 80;
+        document.write("Resultado do cálculo: ", (10*2) + valor + "<br/><br/>");
+    </script>
+
+    <h1> Funções </h1>
+    <script>
+        function primeiraFuncao() {
+            document.write("<h5>- Resultado de uma função - </h5>" + "<br/><br/>");
+        }
+        primeiraFuncao();
+
+        var mostra = function() { 
+            var msgForaDoif = "fora do if";
+            if(true) {
+                msg = "teste";
+                var msgDentroDoIf = 'dentro do if';
+                console.log(msg);
+                // var msg;
+            }
+            document.write(msgForaDoif + "<br/><br/>");
+            document.write(msgDentroDoIf + "<br/><br/>");
+        }
+        mostra();
+
+        for (var i=1; i<=10; i ++) {
+            document.writeln(" =", i+"<br/>");
+        }
+        document.writeln(" =", i+"<br/>");
+        for (let i=1; i<=10; i ++) {
+            document.writeln(" =", i+"<br/>");
+        }
+        document.writeln(" =", i+"<br/>");
+    </script>
+
+</body>
+
+</html>
