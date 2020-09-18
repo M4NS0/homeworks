@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Arrays com atributos</title>
+</head>
+<body>
+    <h1> Arrays com atributos</h1>
+    <p>
+        <code>
+            var aluno = { <br>
+                &emsp;nome: 'Elvis Presley',<br>
+                &emsp;idade: 33,<br>
+                &emsp;telefones: [2222222, 3333333, 666666]<br>
+            } <br>
+            console.log(aluno.nome, aluno.idade, aluno.telefones);<br>
+            document.write("Telefone Principal:" + aluno.telefones[1] + "&ltbr&gt" + "Outros Telefones: " + aluno.telefones);       
+        </code>
+    </p>
+    <script>
+        var aluno = { 
+            nome: 'Elvis Presley',
+            idade: 33,
+            telefones: [2222222, 3333333, 666666]
+        }
+        console.log(aluno.nome, aluno.idade, aluno.telefones);
+        document.write("Telefone Principal:" + aluno.telefones[1] + "<br>" + "Todos Telefones: " + aluno.telefones);
+    </script>
+    
+</body>
+</html>

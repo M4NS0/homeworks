@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Variáveis encapsuladas em funções</title>
+</head>
+<body>
+    <h1>Variáveis encapsuladas em funções</h1>
+    <p>
+        <code>
+            var mostra = function() { <br/>
+                &emsp;var msgForaDoif = "fora do if";<br/>
+                &emsp;if(true) {<br/>
+                    &emsp;&emsp;msg = "teste";<br/>
+                    &emsp;&emsp;var msgDentroDoIf = 'dentro do if';<br/>
+                    &emsp;&emsp;console.log(msg);<br/>
+                    &emsp;&emsp;// var msg;<br/>
+                }<br/>
+                &emsp;document.write(msgForaDoif + "&ltbr/&gt&ltbr/&gt");<br/>
+                &emsp;document.write(msgDentroDoIf + "&ltbr/&gt&ltbr/&gt");<br/>
+            }<br/>
+            mostra();<br/>
+        </code>
+    </p>
+    <h1> Resultado: </h1>
+    <script>
+        var mostra = function() { 
+            var msgForaDoif = "fora do if";
+            if(true) {
+                msg = "teste";
+                var msgDentroDoIf = 'dentro do if';
+                console.log(msg);
+                // var msg;
+            }
+            document.write(msgForaDoif + "<br/><br/>");
+            document.write(msgDentroDoIf + "<br/><br/>");
+        }
+        mostra();
+    </script>
+</body>
+</html>

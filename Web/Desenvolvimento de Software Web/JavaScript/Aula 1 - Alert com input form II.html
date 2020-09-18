@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Alert com input form</title>
+</head>
+<body>
+    <h1>Alert com input form</h1>
+    <h5>JS Code: </h5>
+    <p> 
+        <code>
+            function condicao() { <br/>
+                &emsp;if (form1.nome.value == "") {<br/>
+                    &emsp;&emsp;alert("Favor preencher o campo");<br/>
+                    &emsp;&emsp;form1.nome.value=prompt("Digite seu nome aqui");<br/>
+                    &emsp;&emsp;return form1.nome.focus();<br/>
+                    &emsp;}<br/>
+                    
+            }
+        </code> 
+    </p>
+    <h5>HTML Code:</h5>
+    <p>
+        <code>
+            &ltpre&gt<br/>
+                &ltform name="form1"&gt
+                    Nome:<br/>
+                    &ltinput type="text" name="nome" onblur="condicao(this.value)"&gt<br/>
+                &lt/form&gt<br/>
+        &lt/code&gt<br/>
+        </code>
+    </p>
+    <br/>
+    <h5>Resultado:</h5>
+
+    <script>
+        function condicao() {
+            if (form1.nome.value == "") {
+                alert("Favor preencher o campo");
+                form1.nome.value=prompt("Digite seu nome aqui")
+                return form1.nome.focus();
+            }
+            else {
+                alert("Obrigado, " + form.nome.value);
+                return form1.nome.select();
+            }
+        }
+
+    </script>
+
+    <pre>
+        <form name="form1"> Nome:
+            <input type="text" name="nome" onblur="condicao(this.value)">
+        </form>
+</body>
+</html>

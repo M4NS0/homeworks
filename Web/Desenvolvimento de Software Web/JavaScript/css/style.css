@@ -1,0 +1,10 @@
+body {
+    margin-left: 50px;
+}
+p {
+    padding: 25px;
+    background-color: lightgray;
+    width: 800px;
+    height: auto;
+    border: 1px solid black; 
+}

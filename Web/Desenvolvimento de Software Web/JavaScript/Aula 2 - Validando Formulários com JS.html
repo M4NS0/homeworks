@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Validando Formulários com JS</title>
+</head>
+
+<body>
+    <h3>Validando Formulários com JS</h3>
+
+    <form action="#" method="post" name="dados" onsubmit="return enviardados(this)">
+        <table width="630" border="0" align="center">
+            <tr>
+                <td width="118">
+                    <font size="1" face="Verdana, Arial, Helvetica, sans-serif">Nome: </font>
+                </td>
+                <td width="460">
+                    <input type="text" name="nome" id="idnome" size="50" maxlength="80">
+                </td>
+            </tr>
+            <tr>
+                <td width="118">
+                    <font size="1" face="Verdana, Arial, Helvetica, sans-serif">E-mail: </font>
+                </td>
+                <td width="460">
+                    <input type="text" name="email" id="idemail" size="50" maxlength="120" class="formbutton">
+                </td>
+            </tr>
+            <tr>
+                <td width="118">
+                    <font size="1" face="Verdana, Arial, Helvetica, sans-serif"><strong>Mensagem:</strong></font>
+                </td>
+                <td rowspan="2">
+                    <font size="2">
+                        <textarea name="mensagem" cols="69" rows="6" id="idmensagem" input></textarea>
+                    </font>
+                </td>
+            </tr>
+            <!-- <tr>
+            <td height="85">
+                <p>
+                    <strong>
+                        <font face="Verdana, Arial, Helvetica, sans-serif">
+                            <font size="1"></font>
+                        </font>
+                    </strong>
+                </p>
+            </td>
+        </tr> -->
+            <tr>
+                <td height="20"></td>
+                <td>
+                    <input type="submit" name="Submit" value="Enviar dados">
+                    <input type="reset" name="Reset" value="Cancelar">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script lang="JavaScript">
+        function enviardados(frame) {
+            if (frame.nome.value == "" || frame.nome.value.length < 8) {
+                alert("Nome Incorreto!");
+                frame.nome.focus();
+                return false;
+            }
+
+            if (frame.email.value == "" || frame.email.value.indexOf('0') == -1 || frame.email.value.indexOf('.') == -1) {
+                alert("Email incorreto!");
+                frame.email.focus();
+                return false;
+            }
+
+            if (frame.mensagem.value == "") {
+                alert("Mensagem deve ser preenchida");
+                frame.mensagem.focus();
+                return false;
+            }
+
+            if (frame.mensagem.value.length < 10) {
+                alert("Preencha a mensagem com mais de 10 caracteres!");
+                frame.mensagem.focus();
+                return false;
+            }
+            return true;
+        } 
+    </script>
+</body>
+
+</html>

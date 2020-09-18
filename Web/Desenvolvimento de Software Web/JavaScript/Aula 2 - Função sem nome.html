@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função sem nome</title>
+
+
+    <body>
+        <script>
+            var f = new Function("x", "y", "return x * y");
+    
+            var ff = function(x,y) {
+                return x*y
+            };
+        </script>
+
+</head>
+<script>
+    document.write("f = " + f(2,3) + "<br>");
+    document.write("ff = " + ff(2,3));
+</script>
+</body>
+</html>
