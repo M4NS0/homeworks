@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Abrindo Janela com Dados Dinâmicos </title>
+</head>
+
+<body>
+    <h1>Abrindo Janela com Dados Dinâmicos </h1>
+
+    <p>
+        <code>
+            &ltform name="form"&gt <br>
+            &emsp;&ltinput type="text" name="nome"&gt <br>
+            &emsp;&ltbutton onclick="abrir()"&gt Abrir &lt/button&gt <br>
+            &lt/form&gt <br>
+        
+            <br>
+            &ltscript&gt <br>
+            &emsp;function abrir() { <br>
+            &emsp;&emsp;janela = window.open("", "Dados", "height=700, width=400, scrollbar=yes");<br>
+            &emsp;&emsp;janela.document.write("&ltcenter&gt Presado Associado &ltb&gt" + document.form.nome.value + "&lt/b&gt&lt/center&gt");<br>
+            &emsp;&emsp;janela.document.write("&ltcenter&gt Seja bem vindo(a)! &lt/center&gt")<br>
+            &emsp;&emsp;janela.document.close();<br>
+            &emsp;}<br>
+            &lt/script&gt<br>
+        </code>
+    </p>
+    <h6>Resultado: </h6>
+    <form name="form">
+        <input type="text" name="nome">
+        <button onclick="abrir()"> Abrir </button>
+    </form>
+
+
+    <script>
+        function abrir() {
+            janela = window.open("", "Dados", "height=700, width=400, scrollbar=yes");
+            janela.document.write("<center> Presado Associado <b>" +document.form.nome.value+ "</b></center>");
+            janela.document.write("<center> Seja bem vindo(a)! </center>")
+            janela.document.close();
+        }
+    </script>
+
+</body>
+
+</html>

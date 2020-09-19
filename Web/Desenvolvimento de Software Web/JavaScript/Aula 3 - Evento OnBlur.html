@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Evento Onblur</title>
+    
+</head>
+<body>
+    <h1>Evento Onblur</h1>
+    <p>
+        <code>
+            &ltform&gt <br>
+            &emsp;&ltinput type="text" onblur="saiudoFoco()" &gt &lt/input&gt<br>
+            &emsp;&ltinput type="text"&gt &lt/input&gt<br>
+            &lt/form&gt<br>
+        
+            &ltscript&gt<br>
+            &emsp;function saiudoFoco() {<br>
+            &emsp;&emsp;window.alert("Por Favor, valide o Campo");<br>
+            &emsp;&emsp;}<br>
+            &lt/script&gt<br>
+        </code>
+    </p>
+
+    <h6>Resultado: </h6>
+    <form>
+        <input type="text" onblur="saiudoFoco()" > </input>
+        <input type="text"> </input>
+    </form>
+
+    <script>
+        function saiudoFoco() {
+            window.alert("Por Favor, valide o Campo");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Evento onMouseOver</title>
+</head>
+<body>
+    <h1>Evento onMouseOver</h1>
+    <p>
+    <code>
+        &ltbutton onmouseover="mouse()"&gt <br>
+        &emsp;OK<br>
+        &emsp;&lt/button&gt<br>
+        &emsp;&ltscript&gt<br>
+        &emsp;&emsp;function mouse() {<br>
+        &emsp;&emsp;&emsp;window.alert("Cursor sobre do mouse sobre o botão")<br>
+        &emsp;&emsp;}<br>
+        &emsp;&lt/script&gt<br>
+    </code>
+    </p>
+    <h6>Resultado: </h6>
+    <button onmouseover="mouse()">
+    OK
+    </button>
+    <script>
+        function mouse() {
+            window.alert("Cursor sobre do mouse sobre o botão")
+        }
+    </script>
+</body>
+</html>

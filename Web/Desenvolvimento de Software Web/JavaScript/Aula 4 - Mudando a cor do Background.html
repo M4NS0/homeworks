@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Mudando a cor do Background</title>
+</head>
+<body>
+    <h1>Mudando a cor do Background</h1>
+    <p>
+        <code>
+            &ltform&gt <br>
+            &emsp;&ltinput type="Button" value="Vermelho" onclick="mudaCor('ff0000')"&gt<br>
+            &emsp;&ltinput type="Button" value="Verde" onclick="mudaCor('00ff00')"&gt<br>
+            &emsp;&ltinput type="Button" value="Azul" onclick="mudaCor('0000ff')"&gt<br>
+            &lt/form&gt<br>
+            <br>
+            &ltscript&gt<br>
+            &emsp;function mudaCor(colorin) {<br>
+            &emsp;&emsp;document.bgColor = colorin;<br>
+            &emsp;}<br>
+            &lt/script&gt<br>
+        </code>
+    </p>
+
+    <h6>Resultado: </h6>
+
+    <form>
+        <input type="Button" value="Vermelho" onclick="mudaCor('ff0000')">
+        <input type="Button" value="Verde" onclick="mudaCor('00ff00')">
+        <input type="Button" value="Azul" onclick="mudaCor('0000ff')">
+    </form>
+
+    <script>
+        function mudaCor(colorin) {
+            document.bgColor = colorin;
+        }
+    </script>
+</body>
+</html>

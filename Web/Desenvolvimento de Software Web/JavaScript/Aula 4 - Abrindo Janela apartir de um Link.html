@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Abrindo Janela apartir de um Link</title>
+</head>
+<body>
+    <h1>Abrindo Janela apartir de um Link</h1>
+
+    <p>
+        <code>
+            &lta href="Javascript:abrirJanela()"&gtAbrir&lt/a&gt <br>
+
+            &ltscript&gt<br>
+            &emsp;function abrirJanela() {<br>
+                &emsp;&emsp;window.open( <br>
+                &emsp;&emsp;&emsp;&emsp;"https://github.com/M4NS0", <br>
+                &emsp;&emsp;&emsp;&emsp;"Página do GitHub", <br>
+                &emsp;&emsp;&emsp;&emsp;"height=700, <br>
+                &emsp;&emsp;&emsp;&emsp;width=400, <br>
+                &emsp;&emsp;&emsp;&emsp;scrollbars=yes, <br>
+                &emsp;&emsp;&emsp;&emsp;left=800, <br>
+                &emsp;&emsp;&emsp;&emsp;screenX=800, <br>
+                &emsp;&emsp;&emsp;&emsp;top=200, <br>
+                &emsp;&emsp;&emsp;&emsp;screenY=200");<br>
+                &emsp;&emsp;}<br>       
+            &lt/script&gt
+        </code>
+    </p>
+    <h6>Resultado: </h6>
+    <a href="Javascript:abrirJanela()">Abrir</a>
+
+    <script>
+        function abrirJanela() {
+            window.open("https://github.com/M4NS0", "Página do GitHub", "height=700, width=400, scrollbars=yes, left=800, screenX=800, top=200, screenY=200");
+        }
+    </script>
+    
+</body>
+</html>

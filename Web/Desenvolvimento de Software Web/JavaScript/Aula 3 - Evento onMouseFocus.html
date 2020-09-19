@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Evento onMouseFocus</title>
+</head>
+
+<body>
+    <h1>Evento onMouseFocus</h1>
+    <p>
+        <code>
+            &ltinput type="text" onfocus="aviso()"&gt &lt/input&gt <br>
+            &ltbutton onmouseover="mouseButton()"&gt ok &lt/button&gt<br>
+            <br>
+            &ltscript&gt<br>
+            &emsp;function aviso() {<br>
+            &emsp;&emsp;console.log("Entrou no Input");<br>
+            &emsp;}<br> <br>
+            &emsp;function mouseButton() {<br>
+            &emsp;&emsp;console.log("Botão");<br>
+            &emsp;}<br>
+            &lt/script&gt
+
+    </code>
+    </p>
+    <h6>Resultado: </h6>
+
+    <input type="text" onfocus="aviso()"> </input>
+    <button onmouseover="mouseButton()"> ok </button>
+
+    <script>
+        function aviso() {
+            console.log("Entrou no Input");
+        }
+        function mouseButton() {
+            console.log("Botão");
+        }
+    </script>
+</body>
+
+</html>
