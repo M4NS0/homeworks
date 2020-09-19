@@ -4,7 +4,7 @@
 >
 > [Mozilla JS](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript)
 >
-> [Caeulum](https://www.caelum.com.br/apostila-html-css-javascript/javascript-e-interatividade-na-web/#dom-sua-pgina-no-mundo-javascript)
+> [Caeulum](https://www.caelum.com.br/apostila-html-css-javascript/)
 >
 > [w3bai](http://www.w3bai.com/pt/)
 >
