@@ -1,24 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Função sem nome</title>
 
 
-    <body>
-        <script>
-            var f = new Function("x", "y", "return x * y");
-    
-            var ff = function(x,y) {
-                return x*y
-            };
-        </script>
+<body>
+    <h1>Função sem Nome</h1>
+    <p>
+        <code>
+            &lt!DOCTYPE html&gt <br>
+            &lthtml lang="en"&gt <br>
+            &lthead&gt <br>
+            &emsp;&ltmeta charset="UTF-8"&gt <br>
+            &emsp;&ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt <br>
+            &emsp;&lttitle&gt <br>Função sem nome&lt/title&gt <br>
+            &emsp;&ltbody&gt <br>
+            &emsp;&emsp;&ltscript&gt <br>
+            &emsp;&emsp;&emsp;var f = new Function("x", "y", "return x * y");<br>
+            &emsp;&emsp;&emsp;var ff = function (x, y) {<br>
+            &emsp;&emsp;&emsp;&emsp;return x * y <br>
+            &emsp;&emsp;};<br>
+            &emsp;&emsp;&lt/script&gt <br>
+            &lt/head&gt <br>
+            &emsp;&ltscript&gt <br>
+            &emsp;&emsp;document.write("f = " + f(2, 3) + "&ltbr&gt ");<br>
+            &emsp;&emsp;document.write("ff = " + ff(2, 3));<br>
+            &emsp;&lt/script&gt <br>
+            &lt/body&gt <br>
+            &lt/html&gt <br>
+        </code>
+    </p>
 
-</head>
-<script>
-    document.write("f = " + f(2,3) + "<br>");
-    document.write("ff = " + ff(2,3));
-</script>
+    <h6>Resultado: </h6>
+
+    <script>
+        var f = new Function("x", "y", "return x * y");
+
+        var ff = function (x, y) {
+            return x * y
+        };
+    </script>
+
+    </head>
+    <script>
+        document.write("f = " + f(2, 3) + "<br>");
+        document.write("ff = " + ff(2, 3));
+    </script>
 </body>
+
 </html>

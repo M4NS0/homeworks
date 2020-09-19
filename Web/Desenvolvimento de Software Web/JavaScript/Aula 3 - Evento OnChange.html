@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Evento OnChange</title>
+    
+</head>
+<body>
+    <h1>Evento OnChange</h1>
+    <p>
+        <code>
+            &ltform&gt <br>
+            &emsp;&ltinput type="text" value="altere aqui" onchange="mensagem()" &gt <br>
+            &lt/form&gt<br>
+        
+            &ltscript&gt<br>
+            &emsp;function mensagem() {<br>
+            &emsp;&emsp;window.alert("Texto alterado");<br>
+            &emsp;&emsp;}<br>
+            &lt/script&gt<br>
+        </code>
+    </p>
+
+    <h6>Resultado: </h6>
+    <form>
+        <input type="text" value="altere aqui" onchange="mensagem()" >
+    </form>
+
+    <script>
+        function mensagem() {
+            window.alert("Texto alterado");
+        }
+    </script>
+</body>
+</html>
