@@ -1,7 +1,5 @@
 package br.com.crudelis.model;
 
-import java.util.Date;
-
 public class Pessoa {
 
 	String nome;
