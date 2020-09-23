@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.crudelis.csv.RetornarCsv;
-import br.com.crudelis.model.Funcionario;
+import br.com.crudelis.model.Aluno;
 
 @WebServlet("/ServletConsultaFuncionario")
-public class ServletConsultaFuncionario extends HttpServlet {
+public class ServletConsultaAluno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public ServletConsultaFuncionario() {
+	public ServletConsultaAluno() {
 		super();
 	}
 
@@ -25,7 +25,7 @@ public class ServletConsultaFuncionario extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String nomeBuscado = null;
 
-		for (Funcionario f : RetornarCsv.getListaDeFuncionarios()) {
+		for (Aluno f : RetornarCsv.getListaDeAlunos()) {
 			if (f.getNome().equalsIgnoreCase(nome)) {
 				nomeBuscado = nome;
 			}
@@ -64,7 +64,7 @@ public class ServletConsultaFuncionario extends HttpServlet {
 					+ "		}\n" + "		\n" + "		/* Seletor de todos os spans contidos dentro de botões  */\n"
 					+ "		body>div>button>span {\n" + "			display: block;\n"
 					+ "			text-align: center;\n" + "		}\n" + "	</style>\n" + "</head>\n" + "\n"
-					+ "<body>\n" + "	\n" + "\n" + "	<h3> Funcionário  <span>Encontrado! </span></h3><br>\n" + "\n"
+					+ "<body>\n" + "	\n" + "\n" + "	<h3> Aluno  <span>Encontrado! </span></h3><br>\n" + "\n"
 					+ "	<div>\n" + "			\n"
 					+ "		<button onclick=\"location.href='index.html'\" type=\"button\" class=\"btn btn-primary btn-lg\">Voltar </button>\n"
 					+ "	\n" + "	</div>\n" + "</body>\n" + "\n" + "</html>");
