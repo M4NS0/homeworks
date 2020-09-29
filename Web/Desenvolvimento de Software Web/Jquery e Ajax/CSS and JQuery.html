@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS and JQuery</title>
+    <style>
+        .teste {
+            background: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <a href="google.com"> Google </a>
+    <button id="b1"> Show</button>
+    <button id="b2"> Hide </button>
+
+    <script src="/assets/js/jQuery v3.5.1 .js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#b1").click(function(event) {
+                $("a").css("display","block")
+            });
+            $("#b2").click(function(event) {
+                $("a").css("display","none")
+            });
+        });
+          
+    </script>
+    
+</body>
+</html>
