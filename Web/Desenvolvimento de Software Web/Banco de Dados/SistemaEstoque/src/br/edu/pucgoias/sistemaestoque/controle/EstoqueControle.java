@@ -6,7 +6,7 @@ import java.util.List;
 import br.edu.pucgoias.sistemaestoque.dao.EstoqueDao;
 import br.edu.pucgoias.sistemaestoque.modelo.Aluno;
 
-public class EstoqueControle {
+public class EstoqueControle{
 
 	private EstoqueDao ed = new EstoqueDao();
 
