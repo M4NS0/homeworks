@@ -1,7 +1,6 @@
 package br.com.crudelis.model;
 
 public class Pessoa {
-
 	String nome;
 	String dataDeNascimento;
 	String email;

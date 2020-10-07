@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Ajax Load </title>
+
+    <style>
+        #box {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p><input type="button" value="Editar"></p>
+    <p><input type="button" value="Novo"></p>
+    <p><input type="button" value="Excluir"></p>
+    <div id="box"></div>   
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $("input[type=button]").click(function(event){
+            var acao = $(this).attr("value");
+            if (acao == "Editar")
+                $("#box").load("loadEditar.html");
+            if (acao == "Novo")
+                $("#box").load("loadNovo.html");
+            if (acao == "Excluir")
+                $("#box").load("loadExcluir.html");
+
+        });
+    });
+    </script>
+</body>
+</html>

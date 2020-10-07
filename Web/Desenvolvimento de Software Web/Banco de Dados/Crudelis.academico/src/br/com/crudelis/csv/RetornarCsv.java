@@ -24,7 +24,7 @@ public class RetornarCsv {
 
 			while (line != null) {
 				String[] campos = line.split(",");
-				Aluno aluno = new Aluno(campos[0], campos[1], campos[2], Integer.parseInt(campos[3]), campos[4]);
+				Aluno aluno = new Aluno(campos[0], campos[1], campos[2], Integer.parseInt(campos[3]), campos[4], null);
 				alunos.add(aluno);
 				line = br.readLine();
 			}

@@ -25,7 +25,7 @@ public class BaseDao {
 		if (conn != null) {
 			System.out.println("Conectado!");
 		} else {
-			System.out.println("N�o conectou!");
+			System.out.println("Não conectou!");
 		}
 	}
 }

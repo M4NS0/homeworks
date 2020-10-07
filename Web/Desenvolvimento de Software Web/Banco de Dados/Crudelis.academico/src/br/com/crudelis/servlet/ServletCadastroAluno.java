@@ -32,7 +32,7 @@ public class ServletCadastroAluno extends HttpServlet {
 		String registroDoAluno = "20202" + numero;
 		String curso = request.getParameter("curso");
 
-		Aluno aluno = new Aluno(nome, dataDeNascimento, email, Integer.parseInt(registroDoAluno), curso);
+		Aluno aluno = new Aluno(nome, dataDeNascimento, email, Integer.parseInt(registroDoAluno), curso, null);
 		SalvarCsv salvar = new SalvarCsv();
 		salvar.adcionarAlunoAoCsv(aluno);
 

@@ -42,12 +42,14 @@ public class TesteConexao {
 			System.out.println("Erro ao excluir a Marca!!!");
 		}
 		
-		*/
+		
 		
 		ArrayList<Marca> lista = MarcaDao.listagem();
 		for (Marca marca : lista) {
 			System.out.println(marca.toString());
-		}
+			}
+			*/
+		
 		
 	}
 
