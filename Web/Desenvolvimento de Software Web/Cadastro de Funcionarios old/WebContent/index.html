@@ -1,455 +1,120 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal</title>
 
-<title>Cadastro</title>
+    <!-- Bootstrap 4  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- JQuery Link  -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
- 	<!-- Bootstrap 4  -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+			margin-left: 5%;
+        	margin-right: 5%;
+            background: rgb(128, 56, 163);
+            background: radial-gradient(circle, rgb(189, 255, 136) 0%, rgb(45, 160, 135) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9de96', endColorstr='#398235', GradientType=0);
+            /* IE6-9 */
+        }
 
-    <!-- JQuery Link  -->    
-    
-    
-<style>
-	body {
-		background:white;
-	}
-	.alinhar {
-		text-align: center;
-	}
-</style>
+        h3 {
+            font-weight: bold;
+            font-family: monospace;
+            color: whitesmoke;
+            text-align: center;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 1);
+        }
+
+        div.card {
+            margin-left: 35%;
+            margin-right: 35%;
+            margin-top: 30px;
+            margin-bottom: 5%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        html body div.card h3.card-header {
+            color: whitesmoke;
+            font-family: monospace;
+            background-color: #424242;
+            font-size: larger;
+            font-weight: normal;
+        }
+
+
+        div.col-md-12.text-center {
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        a.btn {
+            width: 95px;
+            height: auto;
+            margin: 3%;
+            margin-top: 10%;
+            border: solid;
+            border-width: 1px;
+            border-color: black;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        a.btn.btn-dark {
+            width: 95px;
+            height: auto;
+            color: whitesmoke;
+        }
+
+        a.btn-dark:hover {
+            color: whitesmoke;
+            border: solid;
+            border-width: 1px;
+            border-color: rgba(0, 0, 0, 0.624);
+        }
+    </style>
 </head>
+
 <body>
+    <div class="card">
+        <h3 class="card-header">Bem vindo Colaborador</h3>
+        <div class="card-body">
+            <h5 class="card-title">
+                <center>Escolha</center>
+            </h5>
+            <div class="col-md-12 text-center">
+                <a class="btn btn-dark" id="cadastro">Cadastrar</a>
+                <a class="btn btn-dark" id="consultar">Consultar</a>
+            </div>
 
-	<div id="mensagem" class="alinhar"></div>
-	<div id="divTabela" class="alinhar"></div>
+        </div>
 
-	<div id="divForm" class="alinhar"></div>
+    </div>
 
-	<div class="modal fade" id="modalMensagem">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Aviso</h4>
-					<button type="button" class="close" data-dismiss="modal">
-						<span>x</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div id="msgModal"></div>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div id="conteudo"> </div>
 
-	<div class="modal fade" id="modalConfirma">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 class="modal-title">Confirmação</h4>
-					<button type="button" class="close" data-dismiss="modal">
-						<span>x</span>
-					</button>
-				</div>
-				<div class="modal-body">Confirma exclusão?</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" id="btn-fechar"
-						data-dismiss="modal">Fechar</button>
-					<button type="button" class="btn btn-success" id="btn-confirmar"
-						data-dismiss="modal">Confirmar</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-		crossorigin="anonymous"></script>
-
-	<script>
-            function excluir(msg){
-                $.excluir(msg);
-            };
-            
-            function editar(msg){
-                $.mostrarForm();
-                $.popularForm(msg);
-            };
-            
-            function novo(){
-                $.mostrarForm();
-            };
-            
-            function salvar(){
-                $.salvar();
-            };
-
-       		function preparaForm() {
-       			return ('<b> Cadastro de Funcionários <b>\n' +
-       				'        <div class=\"form-group\">\n' +
-       				'            <strong>CPF</strong> <input class=\"form-control\" style=\"text-align: center;\" id=\"cpf\" name=\"cpf\" maxlength=\"11\" onblur=\"return validaCPF(this.value)\" readonly>\n' +
-       				'        </div>\n' +
-       				'        <div class=\"form-group\">\n' +
-       				'            <strong>Nome</strong> <input class=\"form-control\" style=\"text-align: center;\" id=\"nome\" name=\"nome\">\n' +
-       				'        </div>\n' +
-       				'        <div class=\"form-group\">\n' +
-       				'            <strong>Nascimento</strong> <input class=\"form-control\" style=\"text-align: center;\" id=\"nascimento\" type=\"text\" name=\"nascimento\" maxlength=\"10\" onblur=\"return validaData(this.value)\">\n' +
-       				'        </div>\n' +
-       				'        <div class=\"form-group\">\n' +
-       				'            <strong>Salário</strong> <input class=\"form-control\" style=\"text-align: center;\" id=\"idForm\" type=\"text\" name=\"salario\" onblur=\"return validaDecimal(this)\">\n' +
-       				'        </div>\n' +
-       				'        <div class=\"row\">\n' +
-       				'            <div class=\"col-sm-6\">\n' +
-       				'                <label for=\"departamento\">Departamento: </label>\n' +
-       				'            </div>\n' +
-       				'            <div class=\"col-sm-6\">\n' +
-       				'                <select id=\"departamento\" name=\"departamento\">\n' +
-       				'                    <option value=\"\">Selecione</option>\n' +
-       				'                    <option value=\"Diretoria\">Diretoria</option>\n' +
-       				'                    <option value=\"Administrativo\">Administrativo</option>\n' +
-       				'                    <option value=\"TI\">Tecnologia da Informação</option>\n' +
-       				'                    <option value=\"Financeiro\">Financeiro</option>\n' +
-       				'                </select>\n' +
-       				'            </div>\n' +
-       				'        </div>\n' +
-       				'        <div class=\"row\">\n' +
-       				'            <div class=\"col-sm-6\">\n' +
-       				'                <label for=\"cargo\">Cargo: </label>\n' +
-       				'            </div>\n' +
-       				'            <div class=\"col-sm-6\">\n' +
-       				'                <select id=\"cargo\" name=\"cargo\">\n' +
-       				'                    <option value=\"\">Selecione</option>\n' +
-       				'                    <option value=\"Diretor\">Diretor</option>\n' +
-       				'                    <option value=\"Assistente\">Assistente</option>\n' +
-       				'                    <option value=\"Auxiliar\">Auxiliar</option>\n' +
-       				'                    <option value=\"Estagiario\">Estagiário</option>\n' +
-       				'                </select>\n' +
-       				'            </div>\n' +
-       				'        </div>\n' +
-       				'				\n' +
-       				'        <div class=\"container-fluid\">\n' +
-       				'            <div class=\"row\">\n' +
-       				'                <div class=\"col-sm-6\">\n' +
-       				'                    <button type=\"submit\" value=\"salvar\" name=\"salvar\"\n' +
-       				'                        class=\"btn btn-success btn-lg\">Salvar</button>\n' +
-       				'                </div>\n' +
-       				'                <div class=\"col-sm-6\">\n' +
-       				'                    <button type=\"reset\" value=\"reset\" name=\"limpar\"\n' +
-       				'                        class=\"btn btn-danger btn-lg\">Limpar</button>\n' +
-       				'                </div>\n' +
-       				'            </div>\n' +
-       				'        </div>\n' +
-       				'				\n' +
-       				'        <script>\n' +
-       				'            function validaCPF(dados) {\n' +
-       				'			var i;\n' +
-       				'			s = dados;\n' +
-       				'			var dados = s.substr(0, 9);\n' +
-       				'			var dv = s.substr(9, 2);\n' +
-       				'			var d1 = 0;\n' +
-       				'			var v = false;\n' +
-       				'				\n' +
-       				'			for (i = 0; i < 9; i++) {\n' +
-       				'				d1 += dados.charAt(i) * (10 - i);\n' +
-       				'			}\n' +
-       				'			if (d1 == 0) {\n' +
-       				'				alert(\"Atenção! O Cpf deve ser Digitado\");\n' +
-       				'				v = true;\n' +
-       				'				return false;\n' +
-       				'			}\n' +
-       				'			d1 = 11 - (d1 % 11);\n' +
-       				'			if (d1 > 9) d1 = 0;\n' +
-       				'			if (dv.charAt(0) != d1) {\n' +
-       				'				alert(\"CPF Inválido, não use pontos ou traços, use apenas os 11 números\");\n' +
-       				'				v = true;\n' +
-       				'				return false;\n' +
-       				'			}  \n' +
-       				'				\n' +
-       				'			d1 *= 2;\n' +
-       				'			for (i = 0; i < 9; i++) {\n' +
-       				'				d1 += c.charAt(i) * (11 - i);\n' +
-       				'			}\n' +
-       				'			d1 = 11 - (d1 % 11);\n' +
-       				'			if (d1 > 9) d1 = 0;\n' +
-       				'			if (dv.charAt(1) != d1) {\n' +
-       				'				alert(\"CPF Inválido, não use pontos ou traços, use apenas os 11 números\");\n' +
-       				'				v = true;\n' +
-       				'				return false;\n' +
-       				'			}\n' +
-       				'			 }\n' +
-       				'        function validaData(data) {\n' +
-       				'			var date = data;\n' +
-       				'			var ardt = new Array;\n' +
-       				'			var ExpReg = new RegExp(\"(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}\");\n' +
-       				'			ardt = date.split(\"/\");\n' +
-       				'			erro = false;\n' +
-       				'			if (date.search(ExpReg) == -1) {\n' +
-       				'				erro = true;\n' +
-       				'			} else if (((ardt[1] == 4) || (ardt[1] == 6) || (ardt[1] == 9) || (ardt[1] == 11)) && (ardt[0] > 30))\n' +
-       				'				erro = true;\n' +
-       				'			else if (ardt[1] == 2) {\n' +
-       				'				if ((ardt[0] > 28) && ((ardt[2] % 4) != 0))\n' +
-       				'					erro = true;\n' +
-       				'				if ((ardt[0] > 29) && ((ardt[2] % 4) == 0))\n' +
-       				'					erro = true;\n' +
-       				'			}\n' +
-       				'			if (erro) {\n' +
-       				'				alert(data + \"A data de nascimento precisa ser inserida, utilize o formato MM/DD/AAAA\");\n' +
-       				'				return false;\n' +
-       				'			}\n' +
-       				'			return true;\n' +
-       				'		}\n' +
-       				'		  \n' +
-       				'		function validaDecimal(data) {\n' +
-       				'			var decimal = /^[-+]?[0-9]+\\.[0-9]+$/;\n' +
-       				'			if (data.value.match(decimal)) {\n' +
-       				'				return true;\n' +
-       				'			} else {\n' +
-       				'				alert("O salário base não pode estar vazio e deve conter números com 2 casas decimais separadas por ponto");\n' +
-       				'				return false;\n' +
-       				'			}\n' +
-       				'		}     \n' +   
-       				'<//script>\n'
-       				);
-       		};
-          
-
-            function mostrarCabTabela () {
-                return (
-                    '<table class="table table-striped-primary table hover">' +
-                    '<thead>' +
-                    '<tr>' +
-                    '<th style="text-align": center" scope="col">Cpf</th>' +
-                    '<th style="text-align": center" scope="col">Nome</th>' +
-                    '<th style="text-align": center" scope="col">Nascimento</th>' +
-                    '<th style="text-align": center" scope="col">Salário</th>' +
-                    '<th style="text-align": center" scope="col">Departamento</th>' +
-                    '<th style="text-align": center" scope="col">Cargo</th>' +
-                    '<th style="text-align": center" scope="col">Editar</th>' +
-                    '<th style="text-align": center" scope="col">Excluir</th>' +
-                    '</tr>' +
-                    '<thead>'
-                );
-            };
-            
-            function mostrarLinhaTabela(data) {
-                return(
-                	'<tr><td style="text-align: center">' + data.cpf + '</td>' +
-                    '<td style="text-align": center">' + data.nome +  '</td>' +
-                    '<td style="text-align": center">' + data.nascimento + '</td>' +
-                    '<td style="text-align": center">' + data.salario + '</td>' +
-                    '<td style="text-align": center">' + data.departamento + '</td>' +
-                    '<td style="text-align": center">' + data.cargo + '</td>' +
-                    '<td style="text-align": center"><button class="btn btn success" id="btnEditar" onclick="editar(' + data.cpf + ')">Editar</button></td>' +
-                    '<td style="text-align": center"><button class="btn btn danger" id="btnExcluir" onclick="$.excluir(' + data.cpf + ')">Excluir</button></td></tr>'
-                    );
-            };
-
-            function carregaTabela() {
-            	  $.ajax({
-            	    url: "http://localhost:8282/CadastroFuncionarios/ServletAll",
-            	    type: 'get',
-            	    data: {},
-            	    beforeSend: function() {
-            	      $("#mensagem").html("Analisando dados...");
-            	    },
-            	    success: function(msg) {
-
-            	      let table = mostrarCabTabela() + '<tbody>';
-
-            	      for (let i = 0; i < msg.length; i++) {
-
-            	        table += mostraLinhaTabela(msg[i]);
-            	      }
-            	      table += '</tbody<table>';
-            	      table += '</br><button class="btn btn-primary" onclick="novo()">Novo</button>';
-            	      $('#divTabela').html(table);
-            	      $('#mensagem').html('');
-            	      $('#divForm').html('');
-            	      if (msg.length == 0)
-            	        $.mostraMensagem("Nenhum funcionário cadastrado");
-            	    },
-            	    error: function(msg) {
-            	      $("#mensagem").html("");
-            	      $.mostraMensagem("erro");
-            	    }
-            	  });
-            	};
-
-            	$(document).ready(function() {
-            	  carregaTabela();
-
-            	  $.excluir = function(codigo) {
-
-            	    $("#modalConfirma").modal();
-            	    $("#btn-confirmar").click(function() {
-
-            	      $.ajax({
-
-            	        url: "http://localhost:8282/CadastroFuncionarios/ServletExcluirFuncionario",
-            	        type: 'get',
-            	        data: {
-            	          id: codigo
-            	        },
-            	        beforeSend: function() {
-            	          $("#mensagem").text("Analisando a solicitação...");
-            	        },
-            	        success: function(msg) {
-            	          $("#divForm").html("");
-            	          $("#mensagem").html("");
-            	          $mostraMensagem.text("Exclusao efetuada com sucesso");
-            	          carregaTabela();
-            	        },
-            	        error: function(msg) {
-            	          $("#mensagem").html("");
-            	          $.mostraMensagem("erro");
-            	        }
-            	      });
-            	    });
-            	  };
-
-            	  $.editar = function(codigo) {
-            	    $.ajax({
-
-            	      url: "http://localhost:8282/CadastroFuncionarios/ServletModificarFuncionario",
-            	      type: 'get',
-            	      data: {
-            	        id: codigo
-            	      },
-            	      beforeSend: function() {
-            	        $("#mensagem").text("Analisando a solicitação...");
-            	      },
-            	      success: function(msg) {
-            	        $("#divForm").html("");
-            	        $("#mensagem").text(msg);
-            	        $mostraMensagem.modal('show');
-            	        carregaTabela();
-            	      },
-            	      error: function(msg) {
-            	        $("#mensagem").html("");
-            	        $("#msgModal").text(msg);
-            	        $('#modalMensagem').modal('show');
-            	      }
-            	    });
-            	  };
-
-            	  $.mostraForm = function() {
-
-            	    $("#divForm").html(preparaForm());
-            	    $("#mensagem").html("")
-            	  }
-
-            	  $.salvar = function() {
-
-            	    let codigo = $("#idForm").val();
-            	    let descricao = $("#descricaoForm").val();
-            	    descricao = descricao.toUpperCase();
-            	    let quantidade = $("#quantForm").val();
-            	    let preco = $("#pUnitForm").val();
-
-            	    if (codigo === "") {
-            	      codigo = 0;
-            	    }
-
-            	    if (descricao.length == 0 || descricao == "") {
-            	      $.mostraMensagem("Descricao deve ser informada");
-            	    } else {
-            	      $.enviaDadosCadastro(codigo, descricao, quantidade, preco);
-            	    }
-            	  }
-
-            	  $.enviarDadosCadastro = function(codigo, descricao, quantidade, preco) {
-            	    $.ajax({
-            	      url: "urlDoServlet",
-            	      type: 'get',
-            	      data: {
-            	        id: codigo,
-            	        descricao: descricao,
-            	        quantidade: quantidade,
-            	        precounit: preco
-            	      },
-
-            	      beforeSend: function() {
-            	        $("#mensagem").html("Enviando / salvando dados...");
-            	      },
-            	      success: function(msg) {
-            	        $("#mensagem").html("");
-            	        $mostraMensagem(msg.mensagem);
-            	        carregaTabela();
-            	      },
-            	      error: function(msg) {
-            	        $("#mensagem").html("");
-            	        $mostraMensagem(msg.mensagem);
-            	      }
-            	    });
-            	  };
-
-            	  $.populaForm = function(codigo) {
-
-            	    $.ajax({
-
-            	      url: "urlDoServlet",
-            	      type: 'get',
-            	      data: {
-            	        id: codigo,
-            	      },
-
-            	      beforeSend: function() {
-            	        $("#mensagem").html("Consultando dados...");
-            	      },
-            	      success: function(msg) {
-            	        $("#mensagem").html("");
-            	        if (msg.id != 0) {
-
-            	          $("#idForm").val(msg.id);
-            	          $("#descricaoForm").val(msg.descricao);
-            	          $("#quantForm").val(msg.quantidade);
-            	          $("#pUnitForm").val(msg.precounit);
-            	        }
-            	      },
-            	      error: function(msg) {
-            	        $("#mensagem").html("");
-            	        $mostraMensagem(msg[0].mensagem);
-            	      }
-            	    });
-            	  };
-
-
-
-            	  $.limpar = function() {
-            	    $("#divForm").html("");
-            	  }
-
-            	  $.mostraMensagem = function(msg) {
-
-            	    $("#msgModal").text(msg);
-            	    $("modalMensagem").modal();
-            	  }
-            	});
-            	
-            	
+    <script>
+        $(document).ready(function () {
+            $("a#cadastro.btn.btn-dark").click(function () {
+                $("#conteudo").load("cadastro.html");
+            });
+        });
+        
+        $(document).ready(function () {
+            $("a#consultar").click(function () {
+                $("#conteudo").load("consultar.html");
+            });
+        });
     </script>
-    
-      <!-- Bootstrap Scripts  -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+    <!-- Bootstrap Scripts  -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -457,4 +122,5 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
