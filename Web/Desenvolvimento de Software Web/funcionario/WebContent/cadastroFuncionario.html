@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title></title>
+	<!-- Bootstrap 4  -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+<style>
+
+#divForm {
+	margin-left: 20%;
+}
+
+</style>
+</head>
+<body>
+	<!--  div para apresentar mensagens na parte superior da página -->
+	<div id="mensagem" class="alinhar"></div>
+	<div id="divTabela" class="alinhar"></div>
+
+	<div id="divForm" class="alinhar"></div>
+
+
+	<div class="modal fade" id="modalMensagem">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Aviso</h4>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>x</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div id="msgModal"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="modalConfirma">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Confirmação</h4>
+					<button type="button" class="close" data-dismiss="modal">
+						<span>x</span>
+					</button>
+				</div>
+				<div class="modal-body">Confirma exclusão?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" id="btn-fechar"
+						data-dismiss="modal">Fechar</button>
+					<button type="button" class="btn btn-success" id="btn-confirmar"
+						data-dismiss="modal">Confirmar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- JQuery/Ajax Link  -->
+	<script src="js/jquery-3.5.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	
+	<script>
+	  function excluir(msg)
+	  {
+		$.excluir(msg);
+	  }
+		   
+	  function editar(msg)
+	  {
+		$.mostraForm();
+		$.populaForm(msg);
+	  }
+		   
+	  function novo()
+	  {
+		$.mostraForm();
+	  }
+	
+	  function salvar()
+	  {
+		$.salvar();
+	  }
+	   	   
+	  function preparaForm()
+	  {
+		return(
+				'<body>\n' + 
+				'	<div class=\"mdl-layout mdl-js-layout\">\n' + 
+				'		<div class=\"mdl-layout mdl-js-layout\">\n' + 
+				'			<main class=\"mdl-layout__content\">\n' + 
+				'				<div class=\"mdl-card mdl-shadow--8dp\">\n' + 
+				'					<div class=\"mdl-card__title mdl-color--grey-800 mdl-color-text--white\">\n' + 
+				'					</div>\n' + 
+				'					<div class=\"mdl-card__supporting-text\">\n' + 
+				'							<div class=\"mdl-textfield mdl-js-textfield\">\n' + 
+				'								<input class=\"mdl-textfield__input\" type=\"text\" id=\"nomeForm\" required />' +
+				'							<label class=\"mdl-textfield__label\">Nome</label>\n' + 
+				'							</div>\n' + 
+				'							<input class=\"mdl-textfield__input\" type=\"text\" id=\"cpfForm\" maxlength=\"11\" required />' +
+				'                               <label class=\"mdl-textfield__label\">CPF</label>\n' + 
+				'						</div>\n' + 
+				'							<div class=\"mdl-textfield mdl-js-textfield\">\n' + 	
+				'							<input class=\"mdl-textfield__input\" type=\"text\" id=\"nascimentoForm\" maxlength=\"10\" required />' + 
+				'                           <label class=\"mdl-textfield__label\">Nascimento</label>\n' +
+				'						</div>\n' + 
+				'							<div class=\"mdl-textfield mdl-js-textfield\">\n' + 
+				'							<input class=\"mdl-textfield__input\" type=\"text\" id=\"salarioForm\" required />\n' + 
+				'								<label class=\"mdl-textfield__label\"> Salário Base</label>\n' + 
+				'							</div>\n' + 
+				'							<div class=\"row\">\n' + 
+				'								<div class=\"col-sm-6\">\n' + 
+				'									<label>Departamento: </label>\n' + 
+				'								</div>\n' + 
+				'								<div class=\"col-sm-6\">\n' + 
+				'									<select id=\"departamentoForm\">\n' + 
+				'										<option value=\"\">Selecione</option>\n' + 
+				'										<option value=\"Diretoria\">Diretoria</option>\n' + 
+				'										<option value=\"Administrativo\">Administrativo</option>\n' + 
+				'										<option value=\"TI\">Tecnologia da Informação</option>\n' + 
+				'										<option value=\"Financeiro\">Financeiro</option>\n' + 
+				'									</select>\n' + 
+				'								</div>\n' + 
+				'							</div>\n' + 
+				'							<div class=\"row\">\n' + 
+				'								<div class=\"col-sm-6\">\n' + 
+				'									<label>Cargo: </label>\n' + 
+				'								</div>\n' + 
+				'								<div class=\"col-sm-6\">\n' + 
+				'									<select id=\"cargoForm\">\n' + 
+				'										<option value=\"\">Selecione</option>\n' + 
+				'										<option value=\"Diretor\">Diretor</option>\n' + 
+				'										<option value=\"Assistente\">Assistente</option>\n' + 
+				'										<option value=\"Auxiliar\">Auxiliar</option>\n' + 
+				'										<option value=\"Estagiario\">Estagiário</option>\n' + 
+				'									</select>\n' + 
+				'								</div>\n' + 
+				'							</div>\n' + 
+				'							<div class=\"container-fluid\">\n' + 
+				'								<div class=\"row\">\n' + 
+				'									<div class=\"col-sm-6\">\n' + 
+				'										<button type=\"submit\" value=\"salvar\" name=\"salvar\"\n' + 
+				'											class=\"btn btn-success btn-lg\" onclick=\"salvar()\" >Salvar</button>\n' + 
+				'									</div>\n' + 
+				'									<div class=\"col-sm-6\">\n' + 
+				'										<button type=\"reset\" value=\"reset\" name=\"limpar\"\n' + 
+				'											class=\"btn btn-danger btn-lg\" onclick=\"$.limpar()\" >Limpar</button>\n' + 
+				'									</div>\n' + 
+				'								</div>\n' + 
+				'							</div>\n' + 
+				'						</form>\n' + 
+				'					</div>\n' + 
+				'				</div>\n' + 
+				'			</main>\n' + 
+				'		</div>\n' + 
+				'	</div>\n' 
+				
+		);}
+	  
+		
+	function mostraCabTabela () 
+	{
+	    return(
+				 '<table class="table table-striped-primary table-hover" >' +
+				 '<thead>' +
+				 '<tr>' +
+				 '<th style="text-align: center" scope="col">Código</th>' +
+				 '<th style="text-align: center" scope="col">Nome</th>' +
+				 '<th style="text-align: center" scope="col">Cpf</th>' +
+				 '<th style="text-align: center" scope="col">Nascimento</th>' +
+				 '<th style="text-align: center" scope="col">Salário</th>' +
+				 '<th style="text-align: center" scope="col">Cargo</th>' +
+				 '<th style="text-align: center" scope="col">Departamento</th>' +
+				 
+				 '<th style="text-align: center" scope="col">Editar</th>' +
+				 '<th style="text-align: center" scope="col">Excluir</th>' +
+				 '</tr>' +
+				 '</thead>'
+			  );
+	}
+
+	function mostraLinhaTabela(data) 
+	{
+		return(
+			     '<tr><td style="text-align: center">' + data.funcionarioId + '</td>' +
+				 '<td style="text-align: center">' + data.nomeFuncionario + '</td>' +
+				 '<td style="text-align: center">' + data.cpf + '</td>' +
+				 '<td style="text-align: center">' + data.nascimento + '</td>' +
+				 '<td style="text-align: center">' + data.salario + '</td>' +
+				 '<td style="text-align: center">' + data.nomeCargo + '</td>' +
+				 '<td style="text-align: center">' + data.nomeDepartamento + '</td>' +
+				 
+				 '<td style="text-align: center"><button class="btn btn-success" id="btnEditar" onclick="editar(' + data.funcionarioId + ')">Editar</button></td>' +
+				 '<td style="text-align: center"><button class="btn btn-danger" id="btnExcluir" onclick="$.excluir(' + data.funcionarioId + ')">Excluir</button></td></tr>'
+			  );
+    }
+
+	function carregaTabela () 
+	{
+		$.ajax({
+				  url: "http://localhost:8282/funcionarios/ServletAll",
+				  type: 'get',
+				  data: {},
+				  beforeSend: function() { $("#mensagem").html("Analisando dados..."); },
+				  success: function(msg) 
+				  {
+					  
+					let table = mostraCabTabela() + '<tbody>';
+
+					for(let i=0;i < msg.length; i++) { table += mostraLinhaTabela(msg[i]); }
+					table += '</tbody></table>';
+					table += '</br><button class="btn btn-primary" onclick="novo()">NOVO</button>';
+					$('#divTabela').html(table);
+					$('#mensagem').html('');
+					$('#divForm').html('');
+                    if (msg.length == 0)
+    					$.mostraMensagem("Nenhum Funcionário Cadastrado!");
+				  },
+				  error: function(msg) 
+				  {
+					$("#mensagem").html(" ");
+					$.mostraMensagem("erro");
+				  }
+			  });
+	}//fim carregaTabela
+
+	$(document).ready(function() 
+	{
+			  carregaTabela();
+
+			  $.excluir = function (codigo) 
+			  {
+				   $("#modalConfirma").modal();
+				   $("#btn-confirmar").click(function()
+				   {
+					   //$('#modalConfirma').modal('none');
+					   $.ajax(
+							   {
+									url : "http://localhost:8282/funcionarios/ServletExcluirFuncionarioPorID",
+									type : 'get',
+									data :{ id : codigo	},
+									beforeSend : function()
+									{
+									   $("#mensagem").text("Analisando a solicitação...");
+									},
+									success: function(msg)
+									{
+									   $("#divForm").html("");	
+									   $("#mensagem").html(" ");
+									   $.mostraMensagem("Exclusão efetuada com sucesso");
+									   carregaTabela();
+									},
+									error: function(msg)
+									{
+									   $("#mensagem").html(" ");
+									   $.mostraMensagem(msg.mensagem);
+									}
+							   });
+
+				   });
+				   
+			};//fim $.excluir
+
+			$.editar = function (codigo) 
+			{
+			   $.ajax(
+			   {
+					 url : "http://localhost:8282/funcionarios/ServletEditarPorID",
+					 type : 'get',
+					 data : { funcionarioId : codigo },
+					 beforeSend : function()
+					 {
+						  $("#mensagem").html("Analisando a solicitação...");
+					 },
+					 success: function(msg)
+					 {
+						$("#mensagem").html(" ");
+						$("msgModal").text(msg);
+						$('#modalMensagem').modal('show');
+						carregaTabela();
+					 },
+					 error: function(msg)
+					 {
+						$("#mensagem").html(" ");
+						$("msgModal").text(msg);
+						$('#modalMensagem').modal('show');
+					}
+			   });
+			 };//fim $.editar
+			 
+			$.mostraForm = function () 
+			{
+				 $("#divForm").html(preparaForm());	
+				 $("#mensagem").html("");
+			};
+				
+			$.salvar = function()
+			{
+					let codigo = $("#idForm").val();
+					let nome = $("#nomeForm").val();
+					let cpf = $("#cpfForm").val();
+					let nascimento = $("#nascimentoForm").val();
+					let salario = $("#salarioForm").val();
+					let cargo = $("#cargoForm").val();
+					let departamento = $("#departamentoForm").val();
+
+					if (codigo === "")
+					{
+						codigo=0;
+					}		
+					if (nome.length ==0 || nome =="")
+					{
+						$.mostraMensagem("Nome Funcionário deve ser informado");	     
+					}
+					else
+					{
+						  $.enviarDadosCadastro(codigo,nome,cpf,nascimento,salario,cargo,departamento);
+					}
+			}//fim $salvar
+			 
+			$.enviarDadosCadastro = function(codigo,nome,cpf,nascimento,salario,cargo,departamento)
+			{
+					$.ajax(
+					{
+							 url : "http://localhost:8282/funcionarios/ServletAdicionaFuncionario",
+							 type : 'get',
+							 data : {
+									  funcionarioId: codigo,
+									  nomeFuncionario: nome,
+									  cpf: cpf,
+									  nascimento: nascimento,
+									  salario: salario,
+									  nomeCargo: cargo,
+									  nomeDepartamento: departamento
+							 },
+							 beforeSend : function()
+							 {
+								  $("#mensagem").html("Enviando / salvando dados...");
+							 },
+							 success: function(msg)
+							 {
+								
+								$("#mensagem").html(" ");
+								$.mostraMensagem(msg.mensagem);
+								carregaTabela();
+							 },
+							 error: function(msg)
+							 {
+								$("#mensagem").html(" ");
+								$.mostraMensagem(msg.mensagem);
+							}
+					  });//fim ajax
+		   }//fim enviarDadosCadastro
+				
+		   $.populaForm = function (codigo) 
+		   {
+				$.ajax(
+				{
+					 url : "http://localhost:8282/funcionarios/ServletConsultaPorID",
+					 type : 'get',
+					 data : {
+							   funcionarioId: codigo,
+							},
+							beforeSend : function()
+							{
+								$("#mensagem").html("Consultando dados...");
+						    },
+							success: function(msg)
+							{
+								$("#mensagem").html(" ");
+								if (msg.id !=0)
+								{
+									$("#idForm").val(msg.funcionarioId);
+									$("#nomeForm").val(msg.nome);
+									$("#cpfForm").val(msg.cpf);
+									$("#nascimentoFrom").val(msg.nascimento);
+									$("#salarioForm").val(msg.salario);
+									$("#cargoForm").val(msg.nomeCargo);
+									$("#departamentoForm").val(msg.nomeDepartamento);
+
+								}
+							},
+							error: function(msg)
+							{
+								$("#mensagem").html(" ");
+								$.mostraMensagem(msg[0].mensagem);
+							}
+				})	     
+		 };//fim $.populaForm
+				
+		 $.limpar = function()
+		 {
+			$("#divForm").html("");
+		 }
+			  
+		 $.mostraMensagem = function(msg)
+		 {
+			 $("#msgModal").text(msg);
+			 $("#modalMensagem").modal();
+		 }
+				
+	});//fim jquery 
+		   
+		
+	</script>
+	
+
+</body>
+</html>
