@@ -20,5 +20,4 @@ persons.shift();  // Permitido remoção de itens // remove o primeiro item
 persons[1] = 'Debra';  // Permitido alteração dinâmica
 // ['Alice', 'Debra', 'John']
 
-
 console.log('\nArray após alterações: ', persons);
