@@ -48,7 +48,7 @@ SET SQL_SAFE_UPDATES = 0;
 /* TESTANDO INSERÇÕES */
 insert into cargo (cargoID,nome) values (0,'Estagiário');
 insert into departamento (departamentoID,nomeDepartamtento) values (0,'TI');
-insert into funcionario (cpf,IDcargo,IDdepartamento,nome,nascimento,salario) values (70399247149,1,1,'Bruno C. Manso', '30-10-1980', 10000.00);
+insert into funcionario (cpf,IDcargo,IDdepartamento,nome,nascimento,salario) values (6378676786,1,1,'Bruno C. Manso', '30-10-1980', 10000.00);
 
 
 /* SELECTS */ 
