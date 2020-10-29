@@ -1,4 +1,4 @@
-package br.edu.pucgoias.apicliente.controller;
+package br.edu.pucgoias.apiclientes.controller;
 
 import java.util.List;
 import java.util.Optional;
