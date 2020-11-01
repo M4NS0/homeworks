@@ -1,0 +1,31 @@
+<!-- 7. Editing First App  -->
+
+<input type="text" [(ngModel)]="typeHere">
+
+<!-- 
+      
+        [(ngModel)] is called directive 
+        tells angular to list anything you enter and store
+        app.modules.ts must imports the FormsModule inside the ngModule
+        it allows while its typing, it will appears under the form inside <p>
+        
+        in app.components.ts document:
+                import {FormsModule} from '@angular/forms'; // to add forms to angular
+                imports: [BrowserModule,FormsModule],       // to add forms inside ngModules
+        
+-->
+
+<p>
+        <br>You just typed: <br> 
+        <br>- {{typeHere}}
+</p>  
+
+<!-- 
+    
+      Document app.components must the variable typeHere and its value 
+      so it will spawn inside <p> {{typeHere}} <p>
+      
+      in app.components.ts document:  
+                export class AppComponent { typeHere = 'James Marshall Hendrix'; }
+
+} -->
