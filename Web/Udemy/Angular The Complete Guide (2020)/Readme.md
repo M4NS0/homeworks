@@ -8,17 +8,19 @@
 
 1. Installing
 ```sh
-    sudo npm install -gangular/cli@latest
+    sudo npm install -g angular/cli@latest
+    sudo npm install @angular/http@latest
 ```
 
 2. Creating a project
 ```sh
+    
     ng new my-first-app
 ```
 
 3. Running your project
 ```sh
-    cd my-first app
+    cd my-first app 
     ng serve
 ```
 
@@ -35,5 +37,7 @@
 ##### Sumary:
 1. My-first-app
     Typing inside a form while it's shown under it.
-2. 
 
+
+
+> 8. Working with components  <

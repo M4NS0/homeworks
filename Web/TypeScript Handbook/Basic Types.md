@@ -25,7 +25,9 @@
         " years old next month.";
 ```
 
-#### Arrays
+<br>
+
+###### Arrays
 >TypeScript, like JavaScript, allows you to work with arrays of values. Array types can be written in one of two ways. 
 >In the first, you use the type of the elements followed by [] to denote an array of that element type:
 ```ts
@@ -35,7 +37,9 @@
 ```ts
     let list2: Array<number> = [1, 2, 3];
 ```
-#### Tuple
+<br>
+
+###### Tuple
 >Tuple types allow you to express an array with a fixed number of elements whose types are known, 
 >but need not be the same. For example, you may want to represent a value as a pair of a string and a number:
 
@@ -62,7 +66,9 @@
     // Tuple type '[string, number]' of length '2' has no element at index '5'.
 ```
 
-#### Enum
+<br>
+
+###### Enum
 >A helpful addition to the standard set of datatypes from JavaScript is the enum. As in languages like C#, 
 >an enum is a way of giving more friendly names to sets of numeric values.
 ```ts
@@ -97,7 +103,9 @@
     console.log(colorName);
 ```
 
-#### Unknown
+<br>
+
+###### Unknown
 >We may need to describe the type of variables that we do not know when we are writing an application. 
 >These values may come from dynamic content or we may want to intentionally accept all values in our API.
 >In these cases, we want to provide a type that tells the compiler and future readers that this variable 
@@ -129,7 +137,9 @@
     }
 ```
 
-#### Any
+<br>
+
+###### Any
 >In some situations, not all type information is available or its declaration would take an 
 >inappropriate amount of effort. These may occur for values from code that has been written 
 >without TypeScript or a 3rd party library. In these cases, we might want to opt>out of type 
@@ -162,7 +172,9 @@
     let d = looselyTyped2.a.b.c.d;
     //  ^ = let d: any
 ```
-#### Void
+<br>
+
+###### Void
 >void is a little like the opposite of any: the absence of having any type at all. 
 >You may commonly see this as the return type of functions that do not return a value:
 
@@ -174,4 +186,91 @@
 >Declaring variables of type void is not useful because you can only assign null 
 >(only if >strictNullChecks is not specified, see next section) or undefined to them:
 ```ts
-let unusable: void = undefined;
+    let unusable: void = undefined;
+    // Ok if `--strictNullChecks`is not given
+    unusable = null;
+```
+<br>
+
+###### Null and Undefined
+>In TypeScript, both undefined and null actually have their types named undefined and 
+>null respectively. Much like void, they’re not extremely useful on their own:
+```ts
+    let u: undefined = undefined;
+    let n: null = null;
+```
+>By default null and undefined are subtypes of all other types. 
+>That means you can assign null and undefined to something like number.
+>However, when using the --strictNullChecks flag, null and undefined are only assignable 
+>to unknown, any and their respective types (the one exception being that undefined is 
+>also assignable to void). This helps avoid many common errors. In cases where you want 
+>to pass in either a string or null or undefined, you can use the union type string | null | undefined.
+
+<br>
+
+###### Never
+>The never type represents the type of values that never occur. For instance, never is the return type 
+>for a function expression or an arrow function expression that always throws an exception or one that 
+>never returns. Variables also acquire the type never when narrowed by any type guards that can never be true.
+
+>Function returning never must not have a reachable end point:
+```ts
+    function error(message: string): never {
+        throw new Error(message);
+    }
+```
+> Inferred return type is never:
+```ts
+    function fail() {
+        return error("Something failed");
+    }
+```
+> Function returning never must not have a reachable end point:
+```ts
+    function infiniteLoop(): never {
+        while(true) {}
+    }
+```
+<br>
+
+###### Object
+
+>object is a type that represents the non-primitive type, i.e. anything that is not number, 
+>string, boolean, bigint, symbol, null, or undefined.With object type, APIs like Object.create 
+>can be better represented. For example:
+```ts
+    declare function create(o: object | null):
+    // OK
+    create({prop:0});
+    create(null);
+    
+    //create(42);       // Argument of type '42' is not assignable to parameter of type 'object | null'.
+    //create("String"); // Argument of type '"string"' is not assignable to parameter of type 'object | null'.
+    //create(false);    // Argument of type 'false' is not assignable to parameter of type 'object | null'.
+    //create(undefined);// Argument of type 'undefined' is not assignable to parameter of type 'object | null'.
+```
+<br>
+
+###### Type Assertions
+>Sometimes you’ll end up in a situation where you’ll know more about a value than TypeScript does. 
+>Usually, this will happen when you know the type of some entity could be more specific than its current type.
+
+>Type assertions are a way to tell the compiler “trust me, I know what I’m doing.” A type assertion 
+>is like a type cast in other languages, but it performs no special checking or restructuring of data. 
+>It has no runtime impact and is used purely by the compiler. TypeScript assumes that you, the programmer, 
+>have performed any special checks that you need.
+
+>As syntax:
+```ts
+    let someValue: unknown = "this is a string";
+    let strLenght: number = (someValue as string).lenght;
+```
+
+>Angle-bracket syntax
+```ts
+    let someValue = unknown ="this is a string";
+    let strLenght: number = (<string>someValue).lenght;
+```
+>when using TypeScript with JSX, only as-style assertions are allowed!
+
+<br>
