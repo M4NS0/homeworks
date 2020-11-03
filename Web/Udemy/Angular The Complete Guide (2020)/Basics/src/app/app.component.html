@@ -1,0 +1,63 @@
+<!--
+    Angular The Complete Guide (2020), The Basics, Class 1 to 11
+    
+    adding a bootstrap containter  
+    inside app.component.css will be written the css code for this template
+-->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- contains the template of the component   -->
+
+            <h3>I'm in the AppComponent!</h3>
+            <hr>
+                <!--
+                
+                - Using selectors -
+
+                First way:
+                <app-servers></app-servers>  (oldest code) 
+
+                Second way: 
+                By changing the selector (to selector: '[app-servers]',) of the file servers.components.ts, this line above 
+                won't work anymore because now this class is referenced by an array of attributes
+
+                that line above will be replaced by the div with app-servers reference with a custom attribute, 
+                angular will select the element by attribute and not by element by itself:
+
+                <div app-servers></div> (old code)
+
+                Third way: 
+                After changing the servers.component.ts once more, adding a class selector 
+                (selector: '.app-servers',) can now add a div with a app-servers reference class on it
+
+                This way, makes a selector unique, less generic, as bellow:
+               
+                -->
+
+            <div class="app-servers"></div> 
+        </div>
+    </div>
+</div>
+
+
+<!--
+    Angular The Complete Guide (2020), The Basics, Class 11 to 
+-->
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <br>
+            <ol>
+                <li>Create two new Components (manually or with CLI): WarningAlert and SuccessAlert</li>
+                <li>Output them beneath each other in the AppComponent</li>
+                <li>Output a warning or a success message in the Components</li>
+                <li>Style the Components appropriately (maybe some red/green text?)</li>
+            </ol>
+            <p>Use external or internal templates and styles!</p>
+            <p>Feel free to create more components, nest them into each orher or play around with different types of selectors.</p>
+        </div>
+    </div>
+</div> -->
