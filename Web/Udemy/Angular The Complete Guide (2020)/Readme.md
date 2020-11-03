@@ -38,6 +38,3 @@
 1. My-first-app
     Typing inside a form while it's shown under it.
 
-
-
-> 8. Working with components  <
