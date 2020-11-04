@@ -4,7 +4,9 @@
 >* A framework for building client applications 
 >* HTML, CSS, JavaScript/TypeScript 
 >* *It's hard to maintain the vanilla JavaScript or JQuery in bigger applications*
+
 <br>
+
 > ###### *Benefits of Angular framework:*
 >* Gives our applications a clean structure 
 >* Includes a lot of reusable code
@@ -106,5 +108,40 @@
 | tsconfig.json      | Settings for TypeScript compiler to JavaScript                                                                                               |
 | tslint.json        | Setting for tslint, a static analises tool for TypeScript code readability, maintainability and functionality errors                         |
 
+#### Hot Module Reloading (HMR)
+Angular recompiles the application after changes, afecting their bunddles which going to pass new values
+All the bunddles injects JS libraries, polyfills and stylesheets into the application into the index.html
 
-### Bookmark: 7. Webpack
+
+
+
+<br>
+
+|                                                           |               |          |                          |
+| --------------------------------------------------------- | ------------- | -------- | ------------------------ |
+| Title                                                     | Topic         | Modules  | link                     |
+| Fundamentals of TypeScript and Object-Oriented Programing | **Essentials**    |          | http://gooooooooogle.com |
+| Angular Fundamentals                                      | **Essentials**    |          |                          |
+| Displaying data and handling events                       | **Essentials**    |          |                          |
+| Components                                                | **Essentials**    |          |                          |
+| Directives                                                | **Essentials**    |          |                          |
+| Template-driven Froms                                     | **Essentials**    |          |                          |
+| Reactive Forms*                                           | **Essentials**    |          |                          |
+| Comsuming HTTP services*                                  | **Essentials**    |          |                          |
+| Routing and navigation                                    | **Essentials**    |          |                          |
+| Authentication and authorization*                         | **Essentials**    |          |                          |
+| Deployment                                                | **Essentials**    |          |                          |
+| Building real-time, servless application with Firebase    | **Essentials**    |          |                          |
+| Animations                                                | **Advanced**      |          |                          |
+| Angular Material                                          | **Advanced**      |          |                          |
+| Redux                                                     | **Advanced**      |          |                          |
+| Unit testing                                              | **Advanced**      |          |                          |
+| Integration Testing                                       | **Advanced**      |          |                          |
+| Shopping cart app                                         | **Final Project** |          |                          |
+
+**are opitional because the final project does not have a back-end, Firebird is used instead*
+
+
+<br>
+
+###### > Bookmark: 8. Webpack
