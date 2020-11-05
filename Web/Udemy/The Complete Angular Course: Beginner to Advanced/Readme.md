@@ -117,27 +117,27 @@ All the bunddles injects JS libraries, polyfills and stylesheets into the applic
 
 <br>
 
-|                                                           |               |          |                          |
-| --------------------------------------------------------- | ------------- | -------- | ------------------------ |
-| Title                                                     | Topic         | Modules  | link                     |
-| Fundamentals of TypeScript and Object-Oriented Programing | **Essentials**    |          | http://gooooooooogle.com |
-| Angular Fundamentals                                      | **Essentials**    |          |                          |
-| Displaying data and handling events                       | **Essentials**    |          |                          |
-| Components                                                | **Essentials**    |          |                          |
-| Directives                                                | **Essentials**    |          |                          |
-| Template-driven Froms                                     | **Essentials**    |          |                          |
-| Reactive Forms*                                           | **Essentials**    |          |                          |
-| Comsuming HTTP services*                                  | **Essentials**    |          |                          |
-| Routing and navigation                                    | **Essentials**    |          |                          |
-| Authentication and authorization*                         | **Essentials**    |          |                          |
-| Deployment                                                | **Essentials**    |          |                          |
-| Building real-time, servless application with Firebase    | **Essentials**    |          |                          |
-| Animations                                                | **Advanced**      |          |                          |
-| Angular Material                                          | **Advanced**      |          |                          |
-| Redux                                                     | **Advanced**      |          |                          |
-| Unit testing                                              | **Advanced**      |          |                          |
-| Integration Testing                                       | **Advanced**      |          |                          |
-| Shopping cart app                                         | **Final Project** |          |                          |
+|                                                           |                   |         |
+| --------------------------------------------------------- | ----------------- | ------- |
+| Title                                                     | Topic             | Modules |
+| Fundamentals of TypeScript and Object-Oriented Programing | **Essentials**    |         |
+| Angular Fundamentals                                      | **Essentials**    |         |
+| Displaying data and handling events                       | **Essentials**    |         |
+| Components                                                | **Essentials**    |         |
+| Directives                                                | **Essentials**    |         |
+| Template-driven Froms                                     | **Essentials**    |         |
+| Reactive Forms*                                           | **Essentials**    |         |
+| Comsuming HTTP services*                                  | **Essentials**    |         |
+| Routing and navigation                                    | **Essentials**    |         |
+| Authentication and authorization*                         | **Essentials**    |         |
+| Deployment                                                | **Essentials**    |         |
+| Building real-time, servless application with Firebase    | **Essentials**    |         |
+| Animations                                                | **Advanced**      |         |
+| Angular Material                                          | **Advanced**      |         |
+| Redux                                                     | **Advanced**      |         |
+| Unit testing                                              | **Advanced**      |         |
+| Integration Testing                                       | **Advanced**      |         |
+| Shopping cart app                                         | **Final Project** |         |
 
 **are opitional because the final project does not have a back-end, Firebird is used instead*
 
