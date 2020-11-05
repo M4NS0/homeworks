@@ -24,5 +24,5 @@ Class are groups of variables (properties) and functions(methods) that are highl
 #### Transpiling:
 ```sh
     sudo npm install -g typescript
-    tsc main.ts | node main.js
+    tsc *.ts && node main.js
 ```

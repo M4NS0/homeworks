@@ -67,5 +67,5 @@ But interfaces can hold a signature of a function:
 #### Transpiling:
 ```sh
     sudo npm install -g typescript
-    tsc main.ts | node main.js
+    tsc *.ts && node main.js
 ```

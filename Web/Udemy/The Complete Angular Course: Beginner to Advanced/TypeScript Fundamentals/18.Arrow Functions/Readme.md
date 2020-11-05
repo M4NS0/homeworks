@@ -21,5 +21,5 @@
 #### Transpiling:
 ```sh
     sudo npm install -g typescript
-    tsc main.ts | node main.js
+    tsc *.ts && node main.js
 ```

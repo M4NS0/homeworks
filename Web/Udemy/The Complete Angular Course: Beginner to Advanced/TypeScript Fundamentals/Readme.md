@@ -32,15 +32,4 @@ TypeScript is Transpiled in JavaScript code
     node main.js
 ```
 
-|                  |         | 
-| ---------------- | ------- | 
-| Title            | Modules | 
-| Type Annotations |         |      
-| Arrow Functions  |         |      
-| Interfaces       |         |      
-| Classes          |         |      
-| Constructors     |         |      
-| Access Modifiers |         |      
-| Properties       |         |      
-| Modules          |         |      
 
