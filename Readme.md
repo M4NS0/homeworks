@@ -2,6 +2,6 @@
 
 <br> 
 
-<img src="CodeCloud.png" width="80%" height="auto" />
+<img src="CodeCloud.png" width="60%" height="auto" />
 
 
