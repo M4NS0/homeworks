@@ -119,6 +119,6 @@ To solve this issue is a good practice is prefixing the variables in constructor
 #### Transpiling:
 ```sh
     sudo npm install -g typescript
-    tsc main.ts | node main.js
+    tsc *.ts && node main.js
 ```
 
