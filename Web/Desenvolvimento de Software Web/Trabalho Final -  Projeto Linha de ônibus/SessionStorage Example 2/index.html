@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="order-wrap">
+        <h1>A Test with HTML5 Session Storage</h1>
+        <p>Nothing terribly fancy; however, if you read through the JS, the value setters and getters are pure HTML5
+            sessionStorage. Enjoy!</p>
+        <div id="info-wrap">
+            <h2>Information About Yourself</h2>
+            <div class="row">
+                <label for="first-name">First Name</label>
+                <input id="first-name" type="text" />
+            </div>
+            <!--.row-->
+            <div class="row">
+                <label for="last-name">Last Name</label>
+                <input id="last-name" type="text" />
+            </div>
+            <!--.row-->
+            <div class="row">
+                <label for="state">State of Residence</label>
+                <input type="text" id="state" />
+            </div>
+            <button onclick="store();" id="submit" value="Click to Submit">Submit</button>
+        </div>
+        <!--info-wrap-->
+        <div id="target"></div>
+    </div>
+
+    <script>
+        //Declare your vars
+        var submit = document.getElementById("submit");
+        var firstName = document.getElementById("first-name");
+        var lastName = document.getElementById("last-name");
+        var state = document.getElementById("state");
+
+        //Make a display function
+        function display() {
+            var target = document.getElementById('target');
+            var firstName = sessionStorage.getItem('firstName');
+            var lastName = sessionStorage.getItem('lastName');
+            var state = sessionStorage.getItem('state');
+            target.innerHTML = "Your name is " + firstName + " " + lastName + " and you live in " + state;
+        }
+
+        //Set the Session Storage
+        function store() {
+            if (firstName.value != "" && lastName.value != "" && state.value != "") {
+                sessionStorage.setItem('state', state.value);
+                sessionStorage.setItem('firstName', firstName.value);
+                sessionStorage.setItem('lastName', lastName.value);
+                display();
+            }
+            else {
+                alert('Please fill out the form.');
+            }
+        }
+    </script>
+</body>
+
+</html>
