@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="loginwrap">
+            <h1>Criar nova Conta</h1>
+        </div>
+        <div id="signupForm">
+            <form action="page-user.html" method="post" id="loginform" onsubmit="return newUser()">
+                <div class="labels">
+                    <label for="email">* E-mail:</label>
+                </div>
+                <div class="rightTab">
+                    <input type="email" name="email" id="email" class="input-field" placeholder="insira seu E-mail..."
+                        required>
+                </div>
+                <div class="labels">
+                    <label for="Password">* Senha</label>
+                </div>
+                <div class="rightTab">
+                    <input type="password" name="password" id="password" class="input-field" placeholder="nova senha..."
+                        required>
+                </div>
+                <div class="labels">
+                    <label for="password">* Confirme a senha: </label>
+                </div>
+                <div class="rightTab">
+                    <input type="password" name="password" id="password" class="input-field" placeholder="repita sua nova senha..." required>
+                </div>
+                <div class="labels">
+                    <label for="permission">* Tipo de Permissão: </label>
+                </div>
+                <select type=text id="permission" name="permission">
+                    <option value=""></option>
+                    <option value="Administrador">Administrador</option>
+                    <option value="Usuario">Usuário</option>
+                </select>
+
+                <div id="loginwrap">
+                    <hr>
+                    <input class="button" type="submit" value="Submit">
+                </div>
+
+               
+
+        </div>
+    </div>
+
+    </form>
+    </div>
+
+    <div class="bottomnav">
+        <a href="index.html">Home</a>
+    </div>
+    </div>
+    <script>
+        function newUser() {
+            var userName = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var permission = document.getElementsById('permission').value;
+            sessionStorage.setItem("email", userName);
+            sessionStorage.setItem("password", password);
+            sessionStorage.setItem("permission", permission);
+
+            let user = Array ({
+                email: userName,
+                password: password,
+                permission: permission
+            });
+
+            localStorage.setItem('user',JSON.stringify(users));
+            console.log(user);
+        }
+
+    </script>
+</body>
+
+</html>

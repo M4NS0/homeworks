@@ -1,4 +1,4 @@
-package br.com.crudelis.modelCerto;
+package br.com.crudelis.model;
 
 public class Rendimento extends Aluno {
 

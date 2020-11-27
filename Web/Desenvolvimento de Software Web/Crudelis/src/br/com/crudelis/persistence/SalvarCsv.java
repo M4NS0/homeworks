@@ -1,4 +1,4 @@
-package br.com.crudelis.csv;
+package br.com.crudelis.persistence;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

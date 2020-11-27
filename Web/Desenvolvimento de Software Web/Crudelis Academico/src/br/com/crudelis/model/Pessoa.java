@@ -1,38 +1,23 @@
 package br.com.crudelis.model;
 
 public class Pessoa {
-	String nome;
-	String dataDeNascimento;
-	String email;
+	String nomePessoa;
+	String nascimento;
 
-	public Pessoa(String nome, String dataDeNascimento, String email) {
-		super();
-		this.nome = nome;
-		this.dataDeNascimento = dataDeNascimento;
-		this.email = email;
+	public String getNomePessoa() {
+		return nomePessoa;
 	}
 
-	public String getNome() {
-		return nome;
+	public void setNomePessoa(String nomePessoa) {
+		this.nomePessoa = nomePessoa;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public String getNascimento() {
+		return nascimento;
 	}
 
-	public String getDataDeNascimento() {
-		return dataDeNascimento;
+	public void setNascimento(String nascimento) {
+		this.nascimento = nascimento;
 	}
 
-	public void setDataDeNascimento(String dataDeNascimento) {
-		this.dataDeNascimento = dataDeNascimento;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 }

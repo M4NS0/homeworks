@@ -1,4 +1,4 @@
-package br.com.crudelis.modelCerto;
+package br.com.crudelis.model;
 
 public class ModificaStatus {
 	public String CalculaNota(Double notaN1, Double notaN2, int presencas, int cargaHoraria) {
