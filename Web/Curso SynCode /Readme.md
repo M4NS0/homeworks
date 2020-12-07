@@ -131,4 +131,4 @@ Inputs e Outputs - comunicação entre componente pai e filho
 > inicializa, compila, roda, desenvolve e mantém aplicativos por linha de Comando
 
 
-![image](files/Users/jzhang/Desktop/Isolated.png)
+![image](https://github.com/M4NS0/Workspaces/blob/master/Web/Curso%20SynCode%20/Angular%20diagram.png)
