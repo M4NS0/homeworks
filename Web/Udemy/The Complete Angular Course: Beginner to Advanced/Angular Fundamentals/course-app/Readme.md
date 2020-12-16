@@ -56,6 +56,37 @@ Preceded by at and inside brackets, will tell how this component works, on *cour
     template: ``
 })
 ```
+## Selectors
+on *courses.component.ts > class:*  
+```ts
+    export class CoursesComponent {
+    selector:'courses';
+```
+Anywhere we have an element called courses angular will render the template inside that element fitting, on *courses.component.ts > annotations > template*:
+```html
+    <course> => "courses"
+    <div class="courses"> => ".courses"
+    <div id="courses" => "#courses"
+```
+
+## String Interpolation
+on *courses.component.ts > annotations > template*: 
+```html
+    <h2> {{title}} (Interpolation) </h2>
+    <img style="width: 30%;" src="{{ imageUrl }}" />
+    '<h2>{{ getTitle() }}</h2>'    
+```
+on *courses.component.ts > class:*
+```ts
+    export class CoursesComponent {
+        title = "List of Courses";
+        getTitle() {
+        return this.title;
+        }
+    imageUrl = "https://www.geteducated.com/wp-content/uploads/2019/11/online-tutoring-concept-ebooks-internet-courses-process-vector-staff-vector-id1053519062.jpg";
+    
+```
+
 
 ## Dependency Injection
 on *courses.component.ts > class:* 
@@ -108,18 +139,8 @@ export class CoursesComponent {
     constructor(service: CoursesService) {
             this.courses = service.getCourses();
 ```
-## Selectors
-on *courses.component.ts > class:*  
-```ts
-    export class CoursesComponent {
-    selector:'courses';
-```
-Anywhere we have an element called courses angular will render the template inside that element fitting, on *courses.component.ts > annotations > template*:
-```html
-    <course> => "courses"
-    <div class="courses"> => ".courses"
-    <div id="courses" => "#courses"
-```
+
+
 
 ## Directives
 
@@ -130,6 +151,7 @@ Directives (*ngFOr) are used to manipulate the dom, on *courses.component.ts > a
         <li *ngFor="let course of courses"> {{ course }}</li>
     </ul>
 ```
+
 ## Binding
 > Binding =  vinculação
 
@@ -161,25 +183,6 @@ on *courses.component.ts > class:*
     export class CoursesComponent {
         colSpan = 2;
     }
-```
-
-
-## String Interpolation
-on *courses.component.ts > annotations > template*: 
-```html
-    <h2> {{title}} (Interpolation) </h2>
-    <img style="width: 30%;" src="{{ imageUrl }}" />
-    '<h2>{{ getTitle() }}</h2>'    
-```
-on *courses.component.ts > class:*
-```ts
-    export class CoursesComponent {
-        title = "List of Courses";
-        getTitle() {
-        return this.title;
-        }
-    imageUrl = "https://www.geteducated.com/wp-content/uploads/2019/11/online-tutoring-concept-ebooks-internet-courses-process-vector-staff-vector-id1053519062.jpg";
-    
 ```
 
 ##  Property Binding 
