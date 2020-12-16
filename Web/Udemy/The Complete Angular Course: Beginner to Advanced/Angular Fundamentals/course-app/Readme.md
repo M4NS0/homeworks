@@ -1,7 +1,7 @@
 ## What this application should teach us about?
 
 ## Index:
-### Angular Fundamentals
+## Angular Fundamentals
 
 
 |       |                                         |
@@ -18,7 +18,7 @@
 
 <br/>
 
-### Displaying Data and Handling Events
+## Displaying Data and Handling Events
 
 |        |                    |
 | ------ | ------------------ |
@@ -34,7 +34,7 @@
 | **10** | Pipes              |
 | **11** | Custom Pipes       |
 
-#### Component
+## Component
 
 * Encapsulates the **Data**, the **HTML markup** and the **Logic**
 * Used to break a (eg. a web site) view in several **smaller components**
@@ -48,7 +48,7 @@
   
 * Every application has an App component or a Root component.
 
-#### Decorators
+## Decorators
 Preceded by at and inside brackets, will tell how this component works, on *courses.component.ts > class:* 
 ```ts
 @Component({
@@ -57,7 +57,7 @@ Preceded by at and inside brackets, will tell how this component works, on *cour
 })
 ```
 
-#### Dependency Injection
+## Dependency Injection
 on *courses.component.ts > class:* 
 
 * Injecting/providing a dependency of a class into it's constructor
@@ -108,7 +108,7 @@ export class CoursesComponent {
     constructor(service: CoursesService) {
             this.courses = service.getCourses();
 ```
-#### Selectors
+## Selectors
 on *courses.component.ts > class:*  
 ```ts
     export class CoursesComponent {
@@ -121,7 +121,7 @@ Anywhere we have an element called courses angular will render the template insi
     <div id="courses" => "#courses"
 ```
 
-#### Directives
+## Directives
 
 Directives (*ngFOr) are used to manipulate the dom, on *courses.component.ts > annotations > template*:  
 ```html
@@ -130,7 +130,7 @@ Directives (*ngFOr) are used to manipulate the dom, on *courses.component.ts > a
         <li *ngFor="let course of courses"> {{ course }}</li>
     </ul>
 ```
-#### Binding
+## Binding
 > Binding =  vinculação
 
 on *courses.component.ts > annotations > template*:
@@ -164,7 +164,7 @@ on *courses.component.ts > class:*
 ```
 
 
-#### String Interpolation
+## String Interpolation
 on *courses.component.ts > annotations > template*: 
 ```html
     <h2> {{title}} (Interpolation) </h2>
@@ -182,14 +182,14 @@ on *courses.component.ts > class:*
     
 ```
 
-###  Property Binding 
+##  Property Binding 
 on *courses.component.ts > annotations > template*: 
 ```html
     <h2 [textContent]="title"> (Property Binding - This comment won't show up!!) </h2>  
     <img style="width: 30%;"[src]="imageUrl" /> 
 ```
 
-#### Class Binding
+## Class Binding
 on *courses.component.ts > annotations > template*: 
 ```html 
     <button class="btn btn-primary" [class.active]="isActive">Save</button> 
@@ -201,7 +201,7 @@ on *courses.component.ts > class:*
         isActive = false;
 ```
 
-#### Style Binding
+## Style Binding
 on *courses.component.ts > annotations > template*: 
 ```html
     <button [style.backgroundColor]="isActive ? 'white' : 'gray'">Save</button>
@@ -213,7 +213,7 @@ on *courses.component.ts > class:*
         isActive = false;
 ```
 
-#### Event Binding
+## Event Binding
 on *courses.component.ts > annotations > template*: 
 ```html
     <button (click)="onSave($event)"> Save </button>
@@ -230,7 +230,7 @@ on *courses.component.ts > class:*
             }
 ```
 
-#### Event Bubbling
+## Event Bubbling
 on *courses.component.ts > annotations > template*: 
 ```html
     <div (click)="onDivClicked()">
@@ -245,7 +245,7 @@ on *courses.component.ts > class:*
     }
 ```
 
-#### Event Filtering
+## Event Filtering
 on *courses.component.ts > annotations > template*: 
 ```html
     <input (keyup)="onKeyUp($event)"/>
@@ -270,7 +270,7 @@ on *courses.component.ts > class:*
     }
 ```
 
-#### Template Variables
+## Template Variables
 on *courses.component.ts > annotations > template*: 
 ```html
     <input (keyup.enter)="keyUp($event)"/>
@@ -294,4 +294,4 @@ on *courses.component.ts > class:*
 
 ```
 
-#### Two-Way Binding
+## Two-Way Binding
