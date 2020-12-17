@@ -23,13 +23,8 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule, 
     FormsModule
   ],
-                // Part of dependency injection:
-  providers: [  // Adding the provider, to dependency injection works
-                // If it is not register, an error should pop: "No provider for CoursesService!"
-                // When u register a dependency as a provider in a model, angular will create a 
-                // single instance of that class for that entire module.
-                // -- Singleton Pattern --
-                // To auto generate a service type in terminal: ng g s serviceName
+                
+  providers: [  
     CoursesService,
     AuthorsService
   ],
