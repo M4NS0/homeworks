@@ -13,17 +13,18 @@ a.nav-item.nav-link {
     margin-bottom: -4.3rem;
     font-size: 1.2rem;
 }
-a.navbar-brand-left,
-a.navbar-brand-right  {
+.navbar-brand-left,
+.navbar-brand-right  {
+    display: inline;
     margin-left: 5px;
     margin-right: 5px;
-    padding: 10px;
+    padding: 15px;
     border-width: .5px;
     border-style: inset;
     background-color: #242424;
     border-radius: 20%;
     font-family: 'Verdana';
-    font-size: 18px;
+    font-size: 17px;
     font-weight: bolder;
     color: #525252;
     border-width: 2px;
