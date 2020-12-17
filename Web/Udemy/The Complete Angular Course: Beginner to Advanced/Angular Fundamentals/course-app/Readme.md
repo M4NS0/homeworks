@@ -296,5 +296,75 @@ on *courses.component.ts > class:*
     }
 
 ```
+> Passing the email parameter or argument, it's not convinient
+> Objects encapsulate some data and some behaviour 
+> If an object or a class has all the data it needs, we don't have to pass parameters around
+> this kind of coding is called 'procedure coding' it's not used anymore, was used before the Oriented Programing
+> A better way to do it is using, two-way binding
 
-## Two-Way Binding
+
+## Two-Way Binding with NgModel
+on *app.module.ts *
+```ts
+    import { FormsModule } from '@angular/forms';
+```
+on *app.module.ts > imports:*
+```ts
+    imports: [
+    BrowserModule,
+    AppRoutingModule, 
+    FormsModule // add this shit
+  ],
+```
+
+on *courses.component.ts > annotations > template*: 
+```html
+    <input [(ngModel)]="newMail" (keyup.enter)="twoWaykeyUpEmail()"/> Two-Way Binding
+
+    <!-- [()] meet the banana in the box XD  -->
+```
+on *courses.component.ts > class:*
+```ts
+    email = "me@example.com";
+     twoWaykeyUpEmail() {
+        window.alert(this.newMail); 
+    } 
+
+```
+
+## Built-in Pipes
+|           |
+| --------- |
+| Uppercase |
+| Lowercase |
+| Decimal   |
+| Currency  |
+| Percent   |
+
+
+```html
+    <div>
+        <ul style="list-style-type:none;margin-top:50px">
+            <li>Name: {{ course.title | uppercase | lowercase}} </li>
+            <li>Rating: {{ course.rating | number:'1.2-2' }} two digits after comma</li>
+            <li>Rating: {{ course.rating | number:'1.1-1' }} rounded </li>
+            <li>Rating: {{ course.rating | number:'2.1-1' }} (left zero adding) </li>
+            <li>Students:  {{ course.students | number }} </li>
+            <li>Price:  {{ course.price | currency:'BRL':true:'3.2-2' }} </li>
+            <li>Release Date: {{ course.releaseDate | date:'shortDate'}} </li>
+        </ul>
+    </div>
+```
+<br/>
+
+> *Results*:
+>  
+>   Name: the complete angular course
+    Rating: 4.97
+    Rating: 5.0 rounded
+    Rating: 05.0 (left zero adding)
+    Students: 30,123
+    Price: R$190.95
+    Release Date: 4/1/16 
+
+## Custom Pipes
