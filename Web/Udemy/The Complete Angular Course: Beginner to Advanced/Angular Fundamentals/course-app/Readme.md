@@ -368,3 +368,86 @@ on *courses.component.ts > class:*
     Release Date: 4/1/16 
 
 ## Custom Pipes
+on *courses.component.ts > annotations > template*: 
+```html 
+    {{ text | summary }}
+```
+summary is our custom pipe.
+
+on *courses.component.ts > class:*
+```ts
+    text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae lacinia risus. Pellentesque a felis tortor.`
+```
+create the document: summary.pipe.ts and add the following lines:
+```ts
+
+import { Pipe, PipeTransform } from '@angular/core';
+
+@Pipe({
+    name: 'summary'
+    })
+    export class SummaryPipe implements PipeTransform {
+        transform(value: string, args?: any) {
+            if (!value) 
+            return null;
+
+            return value.substr(0,50) + "..."
+            //                 ^^^^^^ just want 50 characters
+        }
+    }
+```
+on *app.module.ts *
+```ts
+    @NgModule({
+    declarations: [    
+        AppComponent,
+        CoursesComponent,
+        CourseComponent,
+        AuthorsComponent,  
+        SummaryPipe
+//      ^^^^^^^^^^^   add it
+    ],
+```
+> Result:
+> Lorem ipsum dolor sit amet, consectetur adipiscing... 
+
+
+Adding more functionalities to our pipe:
+
+on *courses.component.ts > annotations > template*: 
+```html 
+     {{ text | summary:10 }}
+```
+
+on *summary.pipe.ts > class*, change the following lines:
+```ts
+    export class SummaryPipe implements PipeTransform {
+        transform(value: string, limit?: number) {
+            if (!value) 
+            return null;
+            let actualLimit = (limit) ? limit : 50;
+            return value.substr(0,actualLimit) + "..."
+        }
+```
+
+> Result:
+> Lorem ipsu... 
+
+## Exercice
+How would you apply "glyphicon-star" class to an element if "isFavorite" is true?
+
+on *courses.component.ts > annotations > template*: 
+```html 
+    <span class="glyphicon" 
+        [class.glyphicon-star]="isFavorite"
+        [class.glyphicon-star-empty]="!isFavorite"
+        (click)="onClick()"></span>
+```
+
+on *courses.component.ts > class:*
+```ts
+    isFavorite: boolean;
+    onClick() {
+        this.isFavorite = !this.isFavorite;
+    }
+```

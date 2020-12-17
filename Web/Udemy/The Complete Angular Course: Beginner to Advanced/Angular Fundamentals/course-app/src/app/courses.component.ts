@@ -5,10 +5,10 @@ import { CoursesService } from './course/courses.service';
 
 
 @Component({
-   
-    selector: 'courses',    
-    template: 
-    `
+
+    selector: 'courses',
+    template:
+        `
     <h2> {{title}} (Interpolation) </h2>
     <h2 [textContent]="title"> (Property Binding - This comment won't show up!!) </h2>  
 
@@ -72,8 +72,13 @@ import { CoursesService } from './course/courses.service';
             <li>Release Date: {{ course.releaseDate | date:'shortDate'}} </li>
         </ul>
     </div>
-
-    {{ text | summary }}
+    <div>
+    {{ text | summary:10 }} 
+    <span class="glyphicon" [class.glyphicon-star]="isFavorite"
+    [class.glyphicon-star-empty]="!isFavorite"
+    (click)="onClick()"></span>
+    </div>
+    
     `
 })
 
@@ -91,13 +96,19 @@ export class CoursesComponent {
         rating: 4.9745,
         students: 30123,
         price: 190.95,
-        releaseDate: new Date(2016,3,1)
+        releaseDate: new Date(2016, 3, 1)
     }
+    
     text = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae lacinia risus. Pellentesque a felis tortor.`
+    
+    isFavorite: boolean;
+    onClick() {
+        this.isFavorite = !this.isFavorite;
+    }
 
     twoWaykeyUpEmail() {
-        window.alert(this.newMail); 
-    } 
+        window.alert(this.newMail);
+    }
 
     keyUpEmail(email) {
         window.alert(email)
@@ -107,26 +118,26 @@ export class CoursesComponent {
         window.alert($event.target.value)
     }
 
-    onKeyUp ($event) {
+    onKeyUp($event) {
         if ($event.keyCode == 13)
-        window.alert("Enter Was pressed!")
+            window.alert("Enter Was pressed!")
     }
 
-    onEnterKeyUp () {
+    onEnterKeyUp() {
         window.alert("Enter Was pressed!")
     }
 
     onDivClicked() {
         console.log("Div was clicked")
     }
-   
+
     onSave($event) {
-        
+
         $event.stopPropagation(); // bug
         window.alert("Button was clicked");
         console.log($event)
     }
-       constructor(service: CoursesService) {
+    constructor(service: CoursesService) {
         this.courses = service.getCourses();
     }
 }
