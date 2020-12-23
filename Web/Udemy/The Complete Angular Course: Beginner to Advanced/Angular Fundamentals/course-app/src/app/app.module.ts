@@ -9,6 +9,8 @@ import { CoursesService } from './course/courses.service';
 import { AuthorsComponent } from './authors/authors.component';
 import { AuthorsService } from './authors.service';
 import { FormsModule } from '@angular/forms';
+import { TitleCasePipe } from './title-case.pipe';
+
 
 @NgModule({
   declarations: [    // here we add all the components
@@ -16,7 +18,7 @@ import { FormsModule } from '@angular/forms';
     CoursesComponent,
     CourseComponent,
     AuthorsComponent,  // this component was auto generated using: ng g c course
-    SummaryPipe
+    SummaryPipe, TitleCasePipe
   ],
   imports: [
     BrowserModule,

@@ -434,7 +434,7 @@ on *summary.pipe.ts > class*, change the following lines:
 > Lorem ipsu... 
 
 ## Exercice
-How would you apply "glyphicon-star" class to an element if "isFavorite" is true?
+> *How would you apply "glyphicon-star" class to an element if "isFavorite" is true?*
 
 on *courses.component.ts > annotations > template*: 
 ```html 
