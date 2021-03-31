@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bighiccups.avaliacao1">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".atividade_capa">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".atividade_menu"></activity>
+        <activity android:name=".atividade_gerador"></activity>
+        <activity android:name=".atividade_inversor"></activity>
+        <activity android:name=".atividade_jogo"></activity>
+        <activity android:name=".atividade_registro"></activity>
+    </application>
+
+</manifest>

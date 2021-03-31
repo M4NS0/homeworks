@@ -46,6 +46,7 @@ public class SecondScreen extends AppCompatActivity {
         btnOrdenar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 valor[0] = Long.valueOf(campo1.getText().toString());
                 valor[1] = Long.valueOf(campo2.getText().toString());
                 valor[2] = Long.valueOf(campo3.getText().toString());
@@ -61,7 +62,11 @@ public class SecondScreen extends AppCompatActivity {
         retornar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_main);
+                Intent intent = new Intent(SecondScreen.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+
+
             }
         });
     }
@@ -98,5 +103,7 @@ public class SecondScreen extends AppCompatActivity {
         String str = sb.toString();
         return str;
     }
+
+
 
 }

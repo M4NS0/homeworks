@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/inversor_de_numero"
+    >
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/inverterString"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:textColor="#E1AE93"
+        android:textSize="20dp"
+        android:fontFamily="casual"/>
+
+    <EditText
+        android:id="@+id/txt_input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/hintInserir"
+        android:layout_below="@id/texto"
+        android:layout_marginTop="30dp"
+        android:textColorHint="#E1AE93"
+        android:layout_centerVertical="true"/>
+        <Button
+            android:id="@+id/btn_inverter"
+            android:layout_below="@id/txt_input"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#E1AE93"
+            android:textColor="#25293B"
+            android:text="@string/inverter"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginBottom="30dp"/>
+    <EditText
+        android:id="@+id/txt_resposta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColorHint="#E1AE93"
+        android:textColor="#E1AE93"
+        android:layout_below="@id/btn_inverter"
+        android:layout_centerVertical="true"/>
+
+    <EditText
+        android:id="@+id/txt_palindrome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColorHint="#E1AE93"
+        android:layout_below="@id/txt_resposta"
+        android:textColor="#E1AE93"
+        android:layout_centerVertical="true"/>
+
+
+</RelativeLayout>

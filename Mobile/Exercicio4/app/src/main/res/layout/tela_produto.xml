@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+    <TextView
+        android:id="@+id/id_do_produto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_blue"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="80dp"
+        android:textFontWeight="800"/>
+
+
+
+    <TextView
+        android:id="@+id/nome_do_produto"
+        android:layout_below="@id/id_do_produto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="60dp"
+        android:textColor="@color/dark_blue"/>
+
+    <TextView
+        android:id="@+id/preco_do_produto"
+        android:layout_below="@id/nome_do_produto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Preço"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:textColor="@color/dark_blue"/>
+
+    <Button
+        android:id="@+id/voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/preco_do_produto"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="Inicio"
+        android:backgroundTint="@color/design_default_color_error"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    >
+
+
+    <TextView
+        android:id="@+id/numero"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="80"
+        android:text="Numero"
+        android:fontFamily="casual"
+        android:textColor="@color/design_default_color_error"
+        android:gravity="right"/>
+
+
+    <TextView
+        android:id="@+id/item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:layout_marginLeft="20dp"
+        android:textSize="30dp"
+        android:textColor="#202020"
+        android:text="Item"
+        android:fontFamily="casual"/>
+
+
+</LinearLayout>

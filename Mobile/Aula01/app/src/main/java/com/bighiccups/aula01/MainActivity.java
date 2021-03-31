@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btn, btn_tela2, btn_voltar;
+    Button btn, btn_tela2, btn_sair;
     EditText editText;
 
     @Override
@@ -22,8 +22,9 @@ public class MainActivity extends AppCompatActivity {
         btn = findViewById(R.id.btn_sair);
         editText = findViewById(R.id.editText);
         btn_tela2 = findViewById(R.id.btn_tela2);
+        btn_sair = findViewById(R.id.btn_sair);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn_sair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sair();
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                intent.putExtra("message", aux);
                startActivity(intent);
 
-               setContentView(R.layout.tela_2);
+
 
            }
        });

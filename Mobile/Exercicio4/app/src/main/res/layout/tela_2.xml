@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:background="@color/white">
+    <ListView
+        android:id="@+id/lista"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="600dp">
+    </ListView>
+
+    <Button
+        android:id="@+id/btn_adicionar_novo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="Adicionar Novo"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"/>
+
+
+
+</RelativeLayout>
