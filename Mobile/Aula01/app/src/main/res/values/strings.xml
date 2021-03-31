@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Aula 01</string>
+    <string name="app_name">Ordenador</string>
     <string name="greetings">Login </string>
     <string name="exit">Sair</string>
     <string name="enter">Acessar</string>

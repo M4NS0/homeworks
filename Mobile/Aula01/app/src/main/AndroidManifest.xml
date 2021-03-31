@@ -17,13 +17,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SecondScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".SecondScreen"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
     </application>
 
 </manifest>

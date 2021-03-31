@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menus"
+    android:id="@+id/tela_de_menu"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:textColor="#7E000000"
+        android:fontFamily="sans-serif-medium"
+        android:text="@string/titulo"
+        android:elevation="5dp"/>
+
+    <LinearLayout
+        android:id="@+id/gerador"
+        android:layout_below="@+id/texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="30dp">
+
+        <ImageButton
+            android:id="@+id/btnGerador"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="3dp"
+            app:srcCompat="@drawable/generator"
+            android:backgroundTint="#85EAEAEA"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="monospace"
+            android:text="@string/gerador"
+            android:textFontWeight="700"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/jogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/gerador">
+
+        <ImageButton
+            android:id="@+id/btnJogo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="3dp"
+            app:srcCompat="@drawable/rps"
+            android:backgroundTint="#85EAEAEA"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="monospace"
+            android:text="@string/jogo"
+            android:textFontWeight="700"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/inversor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/jogo">
+
+        <ImageButton
+            android:id="@+id/btnInversor"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="3dp"
+            app:srcCompat="@drawable/inversor"
+            android:backgroundTint="#85EAEAEA"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="monospace"
+            android:text="@string/inversor"
+            android:textFontWeight="700"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/inversor">
+
+        <ImageButton
+            android:id="@+id/btnRegistro"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="3dp"
+            app:srcCompat="@drawable/registro"
+            android:backgroundTint="#85EAEAEA"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="monospace"
+            android:text="@string/registroDeEvento"
+            android:textFontWeight="700"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#AECCE1" >
+
+    <TextView
+        android:fontFamily="casual"
+        android:textFontWeight="1000"
+        android:id="@+id/marca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/marca"
+        android:textColor="@color/teste"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/apresenta"
+        android:fontFamily="casual"
+        android:textFontWeight="1000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Apresenta..."
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/marca"
+        android:textColor="@color/teste" />
+
+
+    <ImageView
+        android:id="@+id/hiccups"
+        android:layout_width="150dp"
+        android:layout_height="180dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/hiccups2"
+        android:background="@drawable/shape"
+        android:layout_below="@id/apresenta"
+        />
+
+    <TextView
+        android:id="@+id/hello"
+        android:fontFamily="casual"
+        android:textFontWeight="1000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hiccups"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Hello World"
+        android:textColor="@color/teste"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:fontFamily="casual"
+        android:textFontWeight="1000"
+        android:layout_below="@id/hello"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="em"
+        android:textColor="@color/teste"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:fontFamily="casual"
+        android:textFontWeight="1000"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:gravity="center"
+        android:text="Android!"
+        android:textColor="@color/teste"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/botao"
+        android:backgroundTint="@color/teste"
+        android:textAlignment="center"
+        android:gravity="bottom"/>
+
+
+</RelativeLayout>

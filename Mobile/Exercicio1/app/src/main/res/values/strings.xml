@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Exercicio1</string>
+    <string name="marca">Big Hiccups Soluções</string>
+    <string name="slogan">Quando seu software Soluça, nós temos a Solução!</string>
+    <string name="hello">Hello World!</string>
+    <string name="botao">Clique aqui para gerar seu Hello World  XD</string>
+    <color name="teste">#515B9E</color>
+</resources>
