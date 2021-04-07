@@ -3,22 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/telagerador"
+
     >
-
-    <Button
-        android:id="@+id/btn_gerar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gerarNumeros"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        android:backgroundTint="#D12F40"
-        android:textColor="#303030"
-        />
-
     <TextView
         android:id="@+id/resultadoGerado"
-        android:layout_below="@id/btn_gerar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
@@ -27,5 +15,20 @@
         android:layout_marginTop="100dp"
         android:textColor="#D12F40"
         android:textFontWeight="700"
+        android:layout_centerVertical="true"
         />
+
+    <Button
+        android:id="@+id/btn_gerar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resultadoGerado"
+        android:text="@string/gerarNumeros"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#D12F40"
+        android:textColor="#303030"
+        />
+
+
 </RelativeLayout>
