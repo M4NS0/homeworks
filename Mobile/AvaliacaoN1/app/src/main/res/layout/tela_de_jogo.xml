@@ -3,17 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/tela_do_jogo">
+    android:background="@drawable/tela_do_jogo"
+    android:scrollbars="vertical">
     <TextView
         android:id="@+id/txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#BD9445"
+        android:textColor="#000000"
         android:text="Escolha sua mão"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="130dp"
         android:layout_marginBottom="20dp"
-        android:fontFamily="casual"/>
+        android:fontFamily="casual"
+        android:textSize="25dp"/>
 
     <LinearLayout
         android:id="@+id/ll_1"
@@ -26,21 +28,22 @@
             android:id="@+id/btn_pedra"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:elevation="5dp"
-            android:backgroundTint="#00FFFFFF"
-            app:srcCompat="@drawable/rock"/>
+            android:elevation="1dp"
+            android:backgroundTint="#00FFD3D3"
+            app:srcCompat="@drawable/rock"
+            />
         <ImageButton
             android:id="@+id/btn_papel"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:elevation="5dp"
+            android:elevation="1dp"
             android:backgroundTint="#00FFFFFF"
-            app:srcCompat="@drawable/papel"/>
+            app:srcCompat="@drawable/paper"/>
         <ImageButton
             android:id="@+id/btn_tesoura"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:elevation="5dp"
+            android:elevation="1dp"
             android:backgroundTint="#00FFFFFF"
             app:srcCompat="@drawable/scissors"/>
     </LinearLayout>
@@ -85,9 +88,9 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#BD9445"
+            android:textColor="#000000"
             android:fontFamily="casual"
-            android:text="escolha"
+            android:text="Escolha"
             android:textSize="15dp"
             android:textStyle="italic"/>
 
@@ -95,10 +98,10 @@
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#BD9445"
+            android:textColor="#000000"
             android:fontFamily="casual"
             android:layout_marginLeft="100dp"
-            android:text=" maquina"
+            android:text="Maquina "
             android:layout_centerHorizontal="true"
             android:textSize="15dp"
             android:textStyle="italic"/>
@@ -110,17 +113,13 @@
             android:id="@+id/txt_resultado_jogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#BD9445"
+            android:textColor="#000000"
             android:fontFamily="casual"
-            android:text="Você Ganhou!!"
+            android:text=""
             android:layout_below="@+id/ll_2"
             android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="200dp"
-            android:textSize="40dp"/>
-
-
-
+            android:textSize="25dp"/>
 
 
 

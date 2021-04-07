@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#3A54A9">
 
     <Button
         android:id="@+id/acessarTrabalho"
@@ -21,7 +21,12 @@
         android:text="@string/nomeEscola"
         android:layout_marginTop="110dp"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:shadowColor="#2E2E2E"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="sans-serif-black"
         />
     <TextView
         android:id="@+id/nomeDepartamento"
@@ -30,7 +35,12 @@
         android:layout_height="wrap_content"
         android:text="@string/nomeDepartamento"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:shadowColor="#2E2E2E"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="sans-serif-black"
         />
 
     <TextView
@@ -40,14 +50,19 @@
         android:layout_height="wrap_content"
         android:text="@string/nomeCurso"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:shadowColor="#2E2E2E"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="sans-serif-black"
         />
 
     <ImageView
         android:id="@+id/logoPuc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:srcCompat="@drawable/puc"
+        tools:srcCompat="@drawable/pucgo"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/nomeCurso"
         android:layout_marginTop="50dp"
@@ -60,7 +75,12 @@
         android:layout_height="wrap_content"
         android:text="@string/nomeAtividade"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:shadowColor="#2E2E2E"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="sans-serif-black"
         />
 
     <TextView
@@ -71,7 +91,12 @@
         android:text="@string/nomeAluno"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:shadowColor="#672E4B"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="sans-serif-black"
         />
 
     <TextView
@@ -82,7 +107,12 @@
         android:text="@string/cidadeEstado"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:shadowColor="#2E2E2E"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="sans-serif-black"
         />
 
     <TextView
@@ -92,7 +122,12 @@
         android:layout_height="wrap_content"
         android:text="@string/ano"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
+        android:shadowColor="#2E2E2E"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="sans-serif-black"
         />
 
 

@@ -29,13 +29,13 @@ public class atividade_inversor extends AppCompatActivity {
                 if (txt_input.getText().toString().isEmpty()) {
                     txt_resposta.setText("Insira um texto na linha indicada");
                 } else {
-                    String input = txt_input.getText().toString();
+                    String input = txt_input.getText().toString().toUpperCase();
 
                     StringBuilder aux = new StringBuilder();
                     aux.append(input);
                     aux.reverse();
 
-                    txt_resposta.setText(aux.toString().toLowerCase());
+                    txt_resposta.setText(aux.toString());
 
                     if (isPalindrome(aux.toString()) == true) {
                         txt_palindrome.setText("É um Palindrome!");

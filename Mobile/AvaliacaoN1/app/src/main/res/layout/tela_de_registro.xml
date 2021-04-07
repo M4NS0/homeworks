@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/registro_de_eventos">
+
+    <EditText
+        android:id="@+id/nome_evento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        android:hint="nome do evento"
+        android:shadowColor="#672E4B"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="@font/font"
+        android:textColorHint="#CF649A"
+        android:textColor="#CF649A"/>
+    <EditText
+        android:id="@+id/date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nome_evento"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:hint="selecione a data"
+        android:fontFamily="@font/font"
+        android:shadowColor="#672E4B"
+        android:shadowRadius="2"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:textColorHint="#CF649A"
+        android:textColor="#CF649A"
+        />
+
+    <Button
+        android:id="@+id/btn_registrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Registrar"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/date_picker"
+        android:layout_marginTop="10dp"
+        android:textColor="#672E4B"
+        android:backgroundTint="#CF649A"/>
+
+    <ListView
+        android:id="@+id/lista"
+        android:layout_below="@+id/btn_registrar"
+        android:layout_width="match_parent"
+        android:layout_height="255dp"
+        android:layout_margin="30dp">
+
+    </ListView>
+
 
 </RelativeLayout>
