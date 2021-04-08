@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".primeira_atividade"
+    android:background="#A69DB1"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dados Cadastrais"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textColor="#8665AF"
+        android:textFontWeight="800"
+        android:textSize="25dp"
+        android:shadowColor="#311B92"
+        android:shadowRadius="6"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:fontFamily="monospace"
+        />
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:layout_below="@id/text"
+    android:background="@drawable/retangle">
+    <TextView
+        android:id="@+id/tv_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nome"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="monospace"
+        android:textColor="#3E3E3E"
+        />
+    <TextView
+        android:id="@+id/tv_cpf"
+        android:layout_below="@+id/tv_nome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="cpf"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="monospace"
+        android:textColor="#3E3E3E"
+        />
+
+    <TextView
+        android:id="@+id/tv_nasc"
+        android:layout_below="@+id/tv_cpf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="nascimento"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="monospace"
+        android:textColor="#3E3E3E"
+        />
+    <TextView
+        android:id="@+id/tv_fone"
+        android:layout_below="@+id/tv_nasc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="telefone"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="monospace"
+        android:textColor="#3E3E3E"
+        />
+
+    <TextView
+        android:id="@+id/tv_cel"
+        android:layout_below="@+id/tv_fone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="celular"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="monospace"
+        android:textColor="#3E3E3E"
+        />
+
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_below="@+id/tv_cel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="18dp"
+        android:text="email"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="monospace"
+        android:textColor="#3E3E3E"
+        />
+
+    <Button
+        android:id="@+id/btn_adicionar_novo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Editar"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#8665AF"
+        android:elevation="3dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="monospace"
+        android:textColor="#3E3E3E"
+        />
+</RelativeLayout>
+</RelativeLayout>

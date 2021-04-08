@@ -8,11 +8,11 @@
     <string name="cidadeEstado"> Goiânia-Go</string>
     <string name="ano">2021/1</string>
     <string name="titulo">MENU DE OPÇÕES</string>
-    <string name="gerador">Gerador de Valores</string>
+    <string name="gerador">Gerador de Números</string>
     <string name="jogo">Jankenpon</string>
     <string name="inversor">Inversor de Valores</string>
     <string name="registroDeEvento">Registro de Evento</string>
-    <string name="gerarNumeros">Gerar Números</string>
+    <string name="gerarNumeros">Gerar Número</string>
     <string name="inverterString"> Inverta seu Texto</string>
     <string name="hintInserir">Insira aqui e clique no botão </string>
     <string name="inverter">Inverter</string>
