@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#404e7c">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Jogo Dos Botões"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textColor="#BFBFBF"
+        android:layout_centerHorizontal="true"
+        />
+
+    <include layout="@layout/layout_botoes"
+        android:layout_width="290dp"
+        android:layout_height="360dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="120dp"/>
+
+    <Button
+        android:id="@+id/btn_play"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Play"
+        android:backgroundTint="#251f47"
+        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="60dp"/>
+
+    <Button
+        android:id="@+id/btn_avançar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Avançar"
+        android:backgroundTint="#251f47"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"/>
+
+
+</RelativeLayout>
