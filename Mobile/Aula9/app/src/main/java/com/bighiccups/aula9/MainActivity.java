@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar = findViewById(R.id.btnSalvar);
         btnLimpar = findViewById(R.id.btnLimpar);
 
+        editEmail = findViewById(R.id.email);
+
         lista = findViewById(R.id.lista);
 
         exibirLista();
@@ -44,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String clique = (String)lista.getItemAtPosition(position);
-                String cod = clique.substring(0,clique.indexOf(" - "));
+                String clique = (String) lista.getItemAtPosition(position);
+                String cod = clique.substring(0, clique.indexOf(" - "));
                 Cliente cli = bd_cli.selectCliente(Integer.parseInt(cod));
-                editCod.setText(cli.cod);
+                editCod.setText(String.valueOf(cli.cod));
                 editNome.setText(cli.nome);
                 editEmail.setText(cli.email);
                 editTelefone.setText(cli.telefone);
@@ -72,14 +74,14 @@ public class MainActivity extends AppCompatActivity {
                 if (nome.isEmpty()) editNome.setError("Campo obrigatório");
                 else if (cod.isEmpty()) {
                     //insert
-                    bd_cli.addCliente(new Cliente(nome,telefone,email));
+                    bd_cli.addCliente(new Cliente(nome, telefone, email));
                     Toast.makeText(MainActivity.this, "Inserido com sucesso!", Toast.LENGTH_SHORT).show();
                     limparCampos();
                     exibirLista();
 
                 } else {
                     // update
-                    bd_cli.updateCliente(new Cliente(Integer.parseInt(cod),nome,telefone,email));
+                    bd_cli.updateCliente(new Cliente(Integer.parseInt(cod), nome, telefone, email));
                     Toast.makeText(MainActivity.this, "Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
                     limparCampos();
                     exibirLista();
@@ -91,7 +93,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String cod = editCod.getText().toString();
-                if (cod.isEmpty()) Toast.makeText(MainActivity.this, "Impossível Excluir, nada selecionado!", Toast.LENGTH_SHORT).show();
+                if (cod.isEmpty())
+                    Toast.makeText(MainActivity.this, "Impossível Excluir, nada selecionado!", Toast.LENGTH_SHORT).show();
                 else {
                     Cliente cli = new Cliente();
                     cli.setCod(Integer.parseInt(cod));
@@ -110,10 +113,10 @@ public class MainActivity extends AppCompatActivity {
         List<Cliente> clientes = bd_cli.listarTodos();
         arrayList = new ArrayList<String>();
         adapter = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_list_item_1);
+                android.R.layout.simple_list_item_1, arrayList);
 
 
-        for(Cliente c: clientes) {
+        for (Cliente c : clientes) {
             arrayList.add(c.getCod() + " - " + c.getNome());
             adapter.notifyDataSetChanged();
             lista.setAdapter(adapter);
