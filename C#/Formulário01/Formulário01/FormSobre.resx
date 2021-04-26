@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed ipsum eget odio euismod egestas dapibus at nulla. Integer ultricies luctus auctor. Donec rhoncus sapien ut nulla sollicitudin imperdiet. Aenean enim sem, interdum non elit sit amet, dapibus iaculis lectus. Proin gravida ex pretium, hendrerit nisi pharetra, vulputate ante. Etiam vehicula, purus vel efficitur venenatis, enim ligula cursus nibh, sit amet pellentesque tellus velit quis ligula. Etiam erat felis, congue non iaculis et, maximus vel odio. Morbi placerat arcu metus, congue elementum odio facilisis sed. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec vel venenatis libero. Aenean vestibulum risus non lacinia mattis. In magna ante, ultricies vitae semper lacinia, dictum ac sapien. Mauris vulputate turpis quis elementum dictum.
+
+Aliquam auctor ante quis cursus pulvinar. Aliquam tempus, neque vel eleifend egestas, metus nisl facilisis tortor, sodales sodales orci mi eu purus. Nulla eget eros vel eros ultricies convallis. Suspendisse convallis ante ac suscipit vehicula. Phasellus vel mattis nisl. Curabitur quis erat blandit, sollicitudin magna non, scelerisque metus. Fusce nec velit enim. Sed quis fermentum mi, in facilisis libero. Donec feugiat mauris quis metus mattis molestie. Aliquam ultricies ac dui eget tincidunt. Sed et condimentum nunc, non malesuada magna. Fusce vitae mattis justo.
+
+Nam sit amet mi turpis. Nulla consectetur euismod est id pulvinar. Morbi suscipit, eros eu porta mollis, augue leo luctus dui, a mollis nulla augue ac tortor. Cras sed laoreet nisi. Sed sagittis dolor non mi semper, vitae rhoncus magna tincidunt. Donec id quam vel dui sodales consectetur eget sit amet felis. Mauris tempus viverra aliquet.
+
+Phasellus non semper nibh. Praesent sit amet aliquet mauris, sed bibendum justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean eu elementum arcu. Aliquam at dictum eros, non blandit felis. Donec sodales nunc nec mollis egestas. Integer luctus ac turpis quis vestibulum. Nam accumsan justo sit amet rhoncus porta. Donec convallis vel metus ut commodo. Ut et arcu urna. Mauris odio eros, aliquet ut volutpat at, dictum efficitur ipsum. Aliquam ex justo, ultrices eget vehicula eu, lobortis at urna. Vestibulum et leo sit amet metus eleifend ultrices. Nulla ac dui quis augue scelerisque iaculis vitae in lectus.
+
+Cras vulputate est sed ornare venenatis. Sed posuere orci eu lorem vehicula viverra. Praesent in mauris felis. Praesent at sem condimentum, ullamcorper lacus quis, tincidunt odio. Integer eget cursus elit. Quisque eu ornare neque. Phasellus tristique lacus odio, a fringilla purus posuere nec. Proin augue eros, aliquet eu nulla et, auctor egestas erat. Quisque sed turpis sit amet dolor fringilla tincidunt. Ut vestibulum varius vestibulum. Nunc in consequat arcu, porttitor dignissim urna. Ut fermentum suscipit aliquam. </value>
+  </data>
+</root>
