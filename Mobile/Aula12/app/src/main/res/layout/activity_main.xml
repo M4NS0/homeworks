@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+        android:id="@+id/linear_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingHorizontal="10dp"
+        android:paddingTop="10dp">
+
+        <EditText
+            android:id="@+id/edtexto_sup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Texto superior"/>
+
+        <EditText
+            android:id="@+id/edtexto_inf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Texto inferior"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_inserir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inserir Texto"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <SeekBar
+                    android:id="@+id/seekBar_sup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="40"
+                    android:layout_weight="1"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp"/>
+
+                <SeekBar
+                    android:id="@+id/seekBar_inf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="40"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="10dp"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/btn_salvar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textSize="10dp"
+            />
+        <Button
+            android:id="@+id/btn_abrir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="abrir"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textSize="10dp"/>
+
+        <Button
+            android:id="@+id/btn_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="5dp"
+            android:text="Camera"
+            android:textSize="10dp"/>
+
+        <Button
+            android:id="@+id/btn_enviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="enviar"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:textSize="10dp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linear_1"
+        android:layout_above="@id/linear_2"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:id="@+id/imagem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/img_indisponivel"
+            android:scaleType="fitXY"/>
+
+        <TextView
+            android:id="@+id/texto_sup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Texto"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/texto_inf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Texto"
+            android:textSize="40dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginBottom="10dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
