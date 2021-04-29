@@ -1,65 +1,37 @@
 package com.bighiccups.aula10;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
-import java.util.Random;
-
 public class MainActivity extends AppCompatActivity {
-    Button btn01,btn02,btn03,btn04,btnAvancar,btnPlay;
-    String [] cores = new String [4];
-    Random r;
+    private PrimeiroFragment adaptador;
+    private ViewPager viewPager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.atividade_principal);
 
-        btn01 = findViewById(R.id.btn_01);
-        btn02 =findViewById(R.id.btn_02);
-        btn03 = findViewById(R.id.btn_03);
-        btn04 = findViewById(R.id.btn_04);
-        btnAvancar = findViewById(R.id.btn_avançar);
-        btnPlay = findViewById(R.id.btn_play);
+        adaptador = new PrimeiroFragment(getSupportFragmentManager(),1);
+        viewPager = findViewById(R.id.atividade);
 
-        r = new Random();
-        int aux = r.nextInt(3) + 2;
-
-        String [] randomColor = {"azul","vermelho","verde"};
-        for(int i = 0; i < 4; i ++) {
-
-            if (aux == 1) {
-                cores[i] = randomColor[0];
-            }
-            else if (aux == 2) {
-                cores[i] = randomColor[1];
-            } else {
-                cores[i] = randomColor[2];
-            }
-        }
-        setCor(btn01, cores[0]);
-        setCor(btn02, cores[1]);
-        setCor(btn03, cores[2]);
-        setCor(btn04,cores[3]);
-    }
-    public void setCor(Button btn, String cor) {
-        if (cor == "azul") {
-            btn.setBackgroundColor(Color.BLUE);
-        } else if (cor == "vermelho") {
-            btn.setBackgroundColor(Color.RED);
-        } else if (cor == "verde") {
-            btn.setBackgroundColor(Color.GREEN);
-        }
+        setupViewPager(viewPager);
     }
 
-    public String switchColor(String color) {
-        if (cores.equals("azul")) color = "vermelho";
-        else if (cores.equals("vermelho")) color = "verde";
-        else if (cores.equals("verde")) color = "azul";
-        return color;
+    private void setupViewPager(ViewPager viewPager) {
+        PrimeiroFragment adaptador = new PrimeiroFragment(getSupportFragmentManager(),1);
+        adaptador.AddFragment(new Fragment1(),"fragment_1");
+        adaptador.AddFragment(new Fragment2(),"fragment_2");
+        viewPager.setAdapter(adaptador);
+    }
+
+    public void setViewPager(int num) {
+        viewPager.setCurrentItem(num);
     }
 }
