@@ -1,5 +1,6 @@
 package com.bighiccups.dogewallet;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.AudioManager;
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -76,14 +78,82 @@ public class PrimeiraAtividade extends AppCompatActivity {
         SetSoundEfects();
         CallHttpServices();
 
+        doge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (entrada.getText().toString().equals("")) {
+                    saida.setText("");
+                    toBark(0.0);
+                } else {
+                    SetNumberOfCoinsAndValue();
+                    CallAdapter();
+                    toBark(Double.parseDouble(entrada.getText().toString()));
+                }
+                entrada.setText("0");
+
+            }
+        });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Calculate(position);
             }
         });
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentToSecondActivity();
+
+            }
+        });
+
     }
 
+    private void IntentToSecondActivity() {
+        Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
+        Bundle extras = new Bundle();
+        Double value = DecimalFormatter(crypto.getPrice() * crypto.getNumberOfCoins());
+        crypto.setValue(value);
+
+        extras.putString("value", crypto.getValue().toString());
+        extras.putString("price", crypto.getPrice().toString());
+
+        extras.putString("owned", crypto.getNumberOfCoins().toString());
+
+        if (crypto.getNumberOfCoins() > 0) {
+            intent.putExtras(extras);
+            startActivity(intent);
+        } else {
+            Toast.makeText(PrimeiraAtividade.this, "Insert the number of coins before adding", Toast.LENGTH_SHORT).show();
+        }
+
+        crypto = null;
+        finish();
+    }
+    private void SetNumberOfCoinsAndValue() {
+        if (entrada.getText().toString() != null) {
+            crypto.setNumberOfCoins(Double.parseDouble(entrada.getText().toString()));
+        } else crypto.setNumberOfCoins(0.0);
+
+        crypto.setValue(DecimalFormatter(crypto.getNumberOfCoins() * crypto.getPrice()));
+    }
+
+    private void toBark(Double coins) {
+        if (coins == 0.0) {
+            snd.play(soundWhines, 1, 1, 5, 0, 1);
+        }
+        if (coins >= 1) {
+            snd.play(soundOneBark, 1, 1, 5, 0, 1);
+        }
+        if (coins >= 1000 && coins <= 9999) {
+            snd.play(soundHowl, 1, 1, 5, 0, 1);
+        }
+        if (coins >= 10000) {
+            snd.play(soundBarkHowl, 1, 1, 5, 0, 1);
+        }
+    }
     private void Calculate(int position) {
         if (cryptos.get(position).getCurrency() == " USD") {
             cryptos.get(position).setCurrency(" BRL");
