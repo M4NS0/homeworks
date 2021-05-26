@@ -1,5 +1,6 @@
 package com.bighiccups.dogewallet;
 
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -15,15 +16,11 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bighiccups.dogewallet.model.Cotacao;
 import com.bighiccups.dogewallet.model.Crypto;
 import com.bighiccups.dogewallet.model.Details;
 import com.bighiccups.dogewallet.services.DetailsDatabase;
-import com.bighiccups.dogewallet.services.HttpConversionService;
-import com.bighiccups.dogewallet.services.HttpCryptoService;
 import com.bighiccups.dogewallet.services.ShortListAdapter;
 
 
@@ -46,14 +43,11 @@ public class PrimeiraAtividade extends AppCompatActivity {
     TextView name, exchange, price, saida;
     EditText entrada;
     ListView listView;
-    String texto;
-    SharedPreferences prefs;
-    ShortListAdapter shortListAdapter;
     DetailsDatabase bd_details = new DetailsDatabase(this);
     Crypto crypto;
     Cotacao cotacao;
     ArrayList<Crypto> cryptos;
-    List<Details> details;
+
 
     SoundPool snd;
     int soundOneBark, soundHowl, soundBarkHowl, soundWhines;
@@ -78,6 +72,8 @@ public class PrimeiraAtividade extends AppCompatActivity {
         SetSoundEfects();
         CallHttpServices();
 
+
+
         doge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,11 +81,12 @@ public class PrimeiraAtividade extends AppCompatActivity {
                     saida.setText("");
                     toBark(0.0);
                 } else {
+                    saida.setText(entrada.getText());
                     SetNumberOfCoinsAndValue();
                     CallAdapter();
                     toBark(Double.parseDouble(entrada.getText().toString()));
                 }
-                entrada.setText("0");
+                entrada.setText("");
 
             }
         });
@@ -109,28 +106,55 @@ public class PrimeiraAtividade extends AppCompatActivity {
             }
         });
 
+        remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DeleteAll();
+                Refresh();
+            }
+        });
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void Refresh() {
+        Intent i = new Intent(PrimeiraAtividade.this, PrimeiraAtividade.class);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(i);
+        overridePendingTransition(0, 0);
+    }
+    private void DeleteAll() {
+        bd_details.clearList();
     }
 
     private void IntentToSecondActivity() {
         Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
         Bundle extras = new Bundle();
+
         Double value = DecimalFormatter(crypto.getPrice() * crypto.getNumberOfCoins());
         crypto.setValue(value);
 
         extras.putString("value", crypto.getValue().toString());
         extras.putString("price", crypto.getPrice().toString());
-
         extras.putString("owned", crypto.getNumberOfCoins().toString());
 
         if (crypto.getNumberOfCoins() > 0) {
             intent.putExtras(extras);
             startActivity(intent);
+            finish();
         } else {
             Toast.makeText(PrimeiraAtividade.this, "Insert the number of coins before adding", Toast.LENGTH_SHORT).show();
         }
 
         crypto = null;
-        finish();
+
     }
     private void SetNumberOfCoinsAndValue() {
         if (entrada.getText().toString() != null) {

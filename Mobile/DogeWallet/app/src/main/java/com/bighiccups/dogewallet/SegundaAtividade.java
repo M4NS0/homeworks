@@ -24,7 +24,7 @@ public class SegundaAtividade extends AppCompatActivity {
     MeuAdaptadorBd meuAdaptador;
 
     List<Details> detailsList;
-    ImageButton imageButton_back, imageButton_delete_last;
+    ImageButton imageButton_back;
     DetailsDatabase bd_details = new DetailsDatabase(this);
     Bundle extras;
     private List<Details> details;
@@ -44,13 +44,12 @@ public class SegundaAtividade extends AppCompatActivity {
         }
         lista_bd = findViewById(R.id.lista_bd);
         imageButton_back = findViewById(R.id.ib_view_back);
-        imageButton_delete_last = findViewById(R.id.ib_delete_last);
-
 
         detailsList = new ArrayList<>();
 
-        PopulateList();
+
         GetIntent();
+        PopulateList();
         CallAdapter();
 
         imageButton_back.setOnClickListener(new View.OnClickListener() {
@@ -61,31 +60,7 @@ public class SegundaAtividade extends AppCompatActivity {
                 finish();
             }
         });
-
-        imageButton_delete_last.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (details.size() > 0) {
-                    int id = detailsList.get(detailsList.size() - 1).getId();
-                    String numberOfCoinsRemoved = detailsList.get(detailsList.size() - 1).getOwned();
-                    bd_details.removeTransaction(id);
-                    Toast.makeText(SegundaAtividade.this, numberOfCoinsRemoved + " Coins removed from the database", Toast.LENGTH_SHORT).show();
-                    Refresh();
-                }
-                Refresh();
-
-            }
-        });
     }
-
-    private void Refresh() {
-        Intent i = new Intent(SegundaAtividade.this, SegundaAtividade.class);
-        finish();
-        overridePendingTransition(0, 0);
-        startActivity(i);
-        overridePendingTransition(0, 0);
-    }
-
 
     private String GetCurrentDate() {
         Calendar calendar = Calendar.getInstance();
@@ -116,7 +91,7 @@ public class SegundaAtividade extends AppCompatActivity {
     private void PopulateObjects(Bundle extras) {
         Double ownedInLastTransaction = 0.0;
         detailsObj = new Details();
-        if (!GetLastIndexNumberOfCryptos().equals("")) {
+        if (!GetLastIndexNumberOfCryptos().equals("") || GetLastIndexNumberOfCryptos() != null) {
             ownedInLastTransaction = Double.parseDouble(GetLastIndexNumberOfCryptos());
         }
 
@@ -137,10 +112,11 @@ public class SegundaAtividade extends AppCompatActivity {
     private String GetLastIndexNumberOfCryptos() {
         details = bd_details.listTransactions();
         String ownedInLastTransaction = "";
-        if (details.size() > 1) {
+        if (details.size() > 0) {
             ownedInLastTransaction = details.get(details.size() -1).getOwned();
-        }
-        return ownedInLastTransaction;
+            return ownedInLastTransaction;
+        } else return "0.0";
+
     }
 
     private String SetValue() {
