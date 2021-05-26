@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -66,10 +65,13 @@ public class SegundaAtividade extends AppCompatActivity {
         imageButton_delete_last.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int id = detailsList.get(detailsList.size()-1).getId();
-                String numberOfCoinsRemoved = detailsList.get(detailsList.size()-1).getOwned();
-                bd_details.removeTransaction(id);
-                Toast.makeText(SegundaAtividade.this, numberOfCoinsRemoved + " Coins removed from the database", Toast.LENGTH_SHORT).show();
+                if (details.size() > 0) {
+                    int id = detailsList.get(detailsList.size() - 1).getId();
+                    String numberOfCoinsRemoved = detailsList.get(detailsList.size() - 1).getOwned();
+                    bd_details.removeTransaction(id);
+                    Toast.makeText(SegundaAtividade.this, numberOfCoinsRemoved + " Coins removed from the database", Toast.LENGTH_SHORT).show();
+                    Refresh();
+                }
                 Refresh();
 
             }
@@ -105,28 +107,65 @@ public class SegundaAtividade extends AppCompatActivity {
         Intent intent = getIntent();
         extras = intent.getExtras();
         if (extras != null) {
-            detailsObj = new Details();
-            detailsObj.setValue(extras.getString("value"));
-            detailsObj.setPrice(extras.getString("price"));
-            detailsObj.setOwned(extras.getString("owned"));
-
-            detailsObj.setDate(GetCurrentDate());
-            detailsObj.setVariation(GetVariation());
-            detailsObj.setGain(GetGain());
-            detailsList.add(detailsObj);
+            PopulateObjects(extras);
             AddNewTransaction(detailsObj);
 
         }
     }
+
+    private void PopulateObjects(Bundle extras) {
+        Double ownedInLastTransaction = 0.0;
+        detailsObj = new Details();
+        if (!GetLastIndexNumberOfCryptos().equals("")) {
+            ownedInLastTransaction = Double.parseDouble(GetLastIndexNumberOfCryptos());
+        }
+
+        Double currentlyOwned = Double.parseDouble(extras.getString("owned"));
+        Double sum = ownedInLastTransaction + currentlyOwned;
+
+        detailsObj.setValue(extras.getString("value"));
+        detailsObj.setPrice(extras.getString("price"));
+        detailsObj.setOwned(sum.toString());
+        detailsObj.setDate(GetCurrentDate());
+        detailsObj.setVariation(GetVariation());
+        detailsObj.setValue(SetValue());
+        detailsObj.setGain(GetGain());
+
+        detailsList.add(detailsObj);
+    }
+
+    private String GetLastIndexNumberOfCryptos() {
+        details = bd_details.listTransactions();
+        String ownedInLastTransaction = "";
+        if (details.size() > 1) {
+            ownedInLastTransaction = details.get(details.size() -1).getOwned();
+        }
+        return ownedInLastTransaction;
+    }
+
+    private String SetValue() {
+        String getLastIndexNumberOfCryptosStr = "0";
+        if (!GetLastIndexNumberOfCryptos().equals("")) {
+            getLastIndexNumberOfCryptosStr = GetLastIndexNumberOfCryptos();
+        }
+        Double ownedInLastTransaction = Double.parseDouble(getLastIndexNumberOfCryptosStr);
+        Double currentAddedCryptos = Double.parseDouble(detailsObj.getOwned());
+        Double sumOfOwned = ownedInLastTransaction + currentAddedCryptos;
+        Double currentlyPrice = Double.parseDouble(detailsObj.getPrice());
+        Double sum = DecimalFormatter(currentlyPrice * sumOfOwned);
+
+        return sum.toString();
+    }
+
     private String GetVariation() {
         String variation = "0.0";
         details = bd_details.listTransactions();
         if (details.size() != 0) {
-            Double previouslyValue = Double.parseDouble(details.get(details.size() - 1).getValue());
+            String previouslyValueStr = details.get(details.size() -1).getValue();
+            Double previouslyValue = Double.parseDouble(previouslyValueStr);
             Double currentValue = Double.parseDouble(detailsObj.getValue());
             Double calc = (currentValue * 100)/previouslyValue;
-            int aux = ShortFormatter(calc);
-            variation = aux + "";
+            variation = calc.toString();
             return variation;
         }
         return variation;
@@ -141,17 +180,16 @@ public class SegundaAtividade extends AppCompatActivity {
 
     private String GetGain() {
         String gainStr = "";
+        Double previouslyValue = 0.0;
         details = bd_details.listTransactions();
         if (details.size() != 0) {
-            Double previouslyValue = Double.parseDouble(details.get(details.size() - 1).getValue());
-            Double owned = Double.parseDouble(detailsObj.getOwned());
-            Double price = Double.parseDouble(detailsObj.getPrice());
-            Double currentValue = owned * price;
-            Double gain = DecimalFormatter(currentValue - previouslyValue);
-            gainStr = gain.toString();
-
-            return gainStr;
+            previouslyValue = Double.parseDouble(details.get(details.size() - 1).getValue());
         }
+        Double owned = Double.parseDouble(detailsObj.getOwned());
+        Double price = Double.parseDouble(detailsObj.getPrice());
+        Double currentValue = owned * price;
+        Double gain = DecimalFormatter(currentValue - previouslyValue);
+        gainStr = gain.toString();
 
         return gainStr;
     }
