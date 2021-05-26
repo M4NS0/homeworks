@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaBuscar">
+
+    <TextView
+        android:id="@+id/textoSuperior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Busca de Contato na Web"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        />
+
+    <EditText
+        android:id="@+id/EdId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textoSuperior"
+        android:layout_marginTop="25dp"
+        android:layout_marginHorizontal="20dp"
+        android:hint="Digite o Id do contato"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btnBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EdId"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:text="Buscar"/>
+
+
+    <TextView
+        android:id="@+id/EdNome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnBuscar"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center"
+        android:hint="Nome"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/EdTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EdNome"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center"
+        android:hint="Telefone"
+        android:textSize="20dp"/>
+
+
+
+    <include layout="@layout/layout_botoes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="15dp"/>
+</RelativeLayout>

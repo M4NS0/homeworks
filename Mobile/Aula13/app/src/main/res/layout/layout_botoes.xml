@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+
+    <ImageButton
+        android:id="@+id/imageBuscar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_search"
+        android:layout_marginHorizontal="5dp"
+        android:elevation="3dp"/>
+
+    <ImageButton
+        android:id="@+id/imageDeletar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        android:layout_marginHorizontal="5dp"
+        android:elevation="3dp"/>
+
+    <ImageButton
+        android:id="@+id/imageEnviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_upload"
+        android:layout_marginHorizontal="5dp"
+        android:elevation="3dp"/>
+    <ImageButton
+        android:id="@+id/imageListar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@android:drawable/ic_menu_agenda"
+        android:layout_marginHorizontal="5dp"
+        android:elevation="3dp"/>
+</LinearLayout>
