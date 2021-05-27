@@ -81,16 +81,63 @@ public class SegundaAtividade extends AppCompatActivity {
     private void GetIntent() {
         Intent intent = getIntent();
         extras = intent.getExtras();
-        if (extras != null) {
+        if (extras.containsKey("coinsToRemove")) {
+            PopulateObjectToEditBd(extras);
+
+        }
+        if (!extras.containsKey("coinsToRemove")) {
             PopulateObjects(extras);
             AddNewTransaction(detailsObj);
 
         }
     }
 
+    private void PopulateObjectToEditBd(Bundle extras) {
+        details = bd_details.listTransactions();
+
+        detailsObj = new Details();
+        String lastIndexNumberOfCryptosStr = GetLastIndexNumberOfCryptos();
+        Double lastIndexNumberOfCryptos = Double.parseDouble(lastIndexNumberOfCryptosStr);
+
+        if (lastIndexNumberOfCryptos <= 0.0) {
+            Toast.makeText(this, "No previously coins found ", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String ownedInLastTransactionStr = details.get(details.size() -1).getOwned();
+            Double ownedInLastTransaction = Double.parseDouble(ownedInLastTransactionStr);
+            String removedCoinsStr = extras.getString("coinsToRemove");
+            Double removedCoins = Double.parseDouble(removedCoinsStr);
+            Double result = ownedInLastTransaction - removedCoins;
+            String priceStr = extras.getString("price");
+            Double price = Double.parseDouble(priceStr);
+            Double value = DecimalFormatter(result * price);
+
+
+            if (result < 0) {
+                Toast.makeText(this, "Can't remove more than you have!", Toast.LENGTH_SHORT).show();
+            }
+            String lastValueStr = details.get(details.size() -1).getValue();
+            Double lastValue = Double.parseDouble(lastValueStr);
+
+            Double gain = lastValue - value;
+            detailsObj.setDate(GetCurrentDate());
+            detailsObj.setGain(gain.toString());
+            detailsObj.setValue(value.toString());
+            detailsObj.setOwned(result.toString());
+            detailsObj.setPrice(price.toString());
+            detailsObj.setVariation("0.0");
+
+            AddNewTransaction(detailsObj);
+        }
+
+
+    }
+
     private void PopulateObjects(Bundle extras) {
         Double ownedInLastTransaction = 0.0;
         detailsObj = new Details();
+
+
         if (!GetLastIndexNumberOfCryptos().equals("") || GetLastIndexNumberOfCryptos() != null) {
             ownedInLastTransaction = Double.parseDouble(GetLastIndexNumberOfCryptos());
         }
@@ -114,8 +161,8 @@ public class SegundaAtividade extends AppCompatActivity {
         String ownedInLastTransaction = "";
         if (details.size() > 0) {
             ownedInLastTransaction = details.get(details.size() -1).getOwned();
-            return ownedInLastTransaction;
-        } else return "0.0";
+        }
+        return ownedInLastTransaction;
 
     }
 
