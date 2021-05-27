@@ -81,15 +81,41 @@ public class SegundaAtividade extends AppCompatActivity {
     private void GetIntent() {
         Intent intent = getIntent();
         extras = intent.getExtras();
-        if (extras.containsKey("coinsToRemove")) {
-            PopulateObjectToEditBd(extras);
 
+        if (extras.containsKey("newPrice")) PopulateEmptyTransaction();
+
+        if (extras.containsKey("coinsToRemove") || extras != null) {
+            PopulateObjectToEditBd(extras);
         }
-        if (!extras.containsKey("coinsToRemove")) {
+        if (!extras.containsKey("coinsToRemove") || extras != null) {
             PopulateObjects(extras);
             AddNewTransaction(detailsObj);
-
         }
+    }
+
+    private void PopulateEmptyTransaction() {
+        details = bd_details.listTransactions();
+        String priceStr = "";
+        Double ownedInLastTransaction = 0.0;
+        if (details.size() != 0 || details != null) {
+            String ownedInLastTransactionStr = details.get(details.size() -1).getOwned();
+            ownedInLastTransaction = Double.parseDouble(ownedInLastTransactionStr);
+        }
+
+        Intent intent = new Intent();
+        extras = intent.getExtras();
+        extras.getString("price", priceStr);
+        Double price = Double.parseDouble(priceStr);
+        Double value = price * ownedInLastTransaction;
+
+        detailsObj.setValue(value.toString());
+        detailsObj.setOwned(ownedInLastTransaction.toString());
+        detailsObj.setPrice(priceStr);
+        detailsObj.setVariation("0.0");
+        detailsObj.setDate(GetCurrentDate());
+        detailsObj.setGain("");
+
+        AddNewTransaction(detailsObj);
     }
 
     private void PopulateObjectToEditBd(Bundle extras) {

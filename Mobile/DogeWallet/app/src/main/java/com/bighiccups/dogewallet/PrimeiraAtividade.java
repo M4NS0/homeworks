@@ -1,8 +1,6 @@
 package com.bighiccups.dogewallet;
 
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -19,14 +17,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bighiccups.dogewallet.model.Cotacao;
 import com.bighiccups.dogewallet.model.Crypto;
-import com.bighiccups.dogewallet.model.Details;
 import com.bighiccups.dogewallet.services.DetailsDatabase;
-import com.bighiccups.dogewallet.services.ShortListAdapter;
-
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -111,21 +104,21 @@ public class PrimeiraAtividade extends AppCompatActivity {
             public void onClick(View v) {
                 Bundle extras = new Bundle();
                 String coinsToRemoveStr = saida.getText().toString();
-
                 Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
                 extras.putString("coinsToRemove", coinsToRemoveStr);
                 extras.putString("price", crypto.getPrice().toString());
                 intent.putExtras(extras);
                 startActivity(intent);
-
-
             }
         });
 
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle extras = new Bundle();
                 Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
+                extras.putString("newPrice", crypto.getPrice().toString());
+                intent.putExtras(extras);
                 startActivity(intent);
             }
         });
