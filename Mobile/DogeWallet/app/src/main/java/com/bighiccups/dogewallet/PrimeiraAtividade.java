@@ -45,7 +45,6 @@ public class PrimeiraAtividade extends AppCompatActivity {
     SoundPool snd;
     int soundOneBark, soundHowl, soundBarkHowl, soundWhines;
     ImageButton doge, add, remove, view;
-    Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,9 +129,6 @@ public class PrimeiraAtividade extends AppCompatActivity {
         overridePendingTransition(0, 0);
         startActivity(i);
         overridePendingTransition(0, 0);
-    }
-    private void DeleteAll() {
-        bd_details.clearList();
     }
 
     private void IntentToSecondActivity() {
