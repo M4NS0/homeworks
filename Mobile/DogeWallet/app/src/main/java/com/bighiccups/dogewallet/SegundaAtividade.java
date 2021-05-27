@@ -24,7 +24,7 @@ public class SegundaAtividade extends AppCompatActivity {
     MeuAdaptadorBd meuAdaptador;
 
     List<Details> detailsList;
-    ImageButton imageButton_back;
+    ImageButton imageButton_back, imageButton_clear_list;
     DetailsDatabase bd_details = new DetailsDatabase(this);
     Bundle extras;
     private List<Details> details;
@@ -44,7 +44,7 @@ public class SegundaAtividade extends AppCompatActivity {
         }
         lista_bd = findViewById(R.id.lista_bd);
         imageButton_back = findViewById(R.id.ib_view_back);
-
+        imageButton_clear_list = findViewById(R.id.ib_clear_list);
         detailsList = new ArrayList<>();
 
 
@@ -60,8 +60,24 @@ public class SegundaAtividade extends AppCompatActivity {
                 finish();
             }
         });
+
+        imageButton_clear_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bd_details.clearList();
+                Refresh();
+
+            }
+        });
     }
 
+    private void Refresh() {
+        Intent i = new Intent(SegundaAtividade.this, PrimeiraAtividade.class);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(i);
+        overridePendingTransition(0, 0);
+    }
     private String GetCurrentDate() {
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -82,33 +98,33 @@ public class SegundaAtividade extends AppCompatActivity {
         Intent intent = getIntent();
         extras = intent.getExtras();
 
-        if (extras.containsKey("newPrice")) PopulateEmptyTransaction();
+        if (extras.containsKey("newPrice")) PopulateEmptyTransaction(extras);
 
-        if (extras.containsKey("coinsToRemove") || extras != null) {
+        else if (extras.containsKey("coinsToRemove") || extras != null) {
             PopulateObjectToEditBd(extras);
         }
-        if (!extras.containsKey("coinsToRemove") || extras != null) {
+        else if (!extras.containsKey("coinsToRemove") || extras != null) {
             PopulateObjects(extras);
             AddNewTransaction(detailsObj);
         }
     }
 
-    private void PopulateEmptyTransaction() {
+    private void PopulateEmptyTransaction(Bundle extras) {
         details = bd_details.listTransactions();
+        detailsObj = new Details();
         String priceStr = "";
         Double ownedInLastTransaction = 0.0;
-        if (details.size() != 0 || details != null) {
+        if (details.size() > 0 || details != null) {
             String ownedInLastTransactionStr = details.get(details.size() -1).getOwned();
             ownedInLastTransaction = Double.parseDouble(ownedInLastTransactionStr);
         }
 
-        Intent intent = new Intent();
-        extras = intent.getExtras();
-        extras.getString("price", priceStr);
+        priceStr = extras.getString("newPrice", priceStr);
         Double price = Double.parseDouble(priceStr);
-        Double value = price * ownedInLastTransaction;
+        Double value =  DecimalFormatter(price * ownedInLastTransaction);
+        String valueStr = value.toString();
 
-        detailsObj.setValue(value.toString());
+        detailsObj.setValue(valueStr);
         detailsObj.setOwned(ownedInLastTransaction.toString());
         detailsObj.setPrice(priceStr);
         detailsObj.setVariation("0.0");
