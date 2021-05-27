@@ -100,10 +100,13 @@ public class SegundaAtividade extends AppCompatActivity {
 
         if (extras.containsKey("newPrice")) PopulateEmptyTransaction(extras);
 
-        else if (extras.containsKey("coinsToRemove") || extras != null) {
+        String aux = extras.getString("coinsToRemove");
+
+
+        if (aux != null || extras != null) {
             PopulateObjectToEditBd(extras);
         }
-        else if (!extras.containsKey("coinsToRemove") || extras != null) {
+        if (!extras.containsKey("coinsToRemove") || extras != null) {
             PopulateObjects(extras);
             AddNewTransaction(detailsObj);
         }
@@ -136,10 +139,12 @@ public class SegundaAtividade extends AppCompatActivity {
 
     private void PopulateObjectToEditBd(Bundle extras) {
         details = bd_details.listTransactions();
-
+        Double lastIndexNumberOfCryptos = 0.0;
         detailsObj = new Details();
         String lastIndexNumberOfCryptosStr = GetLastIndexNumberOfCryptos();
-        Double lastIndexNumberOfCryptos = Double.parseDouble(lastIndexNumberOfCryptosStr);
+        if (GetLastIndexNumberOfCryptos() != "") {
+            lastIndexNumberOfCryptos = Double.parseDouble(lastIndexNumberOfCryptosStr);
+        }
 
         if (lastIndexNumberOfCryptos <= 0.0) {
             Toast.makeText(this, "No previously coins found ", Toast.LENGTH_SHORT).show();
@@ -179,8 +184,9 @@ public class SegundaAtividade extends AppCompatActivity {
         Double ownedInLastTransaction = 0.0;
         detailsObj = new Details();
 
+        String lastIndexNumberOfCrypto = GetLastIndexNumberOfCryptos();
 
-        if (!GetLastIndexNumberOfCryptos().equals("") || GetLastIndexNumberOfCryptos() != null) {
+        if (!lastIndexNumberOfCrypto.equals("")) {
             ownedInLastTransaction = Double.parseDouble(GetLastIndexNumberOfCryptos());
         }
 
