@@ -109,8 +109,16 @@ public class PrimeiraAtividade extends AppCompatActivity {
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DeleteAll();
-                Refresh();
+                Bundle extras = new Bundle();
+                String coinsToRemoveStr = saida.getText().toString();
+
+                Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
+                extras.putString("coinsToRemove", coinsToRemoveStr);
+                extras.putString("price", crypto.getPrice().toString());
+                intent.putExtras(extras);
+                startActivity(intent);
+
+
             }
         });
 
