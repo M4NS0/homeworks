@@ -40,6 +40,7 @@ public class PrimeiraAtividade extends AppCompatActivity {
     Crypto crypto;
     Cotacao cotacao;
     ArrayList<Crypto> cryptos;
+    Bundle extras;
 
 
     SoundPool snd;
@@ -101,7 +102,7 @@ public class PrimeiraAtividade extends AppCompatActivity {
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle extras = new Bundle();
+                extras = new Bundle();
                 String coinsToRemoveStr = saida.getText().toString();
                 Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
                 extras.putString("coinsToRemove", coinsToRemoveStr);
@@ -114,7 +115,7 @@ public class PrimeiraAtividade extends AppCompatActivity {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle extras = new Bundle();
+                extras = new Bundle();
                 Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
                 extras.putString("newPrice", crypto.getPrice().toString());
                 intent.putExtras(extras);
@@ -133,7 +134,7 @@ public class PrimeiraAtividade extends AppCompatActivity {
 
     private void IntentToSecondActivity() {
         Intent intent = new Intent(PrimeiraAtividade.this, SegundaAtividade.class);
-        Bundle extras = new Bundle();
+        extras = new Bundle();
 
         Double value = DecimalFormatter(crypto.getPrice() * crypto.getNumberOfCoins());
         crypto.setValue(value);
@@ -148,6 +149,7 @@ public class PrimeiraAtividade extends AppCompatActivity {
             finish();
         } else {
             Toast.makeText(PrimeiraAtividade.this, "Insert the number of coins before adding", Toast.LENGTH_SHORT).show();
+            Refresh();
         }
 
         crypto = null;
