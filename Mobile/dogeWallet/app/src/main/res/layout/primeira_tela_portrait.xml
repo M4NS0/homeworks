@@ -65,9 +65,8 @@
         android:layout_centerHorizontal="true"
         android:background="#00FFFFFF"
         android:src="@drawable/doge"
+        android:onClick="passaTexto"
         />
-
-    <!-- android:onClick="passaTexto"-->
 
     <ListView
         android:id="@+id/lista"
