@@ -11,14 +11,6 @@ public class Coin {
     public Coin() {
     }
 
-    public Coin(Double cryptoPrice, Double usdPrice, String exchange, Double quantity, Double value) {
-        this.cryptoPrice = cryptoPrice;
-        UsdPrice = usdPrice;
-        this.exchange = exchange;
-        this.quantity = quantity;
-        this.value = value;
-    }
-
     public Double getCryptoPrice() {
         return cryptoPrice;
     }

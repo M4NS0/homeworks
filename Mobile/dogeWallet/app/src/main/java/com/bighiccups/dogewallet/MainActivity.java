@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     SoundPool snd;
     int soundOneBark, soundHowl, soundBarkHowl, soundWhines;
     Coin coin;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,13 +33,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             setContentView(R.layout.primeira_tela_portrait);
-
-        } else {
+        }
+        else {
             setContentView(R.layout.primeira_tela_landscape);
         }
-        coin = new Coin();
+
         SetScreen();
-        CallHttpServices();
+
+
 
         doge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,16 +56,18 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void PopulateObject(String quantityStr) {
+    public void PopulateObject(String quantityStr) {
+        CallHttpServices();
+        coin = new Coin();
         Tools tolls = new Tools();
 
         Double quantity = Double.parseDouble(quantityStr);
         Double price = coin.getUsdPrice();
         String exchangeName = coin.getExchange();
         Double quot = coin.getCryptoPrice();
-
-
     }
+
+
 
     private void toBark(Double coins) {
         if (coins == 0.0) {
@@ -82,12 +84,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void CallHttpServices() {
-        CryptoService cryptoService = new CryptoService();
-        cryptoService.execute();
-    }
-
-
     public void setCryptoPrice(Double cryptoPrice) {
         coin.setCryptoPrice(cryptoPrice);
     }
@@ -99,25 +95,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void SetScreen() {
+        doge = findViewById(R.id.ib_doge);
+        entrada = findViewById(R.id.entrada);
+        saida = findViewById(R.id.saida);
+        add = findViewById(R.id.ib_add);
+        remove = findViewById(R.id.ib_remove);
+        view = findViewById(R.id.ib_view);
+        listView = findViewById(R.id.lista);
 
         name = findViewById(R.id.name);
         exch = findViewById(R.id.exchange);
         price = findViewById(R.id.price);
-
-        doge = findViewById(R.id.ib_doge);
-        listView = findViewById(R.id.lista);
-        entrada = findViewById(R.id.entrada);
-        saida = findViewById(R.id.saida);
-        entrada = findViewById(R.id.entrada);
-
-        add = findViewById(R.id.ib_add);
-        remove = findViewById(R.id.ib_remove);
-        view = findViewById(R.id.ib_view);
 
         snd = new SoundPool(1, AudioManager.STREAM_MUSIC, 3);
         soundOneBark = snd.load(MainActivity.this, R.raw.onebark, 4);
         soundHowl = snd.load(MainActivity.this, R.raw.howl, 4);
         soundBarkHowl = snd.load(MainActivity.this, R.raw.barkandhowl, 4);
         soundWhines = snd.load(MainActivity.this, R.raw.whines, 4);
+    }
+
+    private void CallHttpServices() {
+        CryptoService cryptoService = new CryptoService();
+        cryptoService.execute();
     }
 }
