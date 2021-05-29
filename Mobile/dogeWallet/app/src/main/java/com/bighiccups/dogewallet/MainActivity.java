@@ -3,6 +3,7 @@ package com.bighiccups.dogewallet;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,9 +14,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.bighiccups.dogewallet.model.Coin;
-import com.bighiccups.dogewallet.services.CryptoService;
 import com.bighiccups.dogewallet.tools.Tools;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
     TextView name, exch, price, saida;
@@ -25,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     SoundPool snd;
     int soundOneBark, soundHowl, soundBarkHowl, soundWhines;
     Coin coin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             setContentView(R.layout.primeira_tela_portrait);
-        }
-        else {
+        } else {
             setContentView(R.layout.primeira_tela_landscape);
         }
+        coin = new Coin();
 
         SetScreen();
-
-
 
         doge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     toBark(0.0);
                 }
                 saida.setText(entrada.getText());
+
                 PopulateObject(saida.getText().toString());
 
             }
@@ -57,17 +68,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void PopulateObject(String quantityStr) {
-        CallHttpServices();
-        coin = new Coin();
         Tools tolls = new Tools();
+        CallHttpServices();
 
         Double quantity = Double.parseDouble(quantityStr);
         Double price = coin.getUsdPrice();
         String exchangeName = coin.getExchange();
         Double quot = coin.getCryptoPrice();
+
+
+
+
     }
-
-
 
     private void toBark(Double coins) {
         if (coins == 0.0) {
@@ -82,16 +94,6 @@ public class MainActivity extends AppCompatActivity {
         if (coins >= 10000) {
             snd.play(soundBarkHowl, 1, 1, 5, 0, 1);
         }
-    }
-
-    public void setCryptoPrice(Double cryptoPrice) {
-        coin.setCryptoPrice(cryptoPrice);
-    }
-    public void setQuotation(Double quotation) {
-        coin.setUsdPrice(quotation);
-    }
-    public void setExchange(String exchange) {
-        coin.setExchange(exchange);
     }
 
     private void SetScreen() {
@@ -115,7 +117,110 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void CallHttpServices() {
-        CryptoService cryptoService = new CryptoService();
+        HttpCryptoService cryptoService = new HttpCryptoService();
         cryptoService.execute();
+
+        HttpConversionService conversionService = new HttpConversionService();
+        conversionService.execute();
+    }
+
+    public class HttpCryptoService extends AsyncTask<String, String, Coin> {
+        @Override
+        protected Coin doInBackground(String... strings) {
+            HttpURLConnection connection = null;
+            BufferedReader buffer = null;
+
+            try {
+                URL url = new URL("https://sochain.com//api/v2/get_price/DOGE/USD");
+                connection = (HttpURLConnection) url.openConnection();
+                connection.setConnectTimeout(5000);
+                connection.connect();
+                InputStream inputStream = connection.getInputStream();
+                buffer = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuffer stringBuffer = new StringBuffer();
+                String line = "";
+                while ((line = buffer.readLine()) != null) {
+                    stringBuffer.append(line);
+                }
+
+                String coinsJson = stringBuffer.toString();
+                JSONObject jsonObj = new JSONObject(coinsJson);
+
+                Double price = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getDouble("price");
+                String exchangeStr = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getString("exchange");
+
+                coin.setCryptoPrice(price);
+                coin.setExchange(exchangeStr);
+
+                return coin;
+
+
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+
+            } finally {
+                try {
+                    buffer.close();
+                    connection.disconnect();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Coin coin) {
+            super.onPostExecute(coin);
+        }
+    }
+
+    public class HttpConversionService extends AsyncTask<String, String, Coin> {
+        @Override
+        protected Coin doInBackground(String... strings) {
+            HttpURLConnection connection = null;
+            BufferedReader buffer = null;
+
+            try {
+                URL url = new URL("https://economia.awesomeapi.com.br/last/USD-BRL");
+                connection = (HttpURLConnection)url.openConnection();
+                connection.setConnectTimeout(5000);
+                connection.connect();
+                InputStream inputStream = connection.getInputStream();
+                buffer = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuffer stringBuffer = new StringBuffer();
+                String linha = "";
+                while ((linha = buffer.readLine())!= null) {
+                    stringBuffer.append(linha);
+                }
+
+
+                String quotation = stringBuffer.toString();
+                JSONObject jsonObj = new JSONObject(quotation);
+                Double json = jsonObj.getJSONObject("USDBRL").getDouble("ask");
+
+                coin.setUsdPrice(json);
+
+                return coin;
+
+
+            } catch (IOException | JSONException e) {
+                e.printStackTrace();
+
+            } finally {
+                try {
+                    buffer.close();
+                    connection.disconnect();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Coin coin) {
+            super.onPostExecute(coin);
+        }
     }
 }
