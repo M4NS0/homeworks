@@ -15,15 +15,16 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.bighiccups.dogewallet.model.Coin;
 import com.bighiccups.dogewallet.services.CryptoService;
+import com.bighiccups.dogewallet.tools.Tools;
 
 public class MainActivity extends AppCompatActivity {
-    TextView name, exchange, price, saida;
+    TextView name, exch, price, saida;
     EditText entrada;
     ListView listView;
     ImageButton doge, add, remove, view;
-    private Coin coin = new Coin();
     SoundPool snd;
     int soundOneBark, soundHowl, soundBarkHowl, soundWhines;
+    Coin coin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
         } else {
             setContentView(R.layout.primeira_tela_landscape);
         }
+        coin = new Coin();
         SetScreen();
         CallHttpServices();
-        
+
         doge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,9 +49,22 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Please Insert Coins", Toast.LENGTH_SHORT).show();
                     toBark(0.0);
                 }
+                saida.setText(entrada.getText());
+                PopulateObject(saida.getText().toString());
 
             }
         });
+    }
+
+    private void PopulateObject(String quantityStr) {
+        Tools tolls = new Tools();
+
+        Double quantity = Double.parseDouble(quantityStr);
+        Double price = coin.getUsdPrice();
+        String exchangeName = coin.getExchange();
+        Double quot = coin.getCryptoPrice();
+
+
     }
 
     private void toBark(Double coins) {
@@ -66,9 +81,27 @@ public class MainActivity extends AppCompatActivity {
             snd.play(soundBarkHowl, 1, 1, 5, 0, 1);
         }
     }
+
+    private void CallHttpServices() {
+        CryptoService cryptoService = new CryptoService();
+        cryptoService.execute();
+    }
+
+
+    public void setCryptoPrice(Double cryptoPrice) {
+        coin.setCryptoPrice(cryptoPrice);
+    }
+    public void setQuotation(Double quotation) {
+        coin.setUsdPrice(quotation);
+    }
+    public void setExchange(String exchange) {
+        coin.setExchange(exchange);
+    }
+
     private void SetScreen() {
+
         name = findViewById(R.id.name);
-        exchange = findViewById(R.id.exchange);
+        exch = findViewById(R.id.exchange);
         price = findViewById(R.id.price);
 
         doge = findViewById(R.id.ib_doge);
@@ -86,24 +119,5 @@ public class MainActivity extends AppCompatActivity {
         soundHowl = snd.load(MainActivity.this, R.raw.howl, 4);
         soundBarkHowl = snd.load(MainActivity.this, R.raw.barkandhowl, 4);
         soundWhines = snd.load(MainActivity.this, R.raw.whines, 4);
-    }
-
-
-    private void CallHttpServices() {
-        CryptoService cryptoService = new CryptoService();
-        cryptoService.execute();
-    }
-
-    public void setCryptoPrice(Double price) {
-        coin.setCryptoPrice(price);
-    }
-
-    public void setQuotation(Double quot) {
-        coin.setUsdPrice(quot);
-    }
-
-    public void setExchange(String exc) {
-        coin.setExchange(exc);
-
     }
 }

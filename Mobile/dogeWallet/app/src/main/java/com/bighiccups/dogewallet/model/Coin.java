@@ -5,14 +5,18 @@ public class Coin {
     Double cryptoPrice;
     Double UsdPrice;
     String exchange;
+    Double quantity;
+    Double value;
 
     public Coin() {
     }
 
-    public Coin(Double cryptoPrice, Double usdPrice, String exchange) {
+    public Coin(Double cryptoPrice, Double usdPrice, String exchange, Double quantity, Double value) {
         this.cryptoPrice = cryptoPrice;
         UsdPrice = usdPrice;
         this.exchange = exchange;
+        this.quantity = quantity;
+        this.value = value;
     }
 
     public Double getCryptoPrice() {
@@ -37,5 +41,21 @@ public class Coin {
 
     public void setExchange(String exchange) {
         this.exchange = exchange;
+    }
+
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    public Double getValue() {
+        return value;
+    }
+
+    public void setValue(Double value) {
+        this.value = value;
     }
 }

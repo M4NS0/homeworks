@@ -4,6 +4,7 @@ package com.bighiccups.dogewallet.services;
 import android.os.AsyncTask;
 
 import com.bighiccups.dogewallet.MainActivity;
+import com.bighiccups.dogewallet.model.APIValues;
 import com.bighiccups.dogewallet.model.Coin;
 
 import org.json.JSONException;
@@ -16,13 +17,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class CryptoService extends AsyncTask<String, String, Coin> {
-    Coin coin = new Coin();
+public class CryptoService extends AsyncTask<String, String, APIValues> {
+    APIValues valuesObj;
     @Override
-    protected Coin doInBackground(String... strings) {
+    protected APIValues doInBackground(String... strings) {
+        valuesObj = new APIValues();
         HttpURLConnection connection = null;
         BufferedReader buffer = null;
-        Coin coin = new Coin();
 
         try {
             URL url = new URL("https://sochain.com//api/v2/get_price/DOGE/USD");
@@ -43,9 +44,8 @@ public class CryptoService extends AsyncTask<String, String, Coin> {
             Double price = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getDouble("price");
             String exchangeStr = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getString("exchange");
 
-            coin.setCryptoPrice(price);
-            coin.setExchange(exchangeStr);
-
+            valuesObj.setCryptoPrice(price);
+            valuesObj.setExchange(exchangeStr);
 
 
         } catch (IOException | JSONException e) {
@@ -77,7 +77,8 @@ public class CryptoService extends AsyncTask<String, String, Coin> {
             String quotation = stringBuffer.toString();
             JSONObject jsonObj = new JSONObject(quotation);
             Double json = jsonObj.getJSONObject("USDBRL").getDouble("ask");
-            coin.setUsdPrice(json);
+            valuesObj.setUSDPrice(json);
+
 
         } catch (IOException | JSONException e){
             e.printStackTrace();
@@ -90,20 +91,21 @@ public class CryptoService extends AsyncTask<String, String, Coin> {
                 e.printStackTrace();
             }
         }
-        return coin;
+        return valuesObj;
     }
 
     @Override
-    protected void onPostExecute(Coin obj) {
-        super.onPostExecute(obj);
-        SendData(obj);
-
+    protected void onPostExecute(APIValues apiValues) {
+        super.onPostExecute(apiValues);
+        SendData(apiValues);
     }
 
-    private void SendData(Coin obj) {
-        MainActivity service = new MainActivity();
-        service.setCryptoPrice(obj.getCryptoPrice());
-        service.setQuotation(obj.getUsdPrice());
-        service.setExchange(obj.getExchange());
+    private void SendData(APIValues apiValues) {
+        MainActivity act = new MainActivity();
+        act.setCryptoPrice(apiValues.getCryptoPrice());
+        act.setQuotation(apiValues.getUSDPrice());
+        act.setExchange(apiValues.getExchange());
     }
+
+
 }

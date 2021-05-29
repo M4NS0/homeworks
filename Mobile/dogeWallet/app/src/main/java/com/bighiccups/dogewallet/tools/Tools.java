@@ -12,5 +12,8 @@ public class Tools {
         DecimalFormat formatter = new DecimalFormat("0.00");
         return Double.parseDouble(formatter.format(number));
     }
+    public double CalculateValue(Double quantity, Double price) {
+        return quantity * price;
+    }
 
 }
