@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bighiccups.dogewallet.model.Coin;
+import com.bighiccups.dogewallet.services.ShortListAdapter;
 import com.bighiccups.dogewallet.tools.Tools;
 
 import org.json.JSONException;
@@ -27,6 +28,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     TextView name, exch, price, saida;
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         coin = new Coin();
 
         SetScreen();
-
+        CallHttpServices();
         doge.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,25 +63,32 @@ public class MainActivity extends AppCompatActivity {
                     toBark(0.0);
                 }
                 saida.setText(entrada.getText());
-
-                PopulateObject(saida.getText().toString());
+                PopulateObjAndList(saida.getText().toString());
 
             }
         });
     }
 
-    public void PopulateObject(String quantityStr) {
-        Tools tolls = new Tools();
-        CallHttpServices();
+    private void CallHttpServices() {
+        HttpCryptoService cryptoService = new HttpCryptoService();
+        cryptoService.execute();
 
+        HttpConversionService conversionService = new HttpConversionService();
+        conversionService.execute();
+    }
+
+    private void PopulateObjAndList(String quantityStr) {
+        List<Coin> list = new ArrayList<>();
         Double quantity = Double.parseDouble(quantityStr);
-        Double price = coin.getUsdPrice();
-        String exchangeName = coin.getExchange();
-        Double quot = coin.getCryptoPrice();
+        coin.setQuantity(quantity);
+        coin.setSymbol(" USD");
+        list.add(coin);
+        ToAdapter(list);
+    }
 
-
-
-
+    private void ToAdapter(List<Coin> list) {
+        ShortListAdapter adapter = new ShortListAdapter(MainActivity.this, R.layout.layout_lista, list);
+        listView.setAdapter(adapter);
     }
 
     private void toBark(Double coins) {
@@ -116,14 +126,6 @@ public class MainActivity extends AppCompatActivity {
         soundWhines = snd.load(MainActivity.this, R.raw.whines, 4);
     }
 
-    private void CallHttpServices() {
-        HttpCryptoService cryptoService = new HttpCryptoService();
-        cryptoService.execute();
-
-        HttpConversionService conversionService = new HttpConversionService();
-        conversionService.execute();
-    }
-
     public class HttpCryptoService extends AsyncTask<String, String, Coin> {
         @Override
         protected Coin doInBackground(String... strings) {
@@ -148,7 +150,9 @@ public class MainActivity extends AppCompatActivity {
 
                 Double price = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getDouble("price");
                 String exchangeStr = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getString("exchange");
+                String name = jsonObj.getJSONObject("data").getString("network");
 
+                coin.setCoinName(name);
                 coin.setCryptoPrice(price);
                 coin.setExchange(exchangeStr);
 

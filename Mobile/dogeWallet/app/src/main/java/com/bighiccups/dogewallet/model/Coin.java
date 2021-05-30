@@ -7,6 +7,8 @@ public class Coin {
     String exchange;
     Double quantity;
     Double value;
+    String symbol;
+    String coinName;
 
     public Coin() {
     }
@@ -49,5 +51,21 @@ public class Coin {
 
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public String getCoinName() {
+        return coinName;
+    }
+
+    public void setCoinName(String coinName) {
+        this.coinName = coinName;
     }
 }
