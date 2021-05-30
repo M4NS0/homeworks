@@ -62,15 +62,14 @@ public class ShortListAdapter extends BaseAdapter {
         String quantityStr = lista.get(position).getQuantity().toString();
         Double quantity = Double.parseDouble(quantityStr);
 
-        String priceStr = lista.get(position).getCryptoPrice().toString();
-        Double coinPrice = Double.parseDouble(priceStr);
+        Double coinPrice =  lista.get(position).getCryptoPrice();
+        String priceStr = formatter.format(lista.get(position).getCryptoPrice());
 
-        if (lista.get(position).getCryptoPrice() != null) {
-            Double value = quantity * coinPrice;
-            String formattedValue = formatter.format(value);
-            total.setText(formattedValue);
-            price.setText(lista.get(position).getCryptoPrice().toString() + " " + lista.get(position).getSymbol());
-        }
+        Double value = quantity * coinPrice;
+        String formattedValue = formatter.format(value);
+        total.setText(formattedValue);
+
+        price.setText(priceStr + " " + lista.get(position).getSymbol());
 
         name.setText(lista.get(position).getCoinName());
         exchange.setText(lista.get(position).getExchange());
