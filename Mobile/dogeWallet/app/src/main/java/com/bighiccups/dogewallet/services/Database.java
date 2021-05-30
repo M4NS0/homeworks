@@ -9,7 +9,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.bighiccups.dogewallet.model.BdObject;
+import com.bighiccups.dogewallet.model.ApiObjectFromDb;
+import com.bighiccups.dogewallet.model.ApiObjectToBD;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,18 +49,18 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    public void addCoin(BdObject details) {
+    public void addCoin(ApiObjectToBD newCoin) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(details_date,details.getDate());
-        values.put(details_price, details.getPrice());
-        values.put(details_owned, details.getOwned());
-        values.put(details_value, details.getValue());
-        values.put(details_gain, details.getGain());
-        values.put(details_variation, details.getValue());
+        values.put(details_date,newCoin.getDate());
+        values.put(details_price, newCoin.getCoinPrice());
+        values.put(details_owned, newCoin.getTotalOfCoinsOwned());
+        values.put(details_value, newCoin.getTotalValue());
+        values.put(details_gain, newCoin.getGainFromLastValue());
+        values.put(details_variation, newCoin.getPercentOfGainFromLastValue());
 
         db.insert(details_table,null,values);
-        BdObject d = selectDetails(1);
+        ApiObjectFromDb d = selectData(1);
 
         Toast.makeText(context, "Transaction successfully added to Database", Toast.LENGTH_SHORT).show();
         db.close();
@@ -81,7 +82,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    public BdObject selectDetails(int i) {
+    public ApiObjectFromDb selectData(int i) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(
                 details_table,
@@ -93,7 +94,7 @@ public class Database extends SQLiteOpenHelper {
         if (cursor != null)cursor.moveToFirst();
         else return null;
 
-        BdObject coinDetails = new BdObject(
+        ApiObjectFromDb coinDetails = new ApiObjectFromDb(
                 cursor.getInt(0),
                 cursor.getString(1),
                 cursor.getString(2),
@@ -104,15 +105,15 @@ public class Database extends SQLiteOpenHelper {
         return coinDetails;
 
     }
-    public List<BdObject> listTransactions() {
+    public List<ApiObjectFromDb> listTransactions() {
         SQLiteDatabase db = this.getReadableDatabase();
-        List<BdObject> transactionList = new ArrayList<>();
+        List<ApiObjectFromDb> transactionList = new ArrayList<>();
         String query = "SELECT * FROM " + details_table;
 
         Cursor cursor = db.rawQuery(query, null);
         if (cursor.moveToFirst()) {
             do {
-                BdObject coinDetails = new BdObject();
+                ApiObjectFromDb coinDetails = new ApiObjectFromDb();
                 coinDetails.setId(Integer.parseInt(cursor.getString(0)));
                 coinDetails.setDate(cursor.getString(1));
                 coinDetails.setPrice(cursor.getString(2));
@@ -125,7 +126,7 @@ public class Database extends SQLiteOpenHelper {
         }
         return transactionList;
     }
-    public void updateDetails(BdObject details) {
+    public void updateDetails(ApiObjectFromDb details) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(details_date, details.getDate());
