@@ -1,5 +1,6 @@
 package com.bighiccups.dogewallet;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -63,15 +64,53 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 saida.setText(entrada.getText());
                 Populate(saida.getText().toString());
-
             }
         });
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 SwitchCurrency(position);
             }
         });
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PushDataToSecondActivity();
+            }
+        });
+    }
+
+    private void PushDataToSecondActivity() {
+        if (saida.getText() == null || saida.getText().equals("")) {
+            Toast.makeText(MainActivity.this, "Please Insert Coins", Toast.LENGTH_SHORT).show();
+        } else {
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            Bundle extras = new Bundle();
+            if (coin.getSymbol() == " BRL") {
+                SwitchToUsd();
+            }
+            extras.putString("cryptoPrice", coin.getCryptoPrice().toString());
+            extras.putString("UsdPrice", coin.getUsdPrice().toString());
+            extras.putString("exchange", coin.getExchange());
+            extras.putString("quantity", coin.getQuantity().toString());
+            extras.putString("value", coin.getValue().toString());
+            extras.putString("symbol", coin.getSymbol());
+            extras.putString("coinName", coin.getCoinName());
+
+            intent.putExtras(extras);
+            startActivity(intent);
+        }
+    }
+
+    private void SwitchToUsd() {
+        DecimalFormat formatter = new DecimalFormat("0.00");
+        Double value = coin.getCryptoPrice() / coin.getUsdPrice();
+        String valueStr = formatter.format(value);
+        value = Double.parseDouble(valueStr);
+        coin.setValue(value);
+        coin.setSymbol(" USD");
     }
 
     private void SwitchCurrency(int position) {

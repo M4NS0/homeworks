@@ -13,6 +13,7 @@ public class Coin {
     public Coin() {
     }
 
+
     public Double getCryptoPrice() {
         return cryptoPrice;
     }
