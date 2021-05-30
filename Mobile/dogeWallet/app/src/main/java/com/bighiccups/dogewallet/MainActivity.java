@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             extras.putString("UsdPrice", coin.getUsdPrice().toString());
             extras.putString("exchange", coin.getExchange());
             extras.putString("quantity", coin.getQuantity().toString());
-            extras.putString("value", coin.getValue().toString());
+            extras.putString("value", coin.getValue().toString()); // nulo
             extras.putString("symbol", coin.getSymbol());
             extras.putString("coinName", coin.getCoinName());
 
@@ -138,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
             Double quantity = Double.parseDouble(quantityStr);
             coin.setQuantity(quantity);
             coin.setSymbol(" USD");
+            coin.setValue(quantity* coin.getUsdPrice());
             list.add(coin);
             ToShortAdapter();
             toBark(quantity);

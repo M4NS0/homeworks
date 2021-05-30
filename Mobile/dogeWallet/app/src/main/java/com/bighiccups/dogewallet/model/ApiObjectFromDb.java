@@ -2,11 +2,11 @@ package com.bighiccups.dogewallet.model;
 
 import java.util.Date;
 
-public class BdObject {
+public class ApiObjectFromDb {
     int id;
     String date, price, owned, value, gain, variation;
 
-    public BdObject(int id, String date, String price, String owned, String value, String gain, String variation) {
+    public ApiObjectFromDb(int id, String date, String price, String owned, String value, String gain, String variation) {
         this.id = id;
         this.date = date;
         this.price = price;
@@ -16,7 +16,7 @@ public class BdObject {
         this.variation = variation;
     }
 
-    public BdObject() {
+    public ApiObjectFromDb() {
     }
 
     public int getId() {
