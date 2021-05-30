@@ -8,12 +8,18 @@ import com.bighiccups.dogewallet.MainActivity;
 import java.text.DecimalFormat;
 
 public class Tools {
+
+    public Double CalculateTotalValue(Double price, Double numberOfCoins) {
+        Double value = price * numberOfCoins;
+        Double formattedValue = DecimalFormatter(value);
+        return formattedValue;
+    }
+
     public double DecimalFormatter(Double number) {
         DecimalFormat formatter = new DecimalFormat("0.00");
-        return Double.parseDouble(formatter.format(number));
-    }
-    public double CalculateValue(Double quantity, Double price) {
-        return quantity * price;
+        String formattedNumberString = formatter.format(number);
+        Double result = Double.parseDouble(formattedNumberString);
+        return result;
     }
 
 }
