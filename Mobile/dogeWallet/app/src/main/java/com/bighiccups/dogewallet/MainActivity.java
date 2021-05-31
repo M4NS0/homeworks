@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saida.setText(entrada.getText());
+                entrada.setText("");
                 Populate(saida.getText().toString());
             }
         });
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PushDataToSecondActivity();
+                saida.setText("");
             }
         });
     }
@@ -135,10 +137,13 @@ public class MainActivity extends AppCompatActivity {
     private void Populate(String quantityStr) {
         list = new ArrayList<>();
         if (!quantityStr.equals("")) {
+            DecimalFormat formatter = new DecimalFormat("0.00");
             Double quantity = Double.parseDouble(quantityStr);
             coin.setQuantity(quantity);
             coin.setSymbol(" USD");
-            coin.setValue(quantity* coin.getUsdPrice());
+            String valueStr = formatter.format(quantity * coin.getCryptoPrice());
+            Double value = Double.parseDouble(valueStr);
+            coin.setValue(value);
             list.add(coin);
             ToShortAdapter();
             toBark(quantity);

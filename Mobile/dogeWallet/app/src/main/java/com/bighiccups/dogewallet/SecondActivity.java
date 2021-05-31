@@ -3,11 +3,14 @@ package com.bighiccups.dogewallet;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bighiccups.dogewallet.model.ApiObjectToBD;
+import com.bighiccups.dogewallet.model.ApiObjectToDb;
 import com.bighiccups.dogewallet.model.ApiObjectFromDb;
 import com.bighiccups.dogewallet.model.Coin;
 import com.bighiccups.dogewallet.services.Database;
@@ -22,11 +25,12 @@ public class SecondActivity extends AppCompatActivity{
     ListView listView;
     Database databaseConnection = new Database(this);
     DatabaseListAdapter databaseListAdapter;
-    Coin coin;
-    ApiObjectToBD apiObjectToBD;
-    ApiObjectFromDb apiObjectFromDb;
-    List<ApiObjectFromDb> listFromDatabase;
-    List<ApiObjectToBD> listToDatabase;
+    Bundle extras;
+
+    ApiObjectToDb apiObjectToDb;
+    List<ApiObjectToDb> list;
+    private Coin coin;
+    private ApiObjectFromDb apiObjectFromDb;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -40,62 +44,164 @@ public class SecondActivity extends AppCompatActivity{
 //            setContentView(R.layout.segunda_tela_landscape);
         }
         SetView();
-        GetIntent();
-        GetDataFromDB();
 
+        if (GetIntentStatus() == true) {
+            SetObjectFromIntent();
+            GetBdRecordings();
 
-
-    }
-
-    private void GetDataFromDB() {
-        apiObjectFromDb = new ApiObjectFromDb();
-        listFromDatabase = new ArrayList<>();
-        listFromDatabase = databaseConnection.listTransactions();
-        if (!listFromDatabase.isEmpty()) {
-            if (listFromDatabase.size() == 1) {
-                GetListFromDbWithOneItem();
-            } if (listFromDatabase.size() > 1) {
-                GetLastIndexOfBdList();
-            }
         } else {
-            GetOnlyLastAddition();
+            // ViewLogic
         }
-        ToBdListAdapter();
+        imageButton_clear_list.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                databaseConnection.clearList();
+                Toast.makeText(SecondActivity.this, "Wiping all records... ", Toast.LENGTH_SHORT).show();
+                Refresh();
+            }
+        });
+        imageButton_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Refresh();
+            }
+        });
 
 
     }
 
-    private void ToBdListAdapter() {
-        databaseListAdapter = new DatabaseListAdapter(SecondActivity.this, R.layout.layout_lista_bd, listToDatabase);
+    private void GetBdRecordings() {
+        List<ApiObjectFromDb> listFromDatabase;
+        listFromDatabase = databaseConnection.listTransactions();
+
+        if (listFromDatabase.isEmpty()) {
+            list = new ArrayList<>();
+            SetEmptyObj();
+            SetNewObjectToDB();
+            list.add(apiObjectToDb);
+            AddNewTransaction();
+            SendListToBdAdapter();
+        }
+
+        if (listFromDatabase.size() == 1) {
+            SetObjWithListSizeOne(listFromDatabase);
+            SendListToBdAdapter();
+
+        }
+        if (listFromDatabase.size() > 1) {
+            SetObjWithLastIndexOfList(listFromDatabase);
+        }
+
+    }
+
+    // Intent Cheio com lista vazia
+
+    private void SetEmptyObj() {
+        apiObjectFromDb = new ApiObjectFromDb();
+        apiObjectFromDb.setId(0);
+        apiObjectFromDb.setDate("");
+        apiObjectFromDb.setOwned("0.0");
+        apiObjectFromDb.setValue("0.0");
+        apiObjectFromDb.setPrice("0.0");
+        apiObjectFromDb.setVariation("0.0");
+        apiObjectFromDb.setGain("0.0");
+    }
+
+    private void SetNewObjectToDB() {
+        apiObjectToDb = new ApiObjectToDb();
+        apiObjectToDb.setDate(GetCurrentDay());
+        apiObjectToDb.setCoinPrice(coin.getCryptoPrice());
+        apiObjectToDb.setTotalOfCoinsOwned(coin.getQuantity());
+        apiObjectToDb.setTotalValue(coin.getValue());
+        apiObjectToDb.setGainFromLastValue(0.0);
+        apiObjectToDb.setPercentOfGainFromLastValue(0.0);
+
+    }
+
+    private void AddNewTransaction() {
+        databaseConnection.addCoin(new ApiObjectToDb(
+                1, apiObjectToDb.getDate(),
+                apiObjectToDb.getCoinPrice(),
+                apiObjectToDb.getTotalOfCoinsOwned(),
+                apiObjectToDb.getTotalValue(),
+                apiObjectToDb.getGainFromLastValue(),
+                apiObjectToDb.getPercentOfGainFromLastValue()));
+    }
+
+    private void SendListToBdAdapter() {
+        databaseListAdapter = new DatabaseListAdapter(SecondActivity.this, R.layout.layout_lista_bd, list);
         listView.setAdapter(databaseListAdapter);
     }
 
-    private void GetOnlyLastAddition() {
-        AddNewTransaction();
-    }
+    //////////////////////////////////
 
-    private void GetLastIndexOfBdList() {
-        apiObjectFromDb.setId(listFromDatabase.get(listFromDatabase.size() -1).getId());
-        apiObjectFromDb.setDate(listFromDatabase.get(listFromDatabase.size() -1).getDate());
-        apiObjectFromDb.setPrice(listFromDatabase.get(listFromDatabase.size() -1).getPrice());
-        apiObjectFromDb.setOwned(listFromDatabase.get(listFromDatabase.size() -1).getOwned());
-        apiObjectFromDb.setValue(listFromDatabase.get(listFromDatabase.size() -1).getValue());
-        apiObjectFromDb.setGain(listFromDatabase.get(listFromDatabase.size() -1).getGain());
-        apiObjectFromDb.setVariation(listFromDatabase.get(listFromDatabase.size() -1).getVariation());
 
-        listFromDatabase.add(apiObjectFromDb);
-    }
+    // Intent cheio com lista com um elemento
 
-    private void GetListFromDbWithOneItem() {
-        apiObjectFromDb.setId(listFromDatabase.get(0).getId());
+    private void SetObjWithListSizeOne(List<ApiObjectFromDb> listFromDatabase) {
+        apiObjectToDb = new ApiObjectToDb();
+        apiObjectToDb.setId(0);
         apiObjectFromDb.setDate(listFromDatabase.get(0).getDate());
-        apiObjectFromDb.setPrice(listFromDatabase.get(0).getPrice());
         apiObjectFromDb.setOwned(listFromDatabase.get(0).getOwned());
         apiObjectFromDb.setValue(listFromDatabase.get(0).getValue());
-        apiObjectFromDb.setGain(listFromDatabase.get(0).getGain());
+        apiObjectFromDb.setPrice(listFromDatabase.get(0).getPrice());
         apiObjectFromDb.setVariation(listFromDatabase.get(0).getVariation());
+        apiObjectFromDb.setGain(listFromDatabase.get(0).getGain());
+    }
 
-        listFromDatabase.add(apiObjectFromDb);
+    private void SetObjWithLastIndexOfList(List<ApiObjectFromDb> listFromDatabase) {
+        apiObjectToDb.setId(listFromDatabase.get(listFromDatabase.size() -1).getId());
+        apiObjectFromDb.setDate(listFromDatabase.get(listFromDatabase.size() -1).getDate());
+        apiObjectFromDb.setOwned(listFromDatabase.get(listFromDatabase.size() -1).getOwned());
+        apiObjectFromDb.setValue(listFromDatabase.get(listFromDatabase.size() -1).getValue());
+        apiObjectFromDb.setPrice(listFromDatabase.get(listFromDatabase.size() -1).getPrice());
+        apiObjectFromDb.setVariation(listFromDatabase.get(listFromDatabase.size() -1).getVariation());
+        apiObjectFromDb.setGain(listFromDatabase.get(listFromDatabase.size() -1).getGain());
+    }
+
+    private void SetObjectFromIntent() {
+        coin =  new Coin();
+        Intent intent = getIntent();
+        extras = intent.getExtras();
+        String cryptoPriceStr = extras.getString("cryptoPrice");
+        String usdPriceStr = extras.getString("UsdPrice");
+        String exchange = extras.getString("exchange");
+        String quantityStr = extras.getString("quantity");
+        String valueStr = extras.getString("value");
+        String symbol = extras.getString("symbol");
+        String coinName = extras.getString("coinName");
+
+        Double cryptoPrice = Double.parseDouble(cryptoPriceStr);
+        Double usdPrice = Double.parseDouble(usdPriceStr);
+        Double quantity = Double.parseDouble(quantityStr);
+        Double value = Double.parseDouble(valueStr);
+
+        coin.setCryptoPrice(cryptoPrice);
+        coin.setUsdPrice(usdPrice);
+        coin.setExchange(exchange);
+        coin.setQuantity(quantity);
+        coin.setValue(value);
+        coin.setSymbol(symbol);
+        coin.setCoinName(coinName);
+
+    }
+
+    private boolean GetIntentStatus() {
+        Intent intent = getIntent();
+        extras = intent.getExtras();
+
+        if (!extras.isEmpty()) {
+            return true;
+        }
+        return false;
+    }
+
+    private void Refresh() {
+        Intent i = new Intent(SecondActivity.this, MainActivity.class);
+        finish();
+        overridePendingTransition(0, 0);
+        startActivity(i);
+        overridePendingTransition(0, 0);
 
     }
 
@@ -107,76 +213,6 @@ public class SecondActivity extends AppCompatActivity{
 
         String date = day + "/" + month + "/" + year;
         return date;
-    }
-
-    private void GetIntent() {
-        Bundle extras = new Bundle();
-        Intent intent = getIntent();
-        extras = intent.getExtras();
-        String cryptoPrice = extras.getString("cryptoPrice");
-        String usdPrice = extras.getString("UsdPrice");
-        String exchange = extras.getString("exchange");
-        String quantity = extras.getString("quantity");
-        String value = extras.getString("value");
-        String symbol = extras.getString("symbol");
-        String coinName = extras.getString("coinName");
-
-        PopulateCoinObject(cryptoPrice,usdPrice,exchange,quantity,value,symbol,coinName);
-    }
-
-    private void PopulateCoinObject(String cryptoPriceStr, String usdPriceStr, String exchangeStr, String quantityStr, String valueStr, String symbolStr, String coinNameStr) {
-        coin = new Coin();
-        Double cryptoPrice = Double.parseDouble(cryptoPriceStr);
-        Double usdPrice = Double.parseDouble(usdPriceStr);
-        Double quantity = Double.parseDouble(quantityStr);
-        Double value = Double.parseDouble(valueStr);
-        coin.setCryptoPrice(cryptoPrice);
-        coin.setUsdPrice(usdPrice);
-        coin.setQuantity(quantity);
-        coin.setValue(value);
-        coin.setExchange(exchangeStr);
-        coin.setSymbol(symbolStr);
-        coin.setCoinName(coinNameStr);
-
-        PopulateBdObject();
-
-        PopulateBdList(coin);
-
-    }
-
-    private void PopulateBdList(Coin coin) {
-        apiObjectToBD.setCoinPrice(coin.getCryptoPrice());
-        apiObjectToBD.setDate(GetCurrentDay());
-        apiObjectToBD.setGainFromLastValue(0.0);
-        apiObjectToBD.setPercentOfGainFromLastValue(0.0);
-        apiObjectToBD.setTotalValue(coin.getValue());
-        apiObjectToBD.setTotalOfCoinsOwned(coin.getQuantity());
-
-        listToDatabase.add(apiObjectToBD);
-    }
-
-    private void PopulateBdObject() {
-        apiObjectToBD = new ApiObjectToBD();
-        String date = GetCurrentDay();
-        apiObjectToBD.setDate(date);
-        apiObjectToBD.setCoinPrice(coin.getCryptoPrice());
-        // logica dos sets abaixo
-
-//        Double numberOfCoinsFromLastIndex = Double.parseDouble(apiObjectFromDb.getOwned());
-//        apiObjectToBD.setTotalOfCoinsOwned(coin.getQuantity() + numberOfCoinsFromLastIndex);
-        apiObjectToBD.setTotalValue(coin.getValue());
-
-        AddNewTransaction();
-    }
-
-    private void AddNewTransaction() {
-        databaseConnection.addCoin(new ApiObjectToBD(
-                1, apiObjectToBD.getDate(),
-                apiObjectToBD.getCoinPrice(),
-                apiObjectToBD.getTotalOfCoinsOwned(),
-                apiObjectToBD.getTotalValue(),
-                apiObjectToBD.getGainFromLastValue(),
-                apiObjectToBD.getPercentOfGainFromLastValue()));
     }
 
     private void SetView() {

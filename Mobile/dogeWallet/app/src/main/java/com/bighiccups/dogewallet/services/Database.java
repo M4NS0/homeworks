@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.bighiccups.dogewallet.model.ApiObjectFromDb;
-import com.bighiccups.dogewallet.model.ApiObjectToBD;
+import com.bighiccups.dogewallet.model.ApiObjectToDb;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class Database extends SQLiteOpenHelper {
         db.execSQL(query);
     }
 
-    public void addCoin(ApiObjectToBD newCoin) {
+    public void addCoin(ApiObjectToDb newCoin) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(details_date,newCoin.getDate());
