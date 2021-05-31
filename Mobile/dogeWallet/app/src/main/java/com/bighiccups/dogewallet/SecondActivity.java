@@ -67,8 +67,6 @@ public class SecondActivity extends AppCompatActivity{
                 Refresh();
             }
         });
-
-
     }
 
     private void GetBdRecordings() {
