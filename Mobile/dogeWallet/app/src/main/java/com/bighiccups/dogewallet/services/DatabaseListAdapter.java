@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.bighiccups.dogewallet.R;
-import com.bighiccups.dogewallet.model.ApiObjectToBD;
+import com.bighiccups.dogewallet.model.ApiObjectToDb;
 
 
 import java.util.List;
@@ -18,10 +18,10 @@ public class DatabaseListAdapter extends BaseAdapter {
 
     Context context;
     int lista_crypto;
-    List<ApiObjectToBD> lista;
+    List<ApiObjectToDb> lista;
     LayoutInflater inflater;
 
-    public DatabaseListAdapter(Context context, int lista_crypto, List<ApiObjectToBD> lista) {
+    public DatabaseListAdapter(Context context, int lista_crypto, List<ApiObjectToDb> lista) {
         this.context = context;
         this.lista_crypto = lista_crypto;
         this.lista = lista;
@@ -80,7 +80,7 @@ public class DatabaseListAdapter extends BaseAdapter {
     }
 
 
-    public List<ApiObjectToBD> getLista() {
+    public List<ApiObjectToDb> getLista() {
         return lista;
     }
 }

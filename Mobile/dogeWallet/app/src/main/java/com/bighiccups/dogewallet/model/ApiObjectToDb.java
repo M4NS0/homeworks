@@ -1,6 +1,6 @@
 package com.bighiccups.dogewallet.model;
 
-public class ApiObjectToBD {
+public class ApiObjectToDb {
   int id;  
   String date;
   Double coinPrice;
@@ -9,10 +9,10 @@ public class ApiObjectToBD {
   Double gainFromLastValue;
   Double percentOfGainFromLastValue;
 
-    public ApiObjectToBD() {
+    public ApiObjectToDb() {
     }
 
-    public ApiObjectToBD(int id, String date, Double coinPrice, Double totalOfCoinsOwned, Double totalValue, Double gainFromLastValue, Double percentOfGainFromLastValue) {
+    public ApiObjectToDb(int id, String date, Double coinPrice, Double totalOfCoinsOwned, Double totalValue, Double gainFromLastValue, Double percentOfGainFromLastValue) {
         this.id = id;
         this.date = date;
         this.coinPrice = coinPrice;
