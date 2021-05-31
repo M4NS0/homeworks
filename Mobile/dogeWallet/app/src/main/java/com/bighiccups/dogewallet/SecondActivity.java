@@ -85,11 +85,12 @@ public class SecondActivity extends AppCompatActivity{
 
         if (listFromDatabase.size() == 1) {
             SetObjWithListSizeOne(listFromDatabase);
-            SendListToBdAdapter();
+            
+
 
         }
         if (listFromDatabase.size() > 1) {
-            SetObjWithLastIndexOfList(listFromDatabase);
+            //SetObjWithLastIndexOfList(listFromDatabase);
         }
 
     }
@@ -139,14 +140,14 @@ public class SecondActivity extends AppCompatActivity{
     // Intent cheio com lista com um elemento
 
     private void SetObjWithListSizeOne(List<ApiObjectFromDb> listFromDatabase) {
-        apiObjectToDb = new ApiObjectToDb();
-        apiObjectToDb.setId(0);
+        apiObjectFromDb = new ApiObjectFromDb();
         apiObjectFromDb.setDate(listFromDatabase.get(0).getDate());
         apiObjectFromDb.setOwned(listFromDatabase.get(0).getOwned());
         apiObjectFromDb.setValue(listFromDatabase.get(0).getValue());
         apiObjectFromDb.setPrice(listFromDatabase.get(0).getPrice());
         apiObjectFromDb.setVariation(listFromDatabase.get(0).getVariation());
         apiObjectFromDb.setGain(listFromDatabase.get(0).getGain());
+
     }
 
     private void SetObjWithLastIndexOfList(List<ApiObjectFromDb> listFromDatabase) {
