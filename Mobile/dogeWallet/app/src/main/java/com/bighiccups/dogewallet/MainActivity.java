@@ -228,6 +228,9 @@ public class MainActivity extends AppCompatActivity {
                 String name = jsonObj.getJSONObject("data").getString("network");
 
                 coin.setCoinName(name);
+                DecimalFormat formatter = new DecimalFormat("0.00");
+                String priceStr = formatter.format(price);
+                price = Double.parseDouble(priceStr);
                 coin.setCryptoPrice(price);
                 coin.setExchange(exchangeStr);
 
