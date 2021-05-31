@@ -16,6 +16,7 @@ import com.bighiccups.dogewallet.model.Coin;
 import com.bighiccups.dogewallet.services.Database;
 import com.bighiccups.dogewallet.services.DatabaseListAdapter;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -28,7 +29,7 @@ public class SecondActivity extends AppCompatActivity{
     Bundle extras;
 
     ApiObjectToDb apiObjectToDb;
-    List<ApiObjectToDb> list;
+    List<ApiObjectToDb> list = new ArrayList<>();
     private Coin coin;
     private ApiObjectFromDb apiObjectFromDb;
 
@@ -75,7 +76,6 @@ public class SecondActivity extends AppCompatActivity{
         listFromDatabase = databaseConnection.listTransactions();
 
         if (listFromDatabase.isEmpty()) {
-            list = new ArrayList<>();
             SetEmptyObj();
             SetNewObjectToDB();
             list.add(apiObjectToDb);
@@ -85,15 +85,18 @@ public class SecondActivity extends AppCompatActivity{
 
         if (listFromDatabase.size() == 1) {
             SetObjWithListSizeOne(listFromDatabase);
-            
-
-
+            SetNewObjWithLastIndexCalculations();
+            list.add(apiObjectToDb);
+            AddNewTransaction();
+            SendListToBdAdapter();
         }
         if (listFromDatabase.size() > 1) {
             //SetObjWithLastIndexOfList(listFromDatabase);
         }
 
     }
+
+
 
     // Intent Cheio com lista vazia
 
@@ -149,6 +152,61 @@ public class SecondActivity extends AppCompatActivity{
         apiObjectFromDb.setGain(listFromDatabase.get(0).getGain());
 
     }
+
+    private void SetNewObjWithLastIndexCalculations() {
+        apiObjectToDb = new ApiObjectToDb();
+        apiObjectToDb.setCoinPrice(coin.getCryptoPrice());
+        apiObjectToDb.setDate(GetCurrentDay());
+        apiObjectToDb.setTotalOfCoinsOwned(GetTotalOfCoinsOwned());
+        apiObjectToDb.setTotalValue(GetTotalValue(GetTotalOfCoinsOwned()));
+        apiObjectToDb.setGainFromLastValue(GetGainFromLastValue());
+        apiObjectToDb.setPercentOfGainFromLastValue(GetPercentOfGainFromLastValue());
+    }
+
+    private Double GetPercentOfGainFromLastValue() {
+        DecimalFormat formatter = new DecimalFormat("0.00");
+        String valueFromLastIndexStr = apiObjectFromDb.getValue();
+        Double valueFromLastIndex = Double.parseDouble(valueFromLastIndexStr);
+        Double percentage = (coin.getValue() * 100)/valueFromLastIndex;
+        String percentageStr = formatter.format(percentage);
+        percentage = Double.parseDouble(percentageStr);
+        return percentage;
+    }
+
+    private Double GetGainFromLastValue() {
+        DecimalFormat formatter = new DecimalFormat("0.00");
+        String numbersOfCoinsFromDbStr = apiObjectFromDb.getOwned();
+        Double numbersOfCoinsFromDb = Double.parseDouble(numbersOfCoinsFromDbStr);
+
+        Double totalOfCoins = numbersOfCoinsFromDb + coin.getQuantity();
+        Double currentValue = totalOfCoins * coin.getCryptoPrice();
+
+        String valueFromLastIndexStr = apiObjectFromDb.getValue();
+        Double valueFromLastIndex = Double.parseDouble(valueFromLastIndexStr);
+
+        Double gain = currentValue - valueFromLastIndex;
+        String gainStr = formatter.format(gain);
+        gain = Double.parseDouble(gainStr);
+
+        return gain;
+    }
+
+    private Double GetTotalOfCoinsOwned() {
+        String quantityFromDbStr = apiObjectFromDb.getOwned();
+        Double quantityFromDb = Double.parseDouble(quantityFromDbStr);
+        Double numberOfCoins = coin.getQuantity() + quantityFromDb;
+        return numberOfCoins;
+    }
+
+    private Double GetTotalValue(Double numberOfCoins) {
+        DecimalFormat formatter = new DecimalFormat("0.00");
+        Double value = numberOfCoins * coin.getCryptoPrice();
+        String valueStr = formatter.format(value);
+        value = Double.parseDouble(valueStr);
+        return value;
+    }
+
+    /////////////////////////////
 
     private void SetObjWithLastIndexOfList(List<ApiObjectFromDb> listFromDatabase) {
         apiObjectToDb.setId(listFromDatabase.get(listFromDatabase.size() -1).getId());
