@@ -42,7 +42,7 @@ public class SecondActivity extends AppCompatActivity{
             setContentView(R.layout.segunda_tela_portrait);
 
         } else {
-//            setContentView(R.layout.segunda_tela_landscape);
+            setContentView(R.layout.segunda_tela_landscape);
         }
         SetView();
 
@@ -64,6 +64,7 @@ public class SecondActivity extends AppCompatActivity{
                 Refresh();
             }
         });
+
         imageButton_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
