@@ -74,7 +74,8 @@
                 android:background="#00FFFFFF"
                 android:onClick="passaTexto"
                 android:src="@drawable/doge"
-                android:elevation="10dp" />
+                android:elevation="10dp"
+                />
 
         </RelativeLayout>
 

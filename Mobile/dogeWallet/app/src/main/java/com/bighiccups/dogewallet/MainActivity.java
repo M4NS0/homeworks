@@ -1,6 +1,7 @@
 package com.bighiccups.dogewallet;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -40,9 +41,12 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     ImageButton doge, add, remove, view;
     SoundPool snd;
+    SharedPreferences prefs;
+    private String texto;
     int soundOneBark, soundHowl, soundBarkHowl, soundWhines;
     Coin coin;
     List<Coin> list;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         coin = new Coin();
         SetScreen();
         CallHttpServices();
+        SetPrefs();
+
 
         doge.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,9 +108,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
+
 
     private void PushDataToSecondActivity(String operation) {
         if (saida.getText() == null || saida.getText().equals("")) {
@@ -119,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             extras.putString("UsdPrice", coin.getUsdPrice().toString());
             extras.putString("exchange", coin.getExchange());
             extras.putString("quantity", operation + coin.getQuantity().toString());
-            extras.putString("value", coin.getValue().toString()); // nulo
+            extras.putString("value", coin.getValue().toString());
             extras.putString("symbol", coin.getSymbol());
             extras.putString("coinName", coin.getCoinName());
 
@@ -193,26 +198,6 @@ public class MainActivity extends AppCompatActivity {
         if (coins >= 10000) {
             snd.play(soundBarkHowl, 1, 1, 5, 0, 1);
         }
-    }
-
-    private void SetScreen() {
-        doge = findViewById(R.id.ib_doge);
-        entrada = findViewById(R.id.entrada);
-        saida = findViewById(R.id.saida);
-        add = findViewById(R.id.ib_add);
-        remove = findViewById(R.id.ib_remove);
-        view = findViewById(R.id.ib_view);
-        listView = findViewById(R.id.lista);
-
-        name = findViewById(R.id.name);
-        exch = findViewById(R.id.exchange);
-        price = findViewById(R.id.price);
-
-        snd = new SoundPool(1, AudioManager.STREAM_MUSIC, 3);
-        soundOneBark = snd.load(MainActivity.this, R.raw.onebark, 4);
-        soundHowl = snd.load(MainActivity.this, R.raw.howl, 4);
-        soundBarkHowl = snd.load(MainActivity.this, R.raw.barkandhowl, 4);
-        soundWhines = snd.load(MainActivity.this, R.raw.whines, 4);
     }
 
     private void CallHttpServices() {
@@ -328,10 +313,41 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void Refresh() {
-        finish();
-        overridePendingTransition(0, 0);
-        overridePendingTransition(0, 0);
+    private void SetPrefs() {
+        prefs = getSharedPreferences("texto", MODE_PRIVATE);
+        texto = prefs.getString("texto", saida.getText().toString());
+    }
 
+    public void passaTexto(View view) {
+        texto = entrada.getText().toString();
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString("texto", texto);
+        editor.apply();
+        entrada.setText(texto);
+    }
+
+    private void Refresh() {
+        overridePendingTransition(0, 0);
+        overridePendingTransition(0, 0);
+    }
+
+    private void SetScreen() {
+        doge = findViewById(R.id.ib_doge);
+        entrada = findViewById(R.id.entrada);
+        saida = findViewById(R.id.saida);
+        add = findViewById(R.id.ib_add);
+        remove = findViewById(R.id.ib_remove);
+        view = findViewById(R.id.ib_view);
+        listView = findViewById(R.id.lista);
+
+        name = findViewById(R.id.name);
+        exch = findViewById(R.id.exchange);
+        price = findViewById(R.id.price);
+
+        snd = new SoundPool(1, AudioManager.STREAM_MUSIC, 3);
+        soundOneBark = snd.load(MainActivity.this, R.raw.onebark, 4);
+        soundHowl = snd.load(MainActivity.this, R.raw.howl, 4);
+        soundBarkHowl = snd.load(MainActivity.this, R.raw.barkandhowl, 4);
+        soundWhines = snd.load(MainActivity.this, R.raw.whines, 4);
     }
 }
