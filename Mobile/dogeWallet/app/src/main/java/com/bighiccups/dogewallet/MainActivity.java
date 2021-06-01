@@ -78,13 +78,35 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PushDataToSecondActivity();
+                PushDataToSecondActivity("");
+                Refresh();
+                saida.setText("");
+
+            }
+        });
+
+        remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PushDataToSecondActivity("-");
+                Refresh();
                 saida.setText("");
             }
         });
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                Refresh();
+                startActivity(intent);
+            }
+        });
+
+
     }
 
-    private void PushDataToSecondActivity() {
+    private void PushDataToSecondActivity(String operation) {
         if (saida.getText() == null || saida.getText().equals("")) {
             Toast.makeText(MainActivity.this, "Please Insert Coins", Toast.LENGTH_SHORT).show();
         } else {
@@ -96,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
             extras.putString("cryptoPrice", coin.getCryptoPrice().toString());
             extras.putString("UsdPrice", coin.getUsdPrice().toString());
             extras.putString("exchange", coin.getExchange());
-            extras.putString("quantity", coin.getQuantity().toString());
+            extras.putString("quantity", operation + coin.getQuantity().toString());
             extras.putString("value", coin.getValue().toString()); // nulo
             extras.putString("symbol", coin.getSymbol());
             extras.putString("coinName", coin.getCoinName());
@@ -304,5 +326,12 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Coin coin) {
             super.onPostExecute(coin);
         }
+    }
+
+    private void Refresh() {
+        finish();
+        overridePendingTransition(0, 0);
+        overridePendingTransition(0, 0);
+
     }
 }
