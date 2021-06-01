@@ -105,6 +105,7 @@ public class Database extends SQLiteOpenHelper {
         return coinDetails;
 
     }
+
     public List<ApiObjectFromDb> listTransactions() {
         SQLiteDatabase db = this.getReadableDatabase();
         List<ApiObjectFromDb> transactionList = new ArrayList<>();

@@ -51,7 +51,10 @@ public class SecondActivity extends AppCompatActivity{
             GetBdRecordings();
 
         } else {
-            // ViewLogic
+            List<ApiObjectFromDb> listFromDatabase = databaseConnection.listTransactions();
+            CopyListFromDatabaseToArrayToBeSaved(listFromDatabase);
+            SendListToBdAdapter();
+
         }
         imageButton_clear_list.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,33 +73,48 @@ public class SecondActivity extends AppCompatActivity{
     }
 
     private void GetBdRecordings() {
-        List<ApiObjectFromDb> listFromDatabase;
-        listFromDatabase = databaseConnection.listTransactions();
+
+        List<ApiObjectFromDb> listFromDatabase = databaseConnection.listTransactions();
+        CopyListFromDatabaseToArrayToBeSaved(listFromDatabase);
 
         if (listFromDatabase.isEmpty()) {
             SetEmptyObj();
-            SetNewObjectToDB();
-            list.add(apiObjectToDb);
+            SetArrayWithNewObject();
             AddNewTransaction();
             SendListToBdAdapter();
         }
-
         if (listFromDatabase.size() == 1) {
             SetObjWithListSizeOne(listFromDatabase);
-            SetNewObjWithLastIndexCalculations();
-            list.add(apiObjectToDb);
+            SetArrayWithNewObjectFromBdAndInsert();
             AddNewTransaction();
             SendListToBdAdapter();
         }
         if (listFromDatabase.size() > 1) {
-            //SetObjWithLastIndexOfList(listFromDatabase);
+            SetObjWithLastIndexOfList(listFromDatabase);
+            SetArrayWithNewObjectFromBdAndInsert();
+            AddNewTransaction();
+            SendListToBdAdapter();
         }
-
     }
 
-
-
-    // Intent Cheio com lista vazia
+    private void CopyListFromDatabaseToArrayToBeSaved(List<ApiObjectFromDb> listFromDatabase) {
+        for (int i = 0; i < listFromDatabase.size(); i++) {
+            apiObjectToDb = new ApiObjectToDb();
+            apiObjectToDb.setId(listFromDatabase.get(i).getId());
+            apiObjectToDb.setDate(listFromDatabase.get(i).getDate());
+            Double totalOfCoins = Double.parseDouble(listFromDatabase.get(i).getOwned());
+            apiObjectToDb.setTotalOfCoinsOwned(totalOfCoins);
+            Double totalValue = Double.parseDouble(listFromDatabase.get(i).getValue());
+            apiObjectToDb.setTotalValue(totalValue);
+            Double lastPrice = Double.parseDouble(listFromDatabase.get(i).getPrice());
+            apiObjectToDb.setCoinPrice(lastPrice);
+            Double gain = Double.parseDouble(listFromDatabase.get(i).getGain());
+            apiObjectToDb.setGainFromLastValue(gain);
+            Double percentOdGain = Double.parseDouble(listFromDatabase.get(i).getVariation());
+            apiObjectToDb.setPercentOfGainFromLastValue(percentOdGain);
+            list.add(apiObjectToDb);
+        }
+    }
 
     private void SetEmptyObj() {
         apiObjectFromDb = new ApiObjectFromDb();
@@ -109,7 +127,7 @@ public class SecondActivity extends AppCompatActivity{
         apiObjectFromDb.setGain("0.0");
     }
 
-    private void SetNewObjectToDB() {
+    private void SetArrayWithNewObject() {
         apiObjectToDb = new ApiObjectToDb();
         apiObjectToDb.setDate(GetCurrentDay());
         apiObjectToDb.setCoinPrice(coin.getCryptoPrice());
@@ -118,6 +136,7 @@ public class SecondActivity extends AppCompatActivity{
         apiObjectToDb.setGainFromLastValue(0.0);
         apiObjectToDb.setPercentOfGainFromLastValue(0.0);
 
+        list.add(apiObjectToDb);
     }
 
     private void AddNewTransaction() {
@@ -135,11 +154,6 @@ public class SecondActivity extends AppCompatActivity{
         listView.setAdapter(databaseListAdapter);
     }
 
-    //////////////////////////////////
-
-
-    // Intent cheio com lista com um elemento
-
     private void SetObjWithListSizeOne(List<ApiObjectFromDb> listFromDatabase) {
         apiObjectFromDb = new ApiObjectFromDb();
         apiObjectFromDb.setDate(listFromDatabase.get(0).getDate());
@@ -151,7 +165,7 @@ public class SecondActivity extends AppCompatActivity{
 
     }
 
-    private void SetNewObjWithLastIndexCalculations() {
+    private void SetArrayWithNewObjectFromBdAndInsert() {
         apiObjectToDb = new ApiObjectToDb();
         apiObjectToDb.setCoinPrice(coin.getCryptoPrice());
         apiObjectToDb.setDate(GetCurrentDay());
@@ -159,6 +173,8 @@ public class SecondActivity extends AppCompatActivity{
         apiObjectToDb.setTotalValue(GetTotalValue(GetTotalOfCoinsOwned()));
         apiObjectToDb.setGainFromLastValue(GetGainFromLastValue());
         apiObjectToDb.setPercentOfGainFromLastValue(GetPercentOfGainFromLastValue());
+
+        list.add(apiObjectToDb);
     }
 
     private Double GetPercentOfGainFromLastValue() {
@@ -204,10 +220,9 @@ public class SecondActivity extends AppCompatActivity{
         return value;
     }
 
-    /////////////////////////////
-
     private void SetObjWithLastIndexOfList(List<ApiObjectFromDb> listFromDatabase) {
-        apiObjectToDb.setId(listFromDatabase.get(listFromDatabase.size() -1).getId());
+        apiObjectFromDb  = new ApiObjectFromDb();
+        apiObjectFromDb.setId(listFromDatabase.get(listFromDatabase.size() -1).getId());
         apiObjectFromDb.setDate(listFromDatabase.get(listFromDatabase.size() -1).getDate());
         apiObjectFromDb.setOwned(listFromDatabase.get(listFromDatabase.size() -1).getOwned());
         apiObjectFromDb.setValue(listFromDatabase.get(listFromDatabase.size() -1).getValue());
@@ -247,7 +262,7 @@ public class SecondActivity extends AppCompatActivity{
         Intent intent = getIntent();
         extras = intent.getExtras();
 
-        if (!extras.isEmpty()) {
+        if (extras != null) {
             return true;
         }
         return false;
