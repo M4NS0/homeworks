@@ -53,6 +53,8 @@ public class SecondActivity extends AppCompatActivity{
         } else {
             List<ApiObjectFromDb> listFromDatabase = databaseConnection.listTransactions();
             CopyListFromDatabaseToArrayToBeSaved(listFromDatabase);
+            SetEmptyObj();
+            AddNewTransaction();
             SendListToBdAdapter();
 
         }
@@ -103,15 +105,15 @@ public class SecondActivity extends AppCompatActivity{
             apiObjectToDb = new ApiObjectToDb();
             apiObjectToDb.setId(listFromDatabase.get(i).getId());
             apiObjectToDb.setDate(listFromDatabase.get(i).getDate());
-            Double totalOfCoins = Double.parseDouble(listFromDatabase.get(i).getOwned());
+            double totalOfCoins = Double.parseDouble(listFromDatabase.get(i).getOwned());
             apiObjectToDb.setTotalOfCoinsOwned(totalOfCoins);
-            Double totalValue = Double.parseDouble(listFromDatabase.get(i).getValue());
+            double totalValue = Double.parseDouble(listFromDatabase.get(i).getValue());
             apiObjectToDb.setTotalValue(totalValue);
-            Double lastPrice = Double.parseDouble(listFromDatabase.get(i).getPrice());
+            double lastPrice = Double.parseDouble(listFromDatabase.get(i).getPrice());
             apiObjectToDb.setCoinPrice(lastPrice);
-            Double gain = Double.parseDouble(listFromDatabase.get(i).getGain());
+            double gain = Double.parseDouble(listFromDatabase.get(i).getGain());
             apiObjectToDb.setGainFromLastValue(gain);
-            Double percentOdGain = Double.parseDouble(listFromDatabase.get(i).getVariation());
+            double percentOdGain = Double.parseDouble(listFromDatabase.get(i).getVariation());
             apiObjectToDb.setPercentOfGainFromLastValue(percentOdGain);
             list.add(apiObjectToDb);
         }
@@ -178,45 +180,48 @@ public class SecondActivity extends AppCompatActivity{
         list.add(apiObjectToDb);
     }
 
-    private Double GetPercentOfGainFromLastValue() {
+    private double GetPercentOfGainFromLastValue() {
         DecimalFormat formatter = new DecimalFormat("0.00");
         String valueFromLastIndexStr = apiObjectFromDb.getValue();
-        Double valueFromLastIndex = Double.parseDouble(valueFromLastIndexStr);
-        Double percentage = (coin.getValue() * 100)/valueFromLastIndex;
+        double valueFromLastIndex = Double.parseDouble(valueFromLastIndexStr);
+        double percentage = (coin.getValue() * 100)/valueFromLastIndex;
         String percentageStr = formatter.format(percentage);
+        percentageStr = percentageStr.replaceAll(",",".");
         percentage = Double.parseDouble(percentageStr);
         return percentage;
     }
 
-    private Double GetGainFromLastValue() {
+    private double GetGainFromLastValue() {
         DecimalFormat formatter = new DecimalFormat("0.00");
         String numbersOfCoinsFromDbStr = apiObjectFromDb.getOwned();
-        Double numbersOfCoinsFromDb = Double.parseDouble(numbersOfCoinsFromDbStr);
+        double numbersOfCoinsFromDb = Double.parseDouble(numbersOfCoinsFromDbStr);
 
-        Double totalOfCoins = numbersOfCoinsFromDb + coin.getQuantity();
-        Double currentValue = totalOfCoins * coin.getCryptoPrice();
+        double totalOfCoins = numbersOfCoinsFromDb + coin.getQuantity();
+        double currentValue = totalOfCoins * coin.getCryptoPrice();
 
         String valueFromLastIndexStr = apiObjectFromDb.getValue();
-        Double valueFromLastIndex = Double.parseDouble(valueFromLastIndexStr);
+        double valueFromLastIndex = Double.parseDouble(valueFromLastIndexStr);
 
-        Double gain = currentValue - valueFromLastIndex;
+        double gain = currentValue - valueFromLastIndex;
         String gainStr = formatter.format(gain);
+        gainStr = gainStr.replaceAll(",",".");
         gain = Double.parseDouble(gainStr);
 
         return gain;
     }
 
-    private Double GetTotalOfCoinsOwned() {
+    private double GetTotalOfCoinsOwned() {
         String quantityFromDbStr = apiObjectFromDb.getOwned();
-        Double quantityFromDb = Double.parseDouble(quantityFromDbStr);
-        Double numberOfCoins = coin.getQuantity() + quantityFromDb;
+        double quantityFromDb = Double.parseDouble(quantityFromDbStr);
+        double numberOfCoins = coin.getQuantity() + quantityFromDb;
         return numberOfCoins;
     }
 
-    private Double GetTotalValue(Double numberOfCoins) {
+    private double GetTotalValue(double numberOfCoins) {
         DecimalFormat formatter = new DecimalFormat("0.00");
-        Double value = numberOfCoins * coin.getCryptoPrice();
+        double value = numberOfCoins * coin.getCryptoPrice();
         String valueStr = formatter.format(value);
+        valueStr = valueStr.replaceAll(",",".");
         value = Double.parseDouble(valueStr);
         return value;
     }
@@ -244,10 +249,10 @@ public class SecondActivity extends AppCompatActivity{
         String symbol = extras.getString("symbol");
         String coinName = extras.getString("coinName");
 
-        Double cryptoPrice = Double.parseDouble(cryptoPriceStr);
-        Double usdPrice = Double.parseDouble(usdPriceStr);
-        Double quantity = Double.parseDouble(quantityStr);
-        Double value = Double.parseDouble(valueStr);
+        double cryptoPrice = Double.parseDouble(cryptoPriceStr);
+        double usdPrice = Double.parseDouble(usdPriceStr);
+        double quantity = Double.parseDouble(quantityStr);
+        double value = Double.parseDouble(valueStr);
 
         coin.setCryptoPrice(cryptoPrice);
         coin.setUsdPrice(usdPrice);
@@ -272,10 +277,7 @@ public class SecondActivity extends AppCompatActivity{
     private void Refresh() {
         Intent i = new Intent(SecondActivity.this, MainActivity.class);
         finish();
-        overridePendingTransition(0, 0);
         startActivity(i);
-        overridePendingTransition(0, 0);
-
     }
 
     private String GetCurrentDay() {
