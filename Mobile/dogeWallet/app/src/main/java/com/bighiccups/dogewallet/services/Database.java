@@ -62,7 +62,7 @@ public class Database extends SQLiteOpenHelper {
         db.insert(details_table,null,values);
         ApiObjectFromDb d = selectData(1);
 
-        Toast.makeText(context, "Transaction successfully added to Database", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Transaction added to Database", Toast.LENGTH_SHORT).show();
         db.close();
     }
 

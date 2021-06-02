@@ -7,6 +7,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -15,16 +16,11 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bighiccups.dogewallet.model.Coin;
 import com.bighiccups.dogewallet.services.ShortListAdapter;
-import com.bighiccups.dogewallet.tools.Tools;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -51,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        //getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         int orientation = getResources().getConfiguration().orientation;
 
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
@@ -85,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PushDataToSecondActivity("");
-                Refresh();
                 saida.setText("");
 
             }
@@ -95,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 PushDataToSecondActivity("-");
-                Refresh();
                 saida.setText("");
             }
         });
@@ -104,7 +98,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                Refresh();
                 startActivity(intent);
             }
         });
@@ -117,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             Bundle extras = new Bundle();
-            if (coin.getSymbol() == " BRL") {
+            if (coin.getSymbol().equals(" BRL")) {
                 SwitchToUsd();
             }
             extras.putString("cryptoPrice", coin.getCryptoPrice().toString());
@@ -135,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void SwitchToUsd() {
         DecimalFormat formatter = new DecimalFormat("0.00");
-        Double value = coin.getCryptoPrice() / coin.getUsdPrice();
+        double value = coin.getCryptoPrice() / coin.getUsdPrice();
         String valueStr = formatter.format(value);
         value = Double.parseDouble(valueStr);
         coin.setValue(value);
@@ -144,16 +137,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void SwitchCurrency(int position) {
         DecimalFormat formatter = new DecimalFormat("0.00");
-        if (list.get(position).getSymbol() == " USD") {
+        if (list.get(position).getSymbol().equals(" USD")) {
             list.get(position).setSymbol(" BRL");
-            Double brlValue = list.get(position).getCryptoPrice() * coin.getUsdPrice();
+            double brlValue = list.get(position).getCryptoPrice() * coin.getUsdPrice();
             String brlValueStr = formatter.format(brlValue);
+            brlValueStr = brlValueStr.replaceAll(",",".");
             brlValue = Double.parseDouble(brlValueStr);
             list.get(position).setCryptoPrice(brlValue);
         }
         else {
             list.get(position).setSymbol(" USD");
-            Double usdValue = list.get(position).getCryptoPrice() / list.get(position).getUsdPrice();
+            double usdValue = list.get(position).getCryptoPrice() / list.get(position).getUsdPrice();
             String usdValueStr = formatter.format(usdValue);
             usdValue = Double.parseDouble(usdValueStr);
             list.get(position).setCryptoPrice(usdValue);
@@ -165,11 +159,13 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<>();
         if (!quantityStr.equals("")) {
             DecimalFormat formatter = new DecimalFormat("0.00");
-            Double quantity = Double.parseDouble(quantityStr);
+            double quantity = Double.parseDouble(quantityStr);
             coin.setQuantity(quantity);
             coin.setSymbol(" USD");
+            Log.d("Valor: ",coin.getCryptoPrice()+ "");
             String valueStr = formatter.format(quantity * coin.getCryptoPrice());
-            Double value = Double.parseDouble(valueStr);
+            valueStr = valueStr.replaceAll(",", ".");
+            double value = Double.parseDouble(valueStr);
             coin.setValue(value);
             list.add(coin);
             ToShortAdapter();
@@ -185,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
     }
 
-    private void toBark(Double coins) {
+    private void toBark(double coins) {
         if (coins == 0.0) {
             snd.play(soundWhines, 1, 1, 5, 0, 1);
         }
@@ -217,11 +213,11 @@ public class MainActivity extends AppCompatActivity {
             try {
                 URL url = new URL("https://sochain.com//api/v2/get_price/DOGE/USD");
                 connection = (HttpURLConnection) url.openConnection();
-                connection.setConnectTimeout(5000);
+                connection.setConnectTimeout(10000);
                 connection.connect();
                 InputStream inputStream = connection.getInputStream();
                 buffer = new BufferedReader(new InputStreamReader(inputStream));
-                StringBuffer stringBuffer = new StringBuffer();
+                StringBuilder stringBuffer = new StringBuilder();
                 String line = "";
                 while ((line = buffer.readLine()) != null) {
                     stringBuffer.append(line);
@@ -230,14 +226,13 @@ public class MainActivity extends AppCompatActivity {
                 String coinsJson = stringBuffer.toString();
                 JSONObject jsonObj = new JSONObject(coinsJson);
 
-                Double price = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getDouble("price");
+                String priceStr = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getString("price");
                 String exchangeStr = jsonObj.getJSONObject("data").getJSONArray("prices").getJSONObject(1).getString("exchange");
                 String name = jsonObj.getJSONObject("data").getString("network");
 
                 coin.setCoinName(name);
-                DecimalFormat formatter = new DecimalFormat("0.00");
-                String priceStr = formatter.format(price);
-                price = Double.parseDouble(priceStr);
+                priceStr = priceStr.replaceAll(",", ".");
+                double price = Double.parseDouble(priceStr);
                 coin.setCryptoPrice(price);
                 coin.setExchange(exchangeStr);
 
@@ -273,7 +268,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 URL url = new URL("https://economia.awesomeapi.com.br/last/USD-BRL");
                 connection = (HttpURLConnection)url.openConnection();
-                connection.setConnectTimeout(5000);
+                connection.setConnectTimeout(10000);
                 connection.connect();
                 InputStream inputStream = connection.getInputStream();
                 buffer = new BufferedReader(new InputStreamReader(inputStream));
@@ -286,7 +281,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String quotation = stringBuffer.toString();
                 JSONObject jsonObj = new JSONObject(quotation);
-                Double json = jsonObj.getJSONObject("USDBRL").getDouble("ask");
+                double json = jsonObj.getJSONObject("USDBRL").getDouble("ask");
 
                 coin.setUsdPrice(json);
 
@@ -324,11 +319,6 @@ public class MainActivity extends AppCompatActivity {
         editor.putString("texto", texto);
         editor.apply();
         entrada.setText(texto);
-    }
-
-    private void Refresh() {
-        overridePendingTransition(0, 0);
-        overridePendingTransition(0, 0);
     }
 
     private void SetScreen() {
