@@ -1,0 +1,133 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#29353B"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv_title_landscape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="serif-monospace"
+        android:text="MY DOGE WALLET"
+        android:textColor="#D0B55D"
+        android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/tv_subtitle_landscape"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title_landscape"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="serif-monospace"
+        android:text="add quantity and press the coin"
+        android:textColor="#D0B55D"
+        android:textSize="9dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_subtitle_landscape"
+        android:layout_centerHorizontal="true">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/entrada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:background="@android:color/transparent"
+                android:hint="0"
+                android:inputType="number"
+                android:textColor="#D0B55D"
+                android:textColorHint="#D0B55D"
+                android:textCursorDrawable="@null" />
+
+            <TextView
+                android:id="@+id/saida"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/entrada"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="47dp"
+                android:elevation="2dp"
+                android:fontFamily="monospace"
+                android:textColor="#915636"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/ib_doge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/entrada"
+                android:layout_centerHorizontal="true"
+                android:background="#00FFFFFF"
+                android:onClick="passaTexto"
+                android:src="@drawable/doge"
+                android:elevation="10dp"
+                />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="75dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ll_group"
+        android:layout_centerHorizontal="true"
+        android:elevation="1dp">
+
+        <ImageButton
+            android:id="@+id/ib_add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_add"
+            android:background="#00000000"
+            android:padding="50dp"
+            android:elevation="10dp"
+            android:layout_marginRight="30dp" />
+
+
+        <ImageButton
+            android:id="@+id/ib_remove"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_remove"
+            android:elevation="10dp"
+            android:background="#00000000" />
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/ib_view"
+        android:layout_below="@+id/ll_group"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_view"
+        android:background="#00000000"
+        android:layout_centerHorizontal="true"
+        android:rotation="180"
+        android:layout_marginTop="20dp"
+        />
+
+
+</RelativeLayout>
