@@ -72,7 +72,7 @@
                 android:layout_below="@id/entrada"
                 android:layout_centerHorizontal="true"
                 android:background="#00FFFFFF"
-                android:onClick="passaTexto"
+                android:onClick="PassaTexto"
                 android:src="@drawable/doge"
                 android:elevation="10dp"
                 />
