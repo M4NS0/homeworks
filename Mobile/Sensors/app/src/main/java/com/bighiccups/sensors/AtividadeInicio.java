@@ -48,11 +48,7 @@ public class AtividadeInicio extends AppCompatActivity implements SensorEventLis
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        int height = displayMetrics.heightPixels;
-        int width = displayMetrics.widthPixels;
-
-
-
+        alerta = MediaPlayer.create(getApplicationContext(), R.raw.blop);
     }
 
 
@@ -62,26 +58,26 @@ public class AtividadeInicio extends AppCompatActivity implements SensorEventLis
         float y = valores[1];
         float z = valores[2];
 
-        float raiz = (float)((x*x* + y*y + z*z) / (Math.pow(SensorManager.GRAVITY_EARTH,2)));
+        float raiz = (float)((x*x + y*y + z*z) / (Math.pow(SensorManager.GRAVITY_EARTH,2.0)));
 
-        long horaAtual = event.timestamp;
+        long horaAtual;
 
-        if (raiz >= 2) {
-            if ((horaAtual = timeUpdate) < 700) {
+        if (raiz >= 9) {
+            if ((horaAtual = timeUpdate) < 200) {
                 return;
             }
 
             timeUpdate = horaAtual;
             count ++;
             if (count == 4) {
-//                som.start();
+                alerta.start();
                 count = 0;
             }
             if (count == 0) {
                 getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
                 nome_fruta.setTextColor(Color.YELLOW);
                 nome_fruta.setText("Orange");
-                titulo.setTextColor(Color.YELLOW);
+//                titulo.setTextColor(Color.YELLOW);
                 contador.setText(String.valueOf(count  + 1 + "X"));
                 contador.setTextColor(Color.YELLOW);
             }
@@ -89,7 +85,7 @@ public class AtividadeInicio extends AppCompatActivity implements SensorEventLis
                 getWindow().getDecorView().setBackgroundColor(Color.GREEN);
                 nome_fruta.setTextColor(Color.GREEN);
                 nome_fruta.setText("Lemon");
-                titulo.setTextColor(Color.GREEN);
+//                titulo.setTextColor(Color.GREEN);
                 contador.setText(String.valueOf(count  + 1 +"X"));
                 contador.setTextColor(Color.GREEN);
             }
@@ -97,7 +93,7 @@ public class AtividadeInicio extends AppCompatActivity implements SensorEventLis
                 getWindow().getDecorView().setBackgroundColor(Color.RED);
                 nome_fruta.setTextColor(Color.RED);
                 nome_fruta.setText("Grape Fruit");
-                titulo.setTextColor(Color.RED);
+//                titulo.setTextColor(Color.RED);
                 contador.setText(String.valueOf(count +  1 + "X"));
                 contador.setTextColor(Color.RED);
             }
@@ -105,7 +101,7 @@ public class AtividadeInicio extends AppCompatActivity implements SensorEventLis
                 getWindow().getDecorView().setBackgroundColor(Color.MAGENTA);
                 nome_fruta.setTextColor(Color.MAGENTA);
                 nome_fruta.setText("Wierd Fruit");
-                titulo.setTextColor(Color.MAGENTA);
+//                titulo.setTextColor(Color.MAGENTA);
                 contador.setText(String.valueOf(count + 1 + "X"));
                 contador.setTextColor(Color.MAGENTA);
 
