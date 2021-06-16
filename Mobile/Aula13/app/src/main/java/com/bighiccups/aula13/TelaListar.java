@@ -100,44 +100,52 @@ public class TelaListar extends AppCompatActivity {
 
         @Override
         protected List<Contato> doInBackground(String... strings) {
+
             listaContatos = new ArrayList<>();
-            HttpURLConnection connection = null;
-            BufferedReader buffer = null;
+            HttpURLConnection urlConnection = null;
+            BufferedReader bufferedReader = null;
 
             try {
-                URL url = new URL("http://www.ferdinandiz.com.br/consultarTodos_aula12.php");
-                connection = (HttpURLConnection)url.openConnection();
-                connection.setConnectTimeout(5000);
-                connection.connect();
-                InputStream inputStream = connection.getInputStream();
-                buffer = new BufferedReader(new InputStreamReader(inputStream));
+
+                URL url  = new URL("http://www.ferdinandiz.com.br/consultarTodos_aula12.php");
+                urlConnection = (HttpURLConnection) url.openConnection();
+                urlConnection.setConnectTimeout(5000);
+                urlConnection.connect();
+
+                InputStream inputStream = urlConnection.getInputStream();
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+
                 StringBuffer stringBuffer = new StringBuffer();
                 String linha = "";
-                while ((linha = buffer.readLine())!= null) {
+
+                while ((linha = bufferedReader.readLine()) != null){
                     stringBuffer.append(linha);
                 }
+
                 String contatosJson = stringBuffer.toString();
-                JSONObject contatosObject  = new JSONObject(contatosJson);
+                JSONObject contatosObject = new JSONObject(contatosJson);
                 JSONArray contatoArray = contatosObject.getJSONArray("aula12");
 
-                for (int i = 0; i < contatoArray.length(); i++) {
-                    JSONObject contatoObject = contatoArray.getJSONObject(i);
+                for (int i = 0; i < contatoArray.length() ; i++){
+                    JSONObject contatoObj = contatoArray.getJSONObject(i);
+
                     Contato contato = new Contato();
-                    contato.setId(contatoObject.getString("id"));
-                    contato.setNome(contatoObject.getString("nome"));
-                    contato.setTelefone(contatoObject.getString("telefone"));
+                    contato.setId(contatoObj.getString("id"));
+                    contato.setNome(contatoObj.getString("nome"));
+                    contato.setTelefone(contatoObj.getString("telefone"));
+
                     listaContatos.add(contato);
                 }
                 return listaContatos;
 
-            } catch (IOException | JSONException e){
+            } catch (IOException | JSONException e) {
                 e.printStackTrace();
-
-            } finally {
+            }finally {
                 try {
-                    buffer.close();
-                    connection.disconnect();
-                } catch (IOException e) {
+                    bufferedReader.close();
+                    urlConnection.disconnect();
+
+                }catch (IOException e){
                     e.printStackTrace();
                 }
             }
@@ -147,9 +155,8 @@ public class TelaListar extends AppCompatActivity {
         @Override
         protected void onPostExecute(List<Contato> contatos) {
             super.onPostExecute(contatos);
-            MeuAdaptador adaptador = new MeuAdaptador(getApplicationContext(), R.layout.layout_lista, contatos);
-            lista.setAdapter(adaptador);
-
+            MeuAdaptador adapter = new MeuAdaptador(getApplicationContext(),R.layout.layout_lista, contatos);
+            lista.setAdapter(adapter);
         }
     }
 }
