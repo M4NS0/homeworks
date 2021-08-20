@@ -111,8 +111,11 @@ obj/
 /build
 /captures
 .externalNativeBuild
+<<<<<<< HEAD
 
 /Python/projeto-covid-19/data.json
 /Python/projeto-covid-19/data.csv
 
 
+=======
+>>>>>>> ac59552945f50e9263f2a29d436e5c27ce7c5e02
