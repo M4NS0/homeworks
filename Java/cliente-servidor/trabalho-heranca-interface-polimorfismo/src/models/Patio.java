@@ -3,19 +3,10 @@ package models;
 import java.util.List;
 
 public class Patio {
-    public int capacidade, totalDeVagas;
+    public int capacidade, vagasLivres;
     public String localizacao;
     public List<Carro> carros;
-
-    public Patio(int capacidade, int totalDeVagas, String localizacao, List<Carro> carros) {
-        this.capacidade = capacidade;
-        this.totalDeVagas = totalDeVagas;
-        this.localizacao = localizacao;
-        this.carros = carros;
-    }
-
-    public Patio() {
-    }
+    public List<Funcionario> funcionarios;
 
     public int getCapacidade() {
         return capacidade;
@@ -25,12 +16,12 @@ public class Patio {
         this.capacidade = capacidade;
     }
 
-    public int getTotalDeVagas() {
-        return totalDeVagas;
+    public int getVagasLivres() {
+        return vagasLivres;
     }
 
-    public void setTotalDeVagas(int totalDeVagas) {
-        this.totalDeVagas = totalDeVagas;
+    public void setVagasLivres(int vagasLivres) {
+        this.vagasLivres = vagasLivres;
     }
 
     public String getLocalizacao() {
@@ -48,4 +39,17 @@ public class Patio {
     public void setCarros(List<Carro> carros) {
         this.carros = carros;
     }
+
+    public List<Funcionario> getFuncionarios() {
+        return funcionarios;
+    }
+
+    public void setFuncionarios(List<Funcionario> funcionarios) {
+        this.funcionarios = funcionarios;
+    }
+
+    public Patio() {
+    }
+
+
 }
