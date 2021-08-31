@@ -6,8 +6,10 @@ import modelo.Quadrado;
 
 public class App {
     public static void main(String[] args) {
-        Cilindro cilindro = new Cilindro();
-        Quadrado quadrado = new Quadrado();
+
+
+        Cilindro cilindro = (Cilindro) Fabrica.getCilindro();
+        Quadrado quadrado = (Quadrado) Fabrica.getQuadrado();
 
         PainelDesenho painelDesenho = new PainelDesenho();
         painelDesenho.desenhar(cilindro);
