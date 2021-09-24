@@ -40,6 +40,7 @@ public class DAO {
 
         } catch (IOException e) {
             e.printStackTrace();
+            System.out.println(e);
         }
 
         return listaDTO;
@@ -76,7 +77,7 @@ public class DAO {
             FileWriter fw = new FileWriter(NOME_ARQUIVO_ESCRITA_PERMITIDOS);
 
             for (int i = 0; i < lista.size(); i ++) {
-                createCSV(fw, lista, i);
+                createCSV(fw, lista);
             }
 
         } catch (IOException e) {
@@ -89,7 +90,7 @@ public class DAO {
             FileWriter fw = new FileWriter(NOME_ARQUIVO_ESCRITA_NEGADOS);
 
             for (int i = 0; i < lista.size(); i ++) {
-                createCSV(fw, lista, i);
+                createCSV(fw, lista);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -97,15 +98,18 @@ public class DAO {
 
     }
 
-    private void createCSV(FileWriter fw, List<Permissao> lista, int i) {
+    private void createCSV(FileWriter fw, List<Permissao> lista) {
         try {
-            fw.write(lista.get(i).getId() +
-                    ";" + lista.get(i).getDataOperacao() +
-                    ";" + lista.get(i).getValor() +
-                    ";" + lista.get(i).getPermitido() +
-                    ";" + lista.get(i).getCodigo() +
-                    ";" + lista.get(i).getPermitido() +
-                    ";" + lista.get(i).getCodigo() + "\n");
+            for (int i = 0; i < lista.size(); i++) {
+                fw.write(lista.get(i).getId() +
+                        ";" + lista.get(i).getDataOperacao() +
+                        ";" + lista.get(i).getValor() +
+                        ";" + lista.get(i).getPermitido() +
+                        ";" + lista.get(i).getCodigo() +
+                        ";" + lista.get(i).getPermitido() +
+                        ";" + lista.get(i).getCodigo() + "\n");
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

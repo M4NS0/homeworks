@@ -7,12 +7,13 @@ import models.DTO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LerAgencia {
+public class GetDadosAgencia {
 
-    public Agencia getDados(List<DTO> listaDTO) {
+    public List<Agencia> getDados(List<DTO> listaDTO) {
         Agencia agencia = new Agencia();
-        LerConta conta = new LerConta();
+        GetDadosConta conta = new GetDadosConta();
         List<Conta> contas = new ArrayList<>();
+        List<Agencia> agencias = new ArrayList<>();
 
         for (DTO dado:
              listaDTO) {
@@ -21,7 +22,8 @@ public class LerAgencia {
             agencia.setCodigo(dado.getCodigoAgencia());
             contas = conta.getDados(dado);
             agencia.setContas(contas);
+            agencias.add(agencia);
         }
-        return agencia;
+        return agencias;
     }
 }

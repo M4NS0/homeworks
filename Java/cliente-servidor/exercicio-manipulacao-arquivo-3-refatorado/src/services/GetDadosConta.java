@@ -7,7 +7,7 @@ import models.Transacao;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LerConta {
+public class GetDadosConta {
     public List<Conta> getDados(DTO dado) {
         Conta conta = new Conta();
         GetDadosDaTransacao transacao = new GetDadosDaTransacao();
