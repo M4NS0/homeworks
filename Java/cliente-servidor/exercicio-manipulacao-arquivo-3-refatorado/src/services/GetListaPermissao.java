@@ -14,16 +14,18 @@ public class GetListaPermissao {
 
         if (permitido == true) {
             permissao.setPermitido("Permitido");
-        } else  permissao.setPermitido("Não Permitido");
+            permissao.setCodigo(dado.getCodigoTransacao() + "P");
+        } else{
+            permissao.setPermitido("Não Permitido");
+            permissao.setCodigo(dado.getCodigoTransacao() + "NP");
+        }
 
-        permissao.setId(dado.getIdTransacao() + 100);
-        permissao.setCodigo(dado.getCodigoTransacao() + "P");
+        permissao.setId(dado.getIdTransacao() + 10);
         permissao.setDataOperacao(dataEhora);
         permissao.setValor(dado.getValorTransacao());
 
         permissoes.add(permissao);
 
         return permissoes;
-
     }
 }

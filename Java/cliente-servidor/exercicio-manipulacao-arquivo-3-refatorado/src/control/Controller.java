@@ -78,10 +78,9 @@ public class Controller {
             resultado = resultados.get(i);
             if (resultado.getTransacoesPermitidas() != null) {
                 for (int j = 0; j < resultado.getTransacoesPermitidas().size(); j++) {
-                    permissao = resultados.get(j).getTransacoesPermitidas().get(j);
-                    permissoes.add(permissao);
+                    permissao = resultado.getTransacoesPermitidas().get(j);
                 }
-// rever logica
+                permissoes.add(permissao);
             }
         }
         return permissoes;
@@ -94,13 +93,12 @@ public class Controller {
 
         for (int i = 0; i < resultados.size(); i++) {
             resultado = resultados.get(i);
-            if (resultado.getTransacoesPermitidas() != null) {
+            if ( resultado.getTransacoesNegadas() != null) {
                 for (int j = 0; j < resultado.getTransacoesNegadas().size(); j++) {
-                    permissoes.add(resultado.getTransacoesPermitidas().get(j));
+                    permissoes.add(resultado.getTransacoesNegadas().get(j));
                 }
                 permissoes.add(permissao);
             }
-
         }
         return permissoes;
     }

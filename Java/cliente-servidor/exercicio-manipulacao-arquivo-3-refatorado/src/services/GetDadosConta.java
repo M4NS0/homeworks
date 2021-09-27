@@ -13,7 +13,7 @@ public class GetDadosConta {
         GetDadosDaTransacao transacao = new GetDadosDaTransacao();
 
         List<Conta> lista = new ArrayList<>();
-        List<Transacao> transacoes = new ArrayList<>();
+        List<Transacao> transacoes;
 
         conta.setId(dado.getIdConta());
         conta.setDataAbertura(dado.getDataAberturaConta());
