@@ -6,8 +6,8 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetAluno {
-    public static List<Aluno> novoAluno() {
+public class ObterAluno {
+    public static Aluno novoAluno() {
         Aluno aluno = Fabrica.getAluno();
         List<Aluno> alunos = new ArrayList<>();
         obtendoNome(aluno);
@@ -15,7 +15,7 @@ public class GetAluno {
         obtendoN1(aluno);
         obtendoN2(aluno);
         alunos.add(aluno);
-        return alunos;
+        return aluno;
     }
     private static void obtendoN2(Aluno aluno) {
         try {
