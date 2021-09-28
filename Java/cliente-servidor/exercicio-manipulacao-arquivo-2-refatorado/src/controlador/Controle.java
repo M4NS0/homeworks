@@ -4,6 +4,9 @@ import Persistencia.DAOPF;
 import Persistencia.DAOPJ;
 import model.PessoaFisica;
 import model.PessoaJuridica;
+import model.Telefone;
+import views.CarregaPerguntas;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -45,6 +48,15 @@ public class Controle {
     private void iniciarPessoaFisica() {
         List<PessoaFisica> pessoas;
         pessoas = carregarListaPF();
+        PessoaFisica pessoa;
+        CarregaPerguntas pergunta = new CarregaPerguntas();
+
+        int ultimoID = pessoas.get(pessoas.size()-1).getID();
+
+        if (inserirPF(pergunta) == true) {
+            pessoa = pergunta.inserirPF(ultimoID);
+            pessoas.add(pessoa);
+        }
 
         ordenaListaPF(pessoas);
         printaListaPFEmTerminal(pessoas);
@@ -60,12 +72,22 @@ public class Controle {
     }
 
     private void iniciarPessoaJuridica() {
+
         List<PessoaJuridica> pessoas;
+
         pessoas = carregarListaPJ();
+
+
 
         ordenaListaPJ(pessoas);
         printaListaPJEmTerminal(pessoas);
         persisteDadosPJ(pessoas);
+    }
+
+    private boolean inserirPF(CarregaPerguntas pergunta) {
+        return pergunta.desejaInserirPF();
+
+
     }
 
     private void persisteDadosPJ(List<PessoaJuridica> pessoas) {
