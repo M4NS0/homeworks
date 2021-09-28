@@ -1,13 +1,45 @@
-package control;
+package controle;
 
 import models.*;
-import services.DAO;
-import services.GetDadosAgencia;
+import persistencia.DAO;
+import services.Manipulacao;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Controller {
+public class Controle {
+
+    public void start() {
+
+        List<DTO> listaDTO;
+        listaDTO = getDTOinFile();
+
+        List<Transacao> transacoes;
+        transacoes = extrairDadosdeCSV(listaDTO);
+
+        List<Resultado> resultados;
+        resultados = getResultadosFromTransacoes(transacoes);
+
+        List<Permissao> permitidas;
+        permitidas = getResultadosPermitidos(resultados);
+
+        List<Permissao> negados;
+        negados = getResultadosNegados(resultados);
+
+    }
+
+    private List<Transacao> extrairDadosdeCSV(List<DTO> listaDTO) {
+        List<Agencia> agencias;
+        agencias = getAgenciasFromListaDTO(listaDTO);
+
+        List<Conta> contas;
+        contas = getContasFromAgencias(agencias);
+
+        List<Transacao> transacoes;
+        transacoes = getTransacoesFromContas(contas);
+
+        return transacoes;
+    }
 
     public List<DTO> getDTOinFile() {
         DAO dao = new DAO();
@@ -18,8 +50,8 @@ public class Controller {
 
     public List<Agencia> getAgenciasFromListaDTO(List<DTO> listaDTO) {
         List<Agencia> agencias;
-        GetDadosAgencia dadosAgencia = new GetDadosAgencia();
-        agencias = dadosAgencia.getDados(listaDTO);
+        Manipulacao manipulacao = new Manipulacao();
+        agencias = manipulacao.getDadosAgencia(listaDTO);
         return agencias;
     }
 
@@ -104,11 +136,11 @@ public class Controller {
     }
 
     public static void gravaCSVpermitidos(List<Permissao> permitidos) {
-        Controller controler = new Controller();
+        Controle controler = new Controle();
         controler.putPermitidosInCSV(permitidos);
     }
     public static void gravaCSVnegados(List<Permissao> negados) {
-        Controller controler = new Controller();
+        Controle controler = new Controle();
         controler.putNegadosInCSV(negados);
     }
 
@@ -121,7 +153,6 @@ public class Controller {
         DAO dao = new DAO();
         dao.WriteFilePermitidos(permitidos);
     }
-
 
 
 

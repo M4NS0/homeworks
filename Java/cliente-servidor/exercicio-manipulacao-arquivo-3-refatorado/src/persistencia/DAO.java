@@ -1,4 +1,4 @@
-package services;
+package persistencia;
 
 import models.DTO;
 import models.Permissao;
@@ -11,6 +11,7 @@ public class DAO {
     public static final String NOME_ARQUIVO_LEITURA = "src/assets/TransacoesBancarias.csv";
     public static final String NOME_ARQUIVO_ESCRITA_PERMITIDOS = "src/assets/TransacoesBancariasPermitidas.csv";
     public static final String NOME_ARQUIVO_ESCRITA_NEGADOS = "src/assets/TransacoesBancariasNegados.csv";
+// camada de persisitencia pacote
 
 
     public List<DTO> ReadFile() {

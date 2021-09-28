@@ -1,43 +1,47 @@
 package App;
 
-import control.Controller;
+import controle.Controle;
 import models.*;
 
 import java.util.List;
 
 public class Teste {
 
-    private static Controller controller;
+    private static Controle controle;
 
     public static void main(String[] args) {
         runControler();
     }
 
     private static void runControler() {
-        controller = new Controller();
+
+        controle = new Controle();
+        controle.start();
+
         List<DTO> listaDTO;
-        listaDTO = controller.getDTOinFile();
+        listaDTO = controle.getDTOinFile();
 
         List<Agencia> agencias;
-        agencias = controller.getAgenciasFromListaDTO(listaDTO);
+        agencias = controle.getAgenciasFromListaDTO(listaDTO);
 
         List<Conta> contas;
-        contas = controller.getContasFromAgencias(agencias);
+        contas = controle.getContasFromAgencias(agencias);
 
         List<Transacao> transacoes;
-        transacoes = controller.getTransacoesFromContas(contas);
+        transacoes = controle.getTransacoesFromContas(contas);
 
+        // extracao
         List<Resultado> resultados;
-        resultados = controller.getResultadosFromTransacoes(transacoes);
+        resultados = controle.getResultadosFromTransacoes(transacoes);
 
         List<Permissao> permitidas;
-        permitidas = controller.getResultadosPermitidos(resultados);
+        permitidas = controle.getResultadosPermitidos(resultados);
 
         List<Permissao> negados;
-        negados = controller.getResultadosNegados(resultados);
+        negados = controle.getResultadosNegados(resultados);
 
-        controller.gravaCSVnegados(negados);
-        controller.gravaCSVpermitidos(permitidas);
+        controle.gravaCSVnegados(negados);
+        controle.gravaCSVpermitidos(permitidas);
 
     }
 
