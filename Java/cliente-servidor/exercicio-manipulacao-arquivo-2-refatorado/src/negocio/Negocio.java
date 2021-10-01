@@ -1,7 +1,7 @@
-package controlador;
+package negocio;
 
-import Persistencia.DAOPF;
-import Persistencia.DAOPJ;
+import persistencia.DAOPF;
+import persistencia.DAOPJ;
 import model.PessoaFisica;
 import model.PessoaJuridica;
 import views.CarregaPerguntas;
@@ -9,7 +9,7 @@ import views.CarregaPerguntas;
 import java.util.Collections;
 import java.util.List;
 
-public class Controle {
+public class Negocio {
 
     public void iniciar() {
         iniciarPessoaFisica();
@@ -18,18 +18,7 @@ public class Controle {
 
     private void persisteDadosPF(List<PessoaFisica> pessoas) {
         DAOPF dao = new DAOPF();
-        dao.PersistirPessoaFisica(pessoas);
-    }
-
-    private void printaListaPFEmTerminal(List<PessoaFisica> pessoas) {
-        System.out.println("\n-- Lista de pessoas Fisicas -- ");
-        for (PessoaFisica pessoa : pessoas) {
-            System.out.println(
-                    pessoa.getID() + " " +
-                            pessoa.getNome() + " " +
-                            pessoa.getTelefones().get(0)
-            );
-        }
+        dao.persistirPessoaFisica(pessoas);
     }
 
     private void ordenaListaPF(List<PessoaFisica> pessoas) {
@@ -40,7 +29,7 @@ public class Controle {
         List<PessoaFisica> pessoas;
         DAOPF dao = new DAOPF();
 
-        pessoas = dao.LerPessoaFisica();
+        pessoas = dao.lerPessoaFisica();
         return pessoas;
     }
 
@@ -56,8 +45,7 @@ public class Controle {
         do {
             pessoa = pergunta.inserirPF(ultimoID);
             pessoas.add(pessoa);
-        } while (inserirPF(pergunta) == true);
-
+        } while (inserirPF(pergunta));
 
         ordenaListaPF(pessoas);
         printaListaPFEmTerminal(pessoas);
@@ -73,7 +61,7 @@ public class Controle {
         List<PessoaJuridica> pessoas;
         DAOPJ dao = new DAOPJ();
 
-        pessoas = dao.LerPessoaJuridica();
+        pessoas = dao.lerPessoaJuridica();
         return pessoas;
     }
 
@@ -89,9 +77,14 @@ public class Controle {
 
     private void persisteDadosPJ(List<PessoaJuridica> pessoas) {
         DAOPJ dao = new DAOPJ();
-        dao.PersistirPessoaJuridica(pessoas);
+        dao.persistirPessoaJuridica(pessoas);
+    }
+    private void ordenaListaPJ(List<PessoaJuridica> pessoas) {
+        Collections.sort(pessoas);
     }
 
+
+    // passar para view
     private void printaListaPJEmTerminal(List<PessoaJuridica> pessoas) {
         System.out.println("\n-- Lista de pessoas Juridicas -- ");
         for (PessoaJuridica pessoa : pessoas) {
@@ -105,9 +98,16 @@ public class Controle {
         }
     }
 
-    private void ordenaListaPJ(List<PessoaJuridica> pessoas) {
-        Collections.sort(pessoas);
+    // passar para view
+    private void printaListaPFEmTerminal(List<PessoaFisica> pessoas) {
+        System.out.println("\n-- Lista de pessoas Fisicas -- ");
+        for (PessoaFisica pessoa : pessoas) {
+            System.out.println(
+                    pessoa.getID() + " " +
+                            pessoa.getNome() + " " +
+                            pessoa.getTelefones().get(0)
+            );
+        }
     }
-
 
 }

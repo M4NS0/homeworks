@@ -4,7 +4,7 @@ import java.util.List;
 
 public class PessoaFisica implements Comparable<PessoaFisica> {
     int ID;
-    String CPF,nome,cidade,estado,status;
+    String CPF, nome, cidade, estado, status;
     List<Telefone> telefones;
 
     public PessoaFisica() {

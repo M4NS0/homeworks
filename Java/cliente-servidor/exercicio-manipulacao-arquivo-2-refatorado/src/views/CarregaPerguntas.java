@@ -15,8 +15,7 @@ public class CarregaPerguntas {
         resposta = JOptionPane.showInputDialog("Deseja incluir uma nova pessoa juridica? \n SIM \n NAO");
         if (resposta.equalsIgnoreCase("sim")) {
             return true;
-        }
-        else if (resposta.equalsIgnoreCase("nao") || resposta.equalsIgnoreCase("não")) {
+        } else if (resposta.equalsIgnoreCase("nao") || resposta.equalsIgnoreCase("não")) {
             return false;
         } else return false;
     }
@@ -27,7 +26,7 @@ public class CarregaPerguntas {
         List<Telefone> telefones = new ArrayList<>();
 
         // id,CPF,nome,cidade,estado,status,Telefones list
-        pessoa.setID(ultimoID+1);
+        pessoa.setID(ultimoID + 1);
         pessoa.setNome(JOptionPane.showInputDialog("Digite o nome completo\n"));
         pessoa.setCPF(JOptionPane.showInputDialog("Digite o CPF\n"));
         pessoa.setEstado(JOptionPane.showInputDialog("Digite o estado\n"));

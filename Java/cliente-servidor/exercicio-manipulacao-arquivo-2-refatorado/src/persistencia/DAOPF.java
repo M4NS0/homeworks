@@ -1,7 +1,6 @@
-package Persistencia;
+package persistencia;
 
 import model.PessoaFisica;
-import model.PessoaJuridica;
 import model.Telefone;
 
 import java.io.BufferedReader;
@@ -11,11 +10,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author m4ns0
+ *
+ */
 public class DAOPF {
+
     public static final String NOME_ARQUIVO_LEITURA = "src/assets/PessoaFisica.csv";
     public static final String NOME_ARQUIVO_ESCRITA = "src/assets/new/PessoaFisica.csv";
 
-    public List<PessoaFisica> LerPessoaFisica() {
+    public List<PessoaFisica> lerPessoaFisica() {
         String linha = "";
         List<PessoaFisica> pessoas = new ArrayList<>();
 
@@ -40,6 +44,7 @@ public class DAOPF {
 
         } catch (IOException e) {
             System.err.printf(e.getMessage() + "\n");
+            // passar objeto com erro para negocio
         }
         return pessoas;
     }
@@ -84,10 +89,10 @@ public class DAOPF {
         return pessoa;
     }
 
-    public void PersistirPessoaFisica(List<PessoaFisica> pessoas) {
+    public void persistirPessoaFisica(List<PessoaFisica> pessoas) {
         try {
             FileWriter writer = new FileWriter(NOME_ARQUIVO_ESCRITA);
-            for (PessoaFisica pessoa: pessoas) {
+            for (PessoaFisica pessoa : pessoas) {
                 writer.write(pessoa.getID() + ";" +
                         pessoa.getNome() + ";" +
                         pessoa.getTelefones().get(0) + "\n");
@@ -97,6 +102,7 @@ public class DAOPF {
 
         } catch (IOException e) {
             System.err.printf(e.getMessage() + "\n");
+            //TODO    passar objeto com erro para negocio
         }
     }
 

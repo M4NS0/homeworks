@@ -1,10 +1,10 @@
 package model;
 
-public class PessoaJuridica  implements Comparable<PessoaJuridica>{
+public class PessoaJuridica implements Comparable<PessoaJuridica> {
     int ID;
-    String CNPJ,razaoSocial,cidade,estado,avista,status;
+    String CNPJ, razaoSocial, cidade, estado, avista, status;
 
-    public PessoaJuridica()  {
+    public PessoaJuridica() {
     }
 
     public int getID() {

@@ -1,11 +1,10 @@
 package app;
 
-import controlador.Controle;
+import negocio.Negocio;
 
 public class Teste {
     public static void main(String[] args) {
-        Controle controle = new Controle();
+        Negocio controle = new Negocio();
         controle.iniciar();
     }
-
 }

@@ -1,8 +1,6 @@
-package Persistencia;
+package persistencia;
 
-import model.PessoaFisica;
 import model.PessoaJuridica;
-import model.Telefone;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -15,7 +13,12 @@ public class DAOPJ {
     public static final String NOME_ARQUIVO_LEITURA = "src/assets/PessoaJuridica.csv";
     public static final String NOME_ARQUIVO_ESCRITA = "src/assets/new/PessoaJuridica.csv";
 
-    public List<PessoaJuridica> LerPessoaJuridica() {
+    /**
+     * Método que lê pessoas juridicas de um arquivo CSV
+     * @return Lista de pessoa Juridica
+     */
+
+    public List<PessoaJuridica> lerPessoaJuridica() {
         String linha = "";
         List<PessoaJuridica> pessoas = new ArrayList<>();
 
@@ -40,14 +43,15 @@ public class DAOPJ {
 
         } catch (IOException e) {
             System.err.printf(e.getMessage() + "\n");
+
+            // passar objeto com erro para negocio
         }
         return pessoas;
     }
 
     private PessoaJuridica mapearPessoaJuridica(String linha) {
         PessoaJuridica pessoa = new PessoaJuridica();
-        Telefone telefone = new Telefone();
-        List<Telefone> telefones = new ArrayList<>();
+
         try {
             String[] campo;
             if (linha != null) {
@@ -70,22 +74,22 @@ public class DAOPJ {
         return pessoa;
     }
 
-    public void PersistirPessoaJuridica(List<PessoaJuridica> pessoas) {
+    public void persistirPessoaJuridica(List<PessoaJuridica> pessoas) {
         try {
             FileWriter writer = new FileWriter(NOME_ARQUIVO_ESCRITA);
-            for (PessoaJuridica pessoa: pessoas) {
+            for (PessoaJuridica pessoa : pessoas) {
                 writer.write(pessoa.getID() + ";" +
                         pessoa.getRazaoSocial() + ";" +
                         pessoa.getCNPJ() + ";" +
-                        pessoa.getStatus()+ "\n");
+                        pessoa.getStatus() + "\n");
             }
             writer.flush();
             writer.close();
 
         } catch (IOException e) {
             System.err.printf(e.getMessage() + "\n");
+
+            // passar objeto com erro para negocio
         }
     }
-
-
 }
