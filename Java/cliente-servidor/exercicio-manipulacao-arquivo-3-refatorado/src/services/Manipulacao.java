@@ -6,9 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Manipulacao {
-    public List<Agencia> getDadosAgencia(List<DTO> listaDTO) {
+    public List<Agencia> getAgenciaFromListaDTO(List<DTO> listaDTO) {
         Agencia agencia = new Agencia();
-
         List<Conta> contas;
         List<Agencia> agencias = new ArrayList<>();
 
@@ -17,49 +16,77 @@ public class Manipulacao {
             agencia.setId(dado.getIdAgencia());
             agencia.setNome(dado.getNomeAgencia());
             agencia.setCodigo(dado.getCodigoAgencia());
-            contas = getDadosConta(dado); // V
+            contas = getContaFromListaDTO(listaDTO); // V
             agencia.setContas(contas);
             agencias.add(agencia);
         }
         return agencias;
     }
 
-    public List<Conta> getDadosConta(DTO dado) {
+    public List<Conta> getContaFromListaDTO(List<DTO> listaDTO) {
         Conta conta = new Conta();
         List<Conta> lista = new ArrayList<>();
-        List<Transacao> transacoes;
 
-        conta.setId(dado.getIdConta());
-        conta.setDataAbertura(dado.getDataAberturaConta());
-        conta.setDv(dado.getDvConta());
-        conta.setSaldo(dado.getSaldoConta());
-        conta.setLimite(dado.getLimiteConta());
-        conta.setNumero(dado.getNumeroConta());
+        for (int i = 0; i < listaDTO.size(); i++) {
+            conta.setId(listaDTO.get(i).getIdConta());
+            conta.setDv(listaDTO.get(i).getDvConta());
+            conta.setSaldo(listaDTO.get(i).getSaldoConta());
+            conta.setLimite(listaDTO.get(i).getLimiteConta());
+            conta.setNumero(listaDTO.get(i).getNumeroConta());
+            conta.setDataAbertura(listaDTO.get(i).getDataAberturaConta());
 
-        transacoes = getListaTransacoes(dado);  // V
+            conta.setTransacoes(getTransacaoFromListaDTO(listaDTO));
 
-        conta.setTransacoes(transacoes);
-        lista.add(conta);
-
+            lista.add(conta);
+        }
         return lista;
     }
 
-    public List<Transacao> getListaTransacoes(DTO dado) {
+    public List<Transacao> getTransacaoFromListaDTO(List<DTO> listaDTO) {
         Transacao transacao = new Transacao();
         List<Transacao> lista = new ArrayList<>();
 
-        transacao.setOperacao(dado.getOperacaoTransacao());
-        transacao.setId(dado.getIdTransacao());
-        transacao.setDataOperacao(dado.getDataOperacaoTransacao());
-        transacao.setValor(dado.getValorTransacao());
-        transacao.setPermitido(calculaTransacao(dado.getSaldoConta(), dado.getValorTransacao()));
-        transacao.setCodigo(dado.getCodigoTransacao());
-        transacao.setResultados(getListaResultados(dado, transacao.getPermitido()));
+        for (int i = 0; i < listaDTO.size() ; i++) {
+            transacao.setOperacao(listaDTO.get(i).getOperacaoTransacao());
+            transacao.setId(listaDTO.get(i).getIdTransacao());
+            transacao.setDataOperacao(listaDTO.get(i).getDataOperacaoTransacao());
+            transacao.setValor(listaDTO.get(i).getValorTransacao());
+            transacao.setCodigo(listaDTO.get(i).getCodigoTransacao());
 
-        lista.add(transacao);
+            transacao.setPermitido(calculaTransacao(listaDTO.get(i).getSaldoConta(), listaDTO.get(i).getValorTransacao()));
+            if (transacao.getPermitido() == true) {
+                transacao.setResultados(getListaPermitidos(listaDTO, i));
+            } else transacao.setResultados(getListaNegados(listaDTO, i));
+
+            lista.add(transacao);
+        }
+        return lista;
+    }
+
+    private List<Resultado> getListaPermitidos(List<DTO> listaDTO, int i) {
+        Resultado resultado = new Resultado();
+        List<Resultado> lista = new ArrayList<>();
+
+        resultado.getId(listaDTO.get(i).getIdTransacao());
+        resultado.setDataHoraProcessamento(getDataEhora());
+        resultado.setTransacoesPermitidas(getListaComPermitidas(listaDTO, i,resultado.getDataHoraProcessamento()));
+        lista.add(resultado);
 
         return lista;
     }
+
+    private List<Resultado> getListaNegados(List<DTO> listaDTO, int i) {
+        Resultado resultado = new Resultado();
+        List<Resultado> lista = new ArrayList<>();
+
+        resultado.getId(listaDTO.get(i).getIdTransacao());
+        resultado.setDataHoraProcessamento(getDataEhora());
+        resultado.setTransacoesNegadas(getListaComNegadas(listaDTO, i, resultado.getDataHoraProcessamento()));
+        lista.add(resultado);
+
+        return lista;
+    }
+
 
     private Boolean calculaTransacao(Double saldoConta, Double valorTransacao) {
         if (saldoConta < valorTransacao) {
@@ -67,49 +94,38 @@ public class Manipulacao {
         } else return true;
     }
 
-    public List<Resultado> getListaResultados(DTO dado, Boolean permitido) {
-        Resultado resultado = new Resultado();
-        List<Resultado> resultados = new ArrayList<>();
-
-        resultado.getId(dado.getIdTransacao() + 100);
-        resultado.setDataHoraProcessamento(getDataEhora());
-
-        if (permitido == true) {
-            resultado.setTransacoesPermitidas(getListaComPermissoes(dado, true, getDataEhora()));
-        } else resultado.setTransacoesNegadas(getListaComPermissoes(dado, false, getDataEhora()));
-
-        resultados.add(resultado);
-        return resultados;
-    }
-
-
     private LocalDate getDataEhora() {
         LocalDate dataEhora = LocalDate.now();
         return dataEhora;
-
     }
-
-    public List<Permissao> getListaComPermissoes (DTO dado, Boolean permitido, LocalDate dataEhora) {
-        List<Permissao> permissoes = new ArrayList<>();
+    private List<Permissao> getListaComNegadas(List<DTO> listaDTO, int i, LocalDate dataEhora) {
+        List<Permissao> lista = new ArrayList<>();
         Permissao permissao = new Permissao();
 
-        if (permitido == true) {
-            permissao.setPermitido("Permitido");
-            permissao.setCodigo(dado.getCodigoTransacao() + "P");
-        } else{
-            permissao.setPermitido("Não Permitido");
-            permissao.setCodigo(dado.getCodigoTransacao() + "NP");
-        }
-
-        permissao.setId(dado.getIdTransacao() + 10);
+        permissao.setId(listaDTO.get(i).getIdTransacao() + 10);
         permissao.setDataOperacao(dataEhora);
-        permissao.setValor(dado.getValorTransacao());
+        permissao.setValor(listaDTO.get(i).getValorTransacao());
+        permissao.setPermitido("Negada");
+        permissao.setCodigo(listaDTO.get(i).getCodigoTransacao() + "P");
 
-        permissoes.add(permissao);
+        lista.add(permissao);
+        return lista; //ok
 
-        return permissoes;
     }
+    public List<Permissao> getListaComPermitidas(List<DTO> listaDTO, int i, LocalDate dataEhora) {
+        List<Permissao> lista = new ArrayList<>();
+        Permissao permissao = new Permissao();
 
+        permissao.setId(listaDTO.get(i).getIdTransacao() + 10);
+        permissao.setDataOperacao(dataEhora);
+        permissao.setValor(listaDTO.get(i).getValorTransacao());
+
+        permissao.setPermitido("Permitido");
+        permissao.setCodigo(listaDTO.get(i).getCodigoTransacao() + "P");
+
+        lista.add(permissao);
+        return lista; //ok
+    }
 
 }
 

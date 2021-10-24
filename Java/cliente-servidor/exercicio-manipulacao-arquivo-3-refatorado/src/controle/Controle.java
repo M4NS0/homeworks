@@ -10,25 +10,9 @@ import java.util.List;
 public class Controle {
 
     public void start() {
-
         List<DTO> listaDTO;
         listaDTO = getDTOinFile();
 
-        List<Transacao> transacoes;
-        transacoes = extrairDadosdeCSV(listaDTO);
-
-        List<Resultado> resultados;
-        resultados = getResultadosFromTransacoes(transacoes);
-
-        List<Permissao> permitidas;
-        permitidas = getResultadosPermitidos(resultados);
-
-        List<Permissao> negados;
-        negados = getResultadosNegados(resultados);
-
-    }
-
-    private List<Transacao> extrairDadosdeCSV(List<DTO> listaDTO) {
         List<Agencia> agencias;
         agencias = getAgenciasFromListaDTO(listaDTO);
 
@@ -38,8 +22,22 @@ public class Controle {
         List<Transacao> transacoes;
         transacoes = getTransacoesFromContas(contas);
 
-        return transacoes;
+        // extracao
+        List<Resultado> resultados;
+        resultados = getResultadosFromTransacoes(transacoes);
+
+        List<Permissao> permitidas;
+        permitidas = getResultadosPermitidos(resultados);
+
+        List<Permissao> negados;
+        negados = getResultadosNegados(resultados);
+
+        gravaCSVnegados(negados);
+        gravaCSVpermitidos(permitidas);
+
+
     }
+
 
     public List<DTO> getDTOinFile() {
         DAO dao = new DAO();
@@ -51,23 +49,21 @@ public class Controle {
     public List<Agencia> getAgenciasFromListaDTO(List<DTO> listaDTO) {
         List<Agencia> agencias;
         Manipulacao manipulacao = new Manipulacao();
-        agencias = manipulacao.getDadosAgencia(listaDTO);
+
+        agencias = manipulacao.getAgenciaFromListaDTO(listaDTO);
         return agencias;
     }
 
     public static List<Conta> getContasFromAgencias(List<Agencia> agencias) {
         List<Conta> contas = new ArrayList<>();
-        Conta conta = new Conta();
-        Agencia agencia;
 
         for (int i = 0; i < agencias.size(); i++) {
-            agencia = agencias.get(i);
-
-            for (int j = 0; j < agencia.getContas().size(); j++) {
-                conta = agencia.getContas().get(j);
+            for (Conta conta:
+                    agencias.get(i).getContas()) {
+               // contas.add(agencias.get(i).getContas());
             }
-            contas.add(conta);
         }
+
         return contas;
     }
 
@@ -88,15 +84,9 @@ public class Controle {
 
     public static List<Resultado> getResultadosFromTransacoes(List<Transacao> transacoes) {
         List<Resultado> resultados = new ArrayList<>();
-        Transacao transacao;
-        Resultado resultado = new Resultado();
 
         for (int i = 0; i < transacoes.size(); i++) {
-            transacao = transacoes.get(i);
-            for (int j = 0; j < transacao.getResultados().size(); j++) {
-                resultado = transacao.getResultados().get(j);
-            }
-            resultados.add(resultado);
+            resultados = transacoes.get(i).getResultados();
         }
         return resultados;
     }
@@ -153,11 +143,5 @@ public class Controle {
         DAO dao = new DAO();
         dao.WriteFilePermitidos(permitidos);
     }
-
-
-
-
-
-
 
 }
