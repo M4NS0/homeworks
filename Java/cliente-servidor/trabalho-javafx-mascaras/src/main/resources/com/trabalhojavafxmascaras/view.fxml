@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minWidth="350.0" prefHeight="194.0" prefWidth="347.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.trabalhojavafxmascaras.controller.Controller">
+    <children>
+        <Label layoutX="56.0" layoutY="90.0" text="Datas" />
+        <Label layoutX="64.0" layoutY="118.0" text="CNPJ" />
+        <Label layoutX="67.0" layoutY="60.0" text="CPF" />
+        <TextField fx:id="txtCpf" layoutX="121.0" layoutY="56.0" prefHeight="24.0" prefWidth="135.0" />
+        <TextField fx:id="txtData" layoutX="122.0" layoutY="85.0" prefHeight="24.0" prefWidth="135.0" />
+        <TextField fx:id="txtCnpj" layoutX="122.0" layoutY="114.0" prefHeight="24.0" prefWidth="135.0" />
+      <Label layoutX="53.0" layoutY="146.0" text="Moeda" />
+      <TextField fx:id="txtMoeda" layoutX="122.0" layoutY="142.0" prefHeight="24.0" prefWidth="135.0" />
+      <Label layoutX="40.0" layoutY="26.0" text="Mascaras para diferentes tipos de dados">
+         <font>
+            <Font name="Noto Sans" size="14.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

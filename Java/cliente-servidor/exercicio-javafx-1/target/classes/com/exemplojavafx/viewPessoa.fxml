@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="266.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exemplojavafx.controller.Controller">
+   <children>
+      <Button fx:id="btnValidar" layoutX="200.0" layoutY="190.0" minWidth="100.0" mnemonicParsing="false" onAction="#Validar" text="Validar" />
+      <Label layoutX="46.0" layoutY="102.0" text="Matricula" />
+      <Label layoutX="25.0" layoutY="143.0" text="Mensalidade" />
+      <Label layoutX="67.0" layoutY="60.0" text="Nome" />
+      <TextField fx:id="txtMatricula" layoutX="123.0" layoutY="98.0" prefHeight="24.0" prefWidth="94.0" promptText="número" />
+      <TextField fx:id="txtNome" layoutX="121.0" layoutY="56.0" prefHeight="24.0" prefWidth="234.0" promptText="nome completo" />
+      <TextField fx:id="txtValor" layoutX="123.0" layoutY="139.0" prefHeight="24.0" prefWidth="94.0" promptText="reais" />
+      <Label fx:id="msgErroNumero" layoutX="223.0" layoutY="98.0" prefHeight="24.0" prefWidth="275.0" text="" textFill="RED" visible="false" />
+      <Label fx:id="msgErroValor" layoutX="224.0" layoutY="139.0" prefHeight="24.0" prefWidth="275.0" textFill="RED" visible="false" />
+      <Label fx:id="msgErroNome" layoutX="362.0" layoutY="56.0" prefHeight="24.0" prefWidth="135.0" text="" textFill="RED" visible="false" />
+   </children>
+</AnchorPane>
