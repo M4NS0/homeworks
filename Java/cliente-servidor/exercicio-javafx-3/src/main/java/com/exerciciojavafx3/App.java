@@ -1,4 +1,4 @@
-package com.exerciciojavafx2;
+package com.exerciciojavafx3;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +12,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Ver Lista de Pessoa Física!");
+        stage.setTitle("Validação do Detran");
         stage.setScene(scene);
         stage.show();
     }
