@@ -14,7 +14,7 @@ public class Masks {
      * @param txtData onde foi guardado o texto
      * @return validador para mudar estado de botao
      */
-    public boolean mapeiaData(KeyEvent event, TextField txtData) {
+    public boolean mapearData(KeyEvent event, TextField txtData) {
         if (!"0123456789".contains(event.getCharacter())) {
             event.consume();
         }
@@ -60,7 +60,7 @@ public class Masks {
      * @param txtNome onde foi guardado o texto
      * @return validador para mudar estado de botao
      */
-    public Boolean mapeiaNome(TextField txtNome) {
+    public Boolean mapearNome(TextField txtNome) {
         Pattern pattern = Pattern.compile("^\\s*(?:((?:Dr.)|(?:Mr.)|(?:Mr?s.)|(?:Miss)|(?:2nd\\sLt.)|(?:Sen\\.?))\\s+)?((?:\\w+)|(?:\\w\\.))(?:\\s+((?:\\w\\.?)|(?:\\w\\w+)))?(?:\\s+((?:[OD]['’]\\s?)?[-\\w]+))(?:,?\\s+( (?:[JS]r\\.?)|(?:Esq\\.?)|(?:((?:M)|(?:Ph)|(?:Ed)) \\.?\\s*D\\.?)|(?: R\\.?N\\.?)|(?:IV)|(?:VI)|(?:V)|(?: I+)))?\\s*$",
                 Pattern.CASE_INSENSITIVE);
 
@@ -80,7 +80,7 @@ public class Masks {
      * @param txtMoeda onde foi guardado o texto
      * @return validador para mudar estado de botao
      */
-    public static boolean mapeiaMoeda(final TextField txtMoeda) {
+    public static boolean mapearMoeda(final TextField txtMoeda) {
         Pattern pattern = Pattern.compile("([0-9]+[\\,])?([0-9]+[\\.,])+([0-9]{2})+", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(txtMoeda.getText());
 
@@ -136,7 +136,7 @@ public class Masks {
      * @param renavam onde foi guardado o texto
      * @return validador para mudar estado de botao
      */
-    public static boolean mapeiaPlaca(TextField renavam) {
+    public static boolean mapearPlaca(TextField renavam) {
         Pattern pattern = Pattern.compile("[A-Z0-9]{3}[-][a-zA-Z0-9]{4}", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(renavam.getText());
 

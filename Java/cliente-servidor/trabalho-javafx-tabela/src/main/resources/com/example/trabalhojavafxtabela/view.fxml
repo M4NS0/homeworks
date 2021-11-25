@@ -4,12 +4,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="288.0" prefWidth="666.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabalhojavafxtabela.controllers.Control">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="1036.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.trabalhojavafxtabela.controllers.Control">
    <children>
-      <TableView fx:id="tabelaPessoa" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TableView fx:id="tabelaPessoa" layoutX="-149.0" prefHeight="288.0" prefWidth="666.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columns>
-          <TableColumn fx:id="idCol" prefWidth="-1.0" text="Id" />
-            <TableColumn fx:id="nomeCol" minWidth="-1.0" prefWidth="-1.0" text="Nome" />
+          <TableColumn fx:id="idCol" maxWidth="1000.0" prefWidth="1000.0" text="Id" />
+            <TableColumn fx:id="nomeCol" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" text="Nome" />
             <TableColumn fx:id="cpfCol" minWidth="-1.0" prefWidth="-1.0" text="Cpf" />
             <TableColumn fx:id="cidadeCol" minWidth="-1.0" prefWidth="-1.0" text="Cidade" />
             <TableColumn fx:id="estadoCol" minWidth="-1.0" prefWidth="-1.0" text="Estado" />

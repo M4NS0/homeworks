@@ -2,6 +2,7 @@ package app;
 
 import models.*;
 import servicos.Calculo;
+import servicos.Dao;
 import servicos.Fabrica;
 
 import java.util.ArrayList;
@@ -15,11 +16,12 @@ public class Teste {
     private static List<Carro> lista;
     private static Motorista motorista;
     private static Calculo calculo;
+    private static List<Cliente> clientes;
 
     public static void main(String[] args) {
 
         iniciar();
-        criarMockDeCarro();
+        criarMockDeCarro();  // getCarros()
         obter();
         imprimirPatio();
         removerCarro();
@@ -112,10 +114,17 @@ public class Teste {
     }
 
     private static void obterCliente() {
-        cliente.setNome("Debby Hairy");
-        cliente.setCidade("Goiânia");
-        cliente.setDias(7);
-        cliente.setValorDiarias(180.0f);
+        System.out.println("Digite o nome:");
+
+
+
+
+//        cliente.setNome("Debby Hairy");
+//        cliente.setCidade("Goiânia");
+//        cliente.setDias(7);
+//        cliente.setValorDiarias(180.0f);
+
+
     }
 
     private static void iniciarFabrica() {
@@ -127,14 +136,15 @@ public class Teste {
     }
 
     private static void obter() {
-        obterCliente();
-        obterVendedor();
-        obterCarro();
-        obterPatio();
-        obterMotorista();
+        obterCliente();  // getCliente
+        obterVendedor(); //getVendedor
+        obterCarro();   //getCarro
+        obterPatio();   // getPatio
+        obterMotorista(); // getMotorista
     }
 
     private static void criarMockDeCarro() {
+
         carro = new Carro();
         carro.setModelo("BMW");
         lista.add(carro);

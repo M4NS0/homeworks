@@ -38,25 +38,25 @@ public class Control implements Initializable {
         txtData.setStyle("-fx-text-fill: #bd0000");
         txtData.setOnKeyTyped((KeyEvent event) -> {
             Masks masks = new Masks();
-            isDataValid = masks.mapeiaData(event, txtData);
+            isDataValid = masks.mapearData(event, txtData);
         });
 
         txtNome.setStyle("-fx-text-fill: #bd0000");
         txtNome.setOnKeyTyped((KeyEvent event) -> {
             Masks masks = new Masks();
-            isNomeValid = masks.mapeiaNome(txtNome);
+            isNomeValid = masks.mapearNome(txtNome);
         });
 
         txtValor.setStyle("-fx-text-fill: #bd0000");
         txtValor.setOnKeyTyped((KeyEvent event) -> {
             Masks masks = new Masks();
-            isMoedaValid = masks.mapeiaMoeda(txtValor);
+            isMoedaValid = masks.mapearMoeda(txtValor);
         });
 
         txtPlaca.setStyle("-fx-text-fill: #bd0000");
         txtPlaca.setOnKeyTyped((KeyEvent event) -> {
             Masks masks = new Masks();
-            isPlacaValid = masks.mapeiaPlaca(txtPlaca);
+            isPlacaValid = masks.mapearPlaca(txtPlaca);
         });
     }
 
