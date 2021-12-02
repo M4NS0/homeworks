@@ -1,6 +1,7 @@
 package com.trabalhojavafxfinal.persistence;
 
 import com.trabalhojavafxfinal.models.Citizen;
+import com.trabalhojavafxfinal.services.Communication;
 import com.trabalhojavafxfinal.services.JdbcConnection;
 
 import java.sql.Connection;
@@ -22,16 +23,15 @@ public class Dao {
         connection.disconnect();
     }
 
-
     public List<Citizen> getListFromDB() throws SQLException {
         String sql = "SELECT * FROM registro";
-        List<Citizen> citizens = new ArrayList<>();
-        Citizen citizen = new Citizen();
         try {
             Connection conn = connection.connect();
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            ResultSet rs = pstmt.executeQuery();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            ArrayList<Citizen> list = new ArrayList<>();
             while (rs.next()) {
+                Citizen citizen = new Citizen();
                 citizen.setId(rs.getInt("id"));
                 citizen.setCitizenName(rs.getString("citizenname"));
                 citizen.setCpf(rs.getString("cpf"));
@@ -40,21 +40,14 @@ public class Dao {
                 citizen.setVaxProducerName(rs.getString("vaxproducername"));
                 citizen.setVaxDosage(rs.getInt("vaxdosage"));
                 citizen.setVaxCNPJ(rs.getString("vaxcnpj"));
-                citizens.add(citizen);
+                list.add(citizen);
             }
-            pstmt.close();
-            rs.close();
-            return citizens;
+            return list;
         } catch (SQLException e) {
-            e.printStackTrace();
             return null;
-        } finally {
-            connection.disconnect();
         }
+
     }
-
-
-
 
     public void saveCitizen(Citizen citizen) throws SQLException {
         String sql = "INSERT INTO registro (id,citizenname, cpf, vaxname, vaxdate, vaxproducername, vaxdosage, vaxcnpj) " +
@@ -78,9 +71,38 @@ public class Dao {
     }
 
     public void deleteCitizen(Citizen citizen) {
+        try {
+            String sql = "delete from registro where id = ?";
+
+            Connection conn = connection.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, citizen.getId());
+            pstm.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.print("Erro ao excluir! " + e.getMessage());
+        }
     }
 
     public void updateCitizen(Citizen citizen) {
+        try {
+            String sql = "update registro set citizenName = ?, cpf = ?, vaxname = ?, vaxdate = ?, vaxproducername = ?, vaxdosage = ?, vaxcnpj = ? where id = ?";
+
+            Connection conn = connection.connect();
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1, citizen.getCitizenName());
+            pstm.setString(2, citizen.getCpf());
+            pstm.setString(3, citizen.getVaxName());
+            pstm.setString(4, citizen.getVaxDate());
+            pstm.setString(5, citizen.getVaxProducerName());
+            pstm.setDouble(6, citizen.getVaxDosage());
+            pstm.setString(7, citizen.getVaxCNPJ());
+            pstm.setInt(8, citizen.getId());
+            pstm.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.print("Erro ao atualizar! " + e.getMessage());
+        }
     }
 
     public Citizen getCitizenBySearch(String search) {

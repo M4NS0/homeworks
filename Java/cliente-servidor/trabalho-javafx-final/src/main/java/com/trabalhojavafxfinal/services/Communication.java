@@ -46,8 +46,6 @@ public class Communication {
         Dao dao = new Dao();
         return dao.getCitizenBySearch(search);
     }
-
-
 }
 
 

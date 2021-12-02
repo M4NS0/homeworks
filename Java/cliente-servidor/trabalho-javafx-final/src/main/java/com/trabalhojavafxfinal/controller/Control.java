@@ -2,7 +2,6 @@ package com.trabalhojavafxfinal.controller;
 
 import com.trabalhojavafxfinal.models.Citizen;
 import com.trabalhojavafxfinal.services.Communication;
-import com.trabalhojavafxfinal.services.Masks;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,7 +17,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -99,6 +97,9 @@ public class Control implements Initializable {
     @FXML
     private Button saveBtn;
 
+    public Control () {
+    }
+
 
     private ObservableList<Citizen> citizens = FXCollections.observableArrayList();
 
@@ -121,8 +122,19 @@ public class Control implements Initializable {
             vaxNameTxt.setText(citizen.getVaxName());
             vaxProducerNameTxt.setText(citizen.getVaxProducerName());
         }
+        setAllTrue();
+        setFields();
     }
 
+    private void setAllTrue() {
+        isNameValid = true;
+        isCpfValid = true;
+        isVacinationDayValid = true;
+        isCnpjValid = true;
+        isVaxNameValid = true;
+        isVaxDosageValid = true;
+        isVaxProducerNameValid = true;
+    }
 
 
     @FXML
@@ -158,9 +170,11 @@ public class Control implements Initializable {
 
     @FXML
     void save(ActionEvent event) throws SQLException {
+
         Communication communication = new Communication();
         Citizen citizen;
         citizen = obtainDataInForm();
+        saveBtn.setDisable(false);
 
         if (!idTxt.getText().isEmpty()) {
             communication.update(citizen);
@@ -178,11 +192,13 @@ public class Control implements Initializable {
             String eString = e.toString();
             String aux = eString.substring(eString.indexOf("id=") + 3, eString.indexOf(","));
             verifyCurrentlyField(aux);
-        } else setFields();
+        } else
+            setFields();
+
 
     }
 
-    private void verifyCurrentlyField(String aux) {
+    public void verifyCurrentlyField(String aux) {
         switch (aux) {
             case "idTxt":
                 idTxt.setText("");
@@ -285,7 +301,7 @@ public class Control implements Initializable {
             isCnpjValid = mask.maskingCnpj(event, vaxCnpjTxt);
         });
         vaxDosageTxt.setOnKeyTyped((KeyEvent event) -> {
-            mask.maskingVaxDosage(vaxDosageTxt);
+            isVaxDosageValid = mask.maskingVaxDosage(vaxDosageTxt);
         });
         vaxProducerNameTxt.setOnKeyTyped((KeyEvent event) -> {
             isVaxProducerNameValid = mask.maskingName(vaxProducerNameTxt);
@@ -298,7 +314,7 @@ public class Control implements Initializable {
         cpfTxt.setStyle("-fx-text-inner-color: #bd0000;");
         vacinationDateTxt.setStyle("-fx-text-inner-color: #bd0000;");
         vaxCnpjTxt.setStyle("-fx-text-inner-color: #bd0000;");
-        vaxDosageTxt.setStyle("-fx-text-inner-color: green;");
+        vaxDosageTxt.setStyle("-fx-text-inner-color: #bd0000;");
         vaxNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
         vaxProducerNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
     }
@@ -318,6 +334,7 @@ public class Control implements Initializable {
         citizens.clear();
         colorizeFields();
         maskingFields();
+
         citizens.addAll(obtainList());
         addInTable();
         tableRegister.setItems(citizens);

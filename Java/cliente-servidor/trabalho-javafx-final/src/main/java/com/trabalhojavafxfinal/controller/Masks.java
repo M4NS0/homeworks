@@ -1,6 +1,7 @@
-package com.trabalhojavafxfinal.services;
+package com.trabalhojavafxfinal.controller;
 
 import javafx.application.Platform;
+import javafx.scene.control.Control;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 
@@ -112,6 +113,7 @@ public class Masks {
     }
 
     public Boolean maskingCnpj(KeyEvent event, TextField vaxCnpjTxt) {
+        // 45.648.794/6516-66
         if (!"0123456789".contains(event.getCharacter())) {
             event.consume();
         }
@@ -152,6 +154,11 @@ public class Masks {
                 vaxCnpjTxt.setText(vaxCnpjTxt.getText() + "-");
                 vaxCnpjTxt.positionCaret(vaxCnpjTxt.getText().length());
             }
+
+            if (vaxCnpjTxt.getText().length() > 19) {
+                vaxCnpjTxt.setText(vaxCnpjTxt.getText().substring(0, 18));
+            }
+
             if (vaxCnpjTxt.getText().length() == 18) {
                 vaxCnpjTxt.setStyle("-fx-text-fill: green");
                 return true;
@@ -168,7 +175,7 @@ public class Masks {
         return false;
     }
 
-    public void maskingVaxDosage(TextField vaxDosageTxt) {
+    public Boolean maskingVaxDosage(TextField vaxDosageTxt) {
         vaxDosageTxt.lengthProperty().addListener((observable, oldValue, newValue) -> {
             try {
                 String value = vaxDosageTxt.getText();
@@ -184,7 +191,10 @@ public class Masks {
                 vaxDosageTxt.textProperty().addListener((observableValue, oldValue1, newValue1) -> {
                     if (newValue1.length() > 17)
                         vaxDosageTxt.setText(oldValue1);
+
+
                 });
+
             } catch (IllegalArgumentException i) {
                 i.printStackTrace();
             }
@@ -199,8 +209,16 @@ public class Masks {
                 }
             }
         });
+        if (Double.parseDouble(vaxDosageTxt.getText()) == 0) {
+            vaxDosageTxt.setStyle("-fx-text-fill: #bd0000");
+            return false;
 
+        } else
+
+            vaxDosageTxt.setStyle("-fx-text-fill: green");
+            return true;
     }
+
     private static void positionCaret(final TextField textField) {
         Platform.runLater(() -> textField.positionCaret(textField.getText().length()));
     }
