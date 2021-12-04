@@ -1,5 +1,6 @@
 package com.trabalhojavafxfinal.controller;
 
+import com.trabalhojavafxfinal.controller.bean.CitizenBean;
 import com.trabalhojavafxfinal.models.Citizen;
 import com.trabalhojavafxfinal.services.Communication;
 import javafx.collections.FXCollections;
@@ -17,8 +18,11 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class Control implements Initializable {
 
@@ -32,31 +36,31 @@ public class Control implements Initializable {
 
 
     @FXML
-    private TableView<Citizen> tableRegister;
+    private TableView<CitizenBean> tableRegister;
 
     @FXML
-    private TableColumn<Citizen, Integer> idCol;
+    private TableColumn<CitizenBean, Integer> idCol;
 
     @FXML
-    private TableColumn<Citizen, String> citizenNameCol;
+    private TableColumn<CitizenBean, String> citizenNameCol;
 
     @FXML
-    private TableColumn<Citizen, String> cpfCol;
+    private TableColumn<CitizenBean, String> cpfCol;
 
     @FXML
-    private TableColumn<Citizen, String> vaxCNPJCol;
+    private TableColumn<CitizenBean, String> vaxCNPJCol;
 
     @FXML
-    private TableColumn<Citizen, String> vaxDateCol;
+    private TableColumn<CitizenBean, String> vaxDateCol;
 
     @FXML
-    private TableColumn<Citizen, Double> vaxDoseCol;
+    private TableColumn<CitizenBean, Double> vaxDoseCol;
 
     @FXML
-    private TableColumn<Citizen, String> vaxNameCol;
+    private TableColumn<CitizenBean, String> vaxNameCol;
 
     @FXML
-    private TableColumn<Citizen, String> vaxProducerNameCol;
+    private TableColumn<CitizenBean, String> vaxProducerNameCol;
 
 
 
@@ -101,7 +105,7 @@ public class Control implements Initializable {
     }
 
 
-    private ObservableList<Citizen> citizens = FXCollections.observableArrayList();
+    private ObservableList<CitizenBean> citizens = FXCollections.observableArrayList();
 
     /**
      * Carrega dados no formulário quando um item da tabela é selecionado
@@ -109,8 +113,8 @@ public class Control implements Initializable {
      */
     @FXML
     void loadInForm(MouseEvent event) {
-        Citizen citizen = tableRegister.getSelectionModel().getSelectedItem();
-        decolorizeFields();
+        CitizenBean citizen = tableRegister.getSelectionModel().getSelectedItem();
+        greenFields();
 
         if (citizen != null) {
             idTxt.setText(String.valueOf(citizen.getId()));
@@ -142,7 +146,7 @@ public class Control implements Initializable {
         Communication communication = new Communication();
         String search = searchTxt.getText();
         citizens.clear();
-        citizens.addAll(communication.getCitizenBySearch(search));
+//        citizens.addAll(communication.getCitizenBySearch(search));
         addInTable();
         tableRegister.setItems(citizens);
     }
@@ -163,17 +167,23 @@ public class Control implements Initializable {
     @FXML
     void delete(ActionEvent event) throws SQLException {
         Communication communication = new Communication();
-        Citizen citizen = tableRegister.getSelectionModel().getSelectedItem();
+        CitizenBean citizenBean = tableRegister.getSelectionModel().getSelectedItem();
+        Citizen citizen;
+        citizen = convertToBeanObject(citizenBean);
+
         communication.delete(citizen);
         loadAll();
     }
 
     @FXML
     void save(ActionEvent event) throws SQLException {
-
         Communication communication = new Communication();
+        CitizenBean citizenBean;
+        citizenBean = obtainDataInForm();
         Citizen citizen;
-        citizen = obtainDataInForm();
+
+        citizen = convertToBeanObject(citizenBean);
+
         saveBtn.setDisable(false);
 
         if (!idTxt.getText().isEmpty()) {
@@ -185,67 +195,87 @@ public class Control implements Initializable {
         loadAll();
     }
 
+    private Citizen convertToBeanObject(CitizenBean citizenBean) {
+        Citizen citizen = new Citizen();
+        citizen.setId(citizenBean.getId());
+        citizen.setCitizenName(citizenBean.getCitizenName());
+        citizen.setCpf(citizenBean.getCpf());
+        citizen.setVaxDate(stringToDate(citizenBean.getVaxDate()));
+        citizen.setVaxCNPJ(citizenBean.getVaxCNPJ());
+        citizen.setVaxDosage(citizenBean.getVaxDosage());
+        citizen.setVaxName(citizenBean.getVaxName());
+        citizen.setVaxProducerName(citizenBean.getVaxProducerName());
+
+        return citizen;
+    }
+
     @FXML
     private void verifyFields(KeyEvent event) {
         if (event.getCode() == KeyCode.BACK_SPACE) {
             Object e = event.getSource();
             String eString = e.toString();
+            System.out.println(eString);
             String aux = eString.substring(eString.indexOf("id=") + 3, eString.indexOf(","));
             verifyCurrentlyField(aux);
         } else
             setFields();
-
-
     }
 
     public void verifyCurrentlyField(String aux) {
         switch (aux) {
             case "idTxt":
-                idTxt.setText("");
+                idTxt.clear();
                 citizenNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
 
                 break;
             case "citizenNameTxt":
-                citizenNameTxt.setText("");
+                citizenNameTxt.clear();
                 citizenNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
+                isNameValid = false;
                 break;
             case "cpfTxt":
-                cpfTxt.setText("");
+                cpfTxt.clear();
                 cpfTxt.setStyle("-fx-text-inner-color: #bd0000;");
+                isCpfValid = false;
                 break;
             case "vacinationDateTxt":
-                vacinationDateTxt.setText("");
+                vacinationDateTxt.clear();
                 vacinationDateTxt.setStyle("-fx-text-inner-color: #bd0000;");
+                isVacinationDayValid = false;
                 break;
             case "vaxCnpjTxt":
-                vaxCnpjTxt.setText("");
+                vaxCnpjTxt.clear();
                 vaxCnpjTxt.setStyle("-fx-text-inner-color: #bd0000;");
+                isCnpjValid = false;
                 break;
             case "vaxDosageTxt":
-                vaxDosageTxt.setText("");
+                vaxDosageTxt.clear();
                 vaxDosageTxt.setStyle("-fx-text-inner-color: #bd0000;");
+                isVaxDosageValid = false;
                 break;
             case "vaxNameTxt":
-                vaxNameTxt.setText("");
+                vaxNameTxt.clear();
                 vaxNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
+                isVaxNameValid = false;
                 break;
             case "vaxProducerNameTxt":
-                vaxProducerNameTxt.setText("");
+                vaxProducerNameTxt.clear();
                 vaxProducerNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
+                isVaxProducerNameValid = false;
                 break;
         }
     }
 
     private void setFields() {
-        if (isNameValid && isCpfValid && isVacinationDayValid && isVaxNameValid && isCnpjValid && isVaxProducerNameValid && (vaxDosageTxt != null)) {
+        if (isNameValid && isCpfValid && isVacinationDayValid && isVaxNameValid && isCnpjValid && isVaxProducerNameValid && isVaxDosageValid) {
             saveBtn.setDisable(false);
         } else {
             saveBtn.setDisable(true);
         }
     }
 
-    private Citizen obtainDataInForm() {
-        Citizen citizen = new Citizen();
+    private CitizenBean obtainDataInForm() {
+        CitizenBean citizen = new CitizenBean();
 
         if (idTxt.getText().isEmpty()) {
             int lastId = citizens.size() > 0 ? citizens.get(citizens.size() - 1).getId() + 1 : 1;
@@ -308,7 +338,7 @@ public class Control implements Initializable {
         });
     }
 
-    private void colorizeFields() {
+    private void reddenFields() {
         idTxt.setStyle("-fx-text-inner-color: #bd0000;");
         citizenNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
         cpfTxt.setStyle("-fx-text-inner-color: #bd0000;");
@@ -319,7 +349,7 @@ public class Control implements Initializable {
         vaxProducerNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
     }
 
-    private void decolorizeFields() {
+    private void greenFields() {
         idTxt.setStyle("-fx-text-inner-color: green;");
         citizenNameTxt.setStyle("-fx-text-inner-color: green;");
         cpfTxt.setStyle("-fx-text-inner-color: green;");
@@ -332,12 +362,51 @@ public class Control implements Initializable {
 
     private void loadAll() throws SQLException {
         citizens.clear();
-        colorizeFields();
+        reddenFields();
         maskingFields();
-
-        citizens.addAll(obtainList());
+        List<Citizen> citizenList = obtainList();
+        citizens.addAll(convertToBeanList(citizenList));
         addInTable();
         tableRegister.setItems(citizens);
+    }
+
+    private List<CitizenBean> convertToBeanList(List<Citizen> citizenList) {
+        List<CitizenBean> citizenBeanList = new ArrayList<>();
+
+        for (Citizen citizen : citizenList) {
+            CitizenBean cititizenBean = new CitizenBean();
+            cititizenBean.setId(citizen.getId());
+            cititizenBean.setCitizenName(citizen.getCitizenName());
+            cititizenBean.setCpf(citizen.getCpf());
+            cititizenBean.setVaxName(citizen.getVaxName());
+            cititizenBean.setVaxProducerName(citizen.getVaxProducerName());
+            cititizenBean.setVaxCNPJ(citizen.getVaxCNPJ());
+            cititizenBean.setVaxDate(citizen.getVaxDate().toString());
+            cititizenBean.setVaxDosage(citizen.getVaxDosage());
+            citizenBeanList.add(cititizenBean);
+        }
+        return citizenBeanList;
+
+    }
+
+    private Date stringToDate(String vaxDate) {
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date date= null;
+        try {
+            date = sdf.parse(vaxDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public String convertDate(Date vaxDate) {
+        return ZonedDateTime.parse(vaxDate.toString(),
+                DateTimeFormatter
+                        .ofPattern("EEE MMM dd HH:mm:ss zzz uuuu")
+                        .withLocale(Locale.US)).toLocalDate().toString();
+
     }
 
     @Override

@@ -2,125 +2,81 @@ package com.trabalhojavafxfinal.models;
 
 import javafx.beans.property.*;
 
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Citizen implements Comparable<Citizen> {
-    private IntegerProperty id;
-    private SimpleStringProperty citizenName;
-    private SimpleStringProperty cpf;
-    private SimpleStringProperty vaxName;
-    private SimpleStringProperty vaxDate;
-    private SimpleStringProperty vaxProducerName;
-    private SimpleDoubleProperty vaxDosage;
-    private SimpleStringProperty vaxCNPJ;
-
-    public Citizen() {
-        this.id = new SimpleIntegerProperty();
-        this.citizenName = new SimpleStringProperty();
-        this.cpf = new SimpleStringProperty();
-        this.vaxName = new SimpleStringProperty();
-        this.vaxDate = new SimpleStringProperty("dd/MM/yyyy");
-        this.vaxProducerName = new SimpleStringProperty();
-        this.vaxDosage = new SimpleDoubleProperty();
-        this.vaxCNPJ = new SimpleStringProperty();
-    }
+    private int id;
+    private String citizenName;
+    private String cpf;
+    private String vaxName;
+    private Date vaxDate;
+    private String vaxProducerName;
+    private Double vaxDosage;
+    private String vaxCNPJ;
 
     public int getId() {
-        return id.get();
-    }
-
-    public IntegerProperty idProperty() {
         return id;
     }
 
     public void setId(int id) {
-        this.id.set(id);
+        this.id = id;
     }
 
     public String getCitizenName() {
-        return citizenName.get();
-    }
-
-    public SimpleStringProperty citizenNameProperty() {
         return citizenName;
     }
 
     public void setCitizenName(String citizenName) {
-        this.citizenName.set(citizenName);
+        this.citizenName = citizenName;
     }
 
     public String getCpf() {
-        return cpf.get();
-    }
-
-    public SimpleStringProperty cpfProperty() {
         return cpf;
     }
 
     public void setCpf(String cpf) {
-        this.cpf.set(cpf);
-    }
-
-    public String getVaxCNPJ() {
-        return vaxCNPJ.get();
-    }
-
-    public SimpleStringProperty vaxCNPJProperty() {
-        return vaxCNPJ;
-    }
-
-    public void setVaxCNPJ(String vaxCNPJ) {
-        this.vaxCNPJ.set(vaxCNPJ);
+        this.cpf = cpf;
     }
 
     public String getVaxName() {
-        return vaxName.get();
-    }
-
-    public SimpleStringProperty vaxNameProperty() {
         return vaxName;
     }
 
     public void setVaxName(String vaxName) {
-        this.vaxName.set(vaxName);
+        this.vaxName = vaxName;
     }
 
-    public String getVaxDate() {
-        return vaxDate.get();
-    }
-
-    public SimpleStringProperty vaxDateProperty() {
+    public Date getVaxDate() {
         return vaxDate;
     }
 
-    public void setVaxDate(String vaxDate) {
-        this.vaxDate.set(vaxDate);
+    public void setVaxDate(Date vaxDate) {
+        this.vaxDate = vaxDate;
     }
 
     public String getVaxProducerName() {
-        return vaxProducerName.get();
-    }
-
-    public SimpleStringProperty vaxProducerNameProperty() {
         return vaxProducerName;
     }
 
     public void setVaxProducerName(String vaxProducerName) {
-        this.vaxProducerName.set(vaxProducerName);
+        this.vaxProducerName = vaxProducerName;
     }
 
-    public double getVaxDosage() {
-        return vaxDosage.get();
-    }
-
-    public SimpleDoubleProperty vaxDosageProperty() {
+    public Double getVaxDosage() {
         return vaxDosage;
     }
 
-    public void setVaxDosage(double vaxDosage) {
-        this.vaxDosage.set(vaxDosage);
+    public void setVaxDosage(Double vaxDosage) {
+        this.vaxDosage = vaxDosage;
     }
 
+    public String getVaxCNPJ() {
+        return vaxCNPJ;
+    }
+
+    public void setVaxCNPJ(String vaxCNPJ) {
+        this.vaxCNPJ = vaxCNPJ;
+    }
 
     @Override
     public int compareTo(Citizen citizen) {

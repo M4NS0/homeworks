@@ -55,6 +55,11 @@ public class Masks {
                 cpfTxt.setText(cpfTxt.getText() + "-");
                 cpfTxt.positionCaret(cpfTxt.getText().length());
             }
+
+            else if (cpfTxt.getText().length() > 14) {
+                cpfTxt.setStyle("-fx-text-fill: #bd0000");
+            }
+
             if (cpfTxt.getText().length() == 14) {
                 cpfTxt.setStyle("-fx-text-fill: green");
                 return true;
@@ -113,7 +118,6 @@ public class Masks {
     }
 
     public Boolean maskingCnpj(KeyEvent event, TextField vaxCnpjTxt) {
-        // 45.648.794/6516-66
         if (!"0123456789".contains(event.getCharacter())) {
             event.consume();
         }

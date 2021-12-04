@@ -1,7 +1,7 @@
 package com.trabalhojavafxfinal.persistence;
 
+import com.trabalhojavafxfinal.controller.Control;
 import com.trabalhojavafxfinal.models.Citizen;
-import com.trabalhojavafxfinal.services.Communication;
 import com.trabalhojavafxfinal.services.JdbcConnection;
 
 import java.sql.Connection;
@@ -36,9 +36,9 @@ public class Dao {
                 citizen.setCitizenName(rs.getString("citizenname"));
                 citizen.setCpf(rs.getString("cpf"));
                 citizen.setVaxName(rs.getString("vaxname"));
-                citizen.setVaxDate(rs.getString("vaxdate"));
+                citizen.setVaxDate(rs.getDate("vaxdate"));
                 citizen.setVaxProducerName(rs.getString("vaxproducername"));
-                citizen.setVaxDosage(rs.getInt("vaxdosage"));
+                citizen.setVaxDosage(rs.getDouble("vaxdosage"));
                 citizen.setVaxCNPJ(rs.getString("vaxcnpj"));
                 list.add(citizen);
             }
@@ -85,25 +85,30 @@ public class Dao {
     }
 
     public void updateCitizen(Citizen citizen) {
+        Control control = new Control();
         try {
-            String sql = "update registro set citizenName = ?, cpf = ?, vaxname = ?, vaxdate = ?, vaxproducername = ?, vaxdosage = ?, vaxcnpj = ? where id = ?";
+            String sql = "update public.registro set citizenName = ?, cpf = ?, vaxname = ?, vaxdate = ?, vaxproducername = ?, vaxdosage = ?, vaxcnpj = ? where id = ?";
 
             Connection conn = connection.connect();
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.setString(1, citizen.getCitizenName());
             pstm.setString(2, citizen.getCpf());
             pstm.setString(3, citizen.getVaxName());
-            pstm.setString(4, citizen.getVaxDate());
+            pstm.setString(4, control.convertDate(citizen.getVaxDate()));
             pstm.setString(5, citizen.getVaxProducerName());
             pstm.setDouble(6, citizen.getVaxDosage());
             pstm.setString(7, citizen.getVaxCNPJ());
             pstm.setInt(8, citizen.getId());
+            System.out.println(pstm);
             pstm.executeUpdate();
 
         } catch (Exception e) {
+
             System.out.print("Erro ao atualizar! " + e.getMessage());
         }
     }
+
+
 
     public Citizen getCitizenBySearch(String search) {
         return null;
