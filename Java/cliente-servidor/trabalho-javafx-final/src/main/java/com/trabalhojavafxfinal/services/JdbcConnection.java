@@ -1,5 +1,7 @@
 package com.trabalhojavafxfinal.services;
+
 import java.sql.*;
+
 public class JdbcConnection {
 
     static final String URL = "jdbc:postgresql://localhost:5432/cadastro";
@@ -39,7 +41,6 @@ public class JdbcConnection {
             return null;
         }
     }
-
 
 
 }

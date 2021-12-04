@@ -9,31 +9,34 @@ import java.util.List;
 
 public class Communication {
 
-
-
     public List<Citizen> getListFromDB() throws SQLException {
         Dao dao = new Dao();
+        Tools tools = new Tools();
         dao.connect();
         List<Citizen> list = dao.getListFromDB();
         dao.disconnect();
-        return sortList(list);
+        return tools.sortList(list);
     }
 
     public void save(Citizen citizen) throws SQLException {
         Dao dao = new Dao();
         dao.connect();
-        dao.saveCitizen(citizen);
+        dao.insert(citizen);
         dao.disconnect();
     }
 
-    public void delete(Citizen citizen) {
+    public void delete(Citizen citizen) throws SQLException {
         Dao dao = new Dao();
-        dao.deleteCitizen(citizen);
+        dao.connect();
+        dao.delete(citizen);
+        dao.disconnect();
     }
 
-    public void update(Citizen citizen) {
+    public void update(Citizen citizen) throws SQLException {
         Dao dao = new Dao();
-        dao.updateCitizen(citizen);
+        dao.connect();
+        dao.update(citizen);
+        dao.disconnect();
     }
 
 
@@ -42,10 +45,14 @@ public class Communication {
         return list;
     }
 
-    public Citizen getCitizenBySearch(String search) {
+    public Citizen search(String search) throws SQLException {
         Dao dao = new Dao();
-        return dao.getCitizenBySearch(search);
+        dao.connect();
+        Citizen citizen = dao.search(search);
+        dao.disconnect();
+        return citizen;
     }
+
 }
 
 

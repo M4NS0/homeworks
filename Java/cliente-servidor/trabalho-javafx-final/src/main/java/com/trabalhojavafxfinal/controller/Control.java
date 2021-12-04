@@ -3,6 +3,7 @@ package com.trabalhojavafxfinal.controller;
 import com.trabalhojavafxfinal.controller.bean.CitizenBean;
 import com.trabalhojavafxfinal.models.Citizen;
 import com.trabalhojavafxfinal.services.Communication;
+import com.trabalhojavafxfinal.services.Tools;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,8 +21,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class Control implements Initializable {
@@ -63,7 +62,6 @@ public class Control implements Initializable {
     private TableColumn<CitizenBean, String> vaxProducerNameCol;
 
 
-
     @FXML
     private TextField idTxt;
 
@@ -101,7 +99,7 @@ public class Control implements Initializable {
     @FXML
     private Button saveBtn;
 
-    public Control () {
+    public Control() {
     }
 
 
@@ -109,6 +107,7 @@ public class Control implements Initializable {
 
     /**
      * Carrega dados no formulário quando um item da tabela é selecionado
+     *
      * @param event
      */
     @FXML
@@ -144,11 +143,25 @@ public class Control implements Initializable {
     @FXML
     void search(KeyEvent event) {
         Communication communication = new Communication();
-        String search = searchTxt.getText();
-        citizens.clear();
-//        citizens.addAll(communication.getCitizenBySearch(search));
-        addInTable();
-        tableRegister.setItems(citizens);
+        Citizen citizen;
+        CitizenBean citizenBean = new CitizenBean();
+        Tools tools = new Tools();
+        try {
+            citizen = communication.search(searchTxt.getText());
+            citizenBean.setId(citizen.getId());
+            citizenBean.setCitizenName(citizen.getCitizenName());
+            citizenBean.setCpf(citizen.getCpf());
+            citizenBean.setVaxCNPJ(citizen.getVaxCNPJ());
+            citizenBean.setVaxDate(tools.dateToString(citizen.getVaxDate()));
+            citizenBean.setVaxDosage(citizen.getVaxDosage());
+            citizenBean.setVaxName(citizen.getVaxName());
+            citizenBean.setVaxProducerName(citizen.getVaxProducerName());
+            citizens.add(citizenBean);
+            tableRegister.setItems(citizens);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -188,8 +201,7 @@ public class Control implements Initializable {
 
         if (!idTxt.getText().isEmpty()) {
             communication.update(citizen);
-        }
-        else {
+        } else {
             communication.save(citizen);
         }
         loadAll();
@@ -197,10 +209,11 @@ public class Control implements Initializable {
 
     private Citizen convertToBeanObject(CitizenBean citizenBean) {
         Citizen citizen = new Citizen();
+        Tools tools = new Tools();
         citizen.setId(citizenBean.getId());
         citizen.setCitizenName(citizenBean.getCitizenName());
         citizen.setCpf(citizenBean.getCpf());
-        citizen.setVaxDate(stringToDate(citizenBean.getVaxDate()));
+        citizen.setVaxDate(tools.stringToDate(citizenBean.getVaxDate()));
         citizen.setVaxCNPJ(citizenBean.getVaxCNPJ());
         citizen.setVaxDosage(citizenBean.getVaxDosage());
         citizen.setVaxName(citizenBean.getVaxName());
@@ -210,7 +223,7 @@ public class Control implements Initializable {
     }
 
     @FXML
-    private void verifyFields(KeyEvent event) {
+    private void mapBackspace(KeyEvent event) {
         if (event.getCode() == KeyCode.BACK_SPACE) {
             Object e = event.getSource();
             String eString = e.toString();
@@ -264,6 +277,7 @@ public class Control implements Initializable {
                 isVaxProducerNameValid = false;
                 break;
         }
+        setFields();
     }
 
     private void setFields() {
@@ -317,25 +331,33 @@ public class Control implements Initializable {
         Masks mask = new Masks();
         citizenNameTxt.setOnKeyTyped((KeyEvent event) -> {
             isNameValid = mask.maskingName(citizenNameTxt);
+
         });
         cpfTxt.setOnKeyTyped((KeyEvent event) -> {
             isCpfValid = mask.maskingCpf(event, cpfTxt);
+
         });
         vacinationDateTxt.setOnKeyTyped((KeyEvent event) -> {
             isVacinationDayValid = mask.maskingVacinationDay(event, vacinationDateTxt);
+
         });
         vaxNameTxt.setOnKeyTyped((KeyEvent event) -> {
             isVaxNameValid = mask.maskingName(vaxNameTxt);
+
         });
         vaxCnpjTxt.setOnKeyTyped((KeyEvent event) -> {
             isCnpjValid = mask.maskingCnpj(event, vaxCnpjTxt);
+
         });
         vaxDosageTxt.setOnKeyTyped((KeyEvent event) -> {
             isVaxDosageValid = mask.maskingVaxDosage(vaxDosageTxt);
+
         });
         vaxProducerNameTxt.setOnKeyTyped((KeyEvent event) -> {
             isVaxProducerNameValid = mask.maskingName(vaxProducerNameTxt);
+
         });
+        setFields();
     }
 
     private void reddenFields() {
@@ -361,53 +383,16 @@ public class Control implements Initializable {
     }
 
     private void loadAll() throws SQLException {
+        Tools tools = new Tools();
         citizens.clear();
         reddenFields();
         maskingFields();
         List<Citizen> citizenList = obtainList();
-        citizens.addAll(convertToBeanList(citizenList));
+        citizens.addAll(tools.convertToBeanList(citizenList));
         addInTable();
         tableRegister.setItems(citizens);
     }
 
-    private List<CitizenBean> convertToBeanList(List<Citizen> citizenList) {
-        List<CitizenBean> citizenBeanList = new ArrayList<>();
-
-        for (Citizen citizen : citizenList) {
-            CitizenBean cititizenBean = new CitizenBean();
-            cititizenBean.setId(citizen.getId());
-            cititizenBean.setCitizenName(citizen.getCitizenName());
-            cititizenBean.setCpf(citizen.getCpf());
-            cititizenBean.setVaxName(citizen.getVaxName());
-            cititizenBean.setVaxProducerName(citizen.getVaxProducerName());
-            cititizenBean.setVaxCNPJ(citizen.getVaxCNPJ());
-            cititizenBean.setVaxDate(citizen.getVaxDate().toString());
-            cititizenBean.setVaxDosage(citizen.getVaxDosage());
-            citizenBeanList.add(cititizenBean);
-        }
-        return citizenBeanList;
-
-    }
-
-    private Date stringToDate(String vaxDate) {
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        Date date= null;
-        try {
-            date = sdf.parse(vaxDate);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return date;
-    }
-
-    public String convertDate(Date vaxDate) {
-        return ZonedDateTime.parse(vaxDate.toString(),
-                DateTimeFormatter
-                        .ofPattern("EEE MMM dd HH:mm:ss zzz uuuu")
-                        .withLocale(Locale.US)).toLocalDate().toString();
-
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

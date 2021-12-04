@@ -54,9 +54,7 @@ public class Masks {
             if (cpfTxt.getText().length() == 11) {
                 cpfTxt.setText(cpfTxt.getText() + "-");
                 cpfTxt.positionCaret(cpfTxt.getText().length());
-            }
-
-            else if (cpfTxt.getText().length() > 14) {
+            } else if (cpfTxt.getText().length() > 14) {
                 cpfTxt.setStyle("-fx-text-fill: #bd0000");
             }
 
@@ -213,14 +211,14 @@ public class Masks {
                 }
             }
         });
-        if (Double.parseDouble(vaxDosageTxt.getText()) == 0) {
+        if (vaxDosageTxt.getText().isEmpty()) {
             vaxDosageTxt.setStyle("-fx-text-fill: #bd0000");
             return false;
 
         } else
 
             vaxDosageTxt.setStyle("-fx-text-fill: green");
-            return true;
+        return true;
     }
 
     private static void positionCaret(final TextField textField) {

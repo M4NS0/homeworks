@@ -53,17 +53,17 @@
                               <Insets left="20.0" right="170.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="citizenNameTxt" maxWidth="210.0" minWidth="150.0" onKeyReleased="#verifyFields" prefHeight="24.0" prefWidth="210.0" promptText="Nome Completo" GridPane.rowIndex="1">
+                        <TextField fx:id="citizenNameTxt" maxWidth="210.0" minWidth="150.0" onKeyReleased="#mapBackspace" prefHeight="24.0" prefWidth="210.0" promptText="Nome Completo" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="cpfTxt" layoutX="122.0" layoutY="43.0" maxWidth="110.0" minWidth="110.0" onKeyReleased="#verifyFields" prefWidth="110.0" promptText="CPF" GridPane.rowIndex="2">
+                        <TextField fx:id="cpfTxt" layoutX="122.0" layoutY="43.0" maxWidth="110.0" minWidth="110.0" onKeyReleased="#mapBackspace" prefWidth="110.0" promptText="CPF" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="20.0" right="120.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="vacinationDateTxt" layoutX="122.0" layoutY="73.0" maxWidth="110.0" minWidth="110.0" onKeyReleased="#verifyFields" prefWidth="110.0" promptText="Agendamento" GridPane.rowIndex="3">
+                        <TextField fx:id="vacinationDateTxt" layoutX="122.0" layoutY="73.0" maxWidth="110.0" minWidth="110.0" onKeyReleased="#mapBackspace" prefWidth="110.0" promptText="Agendamento" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="20.0" right="120.0" />
                            </GridPane.margin>
@@ -82,22 +82,22 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <TextField fx:id="vaxProducerNameTxt" maxWidth="210.0" minWidth="210.0" onKeyReleased="#verifyFields" prefHeight="24.0" prefWidth="210.0" promptText="Fabricante">
+                        <TextField fx:id="vaxProducerNameTxt" maxWidth="210.0" minWidth="210.0" onKeyReleased="#mapBackspace" prefHeight="24.0" prefWidth="210.0" promptText="Fabricante">
                            <GridPane.margin>
                               <Insets left="20.0" right="170.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="vaxCnpjTxt" maxWidth="110.0" minWidth="110.0" onKeyReleased="#verifyFields" prefHeight="24.0" prefWidth="110.0" promptText="CNPJ" GridPane.rowIndex="1">
+                        <TextField fx:id="vaxCnpjTxt" maxWidth="110.0" minWidth="110.0" onKeyReleased="#mapBackspace" prefHeight="24.0" prefWidth="110.0" promptText="CNPJ" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="20.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="vaxNameTxt" layoutX="122.0" layoutY="43.0" maxWidth="210.0" minWidth="210.0" onKeyReleased="#verifyFields" prefWidth="210.0" promptText="Nome" GridPane.rowIndex="2">
+                        <TextField fx:id="vaxNameTxt" layoutX="122.0" layoutY="43.0" maxWidth="210.0" minWidth="210.0" onKeyReleased="#mapBackspace" prefWidth="210.0" promptText="Nome" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets left="20.0" right="120.0" />
                            </GridPane.margin>
                         </TextField>
-                        <TextField fx:id="vaxDosageTxt" layoutX="122.0" layoutY="73.0" maxWidth="110.0" minWidth="110.0" onKeyReleased="#verifyFields" prefWidth="110.0" promptText="Dosagem" GridPane.rowIndex="3">
+                        <TextField fx:id="vaxDosageTxt" layoutX="122.0" layoutY="73.0" maxWidth="110.0" minWidth="110.0" onKeyReleased="#mapBackspace" prefWidth="110.0" promptText="Dosagem" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets left="20.0" right="120.0" />
                            </GridPane.margin>
