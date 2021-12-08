@@ -17,4 +17,6 @@ module com.example.trabalhojavafxfinal {
     opens com.trabalhojavafxfinal.controller to javafx.fxml;
     exports com.trabalhojavafxfinal.services;
     opens com.trabalhojavafxfinal.services to javafx.fxml;
+    exports com.trabalhojavafxfinal.utils;
+    opens com.trabalhojavafxfinal.utils to javafx.fxml;
 }

@@ -104,7 +104,6 @@
                         </TextField>
                      </children>
                   </GridPane>
-                  <TextField fx:id="searchTxt" layoutX="20.0" layoutY="53.0" maxWidth="210.0" minWidth="210.0" onKeyTyped="#search" prefHeight="24.0" prefWidth="210.0" promptText="Busca..." />
                     </children>
                 </AnchorPane>
             </items>

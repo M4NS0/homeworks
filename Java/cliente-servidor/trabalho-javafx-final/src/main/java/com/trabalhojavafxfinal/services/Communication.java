@@ -2,6 +2,7 @@ package com.trabalhojavafxfinal.services;
 
 import com.trabalhojavafxfinal.models.Citizen;
 import com.trabalhojavafxfinal.persistence.Dao;
+import com.trabalhojavafxfinal.utils.Tools;
 
 import java.sql.SQLException;
 import java.util.Collections;
@@ -43,14 +44,6 @@ public class Communication {
     private List<Citizen> sortList(List<Citizen> list) {
         Collections.sort(list);
         return list;
-    }
-
-    public Citizen search(String search) throws SQLException {
-        Dao dao = new Dao();
-        dao.connect();
-        Citizen citizen = dao.search(search);
-        dao.disconnect();
-        return citizen;
     }
 
 }

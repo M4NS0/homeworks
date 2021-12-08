@@ -3,7 +3,7 @@ package com.trabalhojavafxfinal.controller;
 import com.trabalhojavafxfinal.controller.bean.CitizenBean;
 import com.trabalhojavafxfinal.models.Citizen;
 import com.trabalhojavafxfinal.services.Communication;
-import com.trabalhojavafxfinal.services.Tools;
+import com.trabalhojavafxfinal.utils.Tools;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,8 +19,6 @@ import javafx.scene.input.MouseEvent;
 
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class Control implements Initializable {
@@ -139,32 +137,6 @@ public class Control implements Initializable {
         isVaxProducerNameValid = true;
     }
 
-
-    @FXML
-    void search(KeyEvent event) {
-        Communication communication = new Communication();
-        Citizen citizen;
-        CitizenBean citizenBean = new CitizenBean();
-        Tools tools = new Tools();
-        try {
-            citizen = communication.search(searchTxt.getText());
-            citizenBean.setId(citizen.getId());
-            citizenBean.setCitizenName(citizen.getCitizenName());
-            citizenBean.setCpf(citizen.getCpf());
-            citizenBean.setVaxCNPJ(citizen.getVaxCNPJ());
-            citizenBean.setVaxDate(tools.dateToString(citizen.getVaxDate()));
-            citizenBean.setVaxDosage(citizen.getVaxDosage());
-            citizenBean.setVaxName(citizen.getVaxName());
-            citizenBean.setVaxProducerName(citizen.getVaxProducerName());
-            citizens.add(citizenBean);
-            tableRegister.setItems(citizens);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
     @FXML
     void clear(ActionEvent event) {
         idTxt.clear();
@@ -180,9 +152,10 @@ public class Control implements Initializable {
     @FXML
     void delete(ActionEvent event) throws SQLException {
         Communication communication = new Communication();
+        Tools tools = new Tools();
         CitizenBean citizenBean = tableRegister.getSelectionModel().getSelectedItem();
         Citizen citizen;
-        citizen = convertToBeanObject(citizenBean);
+        citizen = tools.convertToBeanObject(citizenBean);
 
         communication.delete(citizen);
         loadAll();
@@ -191,11 +164,12 @@ public class Control implements Initializable {
     @FXML
     void save(ActionEvent event) throws SQLException {
         Communication communication = new Communication();
+        Tools tools = new Tools();
         CitizenBean citizenBean;
         citizenBean = obtainDataInForm();
         Citizen citizen;
 
-        citizen = convertToBeanObject(citizenBean);
+        citizen = tools.convertToBeanObject(citizenBean);
 
         saveBtn.setDisable(false);
 
@@ -207,27 +181,12 @@ public class Control implements Initializable {
         loadAll();
     }
 
-    private Citizen convertToBeanObject(CitizenBean citizenBean) {
-        Citizen citizen = new Citizen();
-        Tools tools = new Tools();
-        citizen.setId(citizenBean.getId());
-        citizen.setCitizenName(citizenBean.getCitizenName());
-        citizen.setCpf(citizenBean.getCpf());
-        citizen.setVaxDate(tools.stringToDate(citizenBean.getVaxDate()));
-        citizen.setVaxCNPJ(citizenBean.getVaxCNPJ());
-        citizen.setVaxDosage(citizenBean.getVaxDosage());
-        citizen.setVaxName(citizenBean.getVaxName());
-        citizen.setVaxProducerName(citizenBean.getVaxProducerName());
-
-        return citizen;
-    }
 
     @FXML
     private void mapBackspace(KeyEvent event) {
         if (event.getCode() == KeyCode.BACK_SPACE) {
             Object e = event.getSource();
             String eString = e.toString();
-            System.out.println(eString);
             String aux = eString.substring(eString.indexOf("id=") + 3, eString.indexOf(","));
             verifyCurrentlyField(aux);
         } else
@@ -287,7 +246,7 @@ public class Control implements Initializable {
             saveBtn.setDisable(true);
         }
     }
-
+//TODO:
     private CitizenBean obtainDataInForm() {
         CitizenBean citizen = new CitizenBean();
 
@@ -388,10 +347,12 @@ public class Control implements Initializable {
         reddenFields();
         maskingFields();
         List<Citizen> citizenList = obtainList();
+
         citizens.addAll(tools.convertToBeanList(citizenList));
         addInTable();
         tableRegister.setItems(citizens);
     }
+
 
 
     @Override

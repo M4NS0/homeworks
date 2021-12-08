@@ -92,11 +92,11 @@ public class Masks {
             if (vacinationDateTxt.getText().length() == 10) event.consume();
 
             if (vacinationDateTxt.getText().length() == 2) {
-                vacinationDateTxt.setText(vacinationDateTxt.getText() + "-");
+                vacinationDateTxt.setText(vacinationDateTxt.getText() + "/");
                 vacinationDateTxt.positionCaret(vacinationDateTxt.getText().length());
             }
             if (vacinationDateTxt.getText().length() == 5) {
-                vacinationDateTxt.setText(vacinationDateTxt.getText() + "-");
+                vacinationDateTxt.setText(vacinationDateTxt.getText() + "/");
                 vacinationDateTxt.positionCaret(vacinationDateTxt.getText().length());
             }
             if (vacinationDateTxt.getText().length() == 10) {
@@ -107,8 +107,8 @@ public class Masks {
         }
 
         vacinationDateTxt.setOnKeyReleased((KeyEvent evt) -> {
-            if (!vacinationDateTxt.getText().matches("\\d-*")) {
-                vacinationDateTxt.setText(vacinationDateTxt.getText().replaceAll("[^\\d-]", ""));
+            if (!vacinationDateTxt.getText().matches("\\d/*")) {
+                vacinationDateTxt.setText(vacinationDateTxt.getText().replaceAll("[^\\d/]", ""));
                 vacinationDateTxt.positionCaret(vacinationDateTxt.getText().length());
             }
         });
