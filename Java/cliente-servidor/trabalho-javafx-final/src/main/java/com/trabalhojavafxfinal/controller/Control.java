@@ -103,11 +103,6 @@ public class Control implements Initializable {
 
     private ObservableList<CitizenBean> citizens = FXCollections.observableArrayList();
 
-    /**
-     * Carrega dados no formulário quando um item da tabela é selecionado
-     *
-     * @param event
-     */
     @FXML
     void loadInForm(MouseEvent event) {
         CitizenBean citizen = tableRegister.getSelectionModel().getSelectedItem();
@@ -197,46 +192,52 @@ public class Control implements Initializable {
         switch (aux) {
             case "idTxt":
                 idTxt.clear();
-                citizenNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
-
+                setFields();
                 break;
             case "citizenNameTxt":
                 citizenNameTxt.clear();
-                citizenNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
+                citizenNameTxt.setStyle("-fx-text-inner-color: #bd0000");
                 isNameValid = false;
+                setFields();
                 break;
             case "cpfTxt":
                 cpfTxt.clear();
                 cpfTxt.setStyle("-fx-text-inner-color: #bd0000;");
                 isCpfValid = false;
+                setFields();
                 break;
             case "vacinationDateTxt":
                 vacinationDateTxt.clear();
                 vacinationDateTxt.setStyle("-fx-text-inner-color: #bd0000;");
                 isVacinationDayValid = false;
+                setFields();
                 break;
             case "vaxCnpjTxt":
                 vaxCnpjTxt.clear();
                 vaxCnpjTxt.setStyle("-fx-text-inner-color: #bd0000;");
                 isCnpjValid = false;
+                setFields();
                 break;
             case "vaxDosageTxt":
                 vaxDosageTxt.clear();
                 vaxDosageTxt.setStyle("-fx-text-inner-color: #bd0000;");
                 isVaxDosageValid = false;
+                setFields();
                 break;
             case "vaxNameTxt":
                 vaxNameTxt.clear();
                 vaxNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
                 isVaxNameValid = false;
+                setFields();
                 break;
             case "vaxProducerNameTxt":
                 vaxProducerNameTxt.clear();
                 vaxProducerNameTxt.setStyle("-fx-text-inner-color: #bd0000;");
                 isVaxProducerNameValid = false;
+                setFields();
                 break;
         }
-        setFields();
+
     }
 
     private void setFields() {
@@ -246,13 +247,12 @@ public class Control implements Initializable {
             saveBtn.setDisable(true);
         }
     }
-//TODO:
+
     private CitizenBean obtainDataInForm() {
         CitizenBean citizen = new CitizenBean();
 
         if (idTxt.getText().isEmpty()) {
             int lastId = citizens.size() > 0 ? citizens.get(citizens.size() - 1).getId() + 1 : 1;
-            System.out.println(lastId);
             citizen.setId(lastId + 1);
         } else {
             citizen.setId(Integer.parseInt(idTxt.getText()));

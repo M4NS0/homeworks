@@ -62,7 +62,7 @@ public class Tools {
     }
 
 
-    public Citizen convertToBeanObject(CitizenBean citizenBean) {
+    public Citizen  convertToBeanObject(CitizenBean citizenBean) {
         Citizen citizen = new Citizen();
         Tools tools = new Tools();
         citizen.setId(citizenBean.getId());

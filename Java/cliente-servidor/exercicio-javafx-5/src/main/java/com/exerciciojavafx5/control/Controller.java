@@ -70,7 +70,11 @@ public class Controller implements Initializable {
         matriculaTextField.setText("");
         nascimentoTextField.setText("");
         idTextField.setText("");
+        setAllFalse();
+        saveBtn.setDisable(true);
     }
+
+
 
     @FXML
     void save(ActionEvent event) {
@@ -79,12 +83,24 @@ public class Controller implements Initializable {
         AlunoBean alunoBean = obtainDataInForm();
         Aluno aluno;
         aluno = tools.convertBeanToObject(alunoBean);
-        saveBtn.setDisable(false);
+        changeBtnState(false);
 
         if (!idTextField.getText().isEmpty()) {
             communication.update(aluno);
-        } else communication.save(aluno);
+        } else {
+            aluno.setId(alunos.size() > 0 ? alunos.get(alunos.size() - 1).getId() + 1 : 1);
+            communication.save(aluno);
+        }
+
+        cleanForm();
         loadAll();
+    }
+
+    private void cleanForm() {
+        nameTextField.clear();
+        matriculaTextField.clear();
+        nascimentoTextField.clear();
+        idTextField.clear();
     }
 
     private AlunoBean obtainDataInForm() {
@@ -109,6 +125,8 @@ public class Controller implements Initializable {
         AlunoBean alunoBean = tableRegister.getSelectionModel().getSelectedItem();
         Aluno aluno = tools.convertBeanToObject(alunoBean);
         communication.delete(aluno);
+        cleanForm();
+        setAllFalse();
         loadAll();
     }
 
@@ -142,7 +160,6 @@ public class Controller implements Initializable {
                 matriculaTextField.setStyle("-fx-text-inner-color: #bd0000;");
                 setFields();
                 break;
-
         }
     }
 
@@ -178,7 +195,22 @@ public class Controller implements Initializable {
         isNameValid = true;
         isMatriculaValid = true;
         isNascimentoValid = true;
+        changeBtnState(true);
     }
+
+
+
+    private void setAllFalse() {
+        isNameValid = false;
+        isMatriculaValid = false;
+        isNascimentoValid = false;
+        changeBtnState(false);
+    }
+
+    private void changeBtnState(boolean b) {
+        saveBtn.setDisable(b);
+    }
+
 
     private void greenFields() {
         idTextField.setStyle("-fx-text-inner-color: green");
@@ -214,16 +246,19 @@ public class Controller implements Initializable {
 
         nameTextField.setOnKeyTyped((KeyEvent event) -> {
             isNameValid = masks.maskingName(nameTextField);
+            setFields();
         });
 
         matriculaTextField.setOnKeyTyped((KeyEvent event) -> {
             isMatriculaValid = masks.maskingMatricula(matriculaTextField);
+            setFields();
         });
 
         nascimentoTextField.setOnKeyTyped((KeyEvent event) -> {
             isNascimentoValid = masks.maskingNascimento(event, nascimentoTextField);
+            setFields();
         });
-        setFields();
+
     }
 
     private void reddenFields() {

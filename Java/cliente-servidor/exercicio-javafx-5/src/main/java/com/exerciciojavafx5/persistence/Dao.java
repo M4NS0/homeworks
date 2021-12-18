@@ -38,7 +38,7 @@ public class Dao {
             }
             return alunos;
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.print("Erro ao carregar! "+ throwables.getMessage());
             return null;
         }
     }
@@ -56,7 +56,7 @@ public class Dao {
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.print("Erro ao atualizar! "+ throwables.getMessage());
         }
     }
 
@@ -73,19 +73,22 @@ public class Dao {
             PreparedStatement pstm = conn.prepareStatement(sql);
             pstm.executeUpdate();
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.print("Erro ao salvar! "+ throwables.getMessage());
         }
     }
 
     public void delete(Aluno aluno) {
-        String sql = "DELETE FROM matricula WHERE id = " + aluno.getId();
-
         try {
+            String sql = "delete from matricula where id = ?";
+
             Connection conn = connection.connect();
             PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, aluno.getId());
             pstm.executeUpdate();
+
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            System.out.print("Erro ao excluir! "+ throwables.getMessage());
         }
     }
 }
+

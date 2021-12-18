@@ -1,6 +1,5 @@
 package com.trabalhojavafxfinal.models;
 
-import javafx.beans.property.*;
 
 import java.util.Date;
 
