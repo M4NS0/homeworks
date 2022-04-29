@@ -1,1 +1,0 @@
-### Coding Navigation Tiles - Part II

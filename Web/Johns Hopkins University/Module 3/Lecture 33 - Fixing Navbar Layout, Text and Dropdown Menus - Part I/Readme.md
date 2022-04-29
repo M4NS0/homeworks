@@ -1,1 +1,0 @@
-### Fixing Navbar Layout, Text and Dropdown Menus - Part I
